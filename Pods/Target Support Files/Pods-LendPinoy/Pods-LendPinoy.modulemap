@@ -1,0 +1,6 @@
+framework module Pods_LendPinoy {
+  umbrella header "Pods-LendPinoy-umbrella.h"
+
+  export *
+  module * { export * }
+}

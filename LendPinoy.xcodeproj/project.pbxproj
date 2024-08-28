@@ -8,19 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C31F92C7EF1A50079510B /* AppDelegate.swift */; };
-		730C31FE2C7EF1A50079510B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C31FD2C7EF1A50079510B /* ViewController.swift */; };
 		730C32032C7EF1A50079510B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 730C32022C7EF1A50079510B /* Assets.xcassets */; };
 		730C320F2C7EF2220079510B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730C320E2C7EF2220079510B /* Launch Screen.storyboard */; };
+		730C32122C7F4AFA0079510B /* Market Fresh Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730C32102C7F4AFA0079510B /* Market Fresh Bold.ttf */; };
+		730C32132C7F4AFA0079510B /* Market Fresh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 730C32112C7F4AFA0079510B /* Market Fresh.ttf */; };
+		730C32152C7F4B430079510B /* Market Fresh Bold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 730C32102C7F4AFA0079510B /* Market Fresh Bold.ttf */; };
+		730C32162C7F4B460079510B /* Market Fresh.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 730C32112C7F4AFA0079510B /* Market Fresh.ttf */; };
+		730C32192C7F4BBE0079510B /* LPTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32182C7F4BBE0079510B /* LPTabBarViewController.swift */; };
+		730C321B2C7F4BE00079510B /* LPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C321A2C7F4BE00079510B /* LPNavigationController.swift */; };
+		730C321D2C7F4C0B0079510B /* LPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C321C2C7F4C0B0079510B /* LPBaseViewController.swift */; };
+		730C321F2C7F4C670079510B /* BaseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C321E2C7F4C670079510B /* BaseFile.swift */; };
+		730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32202C7F4CB50079510B /* LPLaunchViewController.swift */; };
+		E72ADA7652749A421965C75F /* Pods_LendPinoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		456870F0A5FFEE95B91BF2C4 /* Pods-LendPinoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LendPinoy.debug.xcconfig"; path = "Target Support Files/Pods-LendPinoy/Pods-LendPinoy.debug.xcconfig"; sourceTree = "<group>"; };
+		6B13F21C658821458E630C95 /* Pods-LendPinoy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LendPinoy.release.xcconfig"; path = "Target Support Files/Pods-LendPinoy/Pods-LendPinoy.release.xcconfig"; sourceTree = "<group>"; };
 		730C31F62C7EF1A50079510B /* LendPinoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LendPinoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		730C31F92C7EF1A50079510B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		730C31FD2C7EF1A50079510B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		730C32022C7EF1A50079510B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		730C32072C7EF1A50079510B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		730C320D2C7EF1E80079510B /* LendPinoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LendPinoy.entitlements; sourceTree = "<group>"; };
 		730C320E2C7EF2220079510B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		730C32102C7F4AFA0079510B /* Market Fresh Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Market Fresh Bold.ttf"; sourceTree = "<group>"; };
+		730C32112C7F4AFA0079510B /* Market Fresh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Market Fresh.ttf"; sourceTree = "<group>"; };
+		730C32182C7F4BBE0079510B /* LPTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPTabBarViewController.swift; sourceTree = "<group>"; };
+		730C321A2C7F4BE00079510B /* LPNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPNavigationController.swift; sourceTree = "<group>"; };
+		730C321C2C7F4C0B0079510B /* LPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPBaseViewController.swift; sourceTree = "<group>"; };
+		730C321E2C7F4C670079510B /* BaseFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFile.swift; sourceTree = "<group>"; };
+		730C32202C7F4CB50079510B /* LPLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLaunchViewController.swift; sourceTree = "<group>"; };
+		D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LendPinoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,17 +46,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72ADA7652749A421965C75F /* Pods_LendPinoy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		595B8BA45E4A8144D99D1D92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		730C31ED2C7EF1A50079510B = {
 			isa = PBXGroup;
 			children = (
 				730C31F82C7EF1A50079510B /* LendPinoy */,
 				730C31F72C7EF1A50079510B /* Products */,
+				B379A6DE28CE40434DFAF803 /* Pods */,
+				595B8BA45E4A8144D99D1D92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,13 +83,44 @@
 			isa = PBXGroup;
 			children = (
 				730C320D2C7EF1E80079510B /* LendPinoy.entitlements */,
-				730C320E2C7EF2220079510B /* Launch Screen.storyboard */,
-				730C31F92C7EF1A50079510B /* AppDelegate.swift */,
-				730C31FD2C7EF1A50079510B /* ViewController.swift */,
 				730C32022C7EF1A50079510B /* Assets.xcassets */,
 				730C32072C7EF1A50079510B /* Info.plist */,
+				730C32142C7F4B0E0079510B /* LPMain */,
+				730C32172C7F4B620079510B /* LPBaseVc */,
 			);
 			path = LendPinoy;
+			sourceTree = "<group>";
+		};
+		730C32142C7F4B0E0079510B /* LPMain */ = {
+			isa = PBXGroup;
+			children = (
+				730C32112C7F4AFA0079510B /* Market Fresh.ttf */,
+				730C32102C7F4AFA0079510B /* Market Fresh Bold.ttf */,
+				730C320E2C7EF2220079510B /* Launch Screen.storyboard */,
+				730C31F92C7EF1A50079510B /* AppDelegate.swift */,
+				730C321E2C7F4C670079510B /* BaseFile.swift */,
+			);
+			path = LPMain;
+			sourceTree = "<group>";
+		};
+		730C32172C7F4B620079510B /* LPBaseVc */ = {
+			isa = PBXGroup;
+			children = (
+				730C32182C7F4BBE0079510B /* LPTabBarViewController.swift */,
+				730C321A2C7F4BE00079510B /* LPNavigationController.swift */,
+				730C321C2C7F4C0B0079510B /* LPBaseViewController.swift */,
+				730C32202C7F4CB50079510B /* LPLaunchViewController.swift */,
+			);
+			path = LPBaseVc;
+			sourceTree = "<group>";
+		};
+		B379A6DE28CE40434DFAF803 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				456870F0A5FFEE95B91BF2C4 /* Pods-LendPinoy.debug.xcconfig */,
+				6B13F21C658821458E630C95 /* Pods-LendPinoy.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,9 +130,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 730C320A2C7EF1A50079510B /* Build configuration list for PBXNativeTarget "LendPinoy" */;
 			buildPhases = (
+				70C380E4A04D798A970D2B91 /* [CP] Check Pods Manifest.lock */,
 				730C31F22C7EF1A50079510B /* Sources */,
 				730C31F32C7EF1A50079510B /* Frameworks */,
 				730C31F42C7EF1A50079510B /* Resources */,
+				400FFFCD6CC0DE0FD2F22D56 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -121,6 +183,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730C32132C7F4AFA0079510B /* Market Fresh.ttf in Resources */,
+				730C32122C7F4AFA0079510B /* Market Fresh Bold.ttf in Resources */,
 				730C320F2C7EF2220079510B /* Launch Screen.storyboard in Resources */,
 				730C32032C7EF1A50079510B /* Assets.xcassets in Resources */,
 			);
@@ -128,13 +192,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		400FFFCD6CC0DE0FD2F22D56 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LendPinoy/Pods-LendPinoy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LendPinoy/Pods-LendPinoy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LendPinoy/Pods-LendPinoy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70C380E4A04D798A970D2B91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LendPinoy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		730C31F22C7EF1A50079510B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				730C31FE2C7EF1A50079510B /* ViewController.swift in Sources */,
+				730C32162C7F4B460079510B /* Market Fresh.ttf in Sources */,
+				730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */,
+				730C321D2C7F4C0B0079510B /* LPBaseViewController.swift in Sources */,
+				730C32152C7F4B430079510B /* Market Fresh Bold.ttf in Sources */,
+				730C321B2C7F4BE00079510B /* LPNavigationController.swift in Sources */,
+				730C321F2C7F4C670079510B /* BaseFile.swift in Sources */,
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
+				730C32192C7F4BBE0079510B /* LPTabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +374,7 @@
 		};
 		730C320B2C7EF1A50079510B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 456870F0A5FFEE95B91BF2C4 /* Pods-LendPinoy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -299,6 +412,7 @@
 		};
 		730C320C2C7EF1A50079510B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B13F21C658821458E630C95 /* Pods-LendPinoy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
