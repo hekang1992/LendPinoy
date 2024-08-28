@@ -14,6 +14,10 @@ class LPLaunchViewController: LPBaseViewController {
 
         // Do any additional setup after loading the view.
         view.backgroundColor = .red
+        let requestManager = LPRequestManager()
+        requestManager.getCode(vaguely: "", quizzical: "") { result in
+            
+        }
     }
     
 
