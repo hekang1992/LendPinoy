@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SnapKit
+import Alamofire
 
 let BASE_URL = "https://thriftplatinumlending.com/aceapi"
 
