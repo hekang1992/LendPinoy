@@ -10,16 +10,16 @@ import DeviceKit
 
 class LPLoginInfo: NSObject {
     
-    static func saveLoginInfo(_ phone: String, _ sessionID: String) {
-        UserDefaults.standard.setValue(phone, forKey: LP_LOGIN)
+    static func saveDengLuInfo(_ phone: String, _ sessionID: String) {
         UserDefaults.standard.setValue(sessionID, forKey: LP_SESSIONID)
+        UserDefaults.standard.setValue(phone, forKey: LP_LOGIN)
         UserDefaults.standard.synchronize()
     }
     
-    static func removeLoginInfo() {
-        UserDefaults.standard.setValue("", forKey: LP_LOGIN)
+    static func removeDengLuInfo() {
         UserDefaults.standard.setValue("", forKey: LP_SESSIONID)
         UserDefaults.standard.setValue("", forKey: MAIDIAN1)
+        UserDefaults.standard.setValue("", forKey: LP_LOGIN)
         UserDefaults.standard.synchronize()
     }
     
@@ -40,6 +40,7 @@ class LPLoginInfo: NSObject {
         let dict1 = ["sense": getAppVersion(),
                      "justice": UIDevice.current.systemVersion,
                      "yellow": "lucky",
+                     "white": "black",
                      "remem": moist,
                      "bmw": "m5",
                      "zipo": "fire"]

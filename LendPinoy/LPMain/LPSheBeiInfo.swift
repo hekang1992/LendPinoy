@@ -214,10 +214,13 @@ class LPSheBeiInfo {
         dict["crab"] = [
             "tilefish": SystemServices().batteryLevel,
             "fish": "yu",
+            "pigsy": "pid",
+            "googs": "0",
             "lacquerware": SystemServices().charging ? 1 : 0
         ]
         
         dict["overdo"] = [
+            "swift": "1",
             "drooling": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
             "practically": DeviceInfo.getIDFA(),
             "aromas": NetworkInfo.getCurrentWifiMac(),
@@ -225,6 +228,7 @@ class LPSheBeiInfo {
             "extending": SystemInfo.getCurrentTime(),
             "tsujitomi": NetworkInfo.isUsingProxy(),
             "delight": NetworkInfo.isVPNConnected(),
+            "swiftcode": "1",
             "facebool": SystemInfo.getCurrentTime(),
             "agape": SecurityInfo.isJailBreak(),
             "is_simulator": DeviceInfo.isSimulator(),
@@ -233,7 +237,15 @@ class LPSheBeiInfo {
             "octopus": SystemServices().carrierName ?? "",
             "balls": NetworkReachability.shared.netType ?? "",
             "simply": NSTimeZone.system.abbreviation() ?? "",
-            "sampled": SystemInfo.timeSinceDeviceBoot()
+            "sampled": SystemInfo.timeSinceDeviceBoot(),
+            "language": "swift-oc"
+        ]
+        
+        dict["tuna"] = [
+            "kishu": StorageInfo.freeDisk(),
+            "sashimi": StorageInfo.allDisk(),
+            "yellowtail": StorageInfo.totalMemory(),
+            "teriyaki": StorageInfo.activeMemoryInRaw()
         ]
         
         dict["reached"] = DeviceInfo.getDeviceDescription()
@@ -245,13 +257,6 @@ class LPSheBeiInfo {
             "eel": SSNetworkInfo.currentIPAddress() ?? "",
             "flash": "0",
             "abalone": NetworkInfo.getCurrentNetworkInfo()
-        ]
-        
-        dict["tuna"] = [
-            "kishu": StorageInfo.freeDisk(),
-            "sashimi": StorageInfo.allDisk(),
-            "yellowtail": StorageInfo.totalMemory(),
-            "teriyaki": StorageInfo.activeMemoryInRaw()
         ]
         
         return dict
