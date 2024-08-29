@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = LPLaunchViewController()
         keyJaiPan()
         window?.makeKeyAndVisible()
+        jieshoutongzhi()
         return true
     }
 
@@ -30,6 +31,15 @@ extension AppDelegate {
     func keyJaiPan() {
         IQKeyboardManager.shared.resignOnTouchOutside = true
         IQKeyboardManager.shared.enable = true
+    }
+    
+    func jieshoutongzhi() {
+        NotificationCenter.default.addObserver(self, selector: #selector(getRootVc), name: NSNotification.Name(ROOT_VC_NOTI), object: nil)
+    }
+    
+    @objc func getRootVc() {
+        let tabBarVc = LPTabBarViewController()
+        window?.rootViewController = tabBarVc
     }
     
 }

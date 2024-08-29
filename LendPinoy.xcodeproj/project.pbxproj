@@ -23,6 +23,11 @@
 		730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32242C7F50800079510B /* LPRequsetManager.swift */; };
 		73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */; };
 		73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */; };
+		73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */; };
+		73BDE25B2C80BF9F00A776F8 /* LPOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE25A2C80BF9F00A776F8 /* LPOrdersViewController.swift */; };
+		73BDE25D2C80BFAB00A776F8 /* LPCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */; };
+		73BDE2622C80C42100A776F8 /* PATabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2602C80C42100A776F8 /* PATabBarButton.swift */; };
+		73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2612C80C42100A776F8 /* PATabBar.swift */; };
 		E72ADA7652749A421965C75F /* Pods_LendPinoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +51,11 @@
 		730C32242C7F50800079510B /* LPRequsetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPRequsetManager.swift; sourceTree = "<group>"; };
 		73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPSheBeiInfo.swift; sourceTree = "<group>"; };
 		73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginInfo.swift; sourceTree = "<group>"; };
+		73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHomeViewController.swift; sourceTree = "<group>"; };
+		73BDE25A2C80BF9F00A776F8 /* LPOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrdersViewController.swift; sourceTree = "<group>"; };
+		73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCenterViewController.swift; sourceTree = "<group>"; };
+		73BDE2602C80C42100A776F8 /* PATabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATabBarButton.swift; sourceTree = "<group>"; };
+		73BDE2612C80C42100A776F8 /* PATabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATabBar.swift; sourceTree = "<group>"; };
 		D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LendPinoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +104,9 @@
 				730C32022C7EF1A50079510B /* Assets.xcassets */,
 				730C32072C7EF1A50079510B /* Info.plist */,
 				730C32142C7F4B0E0079510B /* LPMain */,
+				73BDE2572C80BF6A00A776F8 /* Center */,
+				73BDE2562C80BF6400A776F8 /* Orders */,
+				73BDE2552C80BF5B00A776F8 /* Home */,
 				730C32172C7F4B620079510B /* LPBaseVc */,
 			);
 			path = LendPinoy;
@@ -118,12 +131,54 @@
 		730C32172C7F4B620079510B /* LPBaseVc */ = {
 			isa = PBXGroup;
 			children = (
-				730C32182C7F4BBE0079510B /* LPTabBarViewController.swift */,
-				730C321A2C7F4BE00079510B /* LPNavigationController.swift */,
-				730C321C2C7F4C0B0079510B /* LPBaseViewController.swift */,
-				730C32202C7F4CB50079510B /* LPLaunchViewController.swift */,
+				73BDE25F2C80C41100A776F8 /* View */,
+				73BDE25E2C80C3FD00A776F8 /* Controller */,
 			);
 			path = LPBaseVc;
+			sourceTree = "<group>";
+		};
+		73BDE2552C80BF5B00A776F8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		73BDE2562C80BF6400A776F8 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				73BDE25A2C80BF9F00A776F8 /* LPOrdersViewController.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		73BDE2572C80BF6A00A776F8 /* Center */ = {
+			isa = PBXGroup;
+			children = (
+				73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */,
+			);
+			path = Center;
+			sourceTree = "<group>";
+		};
+		73BDE25E2C80C3FD00A776F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				730C321A2C7F4BE00079510B /* LPNavigationController.swift */,
+				730C321C2C7F4C0B0079510B /* LPBaseViewController.swift */,
+				730C32182C7F4BBE0079510B /* LPTabBarViewController.swift */,
+				730C32202C7F4CB50079510B /* LPLaunchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		73BDE25F2C80C41100A776F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73BDE2612C80C42100A776F8 /* PATabBar.swift */,
+				73BDE2602C80C42100A776F8 /* PATabBarButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B379A6DE28CE40434DFAF803 /* Pods */ = {
@@ -258,8 +313,13 @@
 				730C32152C7F4B430079510B /* Market Fresh Bold.ttf in Sources */,
 				730C321B2C7F4BE00079510B /* LPNavigationController.swift in Sources */,
 				730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */,
+				73BDE25D2C80BFAB00A776F8 /* LPCenterViewController.swift in Sources */,
+				73BDE2622C80C42100A776F8 /* PATabBarButton.swift in Sources */,
+				73BDE25B2C80BF9F00A776F8 /* LPOrdersViewController.swift in Sources */,
 				730C321F2C7F4C670079510B /* BaseFile.swift in Sources */,
+				73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */,
 				73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */,
+				73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */,
 				730C32232C7F4F0B0079510B /* LPModel.swift in Sources */,
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
 				730C32192C7F4BBE0079510B /* LPTabBarViewController.swift in Sources */,

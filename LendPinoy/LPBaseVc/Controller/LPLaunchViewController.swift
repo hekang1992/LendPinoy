@@ -8,6 +8,8 @@
 import UIKit
 import Alamofire
 
+let ROOT_VC_NOTI = "ROOT_VC_NOTI"
+
 class LPLaunchViewController: LPBaseViewController {
     
     lazy var gbImageView: UIImageView = {
@@ -46,10 +48,17 @@ extension LPLaunchViewController {
     
     func isopenWangluo() {
         NetworkReachability.shared.startListening()
-        NetworkReachability.shared.networkStatusChanged = { netType in
-            print("nettype: \(netType)")
+        NetworkReachability.shared.networkStatusChanged = { [weak self] netType in
+            if netType != "none" {
+                self?.postNoti()
+            }
         }
     }
+    
+    func postNoti() {
+        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil)
+    }
+    
 }
 
 class NetworkReachability {
@@ -69,8 +78,10 @@ class NetworkReachability {
                 self?.netType = "none"
             case .reachable(.ethernetOrWiFi):
                 self?.netType = "wifi"
+                self?.stopListening()
             case .reachable(.cellular):
                 self?.netType = "4g/5g"
+                self?.stopListening()
             case .unknown:
                 self?.netType = "none"
             }
