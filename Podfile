@@ -21,6 +21,12 @@ target 'LendPinoy' do
   
   pod 'IQKeyboardManagerSwift', '~> 7.1.1'
   
+  pod 'DeviceKit', '~> 5.2.2'
+  
+  pod 'SystemServices', '~> 2.0.1'
+  
+  pod 'KeychainAccess', '~> 4.2.2'
+  
   # Pods for LendPinoy
 
 end

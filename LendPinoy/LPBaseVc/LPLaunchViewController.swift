@@ -24,7 +24,9 @@ class LPLaunchViewController: LPBaseViewController {
         gbImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        let dict = LPSheBeiInfo.shebeiInfo()
         isopenWangluo()
+
     }
     
     
@@ -45,7 +47,7 @@ extension LPLaunchViewController {
     func isopenWangluo() {
         NetworkReachability.shared.startListening()
         NetworkReachability.shared.networkStatusChanged = { netType in
-            print("网络状态已改变: \(netType)")
+            print("nettype: \(netType)")
         }
     }
 }

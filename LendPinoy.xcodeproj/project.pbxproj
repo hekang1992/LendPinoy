@@ -21,6 +21,7 @@
 		730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32202C7F4CB50079510B /* LPLaunchViewController.swift */; };
 		730C32232C7F4F0B0079510B /* LPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32222C7F4F0B0079510B /* LPModel.swift */; };
 		730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32242C7F50800079510B /* LPRequsetManager.swift */; };
+		73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */; };
 		E72ADA7652749A421965C75F /* Pods_LendPinoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		730C32202C7F4CB50079510B /* LPLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLaunchViewController.swift; sourceTree = "<group>"; };
 		730C32222C7F4F0B0079510B /* LPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPModel.swift; sourceTree = "<group>"; };
 		730C32242C7F50800079510B /* LPRequsetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPRequsetManager.swift; sourceTree = "<group>"; };
+		73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPSheBeiInfo.swift; sourceTree = "<group>"; };
 		D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LendPinoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				730C321E2C7F4C670079510B /* BaseFile.swift */,
 				730C32222C7F4F0B0079510B /* LPModel.swift */,
 				730C32242C7F50800079510B /* LPRequsetManager.swift */,
+				73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */,
 			);
 			path = LPMain;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				730C321B2C7F4BE00079510B /* LPNavigationController.swift in Sources */,
 				730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */,
 				730C321F2C7F4C670079510B /* BaseFile.swift in Sources */,
+				73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */,
 				730C32232C7F4F0B0079510B /* LPModel.swift in Sources */,
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
 				730C32192C7F4BBE0079510B /* LPTabBarViewController.swift in Sources */,
