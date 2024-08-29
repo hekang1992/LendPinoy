@@ -15,6 +15,18 @@ let MarketFresh_Font = "MarketFresh"
 let MarketFreshBold_Font = "MarketFreshBold"
 
 
+let LP_LOGIN = "LP_LOGIN"
+let LP_SESSIONID = "LP_SESSIONID"
+
+let MAIDIAN1 = "MAIDIAN1"
+
+var IS_LOGIN: Bool {
+    if let sessionID = UserDefaults.standard.object(forKey: LP_SESSIONID) as? String {
+        return !sessionID.isEmpty
+    } else {
+        return false
+    }
+}
 
 
 
