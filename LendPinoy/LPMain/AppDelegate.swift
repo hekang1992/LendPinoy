@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         window?.frame = UIScreen.main.bounds
-        window?.rootViewController = LPLaunchViewController()
+        getRootVc()
         keyJaiPan()
         window?.makeKeyAndVisible()
         jieshoutongzhi()
@@ -38,8 +38,11 @@ extension AppDelegate {
     }
     
     @objc func getRootVc() {
-        let tabBarVc = LPTabBarViewController()
-        window?.rootViewController = tabBarVc
+        if !IS_LOGIN {
+            window?.rootViewController = LPNavigationController(rootViewController: LPTabBarViewController())
+        }else {
+            window?.rootViewController = LPLaunchViewController()
+        }
     }
     
 }

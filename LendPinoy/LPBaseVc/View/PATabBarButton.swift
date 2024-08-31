@@ -26,7 +26,7 @@ class PATabBarButton: UIControl {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: MarketFreshBold_Font, size: 14.lpix())!, textColor: UIColor(hex: "#CFD9D8"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14.lpix())!, textColor: UIColor(hex: "#CFD9D8"), textAlignment: .left)
         return nameLabel
     }()
     

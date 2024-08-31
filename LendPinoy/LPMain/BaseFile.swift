@@ -8,11 +8,12 @@
 import Foundation
 import SnapKit
 import Alamofire
+import Toaster
 
 let BASE_URL = "https://thriftplatinumlending.com/aceapi"
 
-let MarketFresh_Font = "MarketFresh"
-let MarketFreshBold_Font = "MarketFreshBold"
+let regular_MarketFresh = "MarketFresh"
+let bold_MarketFresh = "MarketFreshBold"
 
 
 let LP_LOGIN = "LP_LOGIN"
@@ -118,5 +119,10 @@ class StatusHeightManager {
     }
 }
 
-
+class ToastUtility {
+    static func showToast(message: String) {
+        let toast = Toast(text: message, duration: Delay.short)
+        toast.show()
+    }
+}
 

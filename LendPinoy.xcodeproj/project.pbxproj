@@ -21,6 +21,11 @@
 		730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32202C7F4CB50079510B /* LPLaunchViewController.swift */; };
 		730C32232C7F4F0B0079510B /* LPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32222C7F4F0B0079510B /* LPModel.swift */; };
 		730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32242C7F50800079510B /* LPRequsetManager.swift */; };
+		7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4462C83786700C7D7DB /* LPCenterView.swift */; };
+		7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4482C8383C200C7D7DB /* LPOrdersView.swift */; };
+		7389D44B2C8389A100C7D7DB /* LPNavgationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D44A2C8389A100C7D7DB /* LPNavgationView.swift */; };
+		7389D44D2C838AD200C7D7DB /* LPAgreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D44C2C838AD200C7D7DB /* LPAgreeViewController.swift */; };
+		7389D44F2C83973F00C7D7DB /* LPAccountManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D44E2C83973F00C7D7DB /* LPAccountManViewController.swift */; };
 		73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */; };
 		73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */; };
 		73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */; };
@@ -49,6 +54,11 @@
 		730C32202C7F4CB50079510B /* LPLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLaunchViewController.swift; sourceTree = "<group>"; };
 		730C32222C7F4F0B0079510B /* LPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPModel.swift; sourceTree = "<group>"; };
 		730C32242C7F50800079510B /* LPRequsetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPRequsetManager.swift; sourceTree = "<group>"; };
+		7389D4462C83786700C7D7DB /* LPCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCenterView.swift; sourceTree = "<group>"; };
+		7389D4482C8383C200C7D7DB /* LPOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrdersView.swift; sourceTree = "<group>"; };
+		7389D44A2C8389A100C7D7DB /* LPNavgationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPNavgationView.swift; sourceTree = "<group>"; };
+		7389D44C2C838AD200C7D7DB /* LPAgreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPAgreeViewController.swift; sourceTree = "<group>"; };
+		7389D44E2C83973F00C7D7DB /* LPAccountManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPAccountManViewController.swift; sourceTree = "<group>"; };
 		73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPSheBeiInfo.swift; sourceTree = "<group>"; };
 		73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginInfo.swift; sourceTree = "<group>"; };
 		73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHomeViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +158,7 @@
 		73BDE2562C80BF6400A776F8 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				7389D4482C8383C200C7D7DB /* LPOrdersView.swift */,
 				73BDE25A2C80BF9F00A776F8 /* LPOrdersViewController.swift */,
 			);
 			path = Orders;
@@ -156,7 +167,10 @@
 		73BDE2572C80BF6A00A776F8 /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				7389D4462C83786700C7D7DB /* LPCenterView.swift */,
 				73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */,
+				7389D44C2C838AD200C7D7DB /* LPAgreeViewController.swift */,
+				7389D44E2C83973F00C7D7DB /* LPAccountManViewController.swift */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -177,6 +191,7 @@
 			children = (
 				73BDE2612C80C42100A776F8 /* PATabBar.swift */,
 				73BDE2602C80C42100A776F8 /* PATabBarButton.swift */,
+				7389D44A2C8389A100C7D7DB /* LPNavgationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,11 +331,16 @@
 				73BDE25D2C80BFAB00A776F8 /* LPCenterViewController.swift in Sources */,
 				73BDE2622C80C42100A776F8 /* PATabBarButton.swift in Sources */,
 				73BDE25B2C80BF9F00A776F8 /* LPOrdersViewController.swift in Sources */,
+				7389D44D2C838AD200C7D7DB /* LPAgreeViewController.swift in Sources */,
 				730C321F2C7F4C670079510B /* BaseFile.swift in Sources */,
+				7389D44F2C83973F00C7D7DB /* LPAccountManViewController.swift in Sources */,
 				73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */,
 				73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */,
+				7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */,
+				7389D44B2C8389A100C7D7DB /* LPNavgationView.swift in Sources */,
 				73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */,
 				730C32232C7F4F0B0079510B /* LPModel.swift in Sources */,
+				7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */,
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
 				730C32192C7F4BBE0079510B /* LPTabBarViewController.swift in Sources */,
 			);

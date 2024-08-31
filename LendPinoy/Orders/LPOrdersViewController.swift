@@ -8,22 +8,33 @@
 import UIKit
 
 class LPOrdersViewController: LPBaseViewController {
+    
+    lazy var olistView: LPOrdersView = {
+        let olistView = LPOrdersView()
+        return olistView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.addSubview(olistView)
+        olistView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        tap()
+        
+    }
+
+}
+
+
+extension LPOrdersViewController {
+    
+    func tap() {
+        olistView.block = { [weak self] in
+            ToastUtility.showToast(message: "2")
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

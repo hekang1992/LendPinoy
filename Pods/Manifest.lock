@@ -17,6 +17,8 @@ PODS:
   - SnapKit (5.7.1)
   - SwiftyJSON (5.0.2)
   - SystemServices (2.0.1)
+  - Toaster (2.3.0)
+  - TYAlertController (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.9.1)
@@ -30,6 +32,8 @@ DEPENDENCIES:
   - SnapKit (~> 5.7.1)
   - SwiftyJSON (~> 5.0.2)
   - SystemServices (~> 2.0.1)
+  - Toaster (~> 2.3.0)
+  - TYAlertController (~> 1.2.0)
 
 SPEC REPOS:
   trunk:
@@ -45,6 +49,8 @@ SPEC REPOS:
     - SnapKit
     - SwiftyJSON
     - SystemServices
+    - Toaster
+    - TYAlertController
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
@@ -59,7 +65,9 @@ SPEC CHECKSUMS:
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   SystemServices: 7af348493ece8951449b476c41532df72569b181
+  Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
+  TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: 4c31bbad4c288801dcc90eedde22a3fd30af1bf9
+PODFILE CHECKSUM: 50767b42ebe1b5cb1622645b53f261f1217ab454
 
 COCOAPODS: 1.15.2

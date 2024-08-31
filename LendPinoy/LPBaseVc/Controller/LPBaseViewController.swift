@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import RxSwift
 
 class LPBaseViewController: UIViewController {
+    
+    let disposeBag = DisposeBag()
+    
+    lazy var navView: LPNavgationView = {
+        let navView = LPNavgationView()
+        return navView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,16 +23,20 @@ class LPBaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .white
     }
+
+}
+
+extension LPBaseViewController {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addNavView(title: String) {
+        view.addSubview(navView)
+        navView.titleLabel.text = title
+        navView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(StatusHeightManager.statusBarHeight + 5.lpix())
+            make.left.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.equalTo(44.lpix())
+        }
     }
-    */
 
 }

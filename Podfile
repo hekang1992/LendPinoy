@@ -27,6 +27,10 @@ target 'LendPinoy' do
   
   pod 'KeychainAccess', '~> 4.2.2'
   
+  pod 'Toaster', '~> 2.3.0'
+  
+  pod 'TYAlertController', '~> 1.2.0'
+  
   # Pods for LendPinoy
 
 end
