@@ -17,10 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         window?.frame = UIScreen.main.bounds
-        getRootVc()
-        keyJaiPan()
+        let notification = Notification(name: Notification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
+        getRootVc(notification)
         window?.makeKeyAndVisible()
         jieshoutongzhi()
+        keyJaiPan()
         return true
     }
 
@@ -37,12 +38,15 @@ extension AppDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(getRootVc), name: NSNotification.Name(ROOT_VC_NOTI), object: nil)
     }
     
-    @objc func getRootVc() {
-        if !IS_LOGIN {
-            window?.rootViewController = LPNavigationController(rootViewController: LPTabBarViewController())
-        }else {
-            window?.rootViewController = LPLaunchViewController()
+    @objc func getRootVc(_ noti: Notification) {
+        guard let guest = noti.userInfo?["guest"] as? String else { return }
+        let rootViewController: UIViewController
+        if guest == "1" {
+            rootViewController = LPTabBarViewController()
+        } else {
+            rootViewController = IS_LOGIN ? LPTabBarViewController() : LPLaunchViewController()
         }
+        window?.rootViewController = LPNavigationController(rootViewController: rootViewController)
     }
     
 }

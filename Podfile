@@ -31,6 +31,10 @@ target 'LendPinoy' do
   
   pod 'TYAlertController', '~> 1.2.0'
   
+  pod 'MJRefresh', '~> 3.7.9'
+  
+  pod 'FSPagerView', '~> 0.8.3'
+  
   # Pods for LendPinoy
 
 end

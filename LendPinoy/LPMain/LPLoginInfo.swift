@@ -53,10 +53,10 @@ class LPLoginInfo: NSObject {
                      "boyfine": "apple",
                      "twins": "0"]
         
-        let allDict = dict2.reduce(into: dict1) { (result, item) in
+        let loict = dict2.reduce(into: dict1) { (result, item) in
             result[item.key] = item.value
         }
-        return allDict
+        return loict
     }
     
 }

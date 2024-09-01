@@ -22,7 +22,6 @@ class LPNavgationView: UIView {
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 18.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .center)
-        titleLabel.text = "21423432"
         return titleLabel
     }()
     

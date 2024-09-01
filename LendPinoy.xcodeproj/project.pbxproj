@@ -21,11 +21,16 @@
 		730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32202C7F4CB50079510B /* LPLaunchViewController.swift */; };
 		730C32232C7F4F0B0079510B /* LPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32222C7F4F0B0079510B /* LPModel.swift */; };
 		730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32242C7F50800079510B /* LPRequsetManager.swift */; };
+		7326E4072C84C8B900383EBC /* LPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4062C84C8B900383EBC /* LPLoginViewController.swift */; };
+		7326E4092C84C8D000383EBC /* LPLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4082C84C8D000383EBC /* LPLoginView.swift */; };
+		7357B4BF2C84B91800B2DE1B /* LPLunBoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7357B4BE2C84B91800B2DE1B /* LPLunBoViewCell.swift */; };
 		7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4462C83786700C7D7DB /* LPCenterView.swift */; };
 		7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4482C8383C200C7D7DB /* LPOrdersView.swift */; };
 		7389D44B2C8389A100C7D7DB /* LPNavgationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D44A2C8389A100C7D7DB /* LPNavgationView.swift */; };
 		7389D44D2C838AD200C7D7DB /* LPAgreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D44C2C838AD200C7D7DB /* LPAgreeViewController.swift */; };
 		7389D44F2C83973F00C7D7DB /* LPAccountManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D44E2C83973F00C7D7DB /* LPAccountManViewController.swift */; };
+		7389D4532C83A63300C7D7DB /* LPSubHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4522C83A63300C7D7DB /* LPSubHomeView.swift */; };
+		7389D4552C83A63D00C7D7DB /* LPHubHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4542C83A63D00C7D7DB /* LPHubHomeView.swift */; };
 		73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */; };
 		73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */; };
 		73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */; };
@@ -54,11 +59,16 @@
 		730C32202C7F4CB50079510B /* LPLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLaunchViewController.swift; sourceTree = "<group>"; };
 		730C32222C7F4F0B0079510B /* LPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPModel.swift; sourceTree = "<group>"; };
 		730C32242C7F50800079510B /* LPRequsetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPRequsetManager.swift; sourceTree = "<group>"; };
+		7326E4062C84C8B900383EBC /* LPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginViewController.swift; sourceTree = "<group>"; };
+		7326E4082C84C8D000383EBC /* LPLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginView.swift; sourceTree = "<group>"; };
+		7357B4BE2C84B91800B2DE1B /* LPLunBoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLunBoViewCell.swift; sourceTree = "<group>"; };
 		7389D4462C83786700C7D7DB /* LPCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCenterView.swift; sourceTree = "<group>"; };
 		7389D4482C8383C200C7D7DB /* LPOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrdersView.swift; sourceTree = "<group>"; };
 		7389D44A2C8389A100C7D7DB /* LPNavgationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPNavgationView.swift; sourceTree = "<group>"; };
 		7389D44C2C838AD200C7D7DB /* LPAgreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPAgreeViewController.swift; sourceTree = "<group>"; };
 		7389D44E2C83973F00C7D7DB /* LPAccountManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPAccountManViewController.swift; sourceTree = "<group>"; };
+		7389D4522C83A63300C7D7DB /* LPSubHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPSubHomeView.swift; sourceTree = "<group>"; };
+		7389D4542C83A63D00C7D7DB /* LPHubHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHubHomeView.swift; sourceTree = "<group>"; };
 		73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPSheBeiInfo.swift; sourceTree = "<group>"; };
 		73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginInfo.swift; sourceTree = "<group>"; };
 		73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHomeViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +124,7 @@
 				730C32022C7EF1A50079510B /* Assets.xcassets */,
 				730C32072C7EF1A50079510B /* Info.plist */,
 				730C32142C7F4B0E0079510B /* LPMain */,
+				7326E4052C84C8A300383EBC /* Login */,
 				73BDE2572C80BF6A00A776F8 /* Center */,
 				73BDE2562C80BF6400A776F8 /* Orders */,
 				73BDE2552C80BF5B00A776F8 /* Home */,
@@ -147,10 +158,22 @@
 			path = LPBaseVc;
 			sourceTree = "<group>";
 		};
+		7326E4052C84C8A300383EBC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7326E4062C84C8B900383EBC /* LPLoginViewController.swift */,
+				7326E4082C84C8D000383EBC /* LPLoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		73BDE2552C80BF5B00A776F8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */,
+				7389D4522C83A63300C7D7DB /* LPSubHomeView.swift */,
+				7389D4542C83A63D00C7D7DB /* LPHubHomeView.swift */,
+				7357B4BE2C84B91800B2DE1B /* LPLunBoViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -321,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7389D4532C83A63300C7D7DB /* LPSubHomeView.swift in Sources */,
 				730C32162C7F4B460079510B /* Market Fresh.ttf in Sources */,
 				73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */,
 				730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */,
@@ -334,15 +358,19 @@
 				7389D44D2C838AD200C7D7DB /* LPAgreeViewController.swift in Sources */,
 				730C321F2C7F4C670079510B /* BaseFile.swift in Sources */,
 				7389D44F2C83973F00C7D7DB /* LPAccountManViewController.swift in Sources */,
+				7326E4092C84C8D000383EBC /* LPLoginView.swift in Sources */,
 				73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */,
 				73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */,
 				7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */,
 				7389D44B2C8389A100C7D7DB /* LPNavgationView.swift in Sources */,
 				73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */,
 				730C32232C7F4F0B0079510B /* LPModel.swift in Sources */,
+				7326E4072C84C8B900383EBC /* LPLoginViewController.swift in Sources */,
 				7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */,
+				7389D4552C83A63D00C7D7DB /* LPHubHomeView.swift in Sources */,
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
 				730C32192C7F4BBE0079510B /* LPTabBarViewController.swift in Sources */,
+				7357B4BF2C84B91800B2DE1B /* LPLunBoViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,9 +1,11 @@
 PODS:
   - Alamofire (5.9.1)
   - DeviceKit (5.2.3)
+  - FSPagerView (0.8.3)
   - IQKeyboardManagerSwift (7.1.1)
   - KeychainAccess (4.2.2)
   - Kingfisher (7.11.0)
+  - MJRefresh (3.7.9)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
@@ -23,9 +25,11 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.9.1)
   - DeviceKit (~> 5.2.2)
+  - FSPagerView (~> 0.8.3)
   - IQKeyboardManagerSwift (~> 7.1.1)
   - KeychainAccess (~> 4.2.2)
   - Kingfisher (~> 7.11.0)
+  - MJRefresh (~> 3.7.9)
   - Moya (~> 15.0.0)
   - RxCocoa (~> 6.6.0)
   - RxSwift (~> 6.6.0)
@@ -39,9 +43,11 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - DeviceKit
+    - FSPagerView
     - IQKeyboardManagerSwift
     - KeychainAccess
     - Kingfisher
+    - MJRefresh
     - Moya
     - RxCocoa
     - RxRelay
@@ -55,9 +61,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   DeviceKit: 4504e64df8f8ad1c42aae68f30ece5b51d56022a
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   IQKeyboardManagerSwift: d7f3d3a562c237a0e7335e657cd598c452f57f1b
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
@@ -68,6 +76,6 @@ SPEC CHECKSUMS:
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: 50767b42ebe1b5cb1622645b53f261f1217ab454
+PODFILE CHECKSUM: 83ac6021be893f749d29fa6c96a98fa1205f7d4b
 
 COCOAPODS: 1.15.2

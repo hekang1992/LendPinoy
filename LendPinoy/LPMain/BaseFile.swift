@@ -126,3 +126,31 @@ class ToastUtility {
     }
 }
 
+class DateFormatterUtil {
+    class func getCurrentFormattedDate(format: String = "MM.dd.yyyy HH:mm") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let currentDate = Date()
+        return dateFormatter.string(from: currentDate)
+    }
+}
+
+class TimeUpdater {
+    private var timer: Timer?
+       private var updateCallback: ((String) -> Void)?
+       init(updateCallback: @escaping (String) -> Void) {
+           self.updateCallback = updateCallback
+       }
+       func startUpdatingTime() {
+           timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+           updateTime()
+       }
+       func stopUpdatingTime() {
+           timer?.invalidate()
+           timer = nil
+       }
+       @objc private func updateTime() {
+           let currentTime = DateFormatterUtil.getCurrentFormattedDate()
+           updateCallback?(currentTime)  
+       }
+}

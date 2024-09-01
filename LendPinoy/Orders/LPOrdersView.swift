@@ -116,7 +116,7 @@ extension LPOrdersView {
             make.height.equalTo(80.lpix())
             make.left.equalToSuperview().offset(15.lpix())
             make.top.equalTo(twoBtn3.snp.bottom).offset(20.lpix())
-            make.bottom.equalToSuperview().offset(-135.lpix())
+            make.bottom.equalToSuperview().offset(-125.lpix())
         }
         
         twoBtn.rx.tap.subscribe(onNext: { [weak self] in

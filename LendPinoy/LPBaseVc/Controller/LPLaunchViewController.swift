@@ -95,17 +95,18 @@ extension LPLaunchViewController {
         
         loginBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            self.postNoti()
+            let loginVc = LPLoginViewController()
+            self.navigationController?.pushViewController(loginVc, animated: true)
         }).disposed(by: disposeBag)
         
         youkeBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            self.postNoti()
+            self.postNoti(guest: "1")
         }).disposed(by: disposeBag)
     }
     
-    func postNoti() {
-        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil)
+    func postNoti(guest: String) {
+        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": guest])
     }
     
 }
