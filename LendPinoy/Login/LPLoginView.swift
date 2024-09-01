@@ -62,6 +62,24 @@ class LPLoginView: UIView {
         return canBtn
     }()
     
+    lazy var sureBtn: UIButton = {
+        let sureBtn = UIButton(type: .custom)
+        sureBtn.isSelected = true
+        sureBtn.setImage(UIImage(named: "surebtncc"), for: .selected)
+        sureBtn.setImage(UIImage(named: "normalPoncad"), for: .normal)
+        return sureBtn
+    }()
+    
+    lazy var loginBtn: UIButton = {
+        let loginBtn = UIButton(type: .custom)
+        loginBtn.setTitle("Send Code", for: .normal)
+        loginBtn.setTitleColor(UIColor.white, for: .normal)
+        loginBtn.backgroundColor = UIColor(hex: "#2CD7BB")
+        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        loginBtn.isEnabled = true
+        return loginBtn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(navView)
@@ -70,6 +88,8 @@ class LPLoginView: UIView {
         bgView.addSubview(lineView)
         bgView.addSubview(phoneTx)
         bgView.addSubview(canBtn)
+        addSubview(sureBtn)
+        addSubview(loginBtn)
         makeui()
         tapClick()
     }
@@ -115,6 +135,17 @@ extension LPLoginView {
             make.right.equalToSuperview().offset(-20.lpix())
             make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
         }
+        sureBtn.snp.makeConstraints { make in
+            make.top.equalTo(bgView.snp.bottom).offset(53.lpix())
+            make.left.equalToSuperview().offset(20.lpix())
+            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+        }
+        loginBtn.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.height.equalTo(60.lpix())
+            make.left.equalToSuperview().offset(20.lpix())
+            make.top.equalTo(sureBtn.snp.bottom).offset(28.lpix())
+        }
     }
     
     func tapClick() {
@@ -159,6 +190,16 @@ extension LPLoginView {
         canBtn.rx.tap.subscribe(onNext: { [weak self] in
             self?.phoneTx.text = ""
             self?.canBtn.isHidden = true
+        }).disposed(by: disposeBag)
+        
+        sureBtn.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.sureBtn.isSelected.toggle()
+            self.loginBtn.isEnabled = self.sureBtn.isSelected ? true : false
+        }).disposed(by: disposeBag)
+        
+        loginBtn.rx.tap.subscribe(onNext: { [weak self] in
+            ToastUtility.showToast(message: "登录")
         }).disposed(by: disposeBag)
         
     }
