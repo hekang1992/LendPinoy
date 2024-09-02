@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.frame = UIScreen.main.bounds
         let notification = Notification(name: Notification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
         getRootVc(notification)
-        window?.makeKeyAndVisible()
         jieshoutongzhi()
         keyJaiPan()
+        window?.makeKeyAndVisible()
         return true
     }
 

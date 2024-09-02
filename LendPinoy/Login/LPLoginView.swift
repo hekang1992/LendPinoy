@@ -8,10 +8,13 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ActiveLabel
 
 class LPLoginView: UIView {
     
     let disposeBag = DisposeBag()
+    
+    var codeBlock: (() -> Void)?
     
     lazy var navView: LPNavgationView = {
         let navView = LPNavgationView()
@@ -70,12 +73,46 @@ class LPLoginView: UIView {
         return sureBtn
     }()
     
+    lazy var yinsiLabel: ActiveLabel = {
+        let yinsiLabel = ActiveLabel()
+        yinsiLabel.font = UIFont(name: bold_MarketFresh, size: 16.lpix())
+        yinsiLabel.textColor = UIColor.init(hex: "#CFD9D8")
+        yinsiLabel.text = "By checking this box, you agree to the Privacy Policy and Loan Agreement."
+        yinsiLabel.numberOfLines = 0
+        let customType1 = ActiveType.custom(pattern: "\\bPrivacy Policy\\b")
+        let customType2 = ActiveType.custom(pattern: "\\bLoan Agreement\\b")
+        yinsiLabel.enabledTypes.append(customType1)
+        yinsiLabel.enabledTypes.append(customType2)
+        yinsiLabel.customColor[customType1] = UIColor.init(hex: "#2CD7BB")
+        yinsiLabel.customColor[customType2] = UIColor.init(hex: "#2CD7BB")
+        yinsiLabel.customSelectedColor[customType1] = UIColor.init(hex: "#2CD7BB")
+        yinsiLabel.customSelectedColor[customType2] = UIColor.init(hex: "#2CD7BB")
+        yinsiLabel.handleCustomTap(for: customType1) { element in
+            print("Tapped on Privacy Policy")
+        }
+        yinsiLabel.handleCustomTap(for: customType2) { element in
+            print("Tapped on Loan Agreement")
+        }
+        let attributedString = NSMutableAttributedString(string: yinsiLabel.text!)
+        let redUnderlineAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.init(hex: "#2CD7BB"),
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .underlineColor: UIColor.init(hex: "#2CD7BB"),
+        ]
+        let privacyPolicyRange = (yinsiLabel.text! as NSString).range(of: "Privacy Policy")
+        let loanAgreementRange = (yinsiLabel.text! as NSString).range(of: "Loan Agreement")
+        attributedString.addAttributes(redUnderlineAttributes, range: privacyPolicyRange)
+        attributedString.addAttributes(redUnderlineAttributes, range: loanAgreementRange)
+        yinsiLabel.attributedText = attributedString
+        return yinsiLabel
+    }()
+    
     lazy var loginBtn: UIButton = {
         let loginBtn = UIButton(type: .custom)
         loginBtn.setTitle("Send Code", for: .normal)
         loginBtn.setTitleColor(UIColor.white, for: .normal)
         loginBtn.backgroundColor = UIColor(hex: "#2CD7BB")
-        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
         loginBtn.isEnabled = true
         return loginBtn
     }()
@@ -89,6 +126,7 @@ class LPLoginView: UIView {
         bgView.addSubview(phoneTx)
         bgView.addSubview(canBtn)
         addSubview(sureBtn)
+        addSubview(yinsiLabel)
         addSubview(loginBtn)
         makeui()
         tapClick()
@@ -140,11 +178,16 @@ extension LPLoginView {
             make.left.equalToSuperview().offset(20.lpix())
             make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
         }
+        yinsiLabel.snp.makeConstraints { make in
+            make.left.equalTo(sureBtn.snp.right).offset(10.lpix())
+            make.top.equalTo(sureBtn.snp.top)
+            make.right.equalToSuperview().offset(-20.lpix())
+        }
         loginBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.height.equalTo(60.lpix())
             make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(sureBtn.snp.bottom).offset(28.lpix())
+            make.top.equalTo(yinsiLabel.snp.bottom).offset(20.lpix())
         }
     }
     
@@ -199,10 +242,12 @@ extension LPLoginView {
         }).disposed(by: disposeBag)
         
         loginBtn.rx.tap.subscribe(onNext: { [weak self] in
-            ToastUtility.showToast(message: "登录")
+            self?.codeBlock?()
         }).disposed(by: disposeBag)
         
     }
+    
+    
 }
 
 class NoCopyTextFiled: UITextField {

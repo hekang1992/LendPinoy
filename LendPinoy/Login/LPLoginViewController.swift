@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LPLoginViewController: UIViewController {
+class LPLoginViewController: LPBaseViewController {
     
     lazy var loginView: LPLoginView = {
         let loginView = LPLoginView()
@@ -23,7 +23,6 @@ class LPLoginViewController: UIViewController {
         loginView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
         tapClick()
     }
 
@@ -38,6 +37,11 @@ extension LPLoginViewController {
             self?.navigationController?.popViewController(animated: true)
         }
         
+        loginView.codeBlock = { [weak self] in
+            let codeVc = LPCodeViewController()
+            codeVc.phone.accept(self?.loginView.phoneTx.text ?? "")
+            self?.navigationController?.pushViewController(codeVc, animated: true)
+        }
         
     }
     

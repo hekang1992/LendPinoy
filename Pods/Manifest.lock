@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (1.1.0)
   - Alamofire (5.9.1)
   - DeviceKit (5.2.3)
   - FSPagerView (0.8.3)
@@ -23,6 +24,7 @@ PODS:
   - TYAlertController (1.2.0)
 
 DEPENDENCIES:
+  - ActiveLabel (~> 1.1.0)
   - Alamofire (~> 5.9.1)
   - DeviceKit (~> 5.2.2)
   - FSPagerView (~> 0.8.3)
@@ -41,6 +43,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ActiveLabel
     - Alamofire
     - DeviceKit
     - FSPagerView
@@ -59,6 +62,7 @@ SPEC REPOS:
     - TYAlertController
 
 SPEC CHECKSUMS:
+  ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   DeviceKit: 4504e64df8f8ad1c42aae68f30ece5b51d56022a
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
@@ -76,6 +80,6 @@ SPEC CHECKSUMS:
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: 83ac6021be893f749d29fa6c96a98fa1205f7d4b
+PODFILE CHECKSUM: 97241ae5eb82701a8b23cb4d21f41f227ed8df4a
 
 COCOAPODS: 1.15.2
