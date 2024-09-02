@@ -19,7 +19,9 @@ class LPSubHomeView: UIView {
     var block1: (() -> Void)?
     
     var block2: (() -> Void)?
-
+    
+    var block3: ((UIButton) -> Void)?
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -43,7 +45,16 @@ class LPSubHomeView: UIView {
     lazy var monIcon: UIImageView = {
         let monIcon = UIImageView()
         monIcon.image = UIImage(named: "moneypinf")
+        monIcon.isUserInteractionEnabled = true
         return monIcon
+    }()
+    
+    lazy var offBtn: UIButton = {
+        let offBtn = UIButton(type: .custom)
+        offBtn.isSelected = true
+        offBtn.setImage(UIImage(named: "onpnge"), for: .selected)
+        offBtn.setImage(UIImage(named: "offpnge"), for: .normal)
+        return offBtn
     }()
     
     lazy var timelabel: UILabel = {
@@ -81,6 +92,7 @@ class LPSubHomeView: UIView {
         scrollView.addSubview(lunboView)
         scrollView.addSubview(monIcon)
         monIcon.addSubview(timelabel)
+        monIcon.addSubview(offBtn)
         scrollView.addSubview(applyBtn)
         scrollView.addSubview(poIcon)
         scrollView.addSubview(sceBtn)
@@ -117,6 +129,10 @@ extension LPSubHomeView {
             make.left.equalToSuperview()
             make.height.equalTo(15.lpix())
         }
+        offBtn.snp.makeConstraints { make in
+            make.top.right.equalToSuperview()
+            make.size.equalTo(CGSize(width: 35.lpix(), height: 20.lpix()))
+        }
         applyBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(monIcon.snp.bottom).offset(30.lpix())
@@ -148,23 +164,34 @@ extension LPSubHomeView {
             guard let self = self else { return }
             self.block2?()
         }).disposed(by: disposeBag)
+        
+        offBtn.rx.tap.subscribe(onNext: { [weak self] in
+            self?.offBtn.isSelected.toggle()
+            if let isSelected = self?.offBtn.isSelected {
+                if isSelected {
+                    ToastUtility.showToast(message: "Text message notifications are enabled")
+                }else {
+                    ToastUtility.showToast(message: "Text message notifications are disabled")
+                }
+            }
+        }).disposed(by: disposeBag)
     }
     
 }
 
 extension LPSubHomeView: FSPagerViewDataSource, FSPagerViewDelegate {
-
+    
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return modelArray.value.count
     }
-
+    
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "LPLunBoViewCell", at: index) as? LPLunBoViewCell else { return FSPagerViewCell() }
         let imageName = modelArray.value[index]
         cell.icon.image = UIImage(named: imageName)
         return cell
     }
-
+    
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         print("Did select item at index: \(index)")
         pagerView.deselectItem(at: index, animated: true)
