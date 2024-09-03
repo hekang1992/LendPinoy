@@ -28,8 +28,14 @@ class LPTabBarViewController: UITabBarController {
     private func setupTabBar() {
         view.addSubview(customTabBar)
         customTabBar.block = { [weak self] tabBar, from, to in
-            if from != to {
-                self?.selectedIndex = to
+            if IS_LOGIN {
+                if from != to {
+                    self?.selectedIndex = to
+                }
+            }else {
+                let loginVc = LPLoginViewController()
+                loginVc.loginView.navView.backBtn.isHidden = true
+                self?.navigationController?.pushViewController(loginVc, animated: true)
             }
         }
         customTabBar.snp.makeConstraints { make in

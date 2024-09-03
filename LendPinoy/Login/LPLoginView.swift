@@ -28,6 +28,12 @@ class LPLoginView: UIView {
         return bgView
     }()
     
+    lazy var icon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = UIImage(named: "AppIcon")
+        return icon
+    }()
+    
     lazy var noLabel: UILabel = {
         let noLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         noLabel.text = "63"
@@ -88,10 +94,10 @@ class LPLoginView: UIView {
         yinsiLabel.customSelectedColor[customType1] = UIColor.init(hex: "#2CD7BB")
         yinsiLabel.customSelectedColor[customType2] = UIColor.init(hex: "#2CD7BB")
         yinsiLabel.handleCustomTap(for: customType1) { element in
-            print("Tapped on Privacy Policy")
+            ToastUtility.showToast(message: "Tapped on Privacy Policy")
         }
         yinsiLabel.handleCustomTap(for: customType2) { element in
-            print("Tapped on Loan Agreement")
+            ToastUtility.showToast(message: "Tapped on Loan Agreement")
         }
         let attributedString = NSMutableAttributedString(string: yinsiLabel.text!)
         let redUnderlineAttributes: [NSAttributedString.Key: Any] = [
@@ -120,6 +126,7 @@ class LPLoginView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(navView)
+        addSubview(icon)
         addSubview(bgView)
         bgView.addSubview(noLabel)
         bgView.addSubview(lineView)
@@ -151,11 +158,16 @@ extension LPLoginView {
             make.centerX.equalToSuperview()
             make.height.equalTo(44.lpix())
         }
+        icon.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(navView.snp.bottom).offset(40.lpix())
+            make.size.equalTo(CGSize(width: 90.lpix(), height: 90.lpix()))
+        }
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(20.lpix())
             make.height.equalTo(60.lpix())
-            make.top.equalTo(navView.snp.bottom).offset(104.lpix())
+            make.top.equalTo(icon.snp.bottom).offset(30.lpix())
         }
         noLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(19.5.lpix())

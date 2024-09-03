@@ -62,6 +62,9 @@ class ViewCycleManager {
                 }
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+            hideCycView()
+        }
     }
     
     static func hideCycView() {
