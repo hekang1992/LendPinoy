@@ -136,6 +136,10 @@ class LPLoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("-------------")
+    }
+    
 }
 
 extension LPLoginView {
@@ -195,20 +199,16 @@ extension LPLoginView {
         phoneTx.rx.text
             .orEmpty
             .map { text in
-                return String(text.prefix(11))
+                let limitedText = String(text.prefix(10))
+                return (limitedText, limitedText.count >= 10)
             }
-            .bind(to: phoneTx.rx.text)
-            .disposed(by: disposeBag)
-        
-        phoneTx.rx.text
-            .orEmpty
-            .map { text in
-                return text.count >= 11
-            }
-            .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] isExceeded in
+            .distinctUntilChanged { $0.0 == $1.0 }
+            .observe(on: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] (text, isExceeded) in
+                guard let self = self else { return }
+                self.phoneTx.text = text
                 if isExceeded {
-                    self?.phoneTx.resignFirstResponder()
+                    self.phoneTx.resignFirstResponder()
                 }
             })
             .disposed(by: disposeBag)
@@ -217,8 +217,8 @@ extension LPLoginView {
             .withLatestFrom(phoneTx.rx.text.orEmpty)
             .subscribe(onNext: { [weak self] text in
                 guard let self = self else { return }
-                if text.count > 11 {
-                    self.phoneTx.text = String(text.prefix(11))
+                if text.count > 10 {
+                    self.phoneTx.text = String(text.prefix(10))
                 }
             })
             .disposed(by: disposeBag)
@@ -229,25 +229,36 @@ extension LPLoginView {
             .bind(to: canBtn.rx.isHidden)
             .disposed(by: disposeBag)
         
+        canBtn.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.phoneTx.text = ""
+                self?.canBtn.isHidden = true
+            })
+            .disposed(by: disposeBag)
         
-        canBtn.rx.tap.subscribe(onNext: { [weak self] in
-            self?.phoneTx.text = ""
-            self?.canBtn.isHidden = true
-        }).disposed(by: disposeBag)
+        sureBtn.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.sureBtn.isSelected.toggle()
+            })
+            .disposed(by: disposeBag)
         
-        sureBtn.rx.tap.subscribe(onNext: { [weak self] in
-            guard let self = self else { return }
-            self.sureBtn.isSelected.toggle()
-            self.loginBtn.isEnabled = self.sureBtn.isSelected ? true : false
-        }).disposed(by: disposeBag)
-        
-        loginBtn.rx.tap.subscribe(onNext: { [weak self] in
-            self?.codeBlock?()
-        }).disposed(by: disposeBag)
+        loginBtn.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                if !self.sureBtn.isSelected {
+                    ToastUtility.showToast(message: "Please review and accept the App Agreement before logging in or registering")
+                } else {
+                    if self.phoneTx.text?.count ?? 0 > 0 {
+                        self.codeBlock?()
+                    } else {
+                        ToastUtility.showToast(message: "Please enter a valid phone number")
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
         
     }
-    
-    
 }
 
 class NoCopyTextFiled: UITextField {

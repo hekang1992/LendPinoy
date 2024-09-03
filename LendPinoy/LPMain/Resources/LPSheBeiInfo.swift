@@ -167,31 +167,27 @@ class KeychainHelper {
     
     static func saveIDFVToKeychain() {
         guard let idfv = UIDevice.current.identifierForVendor?.uuidString else {
-            print("Failed to retrieve IDFV")
             return
         }
-        let keychain = Keychain(service: "com.example.MyApp")
+        let keychain = Keychain(service: "com.LendPinoy.Ph")
         do {
             try keychain.set(idfv, key: "deviceIDFV")
-            print("IDFV saved to Keychain: \(idfv)")
         } catch {
-            print("Error saving IDFV to Keychain: \(error)")
+            print("Error: \(error)")
         }
     }
     
     static func retrieveIDFVFromKeychain() -> String? {
-        let keychain = Keychain(service: "com.example.MyApp")
+        let keychain = Keychain(service: "com.LendPinoy.Ph")
         do {
             if let idfv = try keychain.get("deviceIDFV") {
-                print("IDFV retrieved from Keychain: \(idfv)")
                 return idfv
             } else {
-                print("No IDFV found in Keychain, saving a new one.")
                 saveIDFVToKeychain()
                 return retrieveIDFVFromKeychain()
             }
         } catch {
-            print("Error retrieving IDFV from Keychain: \(error)")
+            print("Error: \(error)")
             return nil
         }
     }
@@ -203,7 +199,7 @@ class LPSheBeiInfo {
     static func shebeiInfo() -> [String: Any] {
         var dict: [String: Any] = [
             "apple": "1",
-            "google": "2",
+            "thumbing": "2",
             "thicken": UIDevice.current.systemVersion,
             "kudzu": SystemInfo.getLastTime(),
             "grated": Bundle.main.bundleIdentifier ?? "",
@@ -215,6 +211,7 @@ class LPSheBeiInfo {
             "tilefish": SystemServices().batteryLevel,
             "fish": "yu",
             "pigsy": "pid",
+            "high": "180",
             "googs": "0",
             "lacquerware": SystemServices().charging ? 1 : 0
         ]

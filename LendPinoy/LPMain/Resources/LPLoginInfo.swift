@@ -13,13 +13,14 @@ class LPLoginInfo: NSObject {
     static func saveDengLuInfo(_ phone: String, _ sessionID: String) {
         UserDefaults.standard.setValue(sessionID, forKey: LP_SESSIONID)
         UserDefaults.standard.setValue(phone, forKey: LP_LOGIN)
+        UserDefaults.standard.setValue("", forKey: MAI_DIAN_ONE)
         UserDefaults.standard.synchronize()
     }
     
     static func removeDengLuInfo() {
         UserDefaults.standard.setValue("", forKey: LP_SESSIONID)
-        UserDefaults.standard.setValue("", forKey: MAIDIAN1)
         UserDefaults.standard.setValue("", forKey: LP_LOGIN)
+        UserDefaults.standard.setValue("", forKey: MAI_DIAN_ONE)
         UserDefaults.standard.synchronize()
     }
     
@@ -30,7 +31,7 @@ class LPLoginInfo: NSObject {
         return "1.0.0"
     }
     
-    static func getLoginParas() -> [String: String]{
+    static func getLogiInfo() -> [String: String]{
         
         var moist: String = ""
         if let sessionId: String = UserDefaults.standard.object(forKey: LP_SESSIONID) as? String {

@@ -24,6 +24,10 @@ class LPLoginViewController: LPBaseViewController {
             make.edges.equalToSuperview()
         }
         tapClick()
+        let location = LPDingWeiManager()
+        location.startUpdatingLocation { locationModel in
+            
+        }
     }
 
 }
@@ -38,11 +42,30 @@ extension LPLoginViewController {
         }
         
         loginView.codeBlock = { [weak self] in
-            let codeVc = LPCodeViewController()
-            codeVc.phone.accept(self?.loginView.phoneTx.text ?? "")
-            self?.navigationController?.pushViewController(codeVc, animated: true)
+            self?.sendcode()
         }
         
+    }
+    
+    func sendcode() {
+        let requestManager = LPRequestManager()
+        let dict = ["app": "swift", "vaguely": self.loginView.phoneTx.text ?? "", "quizzical": "flash"]
+        requestManager.uploadDataAPI(params: dict, pageUrl: "/lpinoy/slipped/hitch/narrow", method: .post) { [weak self] result in
+            switch result {
+            case .success(let baseModel):
+                ToastUtility.showToast(message: baseModel.frown ?? "")
+                self?.pushCodeVc()
+                break
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    func pushCodeVc() {
+        let codeVc = LPCodeViewController()
+        codeVc.phone.accept(self.loginView.phoneTx.text ?? "")
+        self.navigationController?.pushViewController(codeVc, animated: true)
     }
     
 }

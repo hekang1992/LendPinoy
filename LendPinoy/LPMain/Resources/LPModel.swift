@@ -34,8 +34,10 @@ struct BaseModel {
 }
 
 struct itselfModel {
-    let fade: String?
+    let ordered: String?
+    let moist: String?
     init(json: JSON) {
-        self.fade = json["fade"].stringValue
+        self.ordered = json["ordered"].stringValue
+        self.moist = json["moist"].stringValue
     }
 }

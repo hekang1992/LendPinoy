@@ -190,9 +190,9 @@
 			children = (
 				7326E4102C860CB400383EBC /* recyle.json */,
 				730C321E2C7F4C670079510B /* BaseFile.swift */,
+				730C31F92C7EF1A50079510B /* AppDelegate.swift */,
 				730C32112C7F4AFA0079510B /* Market Fresh.ttf */,
 				730C32102C7F4AFA0079510B /* Market Fresh Bold.ttf */,
-				730C31F92C7EF1A50079510B /* AppDelegate.swift */,
 				730C320E2C7EF2220079510B /* Launch Screen.storyboard */,
 			);
 			path = Other;

@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import AppTrackingTransparency
 
 let ROOT_VC_NOTI = "ROOT_VC_NOTI"
 
@@ -76,15 +77,11 @@ class LPLaunchViewController: LPBaseViewController {
             make.height.equalTo(60.lpix())
             make.bottom.equalToSuperview().offset(-50.lpix())
         }
+        if IS_LOGIN {
+            NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
+        }
         isopenWangluo()
         tap()
-        
-        let location = LPDingWeiManager()
-        location.startUpdatingLocation { locationModel in
-            print("locationModel>>>>>>>\(locationModel.spice + locationModel.shichimi)")
-        }
-        
-        
     }
     
 }
@@ -99,7 +96,6 @@ extension LPLaunchViewController {
     }
     
     func tap() {
-        
         loginBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             let loginVc = LPLoginViewController()
@@ -135,9 +131,11 @@ class NetworkReachability {
                 self?.netType = "none"
             case .reachable(.ethernetOrWiFi):
                 self?.netType = "wifi"
+                self?.scidf()
                 self?.stopListening()
             case .reachable(.cellular):
                 self?.netType = "4g/5g"
+                self?.scidf()
                 self?.stopListening()
             case .unknown:
                 self?.netType = "none"
@@ -152,5 +150,31 @@ class NetworkReachability {
     
     func isReachable() -> Bool {
         return reachabilityManager?.isReachable ?? false
+    }
+    
+    func scidf() {
+        DispatchQueue.main.async {
+            if #available(iOS 14.0, *) {
+                ATTrackingManager.requestTrackingAuthorization { status in
+                    switch status {
+                    case .authorized, .denied, .notDetermined:
+                        self.loadifd()
+                        break
+                    case .restricted:
+                        break
+                    @unknown default:
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    func loadifd() {
+        let manager = LPRequestManager()
+        let dict = ["watched": "apple", "drooling": KeychainHelper.retrieveIDFVFromKeychain() ?? "", "practically": KeychainHelper.retrieveIDFVFromKeychain() ?? "", "hide": "0"]
+        manager.requestAPI(params: dict, pageUrl: "/lpinoy/roomoh/looking/lifted", method: .post) { result in
+            
+        }
     }
 }

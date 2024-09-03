@@ -20,10 +20,10 @@ class LPCodeViewController: LPBaseViewController {
         let codeView = LPCodeView()
         return codeView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(codeView)
         codeView.snp.makeConstraints { make in
@@ -32,7 +32,7 @@ class LPCodeViewController: LPBaseViewController {
         tapClick()
         startCode()
     }
-
+    
 }
 
 
@@ -63,13 +63,50 @@ extension LPCodeViewController {
         codeView.navView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-        codeView.codeBlock = {
-            
+        codeView.codeBlock = { [weak self] in
+            self?.sendcode()
         }
-        codeView.loginBlock = {
-            NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
+        codeView.loginBlock = { [weak self] in
+            self?.loginInfo()
         }
-        
+    }
+    
+    func sendcode() {
+        let requestManager = LPRequestManager()
+        let dict = ["app": "swift", "vaguely": phone.value, "quizzical": "flash"]
+        requestManager.uploadDataAPI(params: dict, pageUrl: "/lpinoy/slipped/hitch/narrow", method: .post) { [weak self] result in
+            switch result {
+            case .success(let baseModel):
+                self?.startCode()
+                ToastUtility.showToast(message: baseModel.frown ?? "")
+                break
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    func loginInfo() {
+        let requestManager = LPRequestManager()
+        let dict = ["patchy": "autoASix", "page": self.codeView.phoneTx.text ?? "", "ordered": phone.value, "middle": "true"]
+        requestManager.uploadDataAPI(params: dict, pageUrl: "/lpinoy/while/pages/nabeyaki-udon", method: .post) { [weak self] result in
+            switch result {
+            case .success(let baseModel):
+                DispatchQueue.main.async {
+                    self?.getloginMess(baseModel)
+                    ToastUtility.showToast(message: baseModel.frown ?? "")
+                }
+                break
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    func getloginMess(_ model: BaseModel) {
+        let itselfModel = model.itself
+        LPLoginInfo.saveDengLuInfo(itselfModel.ordered ?? "", itselfModel.moist ?? "")
+        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
     }
     
 }

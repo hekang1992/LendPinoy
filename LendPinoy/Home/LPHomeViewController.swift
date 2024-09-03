@@ -23,14 +23,7 @@ class LPHomeViewController: LPBaseViewController {
         subView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        addShuaxin()
-        ViewCycleManager.addCycView()
-        
-        let location = LPDingWeiManager()
-        location.startUpdatingLocation { locationModel in
-            print("locationModel-home>>>>>>>\(locationModel.spice + locationModel.shichimi)")
-        }
+    
     }
     
     /*

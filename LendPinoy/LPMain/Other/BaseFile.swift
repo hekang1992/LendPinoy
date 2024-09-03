@@ -10,7 +10,9 @@ import SnapKit
 import Alamofire
 import Toaster
 
-let BASE_URL = "https://thriftplatinumlending.com/aceapi"
+let BASE_URL = "http://8.212.149.161/lpapp"
+
+let H5_URL = "http://8.212.149.161"
 
 let regular_MarketFresh = "MarketFresh"
 
@@ -20,7 +22,7 @@ let LP_LOGIN = "LP_LOGIN"
 
 let LP_SESSIONID = "LP_SESSIONID"
 
-let MAIDIAN1 = "MAIDIAN1"
+let MAI_DIAN_ONE = "MAI_DIAN_ONE"
 
 var IS_LOGIN: Bool {
     if let sessionID = UserDefaults.standard.object(forKey: LP_SESSIONID) as? String {
@@ -121,10 +123,10 @@ class ToastUtility {
         let toast = Toast(text: message, duration: 1.0)
         if let window = UIApplication.shared.windows.first {
             let screenHeight = window.frame.size.height
-                let toastHeight: CGFloat = 50
-                let centerY = screenHeight / 2 - toastHeight / 2
-                ToastView.appearance().bottomOffsetPortrait = centerY
-                ToastView.appearance().bottomOffsetLandscape = centerY
+            let toastHeight: CGFloat = 50.lpix()
+            let centerY = screenHeight / 2 - toastHeight / 2
+            ToastView.appearance().bottomOffsetPortrait = centerY
+            ToastView.appearance().bottomOffsetLandscape = centerY
         }
         toast.show()
     }
@@ -141,20 +143,34 @@ class DateFormatterUtil {
 
 class TimeUpdater {
     private var timer: Timer?
-       private var updateCallback: ((String) -> Void)?
-       init(updateCallback: @escaping (String) -> Void) {
-           self.updateCallback = updateCallback
-       }
-       func startUpdatingTime() {
-           timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-           updateTime()
-       }
-       func stopUpdatingTime() {
-           timer?.invalidate()
-           timer = nil
-       }
-       @objc private func updateTime() {
-           let currentTime = DateFormatterUtil.getCurrentFormattedDate()
-           updateCallback?(currentTime)  
-       }
+    private var updateCallback: ((String) -> Void)?
+    init(updateCallback: @escaping (String) -> Void) {
+        self.updateCallback = updateCallback
+    }
+    func startUpdatingTime() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        updateTime()
+    }
+    func stopUpdatingTime() {
+        timer?.invalidate()
+        timer = nil
+    }
+    @objc private func updateTime() {
+        let currentTime = DateFormatterUtil.getCurrentFormattedDate()
+        updateCallback?(currentTime)
+    }
+}
+
+
+class DictToJsonString {
+   static func dictStr(dict: [String: Any]) -> String? {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: dict)
+            let base64EncodedString = jsonData.base64EncodedString()
+            return base64EncodedString
+        } catch {
+            return nil
+        }
+    }
+    
 }
