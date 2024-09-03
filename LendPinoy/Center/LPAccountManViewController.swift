@@ -76,7 +76,7 @@ extension LPAccountManViewController {
             self.outView.titleLabel.text = "Are you sure you want to log out?"
             self.present(alertVc!, animated: true)
             self.outView.block1 = { [weak self] in
-                self?.dismiss(animated: true)
+                self?.poplogOut()
             }
             self.outView.block2 = { [weak self] in
                 self?.dismiss(animated: true)
@@ -97,7 +97,21 @@ extension LPAccountManViewController {
     }
     
     func poplogOut() {
-        
+        let man = LPRequestManager()
+        man.requestAPI(params: ["glaring": "shine", "out": "1", "strolling": "auth"], pageUrl: "/lpinoy/hurried/middle/hideji", method: .get) { [weak self] result in
+            switch result {
+            case .success(let success):
+                DispatchQueue.main.async {
+                    LPLoginInfo.removeDengLuInfo()
+                    self?.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
+                    })
+                }
+                break
+            case .failure(let failure):
+                break
+            }
+        }
     }
 }
 

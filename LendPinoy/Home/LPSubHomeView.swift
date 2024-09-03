@@ -69,7 +69,7 @@ class LPSubHomeView: UIView {
     lazy var applyBtn: UIButton = {
         let applyBtn = UIButton(type: .custom)
         applyBtn.setImage(UIImage(named: "jinduimagea"), for: .normal)
-        applyBtn.adjustsImageWhenDisabled = false
+        applyBtn.adjustsImageWhenHighlighted = false
         return applyBtn
     }()
     
@@ -82,7 +82,7 @@ class LPSubHomeView: UIView {
     lazy var sceBtn: UIButton = {
         let sceBtn = UIButton(type: .custom)
         sceBtn.setImage(UIImage(named: "secimadef"), for: .normal)
-        sceBtn.adjustsImageWhenDisabled = false
+        sceBtn.adjustsImageWhenHighlighted = false
         return sceBtn
     }()
     
@@ -168,10 +168,14 @@ extension LPSubHomeView {
         offBtn.rx.tap.subscribe(onNext: { [weak self] in
             self?.offBtn.isSelected.toggle()
             if let isSelected = self?.offBtn.isSelected {
-                if isSelected {
-                    ToastUtility.showToast(message: "Text message notifications are enabled")
-                }else {
-                    ToastUtility.showToast(message: "Text message notifications are disabled")
+                ViewCycleManager.addCycView()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if isSelected {
+                        ToastUtility.showToast(message: "Text message notifications are enabled")
+                    }else {
+                        ToastUtility.showToast(message: "Text message notifications are disabled")
+                    }
+                    ViewCycleManager.hideCycView()
                 }
             }
         }).disposed(by: disposeBag)

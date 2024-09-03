@@ -14,41 +14,49 @@ class LPHomeViewController: LPBaseViewController {
         let subView = LPSubHomeView()
         return subView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(subView)
         subView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    
+        homeInfo()
+        addShuaxin()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension LPHomeViewController {
+    
+    func homeInfo() {
+        let man = LPRequestManager()
+        man.requestAPI(params: ["wandering": "product",
+                                "home": "sub",
+                                "strolled": Date()], 
+                       pageUrl: "/lpinoy/sorry/mouse/little",
+                       method: .get) { [weak self] result in
+            switch result {
+            case .success(let success):
+                let homeModel = success.itself
+                print("homeModel>>>>>>>\(homeModel)")
+                self?.subView.scrollView.mj_header?.endRefreshing()
+                break
+            case .failure(_):
+                self?.subView.scrollView.mj_header?.endRefreshing()
+                break
+            }
+        }
+    }
     
     func addShuaxin() {
         subView.scrollView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadInfo))
     }
     
-    
     @objc func loadInfo() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.subView.scrollView.mj_header?.endRefreshing()
-        }
+        homeInfo()
     }
     
 }

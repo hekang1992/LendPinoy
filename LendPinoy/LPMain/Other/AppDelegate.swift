@@ -59,7 +59,8 @@ extension AppDelegate {
         time = SystemInfo.getCurrentTime()
         let location = LPDingWeiManager()
         location.startUpdatingLocation { [weak self] locationModel in
-            self?.scDwInfo(locationModel)
+            guard let self = self else { return }
+            self.scDwInfo(locationModel)
         }
     }
     

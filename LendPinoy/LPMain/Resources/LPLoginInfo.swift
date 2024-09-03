@@ -41,7 +41,9 @@ class LPLoginInfo: NSObject {
         let dict1 = ["sense": getAppVersion(),
                      "justice": UIDevice.current.systemVersion,
                      "yellow": "lucky",
+                     "form": "data",
                      "white": "black",
+                     "Content": "testjson",
                      "remem": moist,
                      "bmw": "m5",
                      "zipo": "fire"]

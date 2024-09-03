@@ -35,7 +35,6 @@ class LPCenterView: UIView {
     
     lazy var phoneLabe: UILabel = {
         let phoneLabe = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
-        phoneLabe.text = "124324312"
         return phoneLabe
     }()
     
