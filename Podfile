@@ -37,6 +37,8 @@ target 'LendPinoy' do
   
   pod 'ActiveLabel', '~> 1.1.0'
   
+  pod 'lottie-ios', '~> 4.5.0'
+  
   # Pods for LendPinoy
 
 end

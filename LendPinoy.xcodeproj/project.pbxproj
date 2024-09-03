@@ -25,6 +25,9 @@
 		7326E4092C84C8D000383EBC /* LPLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4082C84C8D000383EBC /* LPLoginView.swift */; };
 		7326E40B2C85FF7A00383EBC /* LPCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E40A2C85FF7A00383EBC /* LPCodeViewController.swift */; };
 		7326E40D2C86003200383EBC /* LPCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E40C2C86003200383EBC /* LPCodeView.swift */; };
+		7326E40F2C860C8D00383EBC /* LPCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E40E2C860C8D00383EBC /* LPCycleView.swift */; };
+		7326E4112C860CB400383EBC /* recyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 7326E4102C860CB400383EBC /* recyle.json */; };
+		7326E4152C8610AA00383EBC /* LPDingWeiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4142C8610AA00383EBC /* LPDingWeiManager.swift */; };
 		7357B4BF2C84B91800B2DE1B /* LPLunBoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7357B4BE2C84B91800B2DE1B /* LPLunBoViewCell.swift */; };
 		7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4462C83786700C7D7DB /* LPCenterView.swift */; };
 		7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4482C8383C200C7D7DB /* LPOrdersView.swift */; };
@@ -65,6 +68,9 @@
 		7326E4082C84C8D000383EBC /* LPLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginView.swift; sourceTree = "<group>"; };
 		7326E40A2C85FF7A00383EBC /* LPCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCodeViewController.swift; sourceTree = "<group>"; };
 		7326E40C2C86003200383EBC /* LPCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCodeView.swift; sourceTree = "<group>"; };
+		7326E40E2C860C8D00383EBC /* LPCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCycleView.swift; sourceTree = "<group>"; };
+		7326E4102C860CB400383EBC /* recyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recyle.json; sourceTree = "<group>"; };
+		7326E4142C8610AA00383EBC /* LPDingWeiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPDingWeiManager.swift; sourceTree = "<group>"; };
 		7357B4BE2C84B91800B2DE1B /* LPLunBoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLunBoViewCell.swift; sourceTree = "<group>"; };
 		7389D4462C83786700C7D7DB /* LPCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCenterView.swift; sourceTree = "<group>"; };
 		7389D4482C8383C200C7D7DB /* LPOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrdersView.swift; sourceTree = "<group>"; };
@@ -140,15 +146,8 @@
 		730C32142C7F4B0E0079510B /* LPMain */ = {
 			isa = PBXGroup;
 			children = (
-				730C32112C7F4AFA0079510B /* Market Fresh.ttf */,
-				730C32102C7F4AFA0079510B /* Market Fresh Bold.ttf */,
-				730C320E2C7EF2220079510B /* Launch Screen.storyboard */,
-				730C31F92C7EF1A50079510B /* AppDelegate.swift */,
-				730C321E2C7F4C670079510B /* BaseFile.swift */,
-				730C32222C7F4F0B0079510B /* LPModel.swift */,
-				730C32242C7F50800079510B /* LPRequsetManager.swift */,
-				73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */,
-				73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */,
+				7326E4132C860F3800383EBC /* Other */,
+				7326E4122C860F3500383EBC /* Resources */,
 			);
 			path = LPMain;
 			sourceTree = "<group>";
@@ -171,6 +170,32 @@
 				7326E40A2C85FF7A00383EBC /* LPCodeViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		7326E4122C860F3500383EBC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				730C32222C7F4F0B0079510B /* LPModel.swift */,
+				73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */,
+				73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */,
+				7326E40E2C860C8D00383EBC /* LPCycleView.swift */,
+				730C32242C7F50800079510B /* LPRequsetManager.swift */,
+				7326E4142C8610AA00383EBC /* LPDingWeiManager.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7326E4132C860F3800383EBC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7326E4102C860CB400383EBC /* recyle.json */,
+				730C321E2C7F4C670079510B /* BaseFile.swift */,
+				730C32112C7F4AFA0079510B /* Market Fresh.ttf */,
+				730C32102C7F4AFA0079510B /* Market Fresh Bold.ttf */,
+				730C31F92C7EF1A50079510B /* AppDelegate.swift */,
+				730C320E2C7EF2220079510B /* Launch Screen.storyboard */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		73BDE2552C80BF5B00A776F8 /* Home */ = {
@@ -297,6 +322,7 @@
 				730C32132C7F4AFA0079510B /* Market Fresh.ttf in Resources */,
 				730C32122C7F4AFA0079510B /* Market Fresh Bold.ttf in Resources */,
 				730C320F2C7EF2220079510B /* Launch Screen.storyboard in Resources */,
+				7326E4112C860CB400383EBC /* recyle.json in Resources */,
 				730C32032C7EF1A50079510B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +396,7 @@
 				73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */,
 				7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */,
 				7389D44B2C8389A100C7D7DB /* LPNavgationView.swift in Sources */,
+				7326E4152C8610AA00383EBC /* LPDingWeiManager.swift in Sources */,
 				73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */,
 				730C32232C7F4F0B0079510B /* LPModel.swift in Sources */,
 				7326E4072C84C8B900383EBC /* LPLoginViewController.swift in Sources */,
@@ -377,6 +404,7 @@
 				7389D4552C83A63D00C7D7DB /* LPHubHomeView.swift in Sources */,
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
 				7326E40D2C86003200383EBC /* LPCodeView.swift in Sources */,
+				7326E40F2C860C8D00383EBC /* LPCycleView.swift in Sources */,
 				730C32192C7F4BBE0079510B /* LPTabBarViewController.swift in Sources */,
 				7357B4BF2C84B91800B2DE1B /* LPLunBoViewCell.swift in Sources */,
 			);

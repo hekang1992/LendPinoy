@@ -13,10 +13,11 @@ import Toaster
 let BASE_URL = "https://thriftplatinumlending.com/aceapi"
 
 let regular_MarketFresh = "MarketFresh"
+
 let bold_MarketFresh = "MarketFreshBold"
 
-
 let LP_LOGIN = "LP_LOGIN"
+
 let LP_SESSIONID = "LP_SESSIONID"
 
 let MAIDIAN1 = "MAIDIAN1"
@@ -50,10 +51,10 @@ extension Int {
 extension UILabel {
     static func buildLabel(font: UIFont, textColor: UIColor, textAlignment: NSTextAlignment) -> UILabel {
         let label = UILabel()
-        label.textAlignment = textAlignment
-        label.backgroundColor = UIColor.clear
-        label.textColor = textColor
         label.font = font
+        label.textAlignment = textAlignment
+        label.textColor = textColor
+        label.backgroundColor = UIColor.clear
         return label
     }
 }
@@ -76,11 +77,6 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }
-
-
-
-
-
 
 
 

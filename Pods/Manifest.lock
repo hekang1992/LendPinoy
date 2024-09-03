@@ -6,6 +6,7 @@ PODS:
   - IQKeyboardManagerSwift (7.1.1)
   - KeychainAccess (4.2.2)
   - Kingfisher (7.11.0)
+  - lottie-ios (4.5.0)
   - MJRefresh (3.7.9)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift (~> 7.1.1)
   - KeychainAccess (~> 4.2.2)
   - Kingfisher (~> 7.11.0)
+  - lottie-ios (~> 4.5.0)
   - MJRefresh (~> 3.7.9)
   - Moya (~> 15.0.0)
   - RxCocoa (~> 6.6.0)
@@ -50,6 +52,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - KeychainAccess
     - Kingfisher
+    - lottie-ios
     - MJRefresh
     - Moya
     - RxCocoa
@@ -69,6 +72,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: d7f3d3a562c237a0e7335e657cd598c452f57f1b
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  lottie-ios: a881093fab623c467d3bce374367755c272bdd59
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
@@ -80,6 +84,6 @@ SPEC CHECKSUMS:
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: 97241ae5eb82701a8b23cb4d21f41f227ed8df4a
+PODFILE CHECKSUM: 4b8389c1faa5165faebeb7a478916ce02023d9f5
 
 COCOAPODS: 1.15.2

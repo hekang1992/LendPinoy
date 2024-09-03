@@ -25,10 +25,14 @@ class LPHomeViewController: LPBaseViewController {
         }
         
         addShuaxin()
+        ViewCycleManager.addCycView()
         
+        let location = LPDingWeiManager()
+        location.startUpdatingLocation { locationModel in
+            print("locationModel-home>>>>>>>\(locationModel.spice + locationModel.shichimi)")
+        }
     }
     
-
     /*
     // MARK: - Navigation
 

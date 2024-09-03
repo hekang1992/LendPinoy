@@ -78,6 +78,13 @@ class LPLaunchViewController: LPBaseViewController {
         }
         isopenWangluo()
         tap()
+        
+        let location = LPDingWeiManager()
+        location.startUpdatingLocation { locationModel in
+            print("locationModel>>>>>>>\(locationModel.spice + locationModel.shichimi)")
+        }
+        
+        
     }
     
 }

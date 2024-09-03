@@ -8,6 +8,17 @@
 import Foundation
 import SwiftyJSON
 
+class DingModel: NSObject {
+    var mizugashi: String?
+    var dessert: String?
+    var also: String?
+    var conversation: String?
+    var season: String?
+    var turnip: String?
+    var lightly: String?
+    var spice: Double = 0.00
+    var shichimi: Double = 0.00
+}
 
 struct BaseModel {
     let hitch: Int?
