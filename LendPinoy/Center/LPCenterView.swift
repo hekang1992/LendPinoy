@@ -35,6 +35,7 @@ class LPCenterView: UIView {
     
     lazy var phoneLabe: UILabel = {
         let phoneLabe = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        phoneLabe.text = UserDefaults.standard.object(forKey: LP_LOGIN) as? String ?? ""
         return phoneLabe
     }()
     

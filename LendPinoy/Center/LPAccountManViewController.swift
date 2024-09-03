@@ -88,7 +88,7 @@ extension LPAccountManViewController {
             let alertVc = TYAlertController(alert: self.delView, preferredStyle: .alert)
             self.present(alertVc!, animated: true)
             self.delView.block1 = { [weak self] in
-                self?.dismiss(animated: true)
+                self?.zxAc()
             }
             self.delView.block2 = { [weak self] in
                 self?.dismiss(animated: true)
@@ -113,6 +113,25 @@ extension LPAccountManViewController {
             }
         }
     }
+    
+    func zxAc() {
+        let man = LPRequestManager()
+        man.requestAPI(params: ["listen": "music", "zx": "true", "go": "oc", "from": "home"], pageUrl: "/lpinoy/street/right/picked", method: .get) { [weak self] result in
+            switch result {
+            case .success(let success):
+                DispatchQueue.main.async {
+                    LPLoginInfo.removeDengLuInfo()
+                    self?.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
+                    })
+                }
+                break
+            case .failure(let failure):
+                break
+            }
+        }
+    }
+    
 }
 
 class LogView: UIView {
