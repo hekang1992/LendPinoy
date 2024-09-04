@@ -41,7 +41,7 @@ class LPTabBarViewController: UITabBarController {
         customTabBar.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(20.lpix())
-            make.bottom.equalToSuperview().offset(-StatusHeightManager.safeAreaBottomHeight - 2.lpix())
+            make.bottom.equalToSuperview().offset(-StatusManager.safeAreaBottomHeight - 2.lpix())
             make.height.equalTo(60.lpix())
         }
     }
@@ -82,7 +82,7 @@ class LPTabBarViewController: UITabBarController {
     
     func showTabBar() {
         UIView.animate(withDuration: 0.25) {
-            self.customTabBar.frame.origin.y = self.view.bounds.size.height - StatusHeightManager.safeAreaBottomHeight - 62.lpix()
+            self.customTabBar.frame.origin.y = self.view.bounds.size.height - StatusManager.safeAreaBottomHeight - 62.lpix()
         }
     }
     

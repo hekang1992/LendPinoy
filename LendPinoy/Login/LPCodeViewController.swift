@@ -73,8 +73,12 @@ extension LPCodeViewController {
     
     func sendcode() {
         let requestManager = LPRequestManager()
-        let dict = ["app": "swift", "vaguely": phone.value, "quizzical": "flash"]
-        requestManager.uploadDataAPI(params: dict, pageUrl: "/lpinoy/slipped/hitch/narrow", method: .post) { [weak self] result in
+        let dict = ["app": "swift", 
+                    "vaguely": phone.value,
+                    "quizzical": "flash"]
+        requestManager.uploadDataAPI(params: dict, 
+                                     pageUrl: "/lpinoy/slipped/hitch/narrow",
+                                     method: .post) { [weak self] result in
             switch result {
             case .success(let baseModel):
                 self?.startCode()
@@ -88,8 +92,13 @@ extension LPCodeViewController {
     
     func loginInfo() {
         let requestManager = LPRequestManager()
-        let dict = ["patchy": "autoASix", "page": self.codeView.phoneTx.text ?? "", "ordered": phone.value, "middle": "true"]
-        requestManager.uploadDataAPI(params: dict, pageUrl: "/lpinoy/while/pages/nabeyaki-udon", method: .post) { [weak self] result in
+        let dict = ["patchy": "autoASix", 
+                    "page": self.codeView.phoneTx.text ?? "",
+                    "ordered": phone.value,
+                    "middle": "true"]
+        requestManager.uploadDataAPI(params: dict, 
+                                     pageUrl: "/lpinoy/while/pages/nabeyaki-udon",
+                                     method: .post) { [weak self] result in
             switch result {
             case .success(let baseModel):
                 DispatchQueue.main.async {

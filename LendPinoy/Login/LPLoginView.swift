@@ -153,7 +153,7 @@ extension LPLoginView {
     
     func makeui() {
         navView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(StatusHeightManager.statusBarHeight + 5.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5.lpix())
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
             make.height.equalTo(44.lpix())
@@ -269,7 +269,6 @@ extension LPLoginView {
                 }
             })
             .disposed(by: disposeBag)
-        
     }
 }
 

@@ -101,7 +101,6 @@ class LPCodeView: UIView {
         return descLabel
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(navView)
@@ -132,7 +131,7 @@ extension LPCodeView {
     
     func makeui() {
         navView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(StatusHeightManager.statusBarHeight + 5.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5.lpix())
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
             make.height.equalTo(44.lpix())

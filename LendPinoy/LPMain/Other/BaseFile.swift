@@ -82,7 +82,7 @@ extension UIColor {
 
 
 
-class StatusHeightManager {
+class StatusManager {
     
     static var statusBarHeight:CGFloat {
         var height: CGFloat = 20.0;

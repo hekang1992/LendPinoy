@@ -110,7 +110,7 @@ extension LPCenterView {
         
         touxiang.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 70.lpix(), height: 70.lpix()))
-            make.top.equalToSuperview().offset(StatusHeightManager.statusBarHeight + 24.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 24.lpix())
             make.left.equalToSuperview().offset(20.lpix())
         }
         

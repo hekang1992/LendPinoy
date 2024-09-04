@@ -87,7 +87,7 @@ extension LPOrdersView {
             make.centerX.equalToSuperview()
             make.height.equalTo(103.lpix())
             make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalToSuperview().offset(StatusHeightManager.statusBarHeight + 4.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 4.lpix())
         }
         
         twoBtn1.snp.makeConstraints { make in

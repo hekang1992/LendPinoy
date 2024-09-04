@@ -14,13 +14,13 @@ class LPSubHomeView: UIView {
     
     let disposeBag = DisposeBag()
     
-    var modelArray = BehaviorRelay(value: ["Grouptwo", "Grouptwo", "Grouptwo"])
-    
-    var block1: (() -> Void)?
+    var block1: ((String) -> Void)?
     
     var block2: (() -> Void)?
     
     var block3: ((UIButton) -> Void)?
+    
+    var homeSubModel = BehaviorRelay<itselfModel?>(value: nil)
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -114,7 +114,7 @@ extension LPSubHomeView {
         }
         lunboView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(StatusHeightManager.statusBarHeight + 10.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10.lpix())
             make.left.equalToSuperview().offset(15.lpix())
             make.height.equalTo(103.lpix())
         }
@@ -157,7 +157,9 @@ extension LPSubHomeView {
     func tapClick() {
         applyBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            self.block1?()
+            if let ppid = self.homeSubModel.value?.forests?.delivery?[0].hesitantly {
+                self.block1?(ppid)
+            }
         }).disposed(by: disposeBag)
         
         sceBtn.rx.tap.subscribe(onNext: { [weak self] in
@@ -186,13 +188,13 @@ extension LPSubHomeView {
 extension LPSubHomeView: FSPagerViewDataSource, FSPagerViewDelegate {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return modelArray.value.count
+        let modelArray = homeSubModel.value?.purse?.delivery
+        return modelArray?.count ?? 0
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "LPLunBoViewCell", at: index) as? LPLunBoViewCell else { return FSPagerViewCell() }
-        let imageName = modelArray.value[index]
-        cell.icon.image = UIImage(named: imageName)
+        cell.model.accept(homeSubModel.value?.purse?.delivery?[index])
         return cell
     }
     

@@ -98,7 +98,11 @@ extension LPAccountManViewController {
     
     func poplogOut() {
         let man = LPRequestManager()
-        man.requestAPI(params: ["glaring": "shine", "out": "1", "strolling": "auth"], pageUrl: "/lpinoy/hurried/middle/hideji", method: .get) { [weak self] result in
+        man.requestAPI(params: ["glaring": "shine", 
+                                "out": "1",
+                                "strolling": "auth"],
+                       pageUrl: "/lpinoy/hurried/middle/hideji",
+                       method: .get) { [weak self] result in
             switch result {
             case .success(let success):
                 DispatchQueue.main.async {
@@ -116,7 +120,12 @@ extension LPAccountManViewController {
     
     func zxAc() {
         let man = LPRequestManager()
-        man.requestAPI(params: ["listen": "music", "zx": "true", "go": "oc", "from": "home"], pageUrl: "/lpinoy/street/right/picked", method: .get) { [weak self] result in
+        man.requestAPI(params: ["listen": "music", 
+                                "zx": "true",
+                                "go": "oc",
+                                "from": "home"], 
+                       pageUrl: "/lpinoy/street/right/picked",
+                       method: .get) { [weak self] result in
             switch result {
             case .success(let success):
                 DispatchQueue.main.async {

@@ -36,8 +36,68 @@ struct BaseModel {
 struct itselfModel {
     let ordered: String?
     let moist: String?
+    let payment: String?
+    let purse: purseModel?
+    let forests: forestsModel?
+    let researching: researchingModel?
+    let kitahama: kitahamaModel?
     init(json: JSON) {
         self.ordered = json["ordered"].stringValue
         self.moist = json["moist"].stringValue
+        self.payment = json["payment"].stringValue
+        self.purse = purseModel(json: json["purse"])
+        self.forests = forestsModel(json: json["forests"])
+        self.researching = researchingModel(json: json["researching"])
+        self.kitahama = kitahamaModel(json: json["kitahama"])
+    }
+}
+
+struct researchingModel {
+    let exchanged: String?
+    init(json: JSON) {
+        self.exchanged = json["exchanged"].stringValue
+    }
+}
+
+struct purseModel {
+    let separately: String?
+    let delivery: [deliveryModel]?
+    init(json: JSON) {
+        self.separately = json["separately"].stringValue
+        self.delivery = json["delivery"].arrayValue.map { deliveryModel(json: $0) }
+    }
+}
+
+struct forestsModel {
+    let separately: String?
+    let delivery: [deliveryModel]?
+    init(json: JSON) {
+        self.separately = json["separately"].stringValue
+        self.delivery = json["delivery"].arrayValue.map { deliveryModel(json: $0) }
+    }
+}
+
+struct deliveryModel {
+    let payment: String?
+    let fine: String?
+    let fortnight: String?
+    let hesitantly: String?
+    init(json: JSON) {
+        self.payment = json["payment"].stringValue
+        self.fine = json["fine"].stringValue
+        self.fortnight = json["fortnight"].stringValue
+        self.hesitantly = json["hesitantly"].stringValue
+    }
+}
+
+
+struct kitahamaModel {
+    let primaryArray: [String]
+    let secondaryArray: [String]
+    let allArray: [String]
+    init(json: JSON) {
+        self.primaryArray = json[0].arrayValue.map { $0.stringValue }
+        self.secondaryArray = json[1].arrayValue.map { $0.stringValue }
+        self.allArray = self.primaryArray + self.secondaryArray
     }
 }

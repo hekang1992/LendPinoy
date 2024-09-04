@@ -49,8 +49,12 @@ extension LPLoginViewController {
     
     func sendcode() {
         let requestManager = LPRequestManager()
-        let dict = ["app": "swift", "vaguely": self.loginView.phoneTx.text ?? "", "quizzical": "flash"]
-        requestManager.uploadDataAPI(params: dict, pageUrl: "/lpinoy/slipped/hitch/narrow", method: .post) { [weak self] result in
+        let dict = ["app": "swift", 
+                    "vaguely": self.loginView.phoneTx.text ?? "",
+                    "quizzical": "flash"]
+        requestManager.uploadDataAPI(params: dict, 
+                                     pageUrl: "/lpinoy/slipped/hitch/narrow",
+                                     method: .post) { [weak self] result in
             switch result {
             case .success(let baseModel):
                 ToastUtility.showToast(message: baseModel.frown ?? "")
