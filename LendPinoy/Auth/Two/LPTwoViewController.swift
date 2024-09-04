@@ -24,7 +24,6 @@ class LPTwoViewController: LPBaseViewController {
         twoView.navView.block = { [weak self] in
             self?.navigationController?.popToRootViewController(animated: true)
         }
-        
         qinqiuAInfo()
     }
 

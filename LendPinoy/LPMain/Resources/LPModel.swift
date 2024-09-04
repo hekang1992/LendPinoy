@@ -37,18 +37,33 @@ struct itselfModel {
     let ordered: String?
     let moist: String?
     let payment: String?
+    let ate: String?
     let purse: purseModel?
     let forests: forestsModel?
     let researching: researchingModel?
     let kitahama: kitahamaModel?
+    let classical: classicalModel?
     init(json: JSON) {
         self.ordered = json["ordered"].stringValue
         self.moist = json["moist"].stringValue
         self.payment = json["payment"].stringValue
+        self.ate = json["ate"].stringValue
         self.purse = purseModel(json: json["purse"])
         self.forests = forestsModel(json: json["forests"])
         self.researching = researchingModel(json: json["researching"])
         self.kitahama = kitahamaModel(json: json["kitahama"])
+        self.classical = classicalModel(json: json["classical"])
+    }
+}
+
+struct classicalModel {
+    let order: String?
+    let payment: String?
+    let became: String?
+    init(json: JSON) {
+        self.order = json["order"].stringValue
+        self.payment = json["payment"].stringValue
+        self.became = json["became"].stringValue
     }
 }
 
