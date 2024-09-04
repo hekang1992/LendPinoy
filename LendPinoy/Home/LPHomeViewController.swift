@@ -2,7 +2,7 @@
 //  LPHomeViewController.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/8/29.
+//  Created by Banana on 2024/8/29.
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  LPLunBoViewCell.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/1.
+//  Created by Banana on 2024/9/1.
 //
 
 import UIKit

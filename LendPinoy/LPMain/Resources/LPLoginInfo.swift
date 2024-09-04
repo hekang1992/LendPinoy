@@ -2,7 +2,7 @@
 //  LPLoginInfo.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/8/29.
+//  Created by Banana on 2024/8/29.
 //
 
 import UIKit
@@ -39,22 +39,23 @@ class LPLoginInfo: NSObject {
         }
         
         let dict1 = ["sense": getAppVersion(),
-                     "justice": UIDevice.current.systemVersion,
+                     "scrap": UIDevice.current.systemVersion,
                      "yellow": "lucky",
                      "form": "data",
-                     "white": "black",
+                     "backColor": "pink",
                      "Content": "testjson",
-                     "remem": moist,
+                     "moist": moist,
                      "bmw": "m5",
                      "zipo": "fire"]
         
         let dict2 = ["icloud": "1",
-                     "undulating": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
+                     "appeared": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
                      "peel": Device.current.description,
                      "yuzu": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
                      "normally": "iOS",
-                     "boyfine": "apple",
-                     "twins": "0"]
+                     "item": "apple",
+                     "twins": "0",
+                     "boyGirl": "boy"]
         
         let loict = dict2.reduce(into: dict1) { (result, item) in
             result[item.key] = item.value
