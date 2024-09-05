@@ -43,6 +43,8 @@
 		73A453732C88B4B8005C2882 /* LPTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A453722C88B4B8005C2882 /* LPTwoViewController.swift */; };
 		73A453752C88B4CF005C2882 /* LPTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A453742C88B4CF005C2882 /* LPTwoView.swift */; };
 		73A453772C88B6FA005C2882 /* LPTwoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A453762C88B6FA005C2882 /* LPTwoCell.swift */; };
+		73A5185F2C89E2C80076BC36 /* LPPCamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A5185E2C89E2C80076BC36 /* LPPCamManager.swift */; };
+		73A518622C89ECF70076BC36 /* LPCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A518612C89ECF70076BC36 /* LPCommonView.swift */; };
 		73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */; };
 		73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */; };
 		73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */; };
@@ -93,6 +95,8 @@
 		73A453722C88B4B8005C2882 /* LPTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPTwoViewController.swift; sourceTree = "<group>"; };
 		73A453742C88B4CF005C2882 /* LPTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPTwoView.swift; sourceTree = "<group>"; };
 		73A453762C88B6FA005C2882 /* LPTwoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPTwoCell.swift; sourceTree = "<group>"; };
+		73A5185E2C89E2C80076BC36 /* LPPCamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPPCamManager.swift; sourceTree = "<group>"; };
+		73A518612C89ECF70076BC36 /* LPCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCommonView.swift; sourceTree = "<group>"; };
 		73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPSheBeiInfo.swift; sourceTree = "<group>"; };
 		73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginInfo.swift; sourceTree = "<group>"; };
 		73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHomeViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 		73A453672C889E48005C2882 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				73A518602C89ECE30076BC36 /* Common */,
+				73A5185D2C89E2860076BC36 /* LPPhCam */,
 				73A453702C88B48E005C2882 /* Frist */,
 				73A453712C88B49B005C2882 /* Two */,
 			);
@@ -241,6 +247,22 @@
 				73A453722C88B4B8005C2882 /* LPTwoViewController.swift */,
 			);
 			path = Two;
+			sourceTree = "<group>";
+		};
+		73A5185D2C89E2860076BC36 /* LPPhCam */ = {
+			isa = PBXGroup;
+			children = (
+				73A5185E2C89E2C80076BC36 /* LPPCamManager.swift */,
+			);
+			path = LPPhCam;
+			sourceTree = "<group>";
+		};
+		73A518602C89ECE30076BC36 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				73A518612C89ECF70076BC36 /* LPCommonView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		73BDE2552C80BF5B00A776F8 /* Home */ = {
@@ -425,6 +447,8 @@
 				73A4536B2C889EC6005C2882 /* FristVcView.swift in Sources */,
 				730C32162C7F4B460079510B /* Market Fresh.ttf in Sources */,
 				73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */,
+				73A5185F2C89E2C80076BC36 /* LPPCamManager.swift in Sources */,
+				73A518622C89ECF70076BC36 /* LPCommonView.swift in Sources */,
 				730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */,
 				730C321D2C7F4C0B0079510B /* LPBaseViewController.swift in Sources */,
 				730C32152C7F4B430079510B /* Market Fresh Bold.ttf in Sources */,

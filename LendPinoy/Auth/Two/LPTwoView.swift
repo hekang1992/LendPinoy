@@ -15,6 +15,10 @@ class LPTwoView: UIView {
     
     var modelArray = BehaviorRelay<[ActionModel]>(value: [])
     
+    var startblock: (() -> Void)?
+    
+    var cellClicjblock: ((Int) -> Void)?
+    
     lazy var navView: LPNavgationView = {
         let navView = LPNavgationView()
         navView.titleLabel.text = "Verification"
@@ -71,8 +75,9 @@ extension LPTwoView: UITableViewDelegate {
                 cell.selectionStyle = .none
         }.disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(String.self).subscribe(onNext: { [weak self] model in
-            print("model>>>>>\(model)")
+        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+            guard let self = self else { return }
+            self.cellClicjblock?(indexPath.row)
         }).disposed(by: disposeBag)
         
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
@@ -104,6 +109,11 @@ extension LPTwoView: UITableViewDelegate {
             make.bottom.equalToSuperview()
             make.height.equalTo(60.lpix())
         }
+        btn.rx.tap.subscribe(onNext: { [weak self] in
+            if let self = self {
+                self.startblock?()
+            }
+        }).disposed(by: disposeBag)
         return footView
     }
     

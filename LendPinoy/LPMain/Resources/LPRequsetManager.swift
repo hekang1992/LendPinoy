@@ -126,13 +126,14 @@ class LPRequestManager: NSObject {
         requestData(target: .requestAPI(params: params, pageUrl: pageUrl, method: method), completion: completion)
     }
     
+    func uploadDataAPI(params: [String: Any]?, pageUrl: String, method: Moya.Method, completion: @escaping (Result<BaseModel, Error>) -> Void) {
+        requestData(target: .requestAPI(params: params, pageUrl: pageUrl, method: method), completion: completion)
+    }
+    
     func uploadImageAPI(params: [String: Any]?, pageUrl: String, data: Data, method: Moya.Method, completion: @escaping (Result<BaseModel, Error>) -> Void) {
         requestData(target: .uploadImageAPI(params: params, pageUrl: pageUrl, data: data, method: method), completion: completion)
     }
     
-    func uploadDataAPI(params: [String: Any]?, pageUrl: String, method: Moya.Method, completion: @escaping (Result<BaseModel, Error>) -> Void) {
-        requestData(target: .requestAPI(params: params, pageUrl: pageUrl, method: method), completion: completion)
-    }
 }
 
 class RequsetPinJieURL {

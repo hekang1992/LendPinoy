@@ -39,6 +39,10 @@ target 'LendPinoy' do
   
   pod 'lottie-ios', '~> 4.5.0'
   
+  pod 'RxGesture', '~> 4.0.4'
+  
+  pod 'BRPickerView', '~> 2.9.1'
+  
   # Pods for LendPinoy
 
 end

@@ -38,6 +38,9 @@ struct itselfModel {
     let moist: String?
     let payment: String?
     let ate: String?
+    let quench: String?
+    let attending: String?
+    let encouragingly: String?
     let purse: purseModel?
     let forests: forestsModel?
     let researching: researchingModel?
@@ -48,6 +51,9 @@ struct itselfModel {
         self.moist = json["moist"].stringValue
         self.payment = json["payment"].stringValue
         self.ate = json["ate"].stringValue
+        self.quench = json["quench"].stringValue
+        self.attending = json["attending"].stringValue
+        self.encouragingly = json["encouragingly"].stringValue
         self.purse = purseModel(json: json["purse"])
         self.forests = forestsModel(json: json["forests"])
         self.researching = researchingModel(json: json["researching"])

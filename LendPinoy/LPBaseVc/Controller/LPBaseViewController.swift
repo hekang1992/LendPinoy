@@ -94,7 +94,6 @@ extension LPBaseViewController {
         if page == "shooing1" {
             let oneVc = FristVcViewController()
             oneVc.chanpinid.accept(chanpinid)
-            let vc = self.navigationController
             self.navigationController?.pushViewController(oneVc, animated: true)
         } else if page == "shooing2" {
             
@@ -106,6 +105,30 @@ extension LPBaseViewController {
             
         } else if page == "shooing6" {
             
+        }
+    }
+    
+    func maiInfopoint(_ point: String, _ time: String, _ endtime: String, _ chanpinID: String) {
+        let location = LPDingWeiManager()
+        location.startUpdatingLocation { locationModel in
+            let manager = LPRequestManager()
+            let pointDict = [
+                "mizuo": DeviceInfo.getIDFA(),
+                "cupping": point,
+                "heike": chanpinID,
+                "tea": "greenTea",
+                "adds": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
+                "lemon": "tree",
+                "shichimi": locationModel.shichimi,
+                "spice": locationModel.spice,
+                "village": time,
+                "arm": endtime,
+                "tucking": "mins"] as [String : Any]
+            manager.uploadDataAPI(params: pointDict,
+                                  pageUrl: "/lpinoy/chieko/thats/dripping",
+                                  method: .post) { result in
+                
+            }
         }
     }
     

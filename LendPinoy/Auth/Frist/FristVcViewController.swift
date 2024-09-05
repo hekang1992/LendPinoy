@@ -24,6 +24,10 @@ class FristVcViewController: LPBaseViewController {
     
     var chanpinid = BehaviorRelay<String?>(value: nil)
     
+    var itselfModel = BehaviorRelay<itselfModel?>(value: nil)
+    
+    var startMine: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +41,7 @@ class FristVcViewController: LPBaseViewController {
         }
         chanpinidInfo()
         tapClick()
+        startMine = SystemInfo.getCurrentTime()
     }
     
 }
@@ -61,9 +66,10 @@ extension FristVcViewController {
             case .success(let success):
                 if let strArray = success.itself.kitahama?.allArray {
                     self?.fristView.strArray.accept(strArray)
+                    self?.itselfModel.accept(success.itself)
                 }
                 break
-            case .failure(let failure):
+            case .failure(_):
                 break
             }
         }
@@ -80,12 +86,19 @@ extension FristVcViewController {
             }
             self?.popView.block2 = { [weak self] in
                 self?.dismiss(animated: true, completion: {
+                    self?.makePoint()
                     let twoVc = LPTwoViewController()
+                    twoVc.type = authStr
+                    twoVc.chanpinID = self?.chanpinid.value
+                    twoVc.itselfModel.accept(self?.itselfModel.value)
                     self?.navigationController?.pushViewController(twoVc, animated: true)
                 })
             }
         }
-        
+    }
+    
+    func makePoint() {
+        self.maiInfopoint("2", startMine ?? "", SystemInfo.getCurrentTime(), chanpinid.value ?? "")
     }
     
 }

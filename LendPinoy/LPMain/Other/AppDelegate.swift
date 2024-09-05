@@ -90,7 +90,7 @@ extension AppDelegate {
             let maiDict = [
                 "mizuo": DeviceInfo.getIDFA(),
                 "cupping": "1",
-                "heike": Date(),
+                "heike": "",
                 "adds": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
                 "shichimi": model.shichimi,
                 "spice": model.spice,
