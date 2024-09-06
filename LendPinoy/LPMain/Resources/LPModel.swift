@@ -24,7 +24,6 @@ struct BaseModel {
     let hitch: Int?
     let frown: String?
     let itself: itselfModel
-    
     init(json: JSON) {
         self.hitch = json["hitch"].intValue
         self.frown = json["frown"].stringValue
@@ -46,6 +45,7 @@ struct itselfModel {
     let researching: researchingModel?
     let kitahama: kitahamaModel?
     let classical: classicalModel?
+    let crossing: [crossingModel]?
     init(json: JSON) {
         self.ordered = json["ordered"].stringValue
         self.moist = json["moist"].stringValue
@@ -59,6 +59,38 @@ struct itselfModel {
         self.researching = researchingModel(json: json["researching"])
         self.kitahama = kitahamaModel(json: json["kitahama"])
         self.classical = classicalModel(json: json["classical"])
+        self.crossing = json["crossing"].arrayValue.map({ json in
+            crossingModel(json: json)
+        })
+    }
+}
+struct crossingModel {
+    let readily: String?
+    let met: String?
+    let glued: String?
+    let hitch: String?
+    let photo: String?
+    let completely: String?
+    let separately: String?
+    let silent: silentModel?
+    init(json: JSON) {
+        self.readily = json["readily"].stringValue
+        self.met = json["met"].stringValue
+        self.glued = json["glued"].stringValue
+        self.hitch = json["hitch"].stringValue
+        self.photo = json["photo"].stringValue
+        self.completely = json["completely"].stringValue
+        self.separately = json["separately"].stringValue
+        self.silent = silentModel(json: json["silent"])
+    }
+}
+
+struct silentModel {
+    let quench: String?
+    let separately: String?
+    init(json: JSON) {
+        self.quench = json["quench"].stringValue
+        self.separately = json["separately"].stringValue
     }
 }
 

@@ -13,7 +13,9 @@ class YIBanView: LPJCView {
     
     var startblock: (() -> Void)?
     
-    var cellClicjblock: ((Int) -> Void)?
+    var modelArray = BehaviorRelay<[crossingModel]>(value: [])
+    
+    var tapBlock: ((UIButton, crossingModel) -> Void)?
     
     lazy var navView: LPNavgationView = {
         let navView = LPNavgationView()
@@ -49,7 +51,8 @@ class YIBanView: LPJCView {
         tableView.backgroundColor = .white
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        tableView.register(LPTwoCell.self, forCellReuseIdentifier: "LPTwoCell")
+        tableView.register(LPTextViewCell.self, forCellReuseIdentifier: "LPTextViewCell")
+        tableView.register(LPDianjiTMViewCell.self, forCellReuseIdentifier: "LPDianjiTMViewCell")
         return tableView
     }()
     
@@ -102,8 +105,31 @@ extension YIBanView: UITableViewDelegate {
     }
     
     func bindss() {
-       
         
+        modelArray
+            .asObservable()
+            .bind(to: tableView.rx.items) { tableView, index, model in
+                let sbc = model.photo ?? ""
+                if sbc == "pointing2" {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "LPTextViewCell", for: IndexPath(row: index, section: 0)) as? LPTextViewCell  {
+                        cell.model.accept(model)
+                        cell.backgroundColor = .clear
+                        cell.selectionStyle = .none
+                        return cell
+                    }
+                } else {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "LPDianjiTMViewCell", for: IndexPath(row: index, section: 0)) as? LPDianjiTMViewCell  {
+                        cell.model.accept(model)
+                        cell.backgroundColor = .clear
+                        cell.selectionStyle = .none
+                        cell.tapBlock = { [weak self] btn in
+                            self?.tapBlock?(btn, model)
+                        }
+                        return cell
+                    }
+                }
+                return UITableViewCell()
+            }.disposed(by: disposeBag)
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
@@ -120,6 +146,7 @@ extension YIBanView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard !modelArray.value.isEmpty else { return nil }
         let footView = UIView()
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 4.lpix()

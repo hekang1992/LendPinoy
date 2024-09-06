@@ -27,6 +27,8 @@
 		73260BD52C8B4268006066E5 /* LIUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD42C8B4268006066E5 /* LIUViewController.swift */; };
 		73260BD72C8B477B006066E5 /* YIBanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD62C8B477B006066E5 /* YIBanView.swift */; };
 		73260BD92C8B47C4006066E5 /* LPJCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD82C8B47C4006066E5 /* LPJCView.swift */; };
+		73260BDB2C8B5C1A006066E5 /* LPTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BDA2C8B5C1A006066E5 /* LPTextViewCell.swift */; };
+		73260BDD2C8B5C2E006066E5 /* LPDianjiTMViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BDC2C8B5C2E006066E5 /* LPDianjiTMViewCell.swift */; };
 		7326E4072C84C8B900383EBC /* LPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4062C84C8B900383EBC /* LPLoginViewController.swift */; };
 		7326E4092C84C8D000383EBC /* LPLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4082C84C8D000383EBC /* LPLoginView.swift */; };
 		7326E40B2C85FF7A00383EBC /* LPCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E40A2C85FF7A00383EBC /* LPCodeViewController.swift */; };
@@ -85,6 +87,8 @@
 		73260BD42C8B4268006066E5 /* LIUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIUViewController.swift; sourceTree = "<group>"; };
 		73260BD62C8B477B006066E5 /* YIBanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YIBanView.swift; sourceTree = "<group>"; };
 		73260BD82C8B47C4006066E5 /* LPJCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPJCView.swift; sourceTree = "<group>"; };
+		73260BDA2C8B5C1A006066E5 /* LPTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPTextViewCell.swift; sourceTree = "<group>"; };
+		73260BDC2C8B5C2E006066E5 /* LPDianjiTMViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPDianjiTMViewCell.swift; sourceTree = "<group>"; };
 		7326E4062C84C8B900383EBC /* LPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginViewController.swift; sourceTree = "<group>"; };
 		7326E4082C84C8D000383EBC /* LPLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginView.swift; sourceTree = "<group>"; };
 		7326E40A2C85FF7A00383EBC /* LPCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCodeViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				73260BD22C8B4242006066E5 /* WUViewController.swift */,
 				73260BD42C8B4268006066E5 /* LIUViewController.swift */,
 				73260BD62C8B477B006066E5 /* YIBanView.swift */,
+				73260BDA2C8B5C1A006066E5 /* LPTextViewCell.swift */,
+				73260BDC2C8B5C2E006066E5 /* LPDianjiTMViewCell.swift */,
 			);
 			path = San;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7389D4532C83A63300C7D7DB /* LPSubHomeView.swift in Sources */,
+				73260BDB2C8B5C1A006066E5 /* LPTextViewCell.swift in Sources */,
 				73A4536B2C889EC6005C2882 /* FristVcView.swift in Sources */,
 				730C32162C7F4B460079510B /* Market Fresh.ttf in Sources */,
 				73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */,
@@ -494,6 +501,7 @@
 				73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */,
 				7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */,
 				7389D44B2C8389A100C7D7DB /* LPNavgationView.swift in Sources */,
+				73260BDD2C8B5C2E006066E5 /* LPDianjiTMViewCell.swift in Sources */,
 				7326E4152C8610AA00383EBC /* LPDingWeiManager.swift in Sources */,
 				73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */,
 				73A453752C88B4CF005C2882 /* LPTwoView.swift in Sources */,
