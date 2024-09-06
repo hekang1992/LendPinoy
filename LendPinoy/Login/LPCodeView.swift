@@ -9,9 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LPCodeView: UIView {
-    
-    let disposeBag = DisposeBag()
+class LPCodeView: LPJCView {
     
     var codeBlock: (() -> Void)?
     

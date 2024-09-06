@@ -35,11 +35,18 @@ class LPHomeViewController: LPBaseViewController {
         }
         manView.isHidden = true
         subView.isHidden = true
-        homeInfo()
         addShuaxin()
         subView.block1 = { [weak self] ppid in
             self?.shenqingchanpin(form: ppid)
         }
+        subView.block4 = { [weak self] pur in
+            self?.genJuUrlPush(form: pur)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        homeInfo()
     }
     
 }
@@ -56,14 +63,15 @@ extension LPHomeViewController {
             switch result {
             case .success(let success):
                 let homeModel = success.itself
-                if homeModel.forests?.separately == "yamada2" {//oneHome
+                if homeModel.forests?.separately == "yamada2" {//one
                     self?.subView.isHidden = false
                     self?.manView.isHidden = true
-                } else {//twoHome
+                } else {//two
                     self?.subView.isHidden = true
                     self?.manView.isHidden = false
                 }
                 self?.subView.homeSubModel.accept(homeModel)
+                self?.subView.lunboView.reloadData()
                 self?.subView.scrollView.mj_header?.endRefreshing()
                 break
             case .failure(_):

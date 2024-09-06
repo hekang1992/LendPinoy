@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import SwiftUI
 
 class LPBaseViewController: UIViewController {
     
@@ -92,20 +93,39 @@ extension LPBaseViewController {
     
     func pushYeMian(_ page: String, _ chanpinid: String) {
         if page == "shooing1" {
-            let oneVc = FristVcViewController()
-            oneVc.chanpinid.accept(chanpinid)
-            self.navigationController?.pushViewController(oneVc, animated: true)
+            self.huoquxinxiinfo(from: chanpinid) { [weak self] baseModel in
+                if let self = self, 
+                    let pap = baseModel.itself.classical?.payment {
+                    if !pap.isEmpty {
+                        let twoVc = LPTwoViewController()
+                        twoVc.chanpinID = chanpinid
+                        twoVc.itselfModel.accept(baseModel.itself)
+                        self.navigationController?.pushViewController(twoVc, animated: true)
+                    }else {
+                        let oneVc = FristVcViewController()
+                        oneVc.chanpinid.accept(chanpinid)
+                        self.navigationController?.pushViewController(oneVc, animated: true)
+                    }
+                }
+            }
+            
         } else if page == "shooing2" {
-            
+            let samVc = SamViewController()
+            samVc.chanpinID.accept(chanpinid)
+            self.navigationController?.pushViewController(samVc, animated: true)
         } else if page == "shooing3" {
-            
+            let samVc = SamViewController()
+            samVc.chanpinID.accept(chanpinid)
+            self.navigationController?.pushViewController(samVc, animated: true)
         } else if page == "shooing4" {
-            
+            let samVc = SamViewController()
+            samVc.chanpinID.accept(chanpinid)
+            self.navigationController?.pushViewController(samVc, animated: true)
         } else if page == "shooing5" {
-            
-        } else if page == "shooing6" {
-            
-        }
+            let samVc = SamViewController()
+            samVc.chanpinID.accept(chanpinid)
+            self.navigationController?.pushViewController(samVc, animated: true)
+        } else {}
     }
     
     func maiInfopoint(_ point: String, _ time: String, _ endtime: String, _ chanpinID: String) {
@@ -128,6 +148,22 @@ extension LPBaseViewController {
                                   pageUrl: "/lpinoy/chieko/thats/dripping",
                                   method: .post) { result in
                 
+            }
+        }
+    }
+    
+    func huoquxinxiinfo(from chanpinid: String, completion: @escaping (BaseModel) -> Void) {
+        let dict = ["reminder": chanpinid, "tale": "5", "have": "1"]
+        let man = LPRequestManager()
+        man.requestAPI(params: dict,
+                       pageUrl: "/lpinoy/wouldnt/outstanding/early",
+                       method: .get) { result in
+            switch result {
+            case .success(let success):
+                completion(success)
+                break
+            case .failure(_):
+                break
             }
         }
     }

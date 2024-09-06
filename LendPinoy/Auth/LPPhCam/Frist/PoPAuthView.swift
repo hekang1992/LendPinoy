@@ -2,15 +2,13 @@
 //  PoPAuthView.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/4.
+//  Created by Banana on 2024/9/4.
 //
 
 import UIKit
 import RxSwift
 
-class PoPAuthView: UIView {
-    
-    let disposeBag = DisposeBag()
+class PoPAuthView: LPJCView {
 
     lazy var bgView: UIView = {
         let bgView = UIView()

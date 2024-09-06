@@ -2,14 +2,14 @@
 //  LPCommonView.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/5.
+//  Created by Banana on 2024/9/5.
 //
 
 import UIKit
 import RxSwift
 import RxGesture
 
-class LPCommonView: UIView {
+class LPCommonView: LPJCView {
     
     enum TypeEnum {
         case normal
@@ -17,8 +17,6 @@ class LPCommonView: UIView {
     }
     
     var timeBlock: ((UIButton) -> Void)?
-    
-    let disposeBag = DisposeBag()
     
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)

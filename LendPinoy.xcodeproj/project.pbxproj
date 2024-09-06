@@ -21,6 +21,12 @@
 		730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32202C7F4CB50079510B /* LPLaunchViewController.swift */; };
 		730C32232C7F4F0B0079510B /* LPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32222C7F4F0B0079510B /* LPModel.swift */; };
 		730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32242C7F50800079510B /* LPRequsetManager.swift */; };
+		73260BCF2C8B41A5006066E5 /* SamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BCE2C8B41A5006066E5 /* SamViewController.swift */; };
+		73260BD12C8B4232006066E5 /* SIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD02C8B4232006066E5 /* SIViewController.swift */; };
+		73260BD32C8B4242006066E5 /* WUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD22C8B4242006066E5 /* WUViewController.swift */; };
+		73260BD52C8B4268006066E5 /* LIUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD42C8B4268006066E5 /* LIUViewController.swift */; };
+		73260BD72C8B477B006066E5 /* YIBanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD62C8B477B006066E5 /* YIBanView.swift */; };
+		73260BD92C8B47C4006066E5 /* LPJCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD82C8B47C4006066E5 /* LPJCView.swift */; };
 		7326E4072C84C8B900383EBC /* LPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4062C84C8B900383EBC /* LPLoginViewController.swift */; };
 		7326E4092C84C8D000383EBC /* LPLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4082C84C8D000383EBC /* LPLoginView.swift */; };
 		7326E40B2C85FF7A00383EBC /* LPCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E40A2C85FF7A00383EBC /* LPCodeViewController.swift */; };
@@ -73,6 +79,12 @@
 		730C32202C7F4CB50079510B /* LPLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLaunchViewController.swift; sourceTree = "<group>"; };
 		730C32222C7F4F0B0079510B /* LPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPModel.swift; sourceTree = "<group>"; };
 		730C32242C7F50800079510B /* LPRequsetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPRequsetManager.swift; sourceTree = "<group>"; };
+		73260BCE2C8B41A5006066E5 /* SamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamViewController.swift; sourceTree = "<group>"; };
+		73260BD02C8B4232006066E5 /* SIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIViewController.swift; sourceTree = "<group>"; };
+		73260BD22C8B4242006066E5 /* WUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WUViewController.swift; sourceTree = "<group>"; };
+		73260BD42C8B4268006066E5 /* LIUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIUViewController.swift; sourceTree = "<group>"; };
+		73260BD62C8B477B006066E5 /* YIBanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YIBanView.swift; sourceTree = "<group>"; };
+		73260BD82C8B47C4006066E5 /* LPJCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPJCView.swift; sourceTree = "<group>"; };
 		7326E4062C84C8B900383EBC /* LPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginViewController.swift; sourceTree = "<group>"; };
 		7326E4082C84C8D000383EBC /* LPLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLoginView.swift; sourceTree = "<group>"; };
 		7326E40A2C85FF7A00383EBC /* LPCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCodeViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +192,18 @@
 			path = LPBaseVc;
 			sourceTree = "<group>";
 		};
+		73260BCD2C8B3E8D006066E5 /* San */ = {
+			isa = PBXGroup;
+			children = (
+				73260BCE2C8B41A5006066E5 /* SamViewController.swift */,
+				73260BD02C8B4232006066E5 /* SIViewController.swift */,
+				73260BD22C8B4242006066E5 /* WUViewController.swift */,
+				73260BD42C8B4268006066E5 /* LIUViewController.swift */,
+				73260BD62C8B477B006066E5 /* YIBanView.swift */,
+			);
+			path = San;
+			sourceTree = "<group>";
+		};
 		7326E4052C84C8A300383EBC /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +218,7 @@
 		7326E4122C860F3500383EBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				73260BD82C8B47C4006066E5 /* LPJCView.swift */,
 				730C32222C7F4F0B0079510B /* LPModel.swift */,
 				73BDE2512C80ACBA00A776F8 /* LPSheBeiInfo.swift */,
 				73BDE2532C80BB2B00A776F8 /* LPLoginInfo.swift */,
@@ -222,8 +247,6 @@
 			children = (
 				73A518602C89ECE30076BC36 /* Common */,
 				73A5185D2C89E2860076BC36 /* LPPhCam */,
-				73A453702C88B48E005C2882 /* Frist */,
-				73A453712C88B49B005C2882 /* Two */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -252,7 +275,9 @@
 		73A5185D2C89E2860076BC36 /* LPPhCam */ = {
 			isa = PBXGroup;
 			children = (
-				73A5185E2C89E2C80076BC36 /* LPPCamManager.swift */,
+				73A453702C88B48E005C2882 /* Frist */,
+				73A453712C88B49B005C2882 /* Two */,
+				73260BCD2C8B3E8D006066E5 /* San */,
 			);
 			path = LPPhCam;
 			sourceTree = "<group>";
@@ -261,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				73A518612C89ECF70076BC36 /* LPCommonView.swift */,
+				73A5185E2C89E2C80076BC36 /* LPPCamManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -447,12 +473,14 @@
 				73A4536B2C889EC6005C2882 /* FristVcView.swift in Sources */,
 				730C32162C7F4B460079510B /* Market Fresh.ttf in Sources */,
 				73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */,
+				73260BD12C8B4232006066E5 /* SIViewController.swift in Sources */,
 				73A5185F2C89E2C80076BC36 /* LPPCamManager.swift in Sources */,
 				73A518622C89ECF70076BC36 /* LPCommonView.swift in Sources */,
 				730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */,
 				730C321D2C7F4C0B0079510B /* LPBaseViewController.swift in Sources */,
 				730C32152C7F4B430079510B /* Market Fresh Bold.ttf in Sources */,
 				730C321B2C7F4BE00079510B /* LPNavigationController.swift in Sources */,
+				73260BD92C8B47C4006066E5 /* LPJCView.swift in Sources */,
 				730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */,
 				73BDE25D2C80BFAB00A776F8 /* LPCenterViewController.swift in Sources */,
 				73BDE2622C80C42100A776F8 /* PATabBarButton.swift in Sources */,
@@ -470,8 +498,11 @@
 				73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */,
 				73A453752C88B4CF005C2882 /* LPTwoView.swift in Sources */,
 				73A453692C889E83005C2882 /* FristVcViewController.swift in Sources */,
+				73260BD72C8B477B006066E5 /* YIBanView.swift in Sources */,
+				73260BD32C8B4242006066E5 /* WUViewController.swift in Sources */,
 				730C32232C7F4F0B0079510B /* LPModel.swift in Sources */,
 				73A453772C88B6FA005C2882 /* LPTwoCell.swift in Sources */,
+				73260BD52C8B4268006066E5 /* LIUViewController.swift in Sources */,
 				7326E4072C84C8B900383EBC /* LPLoginViewController.swift in Sources */,
 				7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */,
 				73A4536D2C88A7AC005C2882 /* FristViewCell.swift in Sources */,
@@ -480,6 +511,7 @@
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
 				73A4536F2C88AF11005C2882 /* PoPAuthView.swift in Sources */,
 				7326E40D2C86003200383EBC /* LPCodeView.swift in Sources */,
+				73260BCF2C8B41A5006066E5 /* SamViewController.swift in Sources */,
 				7326E40F2C860C8D00383EBC /* LPCycleView.swift in Sources */,
 				730C32192C7F4BBE0079510B /* LPTabBarViewController.swift in Sources */,
 				7357B4BF2C84B91800B2DE1B /* LPLunBoViewCell.swift in Sources */,

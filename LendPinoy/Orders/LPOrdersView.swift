@@ -8,9 +8,7 @@
 import UIKit
 import RxSwift
 
-class LPOrdersView: UIView {
-    
-    let disposeBag = DisposeBag()
+class LPOrdersView: LPJCView {
     
     var block: (() -> Void)?
 

@@ -2,7 +2,7 @@
 //  LPPCamManager.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/5.
+//  Created by Banana on 2024/9/5.
 //
 
 import UIKit
@@ -127,8 +127,12 @@ class LPPCamManager: NSObject {
     }
     
     private func hideButton(in view: UIView) {
-        if let flipButton = view.subviews.first(where: { $0 is UIButton && ($0.description.contains("Flip") || $0.description.contains("CAMFlipButton")) }) as? UIButton {
-            flipButton.isHidden = true
+        view.subviews.forEach { subview in
+            if let button = subview as? UIButton, button.description.contains("CAMFlipButton") {
+                button.isHidden = true
+                return
+            }
+            hideButton(in: subview)
         }
     }
     

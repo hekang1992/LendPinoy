@@ -143,9 +143,8 @@ extension LPAccountManViewController {
     
 }
 
-class LogView: UIView {
+class LogView: LPJCView {
     
-    let disposeBag = DisposeBag()
     var block1: (() -> Void)?
     var block2: (() -> Void)?
     

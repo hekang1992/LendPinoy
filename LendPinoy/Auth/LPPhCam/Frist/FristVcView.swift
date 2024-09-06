@@ -2,16 +2,14 @@
 //  FristVcView.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/4.
+//  Created by Banana on 2024/9/4.
 //
 
 import UIKit
 import RxRelay
 import RxSwift
 
-class FristVcView: UIView {
-    
-    let disposeBag = DisposeBag()
+class FristVcView: LPJCView {
     
     var block: ((String) -> Void)?
     

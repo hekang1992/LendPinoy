@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class LPCycleView: UIView {
+class LPCycleView: LPJCView {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
@@ -61,9 +61,6 @@ class ViewCycleManager {
                     keyWindow.addSubview(loadView)
                 }
             }
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
-            hideCycView()
         }
     }
     

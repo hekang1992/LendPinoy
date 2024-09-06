@@ -2,18 +2,16 @@
 //  LPTwoView.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/4.
+//  Created by Banana on 2024/9/4.
 //
 
 import UIKit
 import RxRelay
 import RxSwift
 
-class LPTwoView: UIView {
+class LPTwoView: LPJCView {
     
-    let disposeBag = DisposeBag()
-    
-    var modelArray = BehaviorRelay<[ActionModel]>(value: [])
+    var modelArray = BehaviorRelay<[ActionModel?]>(value: [])
     
     var startblock: (() -> Void)?
     

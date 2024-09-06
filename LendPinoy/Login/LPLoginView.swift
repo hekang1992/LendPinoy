@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 import ActiveLabel
+import RxSwift
 
-class LPLoginView: UIView {
-    
-    let disposeBag = DisposeBag()
+class LPLoginView: LPJCView {
     
     var codeBlock: (() -> Void)?
     

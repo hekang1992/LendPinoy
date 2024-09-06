@@ -2,7 +2,7 @@
 //  LPTwoViewController.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/4.
+//  Created by Banana on 2024/9/4.
 //
 
 import UIKit
@@ -24,6 +24,16 @@ class LPTwoViewController: LPBaseViewController {
     
     var itselfModel = BehaviorRelay<itselfModel?>(value: nil)
     
+    var model1: ActionModel?
+    
+    var model2: ActionModel?
+    
+    var isrenlianshibie: String = "0"
+    
+    var kaishiTime1: String?
+    
+    var kaishiTime2: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,12 +47,11 @@ class LPTwoViewController: LPBaseViewController {
         qinqiuAInfo()
         tapClick()
     }
-    
 }
 
 struct ActionModel {
     let title: String?
-    let icon: String?
+    var icon: String?
     let desc: String?
     init(title: String?, icon: String?, desc: String?) {
         self.title = title
@@ -55,11 +64,16 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     func qinqiuAInfo() {
         
-        let model1 = ActionModel(title: "ID Verification", icon: "Verification", desc: "Please ensure that the uploaded ID card type matches the selected ID card!")
+        model1 = ActionModel(title: "ID Verification", icon: "Verification", desc: "Please ensure that the uploaded ID card type matches the selected ID card!")
         
-        let model2 = ActionModel(title: "Facial Recognition", icon: "Recognition", desc: "Please ensure good lighting, maintain a natural expression, and stay relatively still!")
-        
-        let array = [model1,model2]
+        model2 = ActionModel(title: "Facial Recognition", icon: "Recognition", desc: "Please ensure good lighting, maintain a natural expression, and stay relatively still!")
+        if let payment = itselfModel.value?.classical?.payment, !payment.isEmpty {
+            model1?.icon = payment
+        }
+        if let lianurl = itselfModel.value?.payment, !lianurl.isEmpty {
+            model2?.icon = lianurl
+        }
+        let array = [model1, model2]
         self.twoView.modelArray.accept(array)
     }
     
@@ -81,7 +95,11 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
                     ToastUtility.showToast(message: "To better serve you, please upload your ID photo first. Thank you for your cooperation!")
                 }
             } else if model.classical?.order == "1" {
-                
+                if let self = self {
+                    self.kaishiTime2 = SystemInfo.getLastTime()
+                    self.isrenlianshibie = "1"
+                    LPPCamManager.shared.presentCamera(from: self, isFront: true)
+                }
             }
         }
         
@@ -91,9 +109,11 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
         let phView = PHView(frame: self.view.bounds)
         let alertVc = TYAlertController(alert: phView, preferredStyle: .alert)
         self.present(alertVc!, animated: true)
+        kaishiTime1 = SystemInfo.getCurrentTime()
         phView.block1 = { [weak self] in
             self?.dismiss(animated: true, completion: {
                 if let self = self {
+                    self.isrenlianshibie = "0"
                     LPPCamManager.shared.presentCamera(from: self, isFront: false)
                 }
             })
@@ -101,6 +121,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
         phView.block2 = { [weak self] in
             self?.dismiss(animated: true, completion: {
                 if let self = self {
+                    self.isrenlianshibie = "0"
                     LPPCamManager.shared.presentPhoto(from: self)
                 }
             })
@@ -113,7 +134,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         guard let pimage = image else { return }
-        let iamgeData = pimage.compressTo(maxSizeInMB: 1.2)
+        let iamgeData = pimage.compressTo(maxSizeInMB: 0.8)
         picker.dismiss(animated: true) { [weak self] in
             self?.scidphoto(form: iamgeData!, image: pimage)
         }
@@ -125,21 +146,41 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     func scidphoto(form data: Data, image: UIImage) {
         let man = LPRequestManager()
-        let dict = ["memory": "1", 
+        var dict: [String: Any]?
+        if self.isrenlianshibie == "0" {
+            dict = ["memory": "1",
                     "reminder": chanpinID ?? "",
-                    "became": type ?? "",
                     "separately": "11",
+                    "big": "five",
+                    "bigbang": "1",
+                    "quizzical": "black",
+                    "became": type ?? "",
+                    "location": "1"]
+        }else {
+            dict = ["memory": "1",
+                    "reminder": chanpinID ?? "",
+                    "separately": "10",
                     "big": "six",
+                    "became": type ?? "",
+                    "bigbang": "2",
                     "quizzical": "black",
                     "location": "1"]
-        man.uploadImageAPI(params: dict, 
+        }
+        man.uploadImageAPI(params: dict,
                            pageUrl: "/lpinoy/koishi/goshu/osaka",
                            data: data,
                            method: .post) { [weak self] result in
             switch result {
             case .success(let success):
                 guard let self = self else { return }
-                self.tanchuview(from: success.itself)
+                if self.isrenlianshibie == "0" {
+                    self.tanchuview(from: success.itself)
+                }else {
+                    self.maiInfopoint("4", self.kaishiTime2 ?? "", SystemInfo.getCurrentTime(), self.chanpinID ?? "")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        self.chanpinxiangqingyemian(self.chanpinID ?? "")
+                    }
+                }
                 break
             case .failure(let failure):
                 print("failure:\(failure)")
@@ -150,23 +191,79 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     func tanchuview(from model: itselfModel) {
         let scView = SCPopView(frame: self.view.bounds)
-        scView.comthreeView.timeBlock = { [weak self] timeBtn in
-            self?.tcTimeView(from: timeBtn)
-        }
         scView.comoneView.nameTx.text = model.quench ?? ""
         scView.comtwoView.nameTx.text = model.attending ?? ""
         scView.comthreeView.timeBtn.setTitle(model.encouragingly ?? "", for: .normal)
+        scView.comthreeView.timeBlock = { [weak self] timeBtn in
+            self?.tcTimeView(from: timeBtn, scView: scView)
+        }
         let alertVc = TYAlertController(alert: scView, preferredStyle: .actionSheet)
         self.present(alertVc!, animated: true)
         scView.block = { [weak self] in
             self?.dismiss(animated: true, completion: {
-                
+                self?.baocunidInfo(form: scView)
             })
         }
     }
     
-    func tcTimeView(from btn: UIButton) {
-        
+    func tcTimeView(from btn: UIButton, scView: SCPopView) {
+        let timeStr = btn.titleLabel?.text ?? "10-10-1900"
+        let riqiArray = timeStr.components(separatedBy: "-")
+        let oneStr = riqiArray[0]
+        let twoStr = riqiArray[1]
+        let threeStr = riqiArray[2]
+        let datePickerView = BRDatePickerView()
+        datePickerView.pickerMode = .YMD
+        datePickerView.title = "Date"
+        datePickerView.minDate = NSDate.br_setYear(1910, month: 10, day: 10)
+        datePickerView.selectDate = NSDate.br_setYear(Int(threeStr)!, month: Int(twoStr)!, day: Int(oneStr)!)
+        datePickerView.maxDate = Date()
+        datePickerView.resultBlock = { selectDate, selectValue in
+            let timeArray = selectValue!.components(separatedBy: "-")
+            let year = timeArray[0]
+            let mon = timeArray[1]
+            let day = timeArray[2]
+            scView.comthreeView.timeBtn.setTitle(String(format: "%@-%@-%@", day,mon,year), for: .normal)
+        }
+        let customStyle = BRPickerStyle()
+        customStyle.pickerColor = .white
+        customStyle.pickerTextFont = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        customStyle.selectRowTextColor = UIColor.init(hex: "#2CD7BB")
+        datePickerView.pickerStyle = customStyle
+        datePickerView.show()
+    }
+    
+    func baocunidInfo(form sc: SCPopView) {
+        let quench = sc.comoneView.nameTx.text ?? ""
+        let attending = sc.comtwoView.nameTx.text ?? ""
+        let encouragingly = sc.comthreeView.timeBtn.titleLabel?.text ?? ""
+        let man = LPRequestManager()
+        let dict = ["quench": quench,
+                    "became": type ?? "",
+                    "attending": attending,
+                    "promise": "pick",
+                    "nike": "one",
+                    "encouragingly": encouragingly,
+                    "separately": "11"]
+        man.requestAPI(params: dict, pageUrl: "/lpinoy/agency/deepfried/doubtful", method: .post) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.maiInfopoint("3", self?.kaishiTime1 ?? "", SystemInfo.getCurrentTime(), self?.chanpinID ?? "")
+                self?.dismiss(animated: true, completion: {
+                    self?.huoquxinxiinfo(from: self?.chanpinID ?? "", completion: { baseModel in
+                        if let payment = baseModel.itself.payment {
+                            self?.model1?.icon = payment
+                            let updatedArray = [self?.model1, self?.model2]
+                            self?.twoView.modelArray.accept(updatedArray)
+                        }
+                    })
+                })
+                break
+            case .failure(let failure):
+                print("failure:\(failure)")
+                break
+            }
+        }
     }
     
 }
@@ -189,9 +286,7 @@ extension UIImage {
     }
 }
 
-class PHView: UIView {
-    
-    let disposeBag = DisposeBag()
+class PHView: LPJCView {
     
     var block1: (() -> Void)?
     var block2: (() -> Void)?

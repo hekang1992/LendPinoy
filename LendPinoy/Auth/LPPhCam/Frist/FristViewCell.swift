@@ -2,7 +2,7 @@
 //  FristViewCell.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/4.
+//  Created by Banana on 2024/9/4.
 //
 
 import UIKit

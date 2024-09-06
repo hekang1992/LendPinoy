@@ -2,7 +2,7 @@
 //  FristVcViewController.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/4.
+//  Created by Banana on 2024/9/4.
 //
 
 import UIKit
@@ -51,28 +51,14 @@ extension FristVcViewController {
     func chanpinidInfo() {
         chanpinid.subscribe(onNext: { [weak self] chanpinid in
             if let chanpinid = chanpinid {
-                self?.huoquxinxiinfo(from: chanpinid)
+                self?.huoquxinxiinfo(from: chanpinid, completion: { baseModel in
+                    if let strArray = baseModel.itself.kitahama?.allArray {
+                        self?.fristView.strArray.accept(strArray)
+                        self?.itselfModel.accept(baseModel.itself)
+                    }
+                })
             }
         }).disposed(by: disposeBag)
-    }
-    
-    func huoquxinxiinfo(from chanpinid: String) {
-        let dict = ["reminder": chanpinid, "tale": "5", "have": "1"]
-        let man = LPRequestManager()
-        man.requestAPI(params: dict,
-                       pageUrl: "/lpinoy/wouldnt/outstanding/early",
-                       method: .get) { [weak self] result in
-            switch result {
-            case .success(let success):
-                if let strArray = success.itself.kitahama?.allArray {
-                    self?.fristView.strArray.accept(strArray)
-                    self?.itselfModel.accept(success.itself)
-                }
-                break
-            case .failure(_):
-                break
-            }
-        }
     }
     
     func tapClick() {

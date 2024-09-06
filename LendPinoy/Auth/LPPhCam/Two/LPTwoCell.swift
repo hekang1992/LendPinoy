@@ -2,12 +2,13 @@
 //  LPTwoCell.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/4.
+//  Created by Banana on 2024/9/4.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class LPTwoCell: UITableViewCell {
     
@@ -71,7 +72,14 @@ class LPTwoCell: UITableViewCell {
         model.subscribe(onNext: { [weak self] model in
             guard let self = self, let model = model else { return }
             self.titleLabel.text = model.title ?? ""
-            self.icon.image = UIImage(named: model.icon ?? "")
+            if let icon = model.icon {
+                if icon == "Verification" || icon == "Recognition" {
+                    self.icon.image = UIImage(named: icon)
+                }else {
+                    self.icon.kf.setImage(with: URL(string: icon))
+                }
+            }
+            
             self.descLabel.text = model.desc ?? ""
         }).disposed(by: disposeBag)
         

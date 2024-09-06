@@ -299,7 +299,7 @@ typedef NS_ENUM(NSInteger, BRDatePickerStyle) {
     switch (mode) {
         case BRDatePickerModeDate:
         {
-            self.dateFormatter = @"yyyy-MM-dd";
+            self.dateFormatter = @"dd-MM-yyyy";
             self.style = BRDatePickerStyleSystem;
             _datePickerMode = UIDatePickerModeDate;
         }
@@ -356,7 +356,7 @@ typedef NS_ENUM(NSInteger, BRDatePickerStyle) {
             break;
         case BRDatePickerModeYMD:
         {
-            self.dateFormatter = @"yyyy-MM-dd";
+            self.dateFormatter = @"dd-MM-yyyy";
             self.style = BRDatePickerStyleCustom;
             self.unitArr = @[[self getYearUnit], [self getMonthUnit], [self getDayUnit]];
         }

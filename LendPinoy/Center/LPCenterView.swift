@@ -8,9 +8,7 @@
 import UIKit
 import RxSwift
 
-class LPCenterView: UIView {
-    
-    let disposeBag = DisposeBag()
+class LPCenterView: LPJCView {
     
     var block: (() -> Void)?
     var block1: (() -> Void)?

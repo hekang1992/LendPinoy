@@ -10,15 +10,15 @@ import FSPagerView
 import RxSwift
 import RxCocoa
 
-class LPSubHomeView: UIView {
-    
-    let disposeBag = DisposeBag()
+class LPSubHomeView: LPJCView {
     
     var block1: ((String) -> Void)?
     
     var block2: (() -> Void)?
     
     var block3: ((UIButton) -> Void)?
+    
+    var block4: ((String) -> Void)?
     
     var homeSubModel = BehaviorRelay<itselfModel?>(value: nil)
     
@@ -199,7 +199,11 @@ extension LPSubHomeView: FSPagerViewDataSource, FSPagerViewDelegate {
     }
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        print("Did select item at index: \(index)")
-        pagerView.deselectItem(at: index, animated: true)
+        let model = homeSubModel.value?.purse?.delivery?[index]
+        if let papee = model?.payment, !papee.isEmpty {
+            self.block4?(papee)
+        }else {
+            return
+        }
     }
 }
