@@ -43,6 +43,7 @@ class LPTwoViewController: LPBaseViewController {
         }
         twoView.navView.block = { [weak self] in
             self?.navigationController?.popToRootViewController(animated: true)
+            LPTabBarManager.showTabBar()
         }
         qinqiuAInfo()
         tapClick()
@@ -78,16 +79,15 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func tapClick() {
-        guard let model = itselfModel.value else { return }
-        twoView.startblock = {
-            if model.classical?.order == "0" {
-                
-            } else if model.classical?.order == "1" {
-                
+        twoView.startblock = { [weak self] in
+            guard let self = self else { return }
+            if let payment = self.itselfModel.value?.classical?.payment, !payment.isEmpty, let lianurl = self.itselfModel.value?.payment, !lianurl.isEmpty {
+                self.chanpinxiangqingyemian(self.chanpinID ?? "")
             }
         }
         
         twoView.cellClicjblock = { [weak self] index in
+            guard let model = self?.itselfModel.value else { return }
             if model.classical?.order == "0" {
                 if index == 0 {
                     self?.popscBce()
@@ -200,9 +200,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
         let alertVc = TYAlertController(alert: scView, preferredStyle: .actionSheet)
         self.present(alertVc!, animated: true)
         scView.block = { [weak self] in
-            self?.dismiss(animated: true, completion: {
-                self?.baocunidInfo(form: scView)
-            })
+            self?.baocunidInfo(form: scView)
         }
     }
     
@@ -251,8 +249,9 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
                 self?.maiInfopoint("3", self?.kaishiTime1 ?? "", SystemInfo.getCurrentTime(), self?.chanpinID ?? "")
                 self?.dismiss(animated: true, completion: {
                     self?.huoquxinxiinfo(from: self?.chanpinID ?? "", completion: { baseModel in
-                        if let payment = baseModel.itself.payment {
+                        if let payment = baseModel.itself.classical?.payment {
                             self?.model1?.icon = payment
+                            self?.itselfModel.accept(baseModel.itself)
                             let updatedArray = [self?.model1, self?.model2]
                             self?.twoView.modelArray.accept(updatedArray)
                         }

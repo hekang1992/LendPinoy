@@ -41,9 +41,13 @@ extension LPNavigationController {
     private func updateTabBarVisibility() {
         if self.tabBarController != nil {
             if viewControllers.count > 1 {
-                LPTabBarManager.hideTabBar()
+                DispatchQueue.main.async {
+                    LPTabBarManager.hideTabBar()
+                }
             } else {
-                LPTabBarManager.showTabBar()
+                DispatchQueue.main.async {
+                    LPTabBarManager.showTabBar()
+                }
             }
         }
     }

@@ -11,16 +11,34 @@ import RxRelay
 
 class YIBanView: LPJCView {
     
-    var modelArray = BehaviorRelay<[ActionModel?]>(value: [])
-    
     var startblock: (() -> Void)?
     
     var cellClicjblock: ((Int) -> Void)?
     
     lazy var navView: LPNavgationView = {
         let navView = LPNavgationView()
-        navView.titleLabel.text = "Verification"
+        navView.titleLabel.text = "personal information"
         return navView
+    }()
+    
+    lazy var bgView1: UIView = {
+        let bgView1 = UIView()
+        bgView1.backgroundColor = UIColor.init(hex: "#F3FBFA")
+        bgView1.layer.cornerRadius = 4.lpix()
+        return bgView1
+    }()
+    
+    lazy var icon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = UIImage(named: "dunpaiopp")
+        return icon
+    }()
+    
+    lazy var descLabel: UILabel = {
+        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12.lpix())!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        descLabel.text = "We will provide comprehensive protection for your privacy data."
+        descLabel.numberOfLines = 0
+        return descLabel
     }()
     
     lazy var tableView: UITableView = {
@@ -38,6 +56,9 @@ class YIBanView: LPJCView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(navView)
+        addSubview(bgView1)
+        bgView1.addSubview(icon)
+        bgView1.addSubview(descLabel)
         addSubview(tableView)
         makess()
         bindss()
@@ -58,25 +79,30 @@ extension YIBanView: UITableViewDelegate {
             make.centerX.equalToSuperview()
             make.height.equalTo(44.lpix())
         }
+        bgView1.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(navView.snp.bottom)
+            make.left.equalToSuperview().offset(20.lpix())
+            make.height.equalTo(35.lpix())
+        }
+        icon.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(15.lpix())
+            make.size.equalTo(CGSize(width: 14.lpix(), height: 18.lpix()))
+        }
+        descLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.right.equalToSuperview().offset(-15.lpix())
+            make.left.equalTo(icon.snp.right).offset(10.lpix())
+        }
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(navView.snp.bottom).offset(10.lpix())
+            make.top.equalTo(bgView1.snp.bottom).offset(5.lpix())
         }
     }
     
     func bindss() {
-        
-        modelArray
-            .asObservable()
-            .bind(to: tableView.rx.items(cellIdentifier: "LPTwoCell", cellType: LPTwoCell.self)) { index, model ,cell in
-                cell.model.accept(model)
-                cell.selectionStyle = .none
-        }.disposed(by: disposeBag)
-        
-        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
-            guard let self = self else { return }
-            self.cellClicjblock?(indexPath.row)
-        }).disposed(by: disposeBag)
+       
         
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
@@ -97,7 +123,7 @@ extension YIBanView: UITableViewDelegate {
         let footView = UIView()
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 4.lpix()
-        btn.setTitle("Start", for: .normal)
+        btn.setTitle("Confirm", for: .normal)
         btn.backgroundColor = UIColor.init(hex: "#2CD7BB")
         btn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
         footView.addSubview(btn)

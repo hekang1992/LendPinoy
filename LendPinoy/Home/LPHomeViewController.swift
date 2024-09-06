@@ -55,9 +55,9 @@ extension LPHomeViewController {
     
     func homeInfo() {
         let man = LPRequestManager()
-        man.requestAPI(params: ["wandering": "product",
+        man.uploadDataAPI(params: ["wandering": "product",
                                 "home": "sub",
-                                "strolled": Date()], 
+                                   "strolled": String(Date().timeIntervalSince1970)],
                        pageUrl: "/lpinoy/sorry/mouse/little",
                        method: .get) { [weak self] result in
             switch result {

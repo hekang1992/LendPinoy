@@ -11,22 +11,39 @@ import RxRelay
 class SamViewController: LPBaseViewController {
     
     var chanpinID = BehaviorRelay<String>(value: "")
+    
+    lazy var yiView: YIBanView = {
+        let yiView = YIBanView()
+        return yiView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.addSubview(yiView)
+        yiView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        yiView.navView.block = { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
+            LPTabBarManager.showTabBar()
+        }
+        HuoQiInfo()
+    }
+}
+
+extension SamViewController {
+    
+    func HuoQiInfo() {
+        let man = LPRequestManager()
+        man.requestAPI(params: ["upDone": "01", "reminder": chanpinID.value], pageUrl: "/lpinoy/nagare/bound/hideji", method: .post) { result in
+            switch result {
+            case .success(let success):
+                break
+            case .failure(let failure):
+                break
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

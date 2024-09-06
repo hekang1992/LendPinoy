@@ -65,7 +65,6 @@ extension LPTwoView: UITableViewDelegate {
     }
     
     func bindss() {
-        
         modelArray
             .asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "LPTwoCell", cellType: LPTwoCell.self)) { index, model ,cell in

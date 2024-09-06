@@ -117,7 +117,6 @@ class LPRequestManager: NSObject {
         }else if baseModel.hitch == -2 {
             ToastUtility.showToast(message: frown)
         }else {
-            completion(.success(baseModel))
             ToastUtility.showToast(message: frown)
         }
     }
