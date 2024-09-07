@@ -61,7 +61,9 @@ extension LPBaseViewController {
     func genJuUrlPush(form payment: String) {
         guard let url = URL(string: payment), let sch = url.scheme else { return }
         if sch.hasPrefix("http")  {
-            
+            let hfView = LPHFViewController()
+            hfView.lianjie.accept(payment)
+            self.navigationController?.pushViewController(hfView, animated: true)
         } else if sch.hasPrefix("pinoy") {
             let path = url.path
             if path.contains("/disappeared") {
@@ -114,17 +116,17 @@ extension LPBaseViewController {
             samVc.chanpinID.accept(chanpinid)
             self.navigationController?.pushViewController(samVc, animated: true)
         } else if page == "shooing3" {
-            let samVc = SamViewController()
-            samVc.chanpinID.accept(chanpinid)
-            self.navigationController?.pushViewController(samVc, animated: true)
+            let siVc = SIViewController()
+            siVc.chanpinID.accept(chanpinid)
+            self.navigationController?.pushViewController(siVc, animated: true)
         } else if page == "shooing4" {
-            let samVc = SamViewController()
-            samVc.chanpinID.accept(chanpinid)
-            self.navigationController?.pushViewController(samVc, animated: true)
+            let wuVc = WUViewController()
+            wuVc.chanpinID.accept(chanpinid)
+            self.navigationController?.pushViewController(wuVc, animated: true)
         } else if page == "shooing5" {
-            let samVc = SamViewController()
-            samVc.chanpinID.accept(chanpinid)
-            self.navigationController?.pushViewController(samVc, animated: true)
+            let sixVc = LIUViewController()
+            sixVc.chanpinID.accept(chanpinid)
+            self.navigationController?.pushViewController(sixVc, animated: true)
         } else {}
     }
     

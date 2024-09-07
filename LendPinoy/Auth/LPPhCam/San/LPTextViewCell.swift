@@ -34,9 +34,8 @@ class LPTextViewCell: UITableViewCell {
     lazy var nameTx: NoCopyTextFiled = {
         let nameTx = NoCopyTextFiled()
         nameTx.textAlignment = .left
-        nameTx.tintColor = UIColor.init(hex: "#2CD7BB")
-        nameTx.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
-        nameTx.textColor = UIColor.init(hex: "#303434")
+        nameTx.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        nameTx.textColor = UIColor.init(hex: "#2CD7BB")
         return nameTx
     }()
 
@@ -81,6 +80,15 @@ class LPTextViewCell: UITableViewCell {
             make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
         }
         
+        nameTx.rx.text.orEmpty.bind(onNext: { [weak self] text in
+            guard let self = self else { return }
+            if let model = self.model.value {
+                model.completely = text
+            }else {
+                model.value?.completely = text
+            }
+        }).disposed(by: disposeBag)
+        
         model.subscribe(onNext: { [weak self] model1 in
             guard let self = self, let model1 = model1 else { return }
             self.nameLabel.text = model1.readily ?? ""
@@ -89,13 +97,19 @@ class LPTextViewCell: UITableViewCell {
             let attrString = NSMutableAttributedString(string: model1.met ?? "", attributes: [
                 .paragraphStyle: paragraphStyle,
                 .foregroundColor: UIColor.init(hex: "#CFD9D8") as Any,
-                .font: UIFont(name: bold_MarketFresh, size: 20.lpix())!
+                .font: UIFont(name: bold_MarketFresh, size: 22.lpix())!
             ])
             self.nameTx.attributedPlaceholder = attrString
             if model1.glued == "1" {
                 self.nameTx.keyboardType = .numberPad
             } else {
                 self.nameTx.keyboardType = .default
+            }
+            if let completely = model1.completely, !completely.isEmpty {
+                self.nameTx.text = completely
+            }else {
+                self.nameTx.text = ""
+                
             }
         }).disposed(by: disposeBag)
         

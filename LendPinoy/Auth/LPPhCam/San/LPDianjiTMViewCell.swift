@@ -36,7 +36,7 @@ class LPDianjiTMViewCell: UITableViewCell {
     lazy var timeBtn: UIButton = {
         let timeBtn = UIButton(type: .custom)
         timeBtn.contentHorizontalAlignment = .left
-        timeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+        timeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
         timeBtn.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
         return timeBtn
     }()
@@ -58,7 +58,6 @@ class LPDianjiTMViewCell: UITableViewCell {
     
     
     func makess() {
-        
         nameLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(20.lpix())
             make.top.equalToSuperview().offset(20.lpix())
@@ -89,11 +88,15 @@ class LPDianjiTMViewCell: UITableViewCell {
         
         model.subscribe(onNext: { [weak self] model1 in
             guard let self = self, let model1 = model1 else { return }
+            if let completely = model1.completely, !completely.isEmpty {
+                self.timeBtn.setTitle(completely, for: .normal)
+                self.timeBtn.setTitleColor(UIColor.init(hex: "#2CD7BB"), for: .normal)
+            }else {
+                self.timeBtn.setTitle(model1.met ?? "", for: .normal)
+                self.timeBtn.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
+            }
             self.nameLabel.text = model1.readily ?? ""
-            self.timeBtn.setTitle(model1.met ?? "", for: .normal)
         }).disposed(by: disposeBag)
-        
-        
     }
     
 }

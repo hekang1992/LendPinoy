@@ -20,10 +20,10 @@ class DingModel: NSObject {
     var shichimi: Double = 0.00
 }
 
-struct BaseModel {
-    let hitch: Int?
-    let frown: String?
-    let itself: itselfModel
+class BaseModel {
+    var hitch: Int?
+    var frown: String?
+    var itself: itselfModel
     init(json: JSON) {
         self.hitch = json["hitch"].intValue
         self.frown = json["frown"].stringValue
@@ -32,20 +32,21 @@ struct BaseModel {
     }
 }
 
-struct itselfModel {
-    let ordered: String?
-    let moist: String?
-    let payment: String?
-    let ate: String?
-    let quench: String?
-    let attending: String?
-    let encouragingly: String?
-    let purse: purseModel?
-    let forests: forestsModel?
-    let researching: researchingModel?
-    let kitahama: kitahamaModel?
-    let classical: classicalModel?
-    let crossing: [crossingModel]?
+class itselfModel {
+    var ordered: String?
+    var moist: String?
+    var payment: String?
+    var ate: String?
+    var quench: String?
+    var attending: String?
+    var encouragingly: String?
+    var purse: purseModel?
+    var forests: forestsModel?
+    var researching: researchingModel?
+    var kitahama: kitahamaModel?
+    var classical: classicalModel?
+    var crossing: [crossingModel]?
+    var dazed: [dazedModel]?
     init(json: JSON) {
         self.ordered = json["ordered"].stringValue
         self.moist = json["moist"].stringValue
@@ -62,17 +63,34 @@ struct itselfModel {
         self.crossing = json["crossing"].arrayValue.map({ json in
             crossingModel(json: json)
         })
+        self.dazed = json["dazed"].arrayValue.map({ json in
+            dazedModel(json: json)
+        })
     }
 }
-struct crossingModel {
-    let readily: String?
-    let met: String?
-    let glued: String?
-    let hitch: String?
-    let photo: String?
-    let completely: String?
-    let separately: String?
-    let silent: silentModel?
+
+class dazedModel {
+    var hesitantly: String?
+    var quench: String?
+    var dazed: [dazedModel]?
+    init(json: JSON) {
+        self.hesitantly = json["hesitantly"].stringValue
+        self.quench = json["quench"].stringValue
+        self.dazed = json["dazed"].arrayValue.map({ json in
+            dazedModel(json: json)
+        })
+    }
+}
+
+class crossingModel {
+    var readily: String?
+    var met: String?
+    var glued: String?
+    var hitch: String?
+    var photo: String?
+    var completely: String?
+    var separately: String?
+    var silent: [silentModel]?
     init(json: JSON) {
         self.readily = json["readily"].stringValue
         self.met = json["met"].stringValue
@@ -81,23 +99,25 @@ struct crossingModel {
         self.photo = json["photo"].stringValue
         self.completely = json["completely"].stringValue
         self.separately = json["separately"].stringValue
-        self.silent = silentModel(json: json["silent"])
+        self.silent = json["silent"].arrayValue.map({ json in
+            silentModel(json: json)
+        })
     }
 }
 
-struct silentModel {
-    let quench: String?
-    let separately: String?
+class silentModel {
+    var quench: String?
+    var separately: String?
     init(json: JSON) {
         self.quench = json["quench"].stringValue
         self.separately = json["separately"].stringValue
     }
 }
 
-struct classicalModel {
-    let order: String?
-    let payment: String?
-    let became: String?
+class classicalModel {
+    var order: String?
+    var payment: String?
+    var became: String?
     init(json: JSON) {
         self.order = json["order"].stringValue
         self.payment = json["payment"].stringValue
@@ -105,36 +125,36 @@ struct classicalModel {
     }
 }
 
-struct researchingModel {
-    let exchanged: String?
+class researchingModel {
+    var exchanged: String?
     init(json: JSON) {
         self.exchanged = json["exchanged"].stringValue
     }
 }
 
-struct purseModel {
-    let separately: String?
-    let delivery: [deliveryModel]?
+class purseModel {
+    var separately: String?
+    var delivery: [deliveryModel]?
     init(json: JSON) {
         self.separately = json["separately"].stringValue
         self.delivery = json["delivery"].arrayValue.map { deliveryModel(json: $0) }
     }
 }
 
-struct forestsModel {
-    let separately: String?
-    let delivery: [deliveryModel]?
+class forestsModel {
+    var separately: String?
+    var delivery: [deliveryModel]?
     init(json: JSON) {
         self.separately = json["separately"].stringValue
         self.delivery = json["delivery"].arrayValue.map { deliveryModel(json: $0) }
     }
 }
 
-struct deliveryModel {
-    let payment: String?
-    let fine: String?
-    let fortnight: String?
-    let hesitantly: String?
+class deliveryModel {
+    var payment: String?
+    var fine: String?
+    var fortnight: String?
+    var hesitantly: String?
     init(json: JSON) {
         self.payment = json["payment"].stringValue
         self.fine = json["fine"].stringValue
@@ -144,10 +164,10 @@ struct deliveryModel {
 }
 
 
-struct kitahamaModel {
-    let primaryArray: [String]
-    let secondaryArray: [String]
-    let allArray: [String]
+class kitahamaModel {
+    var primaryArray: [String]
+    var secondaryArray: [String]
+    var allArray: [String]
     init(json: JSON) {
         self.primaryArray = json[0].arrayValue.map { $0.stringValue }
         self.secondaryArray = json[1].arrayValue.map { $0.stringValue }

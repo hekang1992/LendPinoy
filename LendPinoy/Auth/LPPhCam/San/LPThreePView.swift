@@ -1,15 +1,17 @@
 //
-//  YIBanView.swift
+//  LPThreePView.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/6.
+//  Created by 何康 on 2024/9/7.
 //
+
+import UIKit
 
 import UIKit
 import RxSwift
 import RxRelay
 
-class YIBanView: LPJCView {
+class LPThreePView: LPJCView {
     
     var comfirmblock: (() -> Void)?
     
@@ -72,7 +74,7 @@ class YIBanView: LPJCView {
     
 }
 
-extension YIBanView: UITableViewDelegate {
+extension LPThreePView: UITableViewDelegate {
     
     func makess() {
         navView.snp.makeConstraints { make in
