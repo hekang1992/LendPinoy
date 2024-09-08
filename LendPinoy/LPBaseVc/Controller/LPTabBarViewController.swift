@@ -81,14 +81,18 @@ class LPTabBarViewController: UITabBarController {
     }
     
     func showTabBar() {
-        UIView.animate(withDuration: 0.25) {
-            self.customTabBar.frame.origin.y = self.view.bounds.size.height - StatusManager.safeAreaBottomHeight - 62.lpix()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.customTabBar.frame.origin.y = self.view.bounds.size.height - StatusManager.safeAreaBottomHeight - 62.lpix()
+            }
         }
     }
     
     func hideTabBar() {
-        UIView.animate(withDuration: 0.25) {
-            self.customTabBar.frame.origin.y = self.view.bounds.size.height
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.customTabBar.frame.origin.y = self.view.bounds.size.height
+            }
         }
     }
     

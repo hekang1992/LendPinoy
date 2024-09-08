@@ -7,6 +7,10 @@
 
 import UIKit
 import BRPickerView
+import ContactsUI
+import Contacts
+
+typealias CCompletion = ((Bool) -> Void)
 
 class LPXuanZeManager: NSObject {
     static func oneModel(sourceArr: [Any], level: Int) -> [BRProvinceModel] {
@@ -29,11 +33,48 @@ class LPXuanZeManager: NSObject {
         return result
     }
     
+    static func twoModel(sourceArr: [Any], level: Int) -> [BRProvinceModel] {
+        guard level > 0, !sourceArr.isEmpty else {
+            return []
+        }
+
+        func processCityDictionary(_ dict: silentModel) -> BRCityModel {
+            let cityModel = BRCityModel()
+            cityModel.code = dict.separately
+            cityModel.name = dict.quench
+            cityModel.index = (dict.silent ?? []).firstIndex(where: { $0 as AnyObject === dict as AnyObject }) ?? 0
+            return cityModel
+        }
+
+        func processProvinceDictionary(_ dict: silentModel) -> BRProvinceModel {
+            let provinceModel = BRProvinceModel()
+            provinceModel.code = dict.separately
+            provinceModel.name = dict.quench
+            provinceModel.index = (sourceArr as? [silentModel] ?? []).firstIndex(where: { $0 as AnyObject === dict as AnyObject }) ?? 0
+            if let cityList = dict.silent {
+                provinceModel.citylist = cityList.map { cityDict in
+                    return processCityDictionary(cityDict)
+                }.compactMap { $0 }
+            }
+            return provinceModel
+        }
+
+        var resultArr = [BRProvinceModel]()
+        for item in sourceArr {
+            guard let dict = item as? silentModel else {
+                continue
+            }
+            let model = processProvinceDictionary(dict)
+            resultArr.append(model)
+        }
+        return resultArr
+    }
+    
     static func threemodel(from dataArr: [Any], level: Int) -> [BRProvinceModel] {
         guard level > 0, !dataArr.isEmpty else {
             return []
         }
-        
+
         func processAreaDictionary(_ dict: dazedModel) -> BRAreaModel {
             let areaModel = BRAreaModel()
             areaModel.code = dict.hesitantly
@@ -80,7 +121,7 @@ class LPXuanZeManager: NSObject {
         
         return resultArr
     }
-
+    
 }
 
 class TanchuXuanZeMananger: NSObject {
@@ -96,6 +137,23 @@ class TanchuXuanZeMananger: NSObject {
             model.separately = code
             button.setTitle(address, for: .normal)
             button.setTitleColor(UIColor(hex: "#2CD7BB"), for: .normal)
+        }
+        addressPicker.pickerStyle = createPickerStyle()
+        addressPicker.show()
+    }
+    
+    static func showCPicker(from mode: BRAddressPickerMode, model: dazedModel, label: UILabel, dataArray: [BRProvinceModel], completion: @escaping (String, String) -> Void) {
+        let addressPicker = BRAddressPickerView()
+        addressPicker.title = model.panicked ?? ""
+        addressPicker.pickerMode = mode
+        addressPicker.selectIndexs = [0, 0, 0]
+        addressPicker.dataSourceArr = dataArray
+        addressPicker.resultBlock = { province, city, area in
+            let (address, code) = self.formatAddress(province: province, city: city, area: area)
+            model.panicked = address
+            model.smiled = code
+            label.text = address
+            completion(address, code)
         }
         addressPicker.pickerStyle = createPickerStyle()
         addressPicker.show()
@@ -127,5 +185,22 @@ class TanchuXuanZeMananger: NSObject {
     }
 }
 
-
-
+class CCompletionManager: NSObject,CNContactPickerDelegate {
+    static func ccPersion(completion: @escaping CCompletion) {
+        let cnstore = CNContactStore()
+        switch CNContactStore.authorizationStatus(for: .contacts) {
+        case .authorized:
+            completion(true)
+        case .notDetermined:
+            cnstore.requestAccess(for: .contacts, completionHandler: { (granted, error) in
+                DispatchQueue.main.async {
+                    completion(granted)
+                }
+            })
+        case .denied, .restricted:
+            completion(false)
+        default:
+            break
+        }
+    }
+}

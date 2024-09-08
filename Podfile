@@ -19,7 +19,7 @@ target 'LendPinoy' do
   
   pod 'SnapKit', '~> 5.7.1'
   
-  pod 'IQKeyboardManagerSwift', '~> 7.1.1'
+  pod 'IQKeyboardManagerSwift', '~> 6.5.16'
   
   pod 'DeviceKit', '~> 5.2.2'
   

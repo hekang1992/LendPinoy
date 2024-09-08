@@ -40,6 +40,7 @@ class itselfModel {
     var quench: String?
     var attending: String?
     var encouragingly: String?
+    var joy: joyModel?
     var purse: purseModel?
     var forests: forestsModel?
     var researching: researchingModel?
@@ -55,6 +56,7 @@ class itselfModel {
         self.quench = json["quench"].stringValue
         self.attending = json["attending"].stringValue
         self.encouragingly = json["encouragingly"].stringValue
+        self.joy = joyModel(json: json["joy"])
         self.purse = purseModel(json: json["purse"])
         self.forests = forestsModel(json: json["forests"])
         self.researching = researchingModel(json: json["researching"])
@@ -69,18 +71,45 @@ class itselfModel {
     }
 }
 
-class dazedModel {
-    var hesitantly: String?
-    var quench: String?
+class joyModel {
     var dazed: [dazedModel]?
     init(json: JSON) {
-        self.hesitantly = json["hesitantly"].stringValue
-        self.quench = json["quench"].stringValue
         self.dazed = json["dazed"].arrayValue.map({ json in
             dazedModel(json: json)
         })
     }
 }
+
+class dazedModel {
+    var hesitantly: String?
+    var quench: String?
+    var smiled: String?
+    var restaurants: String?
+    var uncle: String?
+    var panicked: String?
+    var kaiseki: [silentModel]?
+    var dazed: [dazedModel]?
+    init(json: JSON) {
+        self.hesitantly = json["hesitantly"].stringValue
+        self.quench = json["quench"].stringValue
+        self.smiled = json["smiled"].stringValue
+        self.restaurants = json["restaurants"].stringValue
+        self.uncle = json["uncle"].stringValue
+        self.panicked = json["panicked"].stringValue
+        self.kaiseki = json["kaiseki"].arrayValue.map({ json in
+            silentModel(json: json)
+        })
+        self.dazed = json["dazed"].arrayValue.map({ json in
+            dazedModel(json: json)
+        })
+    }
+}
+
+var smiled: String?
+var restaurants: String?
+var uncle: String?
+var panicked: String?
+var kaiseki: silentModel?
 
 class crossingModel {
     var readily: String?
@@ -91,6 +120,7 @@ class crossingModel {
     var completely: String?
     var separately: String?
     var silent: [silentModel]?
+    var crossing: [crossingModel]?
     init(json: JSON) {
         self.readily = json["readily"].stringValue
         self.met = json["met"].stringValue
@@ -102,15 +132,24 @@ class crossingModel {
         self.silent = json["silent"].arrayValue.map({ json in
             silentModel(json: json)
         })
+        self.crossing = json["crossing"].arrayValue.map({ json in
+            crossingModel(json: json)
+        })
     }
 }
 
 class silentModel {
     var quench: String?
     var separately: String?
+    var crystal: String?
+    var silent: [silentModel]?
     init(json: JSON) {
         self.quench = json["quench"].stringValue
         self.separately = json["separately"].stringValue
+        self.crystal = json["crystal"].stringValue
+        self.silent = json["silent"].arrayValue.map({ json in
+            silentModel(json: json)
+        })
     }
 }
 

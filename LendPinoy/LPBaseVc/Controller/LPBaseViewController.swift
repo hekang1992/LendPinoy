@@ -102,10 +102,12 @@ extension LPBaseViewController {
                         let twoVc = LPTwoViewController()
                         twoVc.chanpinID = chanpinid
                         twoVc.itselfModel.accept(baseModel.itself)
+                        LPTabBarManager.hideTabBar()
                         self.navigationController?.pushViewController(twoVc, animated: true)
                     }else {
                         let oneVc = FristVcViewController()
                         oneVc.chanpinid.accept(chanpinid)
+                        LPTabBarManager.hideTabBar()
                         self.navigationController?.pushViewController(oneVc, animated: true)
                     }
                 }
@@ -114,18 +116,22 @@ extension LPBaseViewController {
         } else if page == "shooing2" {
             let samVc = SamViewController()
             samVc.chanpinID.accept(chanpinid)
+            LPTabBarManager.hideTabBar()
             self.navigationController?.pushViewController(samVc, animated: true)
         } else if page == "shooing3" {
             let siVc = SIViewController()
             siVc.chanpinID.accept(chanpinid)
+            LPTabBarManager.hideTabBar()
             self.navigationController?.pushViewController(siVc, animated: true)
         } else if page == "shooing4" {
             let wuVc = WUViewController()
             wuVc.chanpinID.accept(chanpinid)
+            LPTabBarManager.hideTabBar()
             self.navigationController?.pushViewController(wuVc, animated: true)
         } else if page == "shooing5" {
             let sixVc = LIUViewController()
             sixVc.chanpinID.accept(chanpinid)
+            LPTabBarManager.hideTabBar()
             self.navigationController?.pushViewController(sixVc, animated: true)
         } else {}
     }

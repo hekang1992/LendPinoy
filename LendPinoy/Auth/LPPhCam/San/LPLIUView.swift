@@ -1,24 +1,39 @@
 //
-//  LPThreePView.swift
+//  LPLIUView.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/7.
+//  Created by 何康 on 2024/9/8.
 //
 
 import UIKit
 import RxSwift
 import RxRelay
 
-class LPThreePView: LPJCView {
+class LPLIUView: LPJCView {
     
     var comfirmblock: (() -> Void)?
     
-    var modelArray = BehaviorRelay<[dazedModel]>(value: [])
+    var modelArray = BehaviorRelay<[crossingModel]>(value: [])
     
-    var tapBlock: ((LPThreePViewCell, dazedModel) -> Void)?
+    var model1Array = BehaviorRelay<[crossingModel]?>(value: [])
     
-    lazy var navView: LPNavgationView = {
-        let navView = LPNavgationView()
+    var model2Array = BehaviorRelay<[crossingModel]?>(value: [])
+    
+    var tapBlock: ((UIButton, crossingModel) -> Void)?
+    
+    lazy var navView: LPNavgationTwoView = {
+        let navView = LPNavgationTwoView()
+        navView.mBlock = { [weak self] btn in
+            if btn == navView.eBtn {
+                if let model1Array = self?.model1Array.value {
+                    self?.modelArray.accept(model1Array)
+                }
+            }else {
+                if let model2Array = self?.model2Array.value {
+                    self?.modelArray.accept(model2Array)
+                }
+            }
+        }
         return navView
     }()
     
@@ -50,7 +65,8 @@ class LPThreePView: LPJCView {
         tableView.backgroundColor = .white
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        tableView.register(LPThreePViewCell.self, forCellReuseIdentifier: "LPThreePViewCell")
+        tableView.register(LPTextViewCell.self, forCellReuseIdentifier: "LPTextViewCell")
+        tableView.register(LPDianjiTMViewCell.self, forCellReuseIdentifier: "LPDianjiTMViewCell")
         return tableView
     }()
     
@@ -71,7 +87,7 @@ class LPThreePView: LPJCView {
     
 }
 
-extension LPThreePView: UITableViewDelegate {
+extension LPLIUView: UITableViewDelegate {
     
     func makess() {
         navView.snp.makeConstraints { make in
@@ -107,20 +123,27 @@ extension LPThreePView: UITableViewDelegate {
         modelArray
             .asObservable()
             .bind(to: tableView.rx.items) { tableView, index, model in
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "LPThreePViewCell", for: IndexPath(row: index, section: 0)) as? LPThreePViewCell  {
-                    cell.model.accept(model)
-                    cell.backgroundColor = .clear
-                    cell.selectionStyle = .none
-                    return cell
+                let sbc = model.photo ?? ""
+                if sbc == "pointing2" {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "LPTextViewCell", for: IndexPath(row: index, section: 0)) as? LPTextViewCell  {
+                        cell.model.accept(model)
+                        cell.backgroundColor = .clear
+                        cell.selectionStyle = .none
+                        return cell
+                    }
+                } else {
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "LPDianjiTMViewCell", for: IndexPath(row: index, section: 0)) as? LPDianjiTMViewCell  {
+                        cell.model.accept(model)
+                        cell.backgroundColor = .clear
+                        cell.selectionStyle = .none
+                        cell.tapBlock = { [weak self] btn in
+                            self?.tapBlock?(btn, model)
+                        }
+                        return cell
+                    }
                 }
                 return UITableViewCell()
             }.disposed(by: disposeBag)
-        
-        tableView.rx.itemSelected.subscribe { [weak self] indexPath in
-            if let cell = self?.tableView.cellForRow(at: indexPath) as? LPThreePViewCell, let cmodel = self?.modelArray.value[indexPath.row] {
-                self?.tapBlock?(cell, cmodel)
-            }
-        }.disposed(by: disposeBag)
         
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
@@ -138,7 +161,7 @@ extension LPThreePView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard !modelArray.value.isEmpty else { return nil }
+        guard let model1Array = model1Array.value, !model1Array.isEmpty else { return nil }
         let footView = UIView()
         let btn = UIButton(type: .custom)
         btn.layer.cornerRadius = 4.lpix()

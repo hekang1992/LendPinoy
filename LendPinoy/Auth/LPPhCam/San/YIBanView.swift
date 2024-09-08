@@ -129,6 +129,7 @@ extension YIBanView: UITableViewDelegate {
                 }
                 return UITableViewCell()
             }.disposed(by: disposeBag)
+        
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     

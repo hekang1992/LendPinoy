@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     func keyJaiPan() {
-        IQKeyboardManager.shared.resignOnTouchOutside = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enable = true
     }
     

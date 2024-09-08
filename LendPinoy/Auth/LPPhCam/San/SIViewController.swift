@@ -121,7 +121,7 @@ extension SIViewController {
             getPhCy(from: model, anniu: anniu)
         }else if pigs == "pointing4" {
             if let silent = model.silent {
-                let modelArray = LPXuanZeManager.oneModel(sourceArr: silent, level: 2)
+                let modelArray = LPXuanZeManager.twoModel(sourceArr: silent, level: 2)
                 TanchuXuanZeMananger.showOnePicker(from: .city, model: model, button: anniu, dataArray: modelArray)
             }
         }else {

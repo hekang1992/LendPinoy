@@ -65,6 +65,7 @@
 		73F40C5C2C8C78BC00BCFB25 /* LPXuanZeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C5B2C8C78BC00BCFB25 /* LPXuanZeManager.swift */; };
 		73F40C5E2C8CAEC300BCFB25 /* LPThreePViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C5D2C8CAEC300BCFB25 /* LPThreePViewCell.swift */; };
 		73F40C602C8CAEF000BCFB25 /* LPThreePView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C5F2C8CAEF000BCFB25 /* LPThreePView.swift */; };
+		73F40C642C8D9CC400BCFB25 /* LPLIUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C632C8D9CC400BCFB25 /* LPLIUView.swift */; };
 		E72ADA7652749A421965C75F /* Pods_LendPinoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		73F40C5B2C8C78BC00BCFB25 /* LPXuanZeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPXuanZeManager.swift; sourceTree = "<group>"; };
 		73F40C5D2C8CAEC300BCFB25 /* LPThreePViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPThreePViewCell.swift; sourceTree = "<group>"; };
 		73F40C5F2C8CAEF000BCFB25 /* LPThreePView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPThreePView.swift; sourceTree = "<group>"; };
+		73F40C632C8D9CC400BCFB25 /* LPLIUView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLIUView.swift; sourceTree = "<group>"; };
 		D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LendPinoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -219,6 +221,7 @@
 				73F40C5F2C8CAEF000BCFB25 /* LPThreePView.swift */,
 				73F40C5D2C8CAEC300BCFB25 /* LPThreePViewCell.swift */,
 				73260BD42C8B4268006066E5 /* LIUViewController.swift */,
+				73F40C632C8D9CC400BCFB25 /* LPLIUView.swift */,
 			);
 			path = San;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7389D4532C83A63300C7D7DB /* LPSubHomeView.swift in Sources */,
+				73F40C642C8D9CC400BCFB25 /* LPLIUView.swift in Sources */,
 				73260BDB2C8B5C1A006066E5 /* LPTextViewCell.swift in Sources */,
 				73A4536B2C889EC6005C2882 /* FristVcView.swift in Sources */,
 				730C32162C7F4B460079510B /* Market Fresh.ttf in Sources */,

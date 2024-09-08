@@ -54,6 +54,10 @@ class LPTextViewCell: UITableViewCell {
     
     var model = BehaviorRelay<crossingModel?>(value: nil)
     
+}
+
+extension LPTextViewCell {
+    
     func makess() {
         
         nameLabel.snp.makeConstraints { make in
@@ -114,5 +118,6 @@ class LPTextViewCell: UITableViewCell {
         }).disposed(by: disposeBag)
         
     }
+    
     
 }

@@ -54,6 +54,7 @@ extension LPNavigationController {
 }
 
 class LPTabBarManager {
+    
     static func showTabBar() {
         if let navigationController = UIApplication.shared.delegate?.window??.rootViewController as? LPNavigationController {
             if let tabBarController = navigationController.viewControllers.first as? LPTabBarViewController {
@@ -61,6 +62,7 @@ class LPTabBarManager {
             }
         }
     }
+    
     static func hideTabBar() {
         if let navigationController = UIApplication.shared.delegate?.window??.rootViewController as? LPNavigationController {
             if let tabBarController = navigationController.viewControllers.first as? LPTabBarViewController {

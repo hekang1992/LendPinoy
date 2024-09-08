@@ -29,7 +29,7 @@ PODS:
     - BRPickerView/Core
   - DeviceKit (5.2.3)
   - FSPagerView (0.8.3)
-  - IQKeyboardManagerSwift (7.1.1)
+  - IQKeyboardManagerSwift (6.5.16)
   - KeychainAccess (4.2.2)
   - Kingfisher (7.11.0)
   - lottie-ios (4.5.0)
@@ -59,7 +59,7 @@ DEPENDENCIES:
   - BRPickerView (~> 2.9.1)
   - DeviceKit (~> 5.2.2)
   - FSPagerView (~> 0.8.3)
-  - IQKeyboardManagerSwift (~> 7.1.1)
+  - IQKeyboardManagerSwift (~> 6.5.16)
   - KeychainAccess (~> 4.2.2)
   - Kingfisher (~> 7.11.0)
   - lottie-ios (~> 4.5.0)
@@ -103,7 +103,7 @@ SPEC CHECKSUMS:
   BRPickerView: 6dd69ea2c48e0a0abf1d197a705050e13143ee63
   DeviceKit: 4504e64df8f8ad1c42aae68f30ece5b51d56022a
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
-  IQKeyboardManagerSwift: d7f3d3a562c237a0e7335e657cd598c452f57f1b
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   lottie-ios: a881093fab623c467d3bce374367755c272bdd59
@@ -119,6 +119,6 @@ SPEC CHECKSUMS:
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: cb0289dc03f8751beff7a508208206eaeec1848e
+PODFILE CHECKSUM: 97d9c6aec67f6d81c5aaadb0a2fce953dabd69ef
 
 COCOAPODS: 1.15.2
