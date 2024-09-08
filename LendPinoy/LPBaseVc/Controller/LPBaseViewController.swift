@@ -13,6 +13,8 @@ class LPBaseViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    var ninett: String?
+    
     lazy var navView: LPNavgationView = {
         let navView = LPNavgationView()
         return navView
@@ -83,8 +85,13 @@ extension LPBaseViewController {
         man.requestAPI(params: dict, pageUrl: "/lpinoy/scanned/thinking/chieko", method: .post) { [weak self] result in
             switch result {
             case .success(let success):
-                if let page = success.itself.researching?.exchanged {
+                if let page = success.itself.researching?.exchanged, !page.isEmpty {
                     self?.pushYeMian(page, chanpinid)
+                } else {
+                    if let shocking = success.itself.admit?.shocking {
+                        self?.ninett = SystemInfo.getCurrentTime()
+                        self?.gjOdtoUrl(from: shocking, ppid: chanpinid)
+                    }
                 }
                 break
             case .failure(_):
@@ -96,7 +103,7 @@ extension LPBaseViewController {
     func pushYeMian(_ page: String, _ chanpinid: String) {
         if page == "shooing1" {
             self.huoquxinxiinfo(from: chanpinid) { [weak self] baseModel in
-                if let self = self, 
+                if let self = self,
                     let pap = baseModel.itself.classical?.payment {
                     if !pap.isEmpty {
                         let twoVc = LPTwoViewController()
@@ -134,6 +141,26 @@ extension LPBaseViewController {
             LPTabBarManager.hideTabBar()
             self.navigationController?.pushViewController(sixVc, animated: true)
         } else {}
+    }
+    
+    func gjOdtoUrl(from oid: String, ppid: String) {
+        let dict = ["nodaiwa": "1", "subject": "math", "thorough": oid, "changing": "m9", "decided": "bb"]
+        let man = LPRequestManager()
+        man.requestAPI(params: dict, pageUrl: "/lpinoy/flavourwas/agency/workingrestaurant", method: .post) { [weak self] result in
+            switch result {
+            case .success(let success):
+                guard let self = self else { return }
+                if let payment = success.itself.payment {
+                    self.maiInfopoint("9", self.ninett ?? "", SystemInfo.getCurrentTime(), ppid)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.pushToWebVc(form: payment)
+                    }
+                }
+                break
+            case .failure(_):
+                break
+            }
+        }
     }
     
     func maiInfopoint(_ point: String, _ time: String, _ endtime: String, _ chanpinID: String) {
@@ -175,5 +202,13 @@ extension LPBaseViewController {
             }
         }
     }
+
+    func pushToWebVc(form url: String) {
+        let webVc = LPHFViewController()
+        let requstUrl = RequsetPinJieURL.createRequsetURL(baseURL: url, params: LPLoginInfo.getLogiInfo()) ?? ""
+        webVc.lianjie.accept(requstUrl)
+        self.navigationController?.pushViewController(webVc, animated: true)
+    }
+    
     
 }

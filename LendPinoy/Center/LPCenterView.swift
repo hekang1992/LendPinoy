@@ -160,6 +160,17 @@ extension LPCenterView {
             make.bottom.equalToSuperview().offset(-125.lpix())
         }
         
+        scrollView
+            .rx
+            .contentOffset
+            .subscribe(onNext: { [weak self] contentOffset in
+            guard let self = self else { return }
+            let y = contentOffset.y
+            if y < 0 {
+                self.scrollView.setContentOffset(.zero, animated: false)
+            }
+        }).disposed(by: disposeBag)
+        
         twoBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.block?()

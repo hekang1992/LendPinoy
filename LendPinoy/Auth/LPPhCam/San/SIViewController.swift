@@ -76,7 +76,6 @@ extension SIViewController {
         var dict: [String: Any]?
         if let modelArray = self.modelArray.value {
             dict = modelArray.reduce(into: [String: Any](), { partialResult, model in
-                
                 if let hitch = model.hitch {
                     if model.photo == "pointing1" || model.photo == "pointing4" {
                         partialResult[hitch] = model.separately

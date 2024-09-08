@@ -46,6 +46,7 @@ class itselfModel {
     var researching: researchingModel?
     var kitahama: kitahamaModel?
     var classical: classicalModel?
+    var admit: admitModel?
     var crossing: [crossingModel]?
     var dazed: [dazedModel]?
     init(json: JSON) {
@@ -62,12 +63,20 @@ class itselfModel {
         self.researching = researchingModel(json: json["researching"])
         self.kitahama = kitahamaModel(json: json["kitahama"])
         self.classical = classicalModel(json: json["classical"])
+        self.admit = admitModel(json: json["admit"])
         self.crossing = json["crossing"].arrayValue.map({ json in
             crossingModel(json: json)
         })
         self.dazed = json["dazed"].arrayValue.map({ json in
             dazedModel(json: json)
         })
+    }
+}
+
+class admitModel {
+    var shocking: String?
+    init(json: JSON) {
+        self.shocking = json["shocking"].stringValue
     }
 }
 
@@ -87,6 +96,7 @@ class dazedModel {
     var restaurants: String?
     var uncle: String?
     var panicked: String?
+    var relationText: String?
     var kaiseki: [silentModel]?
     var dazed: [dazedModel]?
     init(json: JSON) {
@@ -96,6 +106,7 @@ class dazedModel {
         self.restaurants = json["restaurants"].stringValue
         self.uncle = json["uncle"].stringValue
         self.panicked = json["panicked"].stringValue
+        self.relationText = json["relationText"].stringValue
         self.kaiseki = json["kaiseki"].arrayValue.map({ json in
             silentModel(json: json)
         })

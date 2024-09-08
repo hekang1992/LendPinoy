@@ -13,7 +13,6 @@ class LPHFView: LPJCView {
     
     lazy var navView: LPNavgationView = {
         let navView = LPNavgationView()
-        navView.titleLabel.text = "Loan Information "
         return navView
     }()
     

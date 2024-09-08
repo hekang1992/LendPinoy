@@ -21,14 +21,18 @@ class LPLIUView: LPJCView {
     
     var tapBlock: ((UIButton, crossingModel) -> Void)?
     
+    var becameInfoBlock: ((String) -> Void)?
+    
     lazy var navView: LPNavgationTwoView = {
         let navView = LPNavgationTwoView()
         navView.mBlock = { [weak self] btn in
             if btn == navView.eBtn {
+                self?.becameInfoBlock?("1")
                 if let model1Array = self?.model1Array.value {
                     self?.modelArray.accept(model1Array)
                 }
             }else {
+                self?.becameInfoBlock?("2")
                 if let model2Array = self?.model2Array.value {
                     self?.modelArray.accept(model2Array)
                 }

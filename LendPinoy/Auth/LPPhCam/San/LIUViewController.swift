@@ -14,17 +14,26 @@ class LIUViewController: LPBaseViewController {
     
     var addEb = BehaviorRelay<String>(value: "0")
     
+    var model1Array = BehaviorRelay<[crossingModel]?>(value: [])
+    
+    var model2Array = BehaviorRelay<[crossingModel]?>(value: [])
+    
+    var liuTi: String?
+    
     lazy var liuView: LPLIUView = {
         let liuView = LPLIUView()
         return liuView
     }()
 
+    var becameinfo = BehaviorRelay<String>(value: "1")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         makeSs()
         ebInfo()
+        liuTi = SystemInfo.getCurrentTime()
     }
 
 }
@@ -47,8 +56,55 @@ extension LIUViewController {
             self?.genjuModelqutiaozhuan(from: model, anniu: btn)
         }
         
+        liuView.becameInfoBlock = { [weak self] becameinfo in
+            self?.becameinfo.accept(becameinfo)
+            print("becameinfo>>>>>\(self?.becameinfo.value ?? "")")
+        }
+        
         liuView.comfirmblock = { [weak self] in
-            
+            var dict: [String: Any]?
+            dict?["daishiro"] = "var"
+            dict?["frown"] = "0"
+            dict?["fera"] = "1"
+            dict?["reminder"] = self?.chanpinID.value
+            if self?.becameinfo.value == "1" {
+                if let model1Array = self?.model1Array {
+                    dict = model1Array.value?.reduce(into: [String: Any](), { partialResult, model in
+                        if model.photo == "pointing1" || model.photo == "pointing4" {
+                            partialResult[model.hitch!] = model.separately
+                        }else {
+                            partialResult[model.hitch!] = model.completely
+                        }
+                    })
+                    dict?["became"] = "1"
+                }
+            }else {
+                if let model2Array = self?.model2Array {
+                    dict = model2Array.value?.reduce(into: [String: Any](), { partialResult, model in
+                        if model.photo == "pointing1" || model.photo == "pointing4" {
+                            partialResult[model.hitch!] = model.separately
+                        }else {
+                            partialResult[model.hitch!] = model.completely
+                        }
+                    })
+                    dict?["became"] = "2"
+                }
+            }
+            if let dict = dict {
+                let man = LPRequestManager()
+                man.requestAPI(params: dict, pageUrl: "/lpinoy/toher/still/touristy", method: .post) { [weak self] result in
+                    switch result {
+                    case .success(let success):
+                        self?.maiInfopoint("8", self?.liuTi ?? "", SystemInfo.getCurrentTime(), self?.chanpinID.value ?? "")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            self?.chanpinxiangqingyemian(self?.chanpinID.value ?? "")
+                        }
+                        break
+                    case .failure(_):
+                        break
+                    }
+                }
+            }
         }
         
     }
@@ -80,6 +136,8 @@ extension LIUViewController {
             case .success(let success):
                 guard let self = self else { return }
                 if let modelArray = success.itself.crossing, let model1Array = modelArray.first?.crossing, let model2Array = modelArray.last?.crossing {
+                    self.model1Array.accept(model1Array)
+                    self.model2Array.accept(model2Array)
                     self.liuView.modelArray.accept(model1Array)
                     self.liuView.model1Array.accept(model1Array)
                     self.liuView.model2Array.accept(model2Array)

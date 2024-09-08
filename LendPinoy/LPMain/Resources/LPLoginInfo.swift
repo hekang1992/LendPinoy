@@ -45,7 +45,8 @@ class LPLoginInfo: NSObject {
                      "backColor": "pink",
                      "Content": "testjson",
                      "moist": moist,
-                     "bmw": "m5",
+                     "bmw": "m3",
+                     "audi": "s6",
                      "zipo": "fire"]
         
         let dict2 = ["icloud": "1",

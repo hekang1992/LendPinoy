@@ -48,7 +48,7 @@ extension LPCenterViewController {
             ToastUtility.showToast(message: "2")
         }
         centerView.block4 = { [weak self] in
-            
+            ToastUtility.showToast(message: "1")
         }
     }
 

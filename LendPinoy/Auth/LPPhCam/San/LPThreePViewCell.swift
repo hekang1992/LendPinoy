@@ -119,8 +119,14 @@ extension LPThreePViewCell {
         }
         model.subscribe(onNext: { [weak self] model1 in
             guard let self = self, let model1 = model1 else { return }
+            if let relationText = model1.relationText, !relationText.isEmpty {
+                self.label1.text = relationText
+            }
             if let quench = model1.quench, !quench.isEmpty {
-                
+                self.label2.text = quench
+            }
+            if let restaurants = model1.restaurants, !restaurants.isEmpty {
+                self.label3.text = restaurants
             }
             self.nameLabel.text = model1.panicked ?? ""
         }).disposed(by: disposeBag)

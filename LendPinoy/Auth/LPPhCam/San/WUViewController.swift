@@ -68,7 +68,7 @@ extension WUViewController {
                     return ["uncle": model.uncle ?? "",
                             "smiled": model.smiled ?? "",
                             "aunt": "s2",
-                            "peanut": "s1",
+                            "peanut": String(Int.random(in: 1...9)),
                             "quench": model.quench ?? "",
                             "restaurants": model.restaurants ?? ""]
                 }
@@ -235,8 +235,7 @@ extension WUViewController: CNContactPickerDelegate {
     func arrayToJSONString(_ array: [Any]) -> String? {
         do {
             // Convert array to JSON data
-            let jsonData = try JSONSerialization.data(withJSONObject: array, options: .prettyPrinted)
-            
+            let jsonData = try JSONSerialization.data(withJSONObject: array, options: [])
             // Convert JSON data to String
             let jsonString = String(data: jsonData, encoding: .utf8)
             return jsonString
