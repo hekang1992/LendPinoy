@@ -43,6 +43,8 @@ target 'LendPinoy' do
   
   pod 'BRPickerView', '~> 2.9.1'
   
+  pod 'RxDataSources', '~> 5.0.0'
+  
   # Pods for LendPinoy
 
 end

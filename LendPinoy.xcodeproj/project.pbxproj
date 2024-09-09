@@ -66,6 +66,9 @@
 		73F40C5E2C8CAEC300BCFB25 /* LPThreePViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C5D2C8CAEC300BCFB25 /* LPThreePViewCell.swift */; };
 		73F40C602C8CAEF000BCFB25 /* LPThreePView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C5F2C8CAEF000BCFB25 /* LPThreePView.swift */; };
 		73F40C642C8D9CC400BCFB25 /* LPLIUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C632C8D9CC400BCFB25 /* LPLIUView.swift */; };
+		73F958A12C8F2921005D69B8 /* LPADBListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F958A02C8F2921005D69B8 /* LPADBListViewController.swift */; };
+		73F958A32C8F2B39005D69B8 /* LPADBListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F958A22C8F2B39005D69B8 /* LPADBListView.swift */; };
+		73F958A52C8F2B96005D69B8 /* LPADBListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F958A42C8F2B96005D69B8 /* LPADBListCell.swift */; };
 		E72ADA7652749A421965C75F /* Pods_LendPinoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +135,9 @@
 		73F40C5D2C8CAEC300BCFB25 /* LPThreePViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPThreePViewCell.swift; sourceTree = "<group>"; };
 		73F40C5F2C8CAEF000BCFB25 /* LPThreePView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPThreePView.swift; sourceTree = "<group>"; };
 		73F40C632C8D9CC400BCFB25 /* LPLIUView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLIUView.swift; sourceTree = "<group>"; };
+		73F958A02C8F2921005D69B8 /* LPADBListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPADBListViewController.swift; sourceTree = "<group>"; };
+		73F958A22C8F2B39005D69B8 /* LPADBListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPADBListView.swift; sourceTree = "<group>"; };
+		73F958A42C8F2B96005D69B8 /* LPADBListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPADBListCell.swift; sourceTree = "<group>"; };
 		D59C94D7295B42BE36931E2A /* Pods_LendPinoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LendPinoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -342,6 +348,9 @@
 				73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */,
 				7389D44C2C838AD200C7D7DB /* LPAgreeViewController.swift */,
 				7389D44E2C83973F00C7D7DB /* LPAccountManViewController.swift */,
+				73F958A02C8F2921005D69B8 /* LPADBListViewController.swift */,
+				73F958A22C8F2B39005D69B8 /* LPADBListView.swift */,
+				73F958A42C8F2B96005D69B8 /* LPADBListCell.swift */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -519,6 +528,7 @@
 				73F40C5C2C8C78BC00BCFB25 /* LPXuanZeManager.swift in Sources */,
 				7326E4092C84C8D000383EBC /* LPLoginView.swift in Sources */,
 				73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */,
+				73F958A12C8F2921005D69B8 /* LPADBListViewController.swift in Sources */,
 				73BDE2522C80ACBA00A776F8 /* LPSheBeiInfo.swift in Sources */,
 				73F40C582C8C6E5600BCFB25 /* LPHFViewController.swift in Sources */,
 				7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */,
@@ -538,8 +548,10 @@
 				7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */,
 				73A4536D2C88A7AC005C2882 /* FristViewCell.swift in Sources */,
 				7389D4552C83A63D00C7D7DB /* LPHubHomeView.swift in Sources */,
+				73F958A52C8F2B96005D69B8 /* LPADBListCell.swift in Sources */,
 				73A453732C88B4B8005C2882 /* LPTwoViewController.swift in Sources */,
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
+				73F958A32C8F2B39005D69B8 /* LPADBListView.swift in Sources */,
 				73A4536F2C88AF11005C2882 /* PoPAuthView.swift in Sources */,
 				7326E40D2C86003200383EBC /* LPCodeView.swift in Sources */,
 				73260BCF2C8B41A5006066E5 /* SamViewController.swift in Sources */,

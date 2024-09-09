@@ -163,10 +163,9 @@ extension LPCenterView {
         scrollView
             .rx
             .contentOffset
-            .subscribe(onNext: { [weak self] contentOffset in
+            .subscribe(onNext: { [weak self] contfset in
             guard let self = self else { return }
-            let y = contentOffset.y
-            if y < 0 {
+            if contfset.y < 0 {
                 self.scrollView.setContentOffset(.zero, animated: false)
             }
         }).disposed(by: disposeBag)

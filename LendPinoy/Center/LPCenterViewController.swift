@@ -33,8 +33,8 @@ extension LPCenterViewController {
     
     func tap() {
         centerView.block = { [weak self] in
-            let acc = LPAccountManViewController()
-            self?.navigationController?.pushViewController(acc, animated: true)
+            let adb = LPADBListViewController()
+            self?.navigationController?.pushViewController(adb, animated: true)
         }
         centerView.block1 = { [weak self] in
             let acc = LPAccountManViewController()

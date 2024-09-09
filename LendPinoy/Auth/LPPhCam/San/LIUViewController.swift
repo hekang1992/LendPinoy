@@ -95,9 +95,13 @@ extension LIUViewController {
                 man.requestAPI(params: dict, pageUrl: "/lpinoy/toher/still/touristy", method: .post) { [weak self] result in
                     switch result {
                     case .success(let success):
-                        self?.maiInfopoint("8", self?.liuTi ?? "", SystemInfo.getCurrentTime(), self?.chanpinID.value ?? "")
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self?.chanpinxiangqingyemian(self?.chanpinID.value ?? "")
+                        if self?.addEb.value == "1" {
+                            self?.chaaccn(from: success.itself)
+                        } else {
+                            self?.maiInfopoint("8", self?.liuTi ?? "", SystemInfo.getCurrentTime(), self?.chanpinID.value ?? "")
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                self?.chanpinxiangqingyemian(self?.chanpinID.value ?? "")
+                            }
                         }
                         break
                     case .failure(_):
@@ -107,6 +111,24 @@ extension LIUViewController {
             }
         }
         
+    }
+    
+    func chaaccn(from model: itselfModel) {
+        let man = LPRequestManager()
+        man.requestAPI(params: ["confirm": model.confirm ?? "", "thorough": ""], pageUrl: "/lpinoy/waiting/having/kitchendad", method: .post) { [weak self] result in
+            switch result {
+            case .success(let success):
+                let model = success.itself
+                if let yokohama = model.yokohama, !yokohama.isEmpty {
+                    self?.genJuUrlPush(form: yokohama)
+                }else {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+                break
+            case .failure(_):
+                break
+            }
+        }
     }
     
     func genjuModelqutiaozhuan(from model: crossingModel, anniu: UIButton) {
@@ -131,7 +153,7 @@ extension LIUViewController {
     
     func ebInfo() {
         let man = LPRequestManager()
-        man.requestAPI(params: ["collection": addEb.value], pageUrl: "/lpinoy/clothing/flakes/visitas", method: .get) { [weak self] result in
+        man.requestAPI(params: ["collection": addEb.value, "harumi": "ipo"], pageUrl: "/lpinoy/clothing/flakes/visitas", method: .get) { [weak self] result in
             switch result {
             case .success(let success):
                 guard let self = self else { return }

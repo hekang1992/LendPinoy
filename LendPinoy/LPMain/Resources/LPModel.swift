@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftyJSON
+import Differentiator
 
 class DingModel: NSObject {
     var mizugashi: String?
@@ -40,6 +41,8 @@ class itselfModel {
     var quench: String?
     var attending: String?
     var encouragingly: String?
+    var confirm: String?
+    var yokohama: String?
     var joy: joyModel?
     var purse: purseModel?
     var forests: forestsModel?
@@ -57,6 +60,8 @@ class itselfModel {
         self.quench = json["quench"].stringValue
         self.attending = json["attending"].stringValue
         self.encouragingly = json["encouragingly"].stringValue
+        self.confirm = json["confirm"].stringValue
+        self.yokohama = json["yokohama"].stringValue
         self.joy = joyModel(json: json["joy"])
         self.purse = purseModel(json: json["purse"])
         self.forests = forestsModel(json: json["forests"])
@@ -97,6 +102,8 @@ class dazedModel {
     var uncle: String?
     var panicked: String?
     var relationText: String?
+    var replaced: String?
+    var delivery: [deliveryModel]?
     var kaiseki: [silentModel]?
     var dazed: [dazedModel]?
     init(json: JSON) {
@@ -107,6 +114,10 @@ class dazedModel {
         self.uncle = json["uncle"].stringValue
         self.panicked = json["panicked"].stringValue
         self.relationText = json["relationText"].stringValue
+        self.replaced = json["replaced"].stringValue
+        self.delivery = json["delivery"].arrayValue.map({ json in
+            deliveryModel(json: json)
+        })
         self.kaiseki = json["kaiseki"].arrayValue.map({ json in
             silentModel(json: json)
         })
@@ -114,13 +125,12 @@ class dazedModel {
             dazedModel(json: json)
         })
     }
+    
+    required init(original: dazedModel, items: [deliveryModel]) {
+        self.delivery = items
+    }
+    
 }
-
-var smiled: String?
-var restaurants: String?
-var uncle: String?
-var panicked: String?
-var kaiseki: silentModel?
 
 class crossingModel {
     var readily: String?
@@ -205,11 +215,19 @@ class deliveryModel {
     var fine: String?
     var fortnight: String?
     var hesitantly: String?
+    var confirm: String?
+    var ours: String?
+    var drank: String?
+    var daze: String?
     init(json: JSON) {
         self.payment = json["payment"].stringValue
         self.fine = json["fine"].stringValue
         self.fortnight = json["fortnight"].stringValue
+        self.confirm = json["confirm"].stringValue
+        self.ours = json["ours"].stringValue
         self.hesitantly = json["hesitantly"].stringValue
+        self.daze = json["daze"].stringValue
+        self.drank = json["drank"].stringValue
     }
 }
 
@@ -224,3 +242,10 @@ class kitahamaModel {
         self.allArray = self.primaryArray + self.secondaryArray
     }
 }
+
+extension dazedModel: SectionModelType {
+    var items: [deliveryModel] {
+        return self.delivery!
+    }
+}
+
