@@ -2,7 +2,7 @@
 //  LPLIUView.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/8.
+//  Created by Banana on 2024/9/8.
 //
 
 import UIKit

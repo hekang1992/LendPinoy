@@ -2,7 +2,7 @@
 //  SamViewController.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/6.
+//  Created by Banana on 2024/9/6.
 //
 
 import UIKit
