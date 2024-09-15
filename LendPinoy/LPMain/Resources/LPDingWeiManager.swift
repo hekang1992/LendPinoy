@@ -25,7 +25,7 @@ class LPDingWeiManager: NSObject {
     }
     
     deinit {
-        print("--------------")
+        print("xiaohui=======xiaohui")
     }
 }
 

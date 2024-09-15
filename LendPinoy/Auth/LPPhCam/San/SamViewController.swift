@@ -32,8 +32,14 @@ class SamViewController: LPBaseViewController {
             make.edges.equalToSuperview()
         }
         yiView.navView.block = { [weak self] in
-            self?.navigationController?.popToRootViewController(animated: true)
-            LPTabBarManager.showTabBar()
+            if let navigationController = self?.navigationController {
+                if let targetViewController = navigationController.viewControllers.first(where: { $0 is LPOrderListViewController }) {
+                    navigationController.popToViewController(targetViewController, animated: true)
+                } else {
+                    self?.navigationController?.popToRootViewController(animated: true)
+                    LPTabBarManager.showTabBar()
+                }
+            }
         }
         st = SystemInfo.getCurrentTime()
         HuoQiInfo()

@@ -7,7 +7,8 @@
 
 import UIKit
 import MJRefresh
-import RxRelay
+import RxSwift
+import RxCocoa
 
 class LPHomeViewController: LPBaseViewController {
     
@@ -47,6 +48,7 @@ class LPHomeViewController: LPBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         homeInfo()
+        
     }
     
 }

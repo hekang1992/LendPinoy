@@ -104,7 +104,7 @@ extension LPAccountManViewController {
                        pageUrl: "/lpinoy/hurried/middle/hideji",
                        method: .get) { [weak self] result in
             switch result {
-            case .success(let success):
+            case .success(_):
                 DispatchQueue.main.async {
                     LPLoginInfo.removeDengLuInfo()
                     self?.dismiss(animated: true, completion: {
@@ -112,7 +112,7 @@ extension LPAccountManViewController {
                     })
                 }
                 break
-            case .failure(let failure):
+            case .failure(_):
                 break
             }
         }

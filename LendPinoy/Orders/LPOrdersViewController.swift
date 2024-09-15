@@ -32,8 +32,10 @@ class LPOrdersViewController: LPBaseViewController {
 extension LPOrdersViewController {
     
     func tap() {
-        olistView.block = { [weak self] in
-            ToastUtility.showToast(message: "2")
+        olistView.block = { [weak self] li in
+            let oli = LPOrderListViewController()
+            oli.li.accept(li)
+            self?.navigationController?.pushViewController(oli, animated: true)
         }
     }
     

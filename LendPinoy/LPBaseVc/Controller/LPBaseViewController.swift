@@ -61,22 +61,65 @@ extension LPBaseViewController {
     }
     
     func genJuUrlPush(form payment: String) {
-        guard let url = URL(string: payment), let sch = url.scheme else { return }
-        if sch.hasPrefix("http")  {
-            let hfView = LPHFViewController()
-            hfView.lianjie.accept(payment)
-            self.navigationController?.pushViewController(hfView, animated: true)
-        } else if sch.hasPrefix("pinoy") {
-            let path = url.path
-            if path.contains("/disappeared") {
-                guard let query = url.query else { return }
-                let arr = query.components(separatedBy: "=")
-                let chanpinid = arr.last ?? ""
-                chanpinxiangqingyemian(chanpinid)
-            }
-        } else {
-            
+        guard let url = URL(string: payment), let scheme = url.scheme else { return }
+        switch scheme {
+        case let s where s.hasPrefix("http"):
+            handleHTTPUrl(payment: payment)
+        case let s where s.hasPrefix("pinoy"):
+            handlePinoyUrl(url: url, payment: payment)
+        default:
+            // Handle unsupported URL schemes if needed
+            break
         }
+    }
+
+    private func handleHTTPUrl(payment: String) {
+        self.pushToWebVc(form: payment)
+    }
+
+    private func handlePinoyUrl(url: URL, payment: String) {
+        let path = url.path
+        if path.contains("/disappeared") {
+            handleDisappearedPath(query: url.query)
+        } else if path.contains("/expectations") {
+            handleExpectationsPath(payment: payment)
+        } else if path.contains("/opposite") {
+            handleOppositePath(payment: payment)
+        }
+    }
+
+    private func handleDisappearedPath(query: String?) {
+        guard let query = query else { return }
+        let components = query.components(separatedBy: "=")
+        let chanpinid = components.last ?? ""
+        chanpinxiangqingyemian(chanpinid)
+    }
+
+    private func handleExpectationsPath(payment: String) {
+        guard let productID = extractParameter(from: payment, name: "reminder"),
+              let orderID = extractParameter(from: payment, name: "embarrassment") else { return }
+        
+        let bVc = LPADBListViewController()
+        bVc.reminder.accept(productID)
+        bVc.embarrassment.accept(orderID)
+        self.navigationController?.pushViewController(bVc, animated: true)
+    }
+
+    private func handleOppositePath(payment: String) {
+        let ovc = LPOrderListViewController()
+        if let value = extractParameter(from: payment, name: "supposed") {
+            ovc.li.accept(value)
+            self.navigationController?.pushViewController(ovc, animated: true)
+        }
+    }
+
+    private func extractParameter(from payment: String, name: String) -> String? {
+        guard let range = payment.range(of: "\(name)=") else { return nil }
+        let value = payment[range.upperBound...]
+        if let endRange = value.range(of: "&") {
+            return String(value[..<endRange.lowerBound])
+        }
+        return String(value)
     }
     
     func chanpinxiangqingyemian(_ chanpinid: String) {

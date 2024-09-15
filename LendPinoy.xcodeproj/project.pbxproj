@@ -36,6 +36,9 @@
 		7326E40F2C860C8D00383EBC /* LPCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E40E2C860C8D00383EBC /* LPCycleView.swift */; };
 		7326E4112C860CB400383EBC /* recyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 7326E4102C860CB400383EBC /* recyle.json */; };
 		7326E4152C8610AA00383EBC /* LPDingWeiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326E4142C8610AA00383EBC /* LPDingWeiManager.swift */; };
+		733B52562C90791300B6AF82 /* LPOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733B52552C90791300B6AF82 /* LPOrderListViewController.swift */; };
+		733B52582C907D8600B6AF82 /* LPOrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733B52572C907D8600B6AF82 /* LPOrderListView.swift */; };
+		733B525A2C90832900B6AF82 /* LPOrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733B52592C90832900B6AF82 /* LPOrderListCell.swift */; };
 		7357B4BF2C84B91800B2DE1B /* LPLunBoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7357B4BE2C84B91800B2DE1B /* LPLunBoViewCell.swift */; };
 		7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4462C83786700C7D7DB /* LPCenterView.swift */; };
 		7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4482C8383C200C7D7DB /* LPOrdersView.swift */; };
@@ -105,6 +108,9 @@
 		7326E40E2C860C8D00383EBC /* LPCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCycleView.swift; sourceTree = "<group>"; };
 		7326E4102C860CB400383EBC /* recyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recyle.json; sourceTree = "<group>"; };
 		7326E4142C8610AA00383EBC /* LPDingWeiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPDingWeiManager.swift; sourceTree = "<group>"; };
+		733B52552C90791300B6AF82 /* LPOrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrderListViewController.swift; sourceTree = "<group>"; };
+		733B52572C907D8600B6AF82 /* LPOrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrderListView.swift; sourceTree = "<group>"; };
+		733B52592C90832900B6AF82 /* LPOrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrderListCell.swift; sourceTree = "<group>"; };
 		7357B4BE2C84B91800B2DE1B /* LPLunBoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLunBoViewCell.swift; sourceTree = "<group>"; };
 		7389D4462C83786700C7D7DB /* LPCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCenterView.swift; sourceTree = "<group>"; };
 		7389D4482C8383C200C7D7DB /* LPOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrdersView.swift; sourceTree = "<group>"; };
@@ -337,6 +343,9 @@
 			children = (
 				7389D4482C8383C200C7D7DB /* LPOrdersView.swift */,
 				73BDE25A2C80BF9F00A776F8 /* LPOrdersViewController.swift */,
+				733B52552C90791300B6AF82 /* LPOrderListViewController.swift */,
+				733B52572C907D8600B6AF82 /* LPOrderListView.swift */,
+				733B52592C90832900B6AF82 /* LPOrderListCell.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -526,6 +535,7 @@
 				73F40C5E2C8CAEC300BCFB25 /* LPThreePViewCell.swift in Sources */,
 				7389D44F2C83973F00C7D7DB /* LPAccountManViewController.swift in Sources */,
 				73F40C5C2C8C78BC00BCFB25 /* LPXuanZeManager.swift in Sources */,
+				733B525A2C90832900B6AF82 /* LPOrderListCell.swift in Sources */,
 				7326E4092C84C8D000383EBC /* LPLoginView.swift in Sources */,
 				73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */,
 				73F958A12C8F2921005D69B8 /* LPADBListViewController.swift in Sources */,
@@ -533,6 +543,7 @@
 				73F40C582C8C6E5600BCFB25 /* LPHFViewController.swift in Sources */,
 				7389D4492C8383C200C7D7DB /* LPOrdersView.swift in Sources */,
 				7389D44B2C8389A100C7D7DB /* LPNavgationView.swift in Sources */,
+				733B52562C90791300B6AF82 /* LPOrderListViewController.swift in Sources */,
 				73260BDD2C8B5C2E006066E5 /* LPDianjiTMViewCell.swift in Sources */,
 				7326E4152C8610AA00383EBC /* LPDingWeiManager.swift in Sources */,
 				73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */,
@@ -548,6 +559,7 @@
 				7389D4472C83786700C7D7DB /* LPCenterView.swift in Sources */,
 				73A4536D2C88A7AC005C2882 /* FristViewCell.swift in Sources */,
 				7389D4552C83A63D00C7D7DB /* LPHubHomeView.swift in Sources */,
+				733B52582C907D8600B6AF82 /* LPOrderListView.swift in Sources */,
 				73F958A52C8F2B96005D69B8 /* LPADBListCell.swift in Sources */,
 				73A453732C88B4B8005C2882 /* LPTwoViewController.swift in Sources */,
 				730C31FA2C7EF1A50079510B /* AppDelegate.swift in Sources */,
@@ -695,24 +707,31 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LVNFNCZAX5;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XS8842FK7N;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LendPinoy/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSContactsUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.ph.tongdao.com;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.app.ald.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = testappprofile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = testappaldprofile;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -734,24 +753,31 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = LVNFNCZAX5;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XS8842FK7N;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LendPinoy/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSContactsUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.ph.tongdao.com;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.app.ald.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = testappprofile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = testappaldprofile;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

@@ -200,6 +200,7 @@ extension LPCodeView {
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] isExceeded in
                 if isExceeded {
+                    self?.loginBlock?()
                     self?.phoneTx.resignFirstResponder()
                 }
             })

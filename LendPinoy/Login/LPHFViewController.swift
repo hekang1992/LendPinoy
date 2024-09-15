@@ -64,8 +64,23 @@ extension LPHFViewController {
     }
     
     func gooneVc() {
-        LPTabBarManager.showTabBar()
-        self.navigationController?.popToRootViewController(animated: true)
+        if let navigationController = self.navigationController {
+            Judgeg.pongVc(ofClass: LPOrderListViewController.self, in: navigationController)
+        }
     }
     
+}
+
+
+class Judgeg: NSObject {
+    static func pongVc<T: LPBaseViewController>(ofClass: T.Type, in navigationController: UINavigationController) {
+        for viewController in navigationController.viewControllers {
+            if viewController.isKind(of: ofClass) {
+                navigationController.popToViewController(viewController, animated: true)
+                return
+            }
+        }
+        LPTabBarManager.showTabBar()
+        navigationController.popToRootViewController(animated: true)
+    }
 }

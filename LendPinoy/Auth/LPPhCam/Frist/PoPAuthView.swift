@@ -53,7 +53,7 @@ class PoPAuthView: LPJCView {
     
     lazy var queBtn: UIButton = {
         let queBtn = UIButton(type: .custom)
-        queBtn.setTitle("Repay", for: .normal)
+        queBtn.setTitle("Confirm", for: .normal)
         queBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
         queBtn.setTitleColor(UIColor.init(hex: "#FFFFFF"), for: .normal)
         return queBtn

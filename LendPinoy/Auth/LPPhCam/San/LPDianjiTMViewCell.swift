@@ -78,7 +78,7 @@ class LPDianjiTMViewCell: UITableViewCell {
         timeBtn.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15.lpix())
             make.top.bottom.equalToSuperview()
-            make.right.equalTo(icon.snp.left).offset(-5.lpix())
+            make.right.equalToSuperview()
         }
         timeBtn.rx.tap.subscribe(onNext: { [weak self] in
             if let self = self {

@@ -10,7 +10,7 @@ import RxSwift
 
 class LPOrdersView: LPJCView {
     
-    var block: (() -> Void)?
+    var block: ((String) -> Void)?
 
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -119,7 +119,27 @@ extension LPOrdersView {
         
         twoBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            self.block?()
+            self.block?("4")
+        }).disposed(by: disposeBag)
+        
+        twoBtn1.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.block?("7")
+        }).disposed(by: disposeBag)
+        
+        twoBtn2.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.block?("6")
+        }).disposed(by: disposeBag)
+        
+        twoBtn3.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.block?("8")
+        }).disposed(by: disposeBag)
+        
+        twoBtn4.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.block?("5")
         }).disposed(by: disposeBag)
         
     }

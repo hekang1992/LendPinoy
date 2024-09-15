@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxRelay
 
 class LPADBListViewController: LPBaseViewController {
     
@@ -14,13 +15,16 @@ class LPADBListViewController: LPBaseViewController {
         return listView
     }()
     
+    var reminder = BehaviorRelay<String>(value: "")
+    
+    var embarrassment = BehaviorRelay<String>(value: "")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         addNavView(title: "Payment Methods")
         tapclick()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,11 +49,12 @@ extension LPADBListViewController {
         listView.adblock = { [weak self] in
             let bac = LIUViewController()
             bac.addEb.accept("1")
+            bac.thorough.accept(self?.embarrassment.value ?? "")
             self?.navigationController?.pushViewController(bac, animated: true)
         }
         listView.adbcclock = { [weak self] ppd in
             let man = LPRequestManager()
-            man.requestAPI(params: ["confirm": ppd, "thorough": ""], pageUrl: "/lpinoy/waiting/having/kitchendad", method: .post) { [weak self] result in
+            man.requestAPI(params: ["confirm": ppd, "thorough": self?.embarrassment.value ?? ""], pageUrl: "/lpinoy/waiting/having/kitchendad", method: .post) { [weak self] result in
                 switch result {
                 case .success(let success):
                     let model = success.itself

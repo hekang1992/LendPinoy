@@ -104,8 +104,4 @@ extension AppDelegate {
         }
     }
     
-    func byPoint() {
-        
-    }
-    
 }

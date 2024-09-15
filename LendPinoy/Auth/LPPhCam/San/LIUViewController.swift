@@ -14,6 +14,8 @@ class LIUViewController: LPBaseViewController {
     
     var addEb = BehaviorRelay<String>(value: "0")
     
+    var thorough = BehaviorRelay<String>(value: "")
+    
     var model1Array = BehaviorRelay<[crossingModel]?>(value: [])
     
     var model2Array = BehaviorRelay<[crossingModel]?>(value: [])
@@ -47,8 +49,14 @@ extension LIUViewController {
             make.edges.equalToSuperview()
         }
         liuView.navView.block = { [weak self] in
-            self?.navigationController?.popToRootViewController(animated: true)
-            LPTabBarManager.showTabBar()
+            if let navigationController = self?.navigationController {
+                if let targetViewController = navigationController.viewControllers.first(where: { $0 is LPOrderListViewController }) {
+                    navigationController.popToViewController(targetViewController, animated: true)
+                } else {
+                    self?.navigationController?.popToRootViewController(animated: true)
+                    LPTabBarManager.showTabBar()
+                }
+            }
         }
         
         liuView.tapBlock = { [weak self] btn, model in
@@ -115,7 +123,7 @@ extension LIUViewController {
     
     func chaaccn(from model: itselfModel) {
         let man = LPRequestManager()
-        man.requestAPI(params: ["confirm": model.confirm ?? "", "thorough": ""], pageUrl: "/lpinoy/waiting/having/kitchendad", method: .post) { [weak self] result in
+        man.requestAPI(params: ["confirm": model.confirm ?? "", "thorough": thorough.value], pageUrl: "/lpinoy/waiting/having/kitchendad", method: .post) { [weak self] result in
             switch result {
             case .success(let success):
                 let model = success.itself

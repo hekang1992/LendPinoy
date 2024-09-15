@@ -25,11 +25,11 @@ class LPTextViewCell: UITableViewCell {
         return bgView
     }()
     
-    lazy var icon: UIImageView = {
-        let icon = UIImageView()
-        icon.image = UIImage(named: "righticona")
-        return icon
-    }()
+//    lazy var icon: UIImageView = {
+//        let icon = UIImageView()
+//        icon.image = UIImage(named: "righticona")
+//        return icon
+//    }()
     
     lazy var nameTx: NoCopyTextFiled = {
         let nameTx = NoCopyTextFiled()
@@ -43,7 +43,7 @@ class LPTextViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(nameLabel)
         contentView.addSubview(bgView)
-        bgView.addSubview(icon)
+//        bgView.addSubview(icon)
         bgView.addSubview(nameTx)
         makess()
     }
@@ -76,13 +76,13 @@ extension LPTextViewCell {
             make.left.equalToSuperview().offset(15.lpix())
             make.height.equalTo(80.lpix())
             make.top.equalToSuperview()
-            make.right.equalTo(icon.snp.left).offset(-5.lpix())
+            make.right.equalToSuperview()
         }
-        icon.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-25.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
-        }
+//        icon.snp.makeConstraints { make in
+//            make.centerY.equalToSuperview()
+//            make.right.equalToSuperview().offset(-25.lpix())
+//            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+//        }
         
         nameTx.rx.text.orEmpty.bind(onNext: { [weak self] text in
             guard let self = self else { return }

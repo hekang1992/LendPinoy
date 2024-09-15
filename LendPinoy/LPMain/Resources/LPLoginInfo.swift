@@ -56,7 +56,9 @@ class LPLoginInfo: NSObject {
                      "normally": "iOS",
                      "item": "apple",
                      "twins": "0",
-                     "boyGirl": "boy"]
+                     "boyGirl": "boy",
+                     "peace": "1",
+                     "allpo": "mark"]
         
         let loict = dict2.reduce(into: dict1) { (result, item) in
             result[item.key] = item.value
