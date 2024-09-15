@@ -31,7 +31,7 @@ class LPLaunchViewController: LPBaseViewController {
     
     lazy var loginBtn: UIButton = {
         let loginBtn = UIButton(type: .custom)
-        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
         loginBtn.setTitleColor(UIColor.init(hex: "#2CD7BB"), for: .normal)
         loginBtn.setTitle("Login", for: .normal)
         loginBtn.layer.cornerRadius = 4.lpix()
@@ -41,7 +41,7 @@ class LPLaunchViewController: LPBaseViewController {
     
     lazy var youkeBtn: UIButton = {
         let youkeBtn = UIButton(type: .custom)
-        youkeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        youkeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
         youkeBtn.setTitleColor(UIColor.init(hex: "#FFFFFF"), for: .normal)
         youkeBtn.setTitle("Log in as a guest", for: .normal)
         youkeBtn.layer.cornerRadius = 4.lpix()
