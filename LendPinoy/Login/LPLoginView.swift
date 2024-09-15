@@ -145,9 +145,8 @@ class LPLoginView: LPJCView {
     }
     
     deinit {
-        print("-------------")
+        print("=========")
     }
-    
 }
 
 extension LPLoginView {
@@ -181,7 +180,7 @@ extension LPLoginView {
             make.left.equalToSuperview().offset(63.5.lpix())
         }
         phoneTx.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(-20.lpix())
+            make.left.equalTo(lineView.snp.right).offset(-25.lpix())
             make.right.equalToSuperview()
             make.top.bottom.equalToSuperview()
         }
