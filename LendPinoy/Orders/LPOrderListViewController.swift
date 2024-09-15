@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import RxRelay
+import RxSwift
+import RxCocoa
 import MJRefresh
 
 class LPOrderListViewController: LPBaseViewController {
