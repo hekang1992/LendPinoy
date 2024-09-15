@@ -241,6 +241,11 @@ class deliveryModel {
     var ours: String?
     var drank: String?
     var daze: String?
+    var endless: String?
+    var shrines: String?
+    var prayed: String?
+    var afraid: String?
+    var husband: String?
     init(json: JSON) {
         self.payment = json["payment"].stringValue
         self.fine = json["fine"].stringValue
@@ -250,6 +255,11 @@ class deliveryModel {
         self.hesitantly = json["hesitantly"].stringValue
         self.daze = json["daze"].stringValue
         self.drank = json["drank"].stringValue
+        self.endless = json["endless"].stringValue
+        self.shrines = json["shrines"].stringValue
+        self.prayed = json["prayed"].stringValue
+        self.afraid = json["afraid"].stringValue
+        self.husband = json["husband"].stringValue
     }
 }
 

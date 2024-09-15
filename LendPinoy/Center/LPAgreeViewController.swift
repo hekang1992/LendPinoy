@@ -71,12 +71,14 @@ extension LPAgreeViewController {
         
         btn1.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            ToastUtility.showToast(message: "贷款协议")
+            let url  = H5_URL + "/mostprecious"
+            self.pushToWebVc(form: url)
         }).disposed(by: disposeBag)
         
         btn2.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            ToastUtility.showToast(message: "隐私协议")
+            let url  = H5_URL + "/thecamping"
+            self.pushToWebVc(form: url)
         }).disposed(by: disposeBag)
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TYAlertController
 
 class LPLoginViewController: LPBaseViewController {
     
@@ -13,6 +14,11 @@ class LPLoginViewController: LPBaseViewController {
         let loginView = LPLoginView()
         loginView.backgroundColor = .white
         return loginView
+    }()
+    
+    lazy var phoView: LPTCPView = {
+        let phoView = LPTCPView(frame: self.view.bounds)
+        return phoView
     }()
 
     override func viewDidLoad() {
@@ -34,6 +40,19 @@ class LPLoginViewController: LPBaseViewController {
 
 extension LPLoginViewController {
     
+    func tcpView() {
+        let alertVc = TYAlertController(alert: self.phoView, preferredStyle: .alert)
+        self.phoView.phone.text = self.loginView.phoneTx.text ?? ""
+        self.present(alertVc!, animated: true)
+        self.phoView.block1 = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        self.phoView.block2 = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.sendcode()
+            })
+        }
+    }
     
     func tapClick() {
         
@@ -42,7 +61,19 @@ extension LPLoginViewController {
         }
         
         loginView.codeBlock = { [weak self] in
-            self?.sendcode()
+            self?.tcpView()
+        }
+        
+        loginView.yinBlock = { [weak self] in
+            guard let self = self else { return }
+            let url  = H5_URL + "/thecamping"
+            self.pushToWebVc(form: url)
+        }
+        
+        loginView.llBlock = { [weak self] in
+            guard let self = self else { return }
+            let url  = H5_URL + "/mostprecious"
+            self.pushToWebVc(form: url)
         }
         
     }

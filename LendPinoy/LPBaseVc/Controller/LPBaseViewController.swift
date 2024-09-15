@@ -245,13 +245,12 @@ extension LPBaseViewController {
             }
         }
     }
-
+    
     func pushToWebVc(form url: String) {
         let webVc = LPHFViewController()
-        let requstUrl = RequsetPinJieURL.createRequsetURL(baseURL: url, params: LPLoginInfo.getLogiInfo()) ?? ""
-        webVc.lianjie.accept(requstUrl)
+        let requstUrl = RePinJieURL.appendQueryParameters(urlString: url, parameters: LPLoginInfo.getLogiInfo())
+        webVc.lianjie.accept(requstUrl ?? "")
         self.navigationController?.pushViewController(webVc, animated: true)
     }
-    
     
 }

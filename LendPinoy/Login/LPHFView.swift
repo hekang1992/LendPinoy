@@ -85,7 +85,9 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard let method = methodMapping[message.name] else {
+        if let method = methodMapping[message.name] {
+            method(message.body as? [String])
+        } else {
             print("Unknown method: \(message.name)")
             return
         }
@@ -102,9 +104,15 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
             "seemed": { url in
                 self.daikaiwangzhi(url)
             },
-            "slightly": { _ in self.closeyemian() },
-            "surname": { _ in self.paimingduoshaone() },
-            "toEscape": { _ in self.toHome() }
+            "slightly": { _ in
+                self.closeyemian()
+            },
+            "surname": { _ in
+                self.paimingduoshaone()
+            },
+            "toEscape": { _ in
+                self.toHome()
+            }
         ]
     }
     

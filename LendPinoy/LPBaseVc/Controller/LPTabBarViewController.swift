@@ -33,9 +33,8 @@ class LPTabBarViewController: UITabBarController {
                     self?.selectedIndex = to
                 }
             }else {
-                let loginVc = LPLoginViewController()
-                loginVc.loginView.navView.backBtn.isHidden = true
-                self?.navigationController?.pushViewController(loginVc, animated: true)
+                let llauncVc = LPLaunchViewController()
+                self?.navigationController?.pushViewController(llauncVc, animated: true)
             }
         }
         customTabBar.snp.makeConstraints { make in

@@ -21,6 +21,8 @@
 		730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32202C7F4CB50079510B /* LPLaunchViewController.swift */; };
 		730C32232C7F4F0B0079510B /* LPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32222C7F4F0B0079510B /* LPModel.swift */; };
 		730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C32242C7F50800079510B /* LPRequsetManager.swift */; };
+		73240F202C9740840017FA26 /* HomeListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73240F1F2C9740840017FA26 /* HomeListViewCell.swift */; };
+		73240F222C974D520017FA26 /* LPTCPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73240F212C974D520017FA26 /* LPTCPView.swift */; };
 		73260BCF2C8B41A5006066E5 /* SamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BCE2C8B41A5006066E5 /* SamViewController.swift */; };
 		73260BD12C8B4232006066E5 /* SIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD02C8B4232006066E5 /* SIViewController.swift */; };
 		73260BD32C8B4242006066E5 /* WUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73260BD22C8B4242006066E5 /* WUViewController.swift */; };
@@ -93,6 +95,8 @@
 		730C32202C7F4CB50079510B /* LPLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPLaunchViewController.swift; sourceTree = "<group>"; };
 		730C32222C7F4F0B0079510B /* LPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPModel.swift; sourceTree = "<group>"; };
 		730C32242C7F50800079510B /* LPRequsetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPRequsetManager.swift; sourceTree = "<group>"; };
+		73240F1F2C9740840017FA26 /* HomeListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewCell.swift; sourceTree = "<group>"; };
+		73240F212C974D520017FA26 /* LPTCPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPTCPView.swift; sourceTree = "<group>"; };
 		73260BCE2C8B41A5006066E5 /* SamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamViewController.swift; sourceTree = "<group>"; };
 		73260BD02C8B4232006066E5 /* SIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIViewController.swift; sourceTree = "<group>"; };
 		73260BD22C8B4242006066E5 /* WUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WUViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				7326E40A2C85FF7A00383EBC /* LPCodeViewController.swift */,
 				73F40C572C8C6E5600BCFB25 /* LPHFViewController.swift */,
 				73F40C592C8C6E8500BCFB25 /* LPHFView.swift */,
+				73240F212C974D520017FA26 /* LPTCPView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				7389D4522C83A63300C7D7DB /* LPSubHomeView.swift */,
 				7389D4542C83A63D00C7D7DB /* LPHubHomeView.swift */,
 				7357B4BE2C84B91800B2DE1B /* LPLunBoViewCell.swift */,
+				73240F1F2C9740840017FA26 /* HomeListViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				73F40C642C8D9CC400BCFB25 /* LPLIUView.swift in Sources */,
 				73260BDB2C8B5C1A006066E5 /* LPTextViewCell.swift in Sources */,
 				73A4536B2C889EC6005C2882 /* FristVcView.swift in Sources */,
+				73240F222C974D520017FA26 /* LPTCPView.swift in Sources */,
 				730C32162C7F4B460079510B /* Market Fresh.ttf in Sources */,
 				73BDE2542C80BB2B00A776F8 /* LPLoginInfo.swift in Sources */,
 				73260BD12C8B4232006066E5 /* SIViewController.swift in Sources */,
@@ -531,6 +538,7 @@
 				73BDE25B2C80BF9F00A776F8 /* LPOrdersViewController.swift in Sources */,
 				7326E40B2C85FF7A00383EBC /* LPCodeViewController.swift in Sources */,
 				7389D44D2C838AD200C7D7DB /* LPAgreeViewController.swift in Sources */,
+				73240F202C9740840017FA26 /* HomeListViewCell.swift in Sources */,
 				730C321F2C7F4C670079510B /* BaseFile.swift in Sources */,
 				73F40C5E2C8CAEC300BCFB25 /* LPThreePViewCell.swift in Sources */,
 				7389D44F2C83973F00C7D7DB /* LPAccountManViewController.swift in Sources */,

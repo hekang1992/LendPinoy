@@ -163,9 +163,9 @@ extension LPOrderListCell {
             self.label2.text = model1.strangest ?? ""
             self.label3.text = model1.suffers ?? ""
             self.label4.text = model1.loanText ?? ""
-//            if let mess = model1.mess, !mess.isEmpty, mess != "0" {
-            self.ooLabel.text = "Overdue by \(model1.mess ?? "") days!"
-//            }
+            if let mess = model1.mess, !mess.isEmpty, mess != "0" {
+                self.ooLabel.text = "Overdue by \(model1.mess ?? "") days!"
+            }
         }).disposed(by: disposeBag)
     }
     

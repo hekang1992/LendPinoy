@@ -18,7 +18,7 @@ enum APIService {
 
 extension APIService: TargetType {
     var baseURL: URL {
-        let baseUrl = RequsetPinJieURL.createRequsetURL(baseURL: BASE_URL, params: LPLoginInfo.getLogiInfo()) ?? ""
+        let baseUrl = RePinJieURL.appendQueryParameters(urlString: BASE_URL, parameters: LPLoginInfo.getLogiInfo()) ?? ""
         return URL(string: baseUrl)!
     }
     
@@ -135,17 +135,17 @@ class LPRequestManager: NSObject {
     
 }
 
-class RequsetPinJieURL {
-    static func createRequsetURL(baseURL: String, params: [String: String]) -> String? {
-        guard var urlComponents = URLComponents(string: baseURL) else {
+class RePinJieURL {
+    static  func appendQueryParameters(urlString: String, parameters: [String: String]) -> String? {
+        guard var urlComponents = URLComponents(string: urlString) else {
             return nil
         }
-        var queryItems = [URLQueryItem]()
-        for (key, value) in params {
-            let queryItem = URLQueryItem(name: key, value: value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
-            queryItems.append(queryItem)
+        let queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+        if urlComponents.queryItems == nil {
+            urlComponents.queryItems = queryItems
+        } else {
+            urlComponents.queryItems?.append(contentsOf: queryItems)
         }
-        urlComponents.queryItems = queryItems
         return urlComponents.url?.absoluteString
     }
 }

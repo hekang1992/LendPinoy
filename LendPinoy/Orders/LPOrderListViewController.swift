@@ -54,7 +54,7 @@ extension LPOrderListViewController {
     
     func dedaoInfo() {
         let man = LPRequestManager()
-        man.requestAPI(params: ["skin": li.value, "com": "q", "data": "json"], pageUrl: "/lpinoy/badof/followinghidejis/opening", method: .post) { result in
+        man.requestAPI(params: ["skin": li.value, "com": "build", "data": "json"], pageUrl: "/lpinoy/badof/followinghidejis/opening", method: .post) { result in
             switch result {
             case .success(let success):
                 if let modelArray = success.itself.dazed {

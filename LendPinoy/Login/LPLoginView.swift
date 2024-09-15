@@ -13,6 +13,10 @@ class LPLoginView: LPJCView {
     
     var codeBlock: (() -> Void)?
     
+    var yinBlock: (() -> Void)?
+    
+    var llBlock: (() -> Void)?
+    
     lazy var navView: LPNavgationView = {
         let navView = LPNavgationView()
         return navView
@@ -90,11 +94,11 @@ class LPLoginView: LPJCView {
         yinsiLabel.customColor[customType2] = UIColor.init(hex: "#2CD7BB")
         yinsiLabel.customSelectedColor[customType1] = UIColor.init(hex: "#2CD7BB")
         yinsiLabel.customSelectedColor[customType2] = UIColor.init(hex: "#2CD7BB")
-        yinsiLabel.handleCustomTap(for: customType1) { element in
-            ToastUtility.showToast(message: "Tapped on Privacy Policy")
+        yinsiLabel.handleCustomTap(for: customType1) { [weak self] element in
+            self?.yinBlock?()
         }
-        yinsiLabel.handleCustomTap(for: customType2) { element in
-            ToastUtility.showToast(message: "Tapped on Loan Agreement")
+        yinsiLabel.handleCustomTap(for: customType2) { [weak self] element in
+            self?.llBlock?()
         }
         let attributedString = NSMutableAttributedString(string: yinsiLabel.text!)
         let redUnderlineAttributes: [NSAttributedString.Key: Any] = [
