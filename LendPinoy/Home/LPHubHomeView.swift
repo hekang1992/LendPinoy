@@ -31,6 +31,7 @@ class LPHubHomeView: LPJCView {
     
     lazy var proBtn: UIButton = {
         let proBtn = UIButton(type: .custom)
+        proBtn.contentHorizontalAlignment = .left
         proBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 24.lpix())
         proBtn.setTitle("Products", for: .normal)
         proBtn.setTitleColor(UIColor.init(hex: "#303434"), for: .normal)
@@ -95,6 +96,8 @@ class LPHubHomeView: LPJCView {
 }
 
 extension LPHubHomeView: UITableViewDelegate {
+    
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return StatusManager.statusBarHeight + 195.lpix()
