@@ -12,6 +12,8 @@ import RxCocoa
 
 class LPHomeViewController: LPBaseViewController {
     
+    var vpStr = BehaviorRelay<String>(value: "1")
+    
     lazy var subView: LPSubHomeView = {
         let subView = LPSubHomeView()
         return subView
@@ -66,6 +68,15 @@ class LPHomeViewController: LPBaseViewController {
             self?.shenqingchanpin(form: model.hesitantly ?? "")
         }
         
+        manView.block3 = { [weak self] str in
+            self?.vpStr.accept(str)
+            if str == "2" {
+                self?.huoVi()
+            }else {
+                self?.homeInfo()
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +87,23 @@ class LPHomeViewController: LPBaseViewController {
 }
 
 extension LPHomeViewController {
+    
+    func huoVi() {
+        let man = LPRequestManager()
+        let params = ["strolled": "2", "wandering": "happy", "rip": "1"]
+        man.requestAPI(params: params, pageUrl: "/lpinoy/overwhelming/important/didas", method: .get) { [weak self] result in
+            switch result {
+            case .success(let success):
+                let model = success.itself
+                self?.manView.vpType.accept(self?.vpStr.value ?? "1")
+                self?.manView.homeVipModel.accept(model)
+                print("model:\(model)")
+                break
+            case .failure(_):
+                break
+            }
+        }
+    }
     
     func homeInfo() {
         let man = LPRequestManager()

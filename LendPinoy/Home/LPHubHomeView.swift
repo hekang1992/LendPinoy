@@ -16,7 +16,13 @@ class LPHubHomeView: LPJCView {
     
     var block2: ((deliveryModel) -> Void)?
     
+    var block3: ((String) -> Void)?
+    
     var homeSubModel = BehaviorRelay<itselfModel?>(value: nil)
+    
+    var homeVipModel = BehaviorRelay<itselfModel?>(value: nil)
+    
+    var vpType = BehaviorRelay<String>(value: "1")
     
     lazy var lunboView: FSPagerView = {
         let lunboView = FSPagerView()
@@ -40,6 +46,7 @@ class LPHubHomeView: LPJCView {
     
     lazy var tickBtn: UIButton = {
         let tickBtn = UIButton(type: .custom)
+        tickBtn.contentHorizontalAlignment = .left
         tickBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 24.lpix())
         tickBtn.setTitle("Top Picks", for: .normal)
         tickBtn.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
@@ -64,6 +71,7 @@ class LPHubHomeView: LPJCView {
         super.init(frame: frame)
         addSubview(tableView)
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        
         homeSubModel
             .compactMap {
                 $0?.forests?.delivery
@@ -80,12 +88,11 @@ class LPHubHomeView: LPJCView {
             }
             .disposed(by: disposeBag)
         
-        
         tableView.rx.modelSelected(deliveryModel.self).subscribe(onNext: { [weak self] model in
             guard let self = self else { return }
             self.block2?(model)
         }).disposed(by: disposeBag)
-
+        
         makess()
     }
     
@@ -96,8 +103,6 @@ class LPHubHomeView: LPJCView {
 }
 
 extension LPHubHomeView: UITableViewDelegate {
-    
-    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return StatusManager.statusBarHeight + 195.lpix()
@@ -149,6 +154,11 @@ extension LPHubHomeView: UITableViewDelegate {
     private func updateButtonColors(selectedButton: UIButton?, deselectedButton: UIButton?) {
         selectedButton?.setTitleColor(UIColor.init(hex: "#303434"), for: .normal)
         deselectedButton?.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
+        if selectedButton == proBtn {
+            self.block3?("1")
+        }else {
+            self.block3?("2")
+        }
     }
     
 }

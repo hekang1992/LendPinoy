@@ -14,6 +14,8 @@ class HomeListViewCell: UITableViewCell {
     let disposeBag = DisposeBag()
     
     var model = BehaviorRelay<deliveryModel?>(value: nil)
+    
+    var model1 = BehaviorRelay<dazedModel?>(value: nil)
 
     lazy var icon: UIImageView = {
         let icon = UIImageView()
@@ -118,6 +120,15 @@ extension HomeListViewCell {
             self.mLabel.text = dmodel.prayed ?? ""
             self.sLabel.text = dmodel.afraid ?? ""
             self.label.text = dmodel.husband ?? ""
+        }).disposed(by: disposeBag)
+        
+        model1.subscribe(onNext: { [weak self] dmodel in
+            guard let self = self, let dmodel = dmodel  else { return }
+            self.icon.kf.setImage(with: URL(string: dmodel.endless ?? ""))
+            self.nameLabel.text = dmodel.shrines ?? ""
+//            self.mLabel.text = dmodel.prayed ?? ""
+//            self.sLabel.text = dmodel.afraid ?? ""
+//            self.label.text = dmodel.husband ?? ""
         }).disposed(by: disposeBag)
         
     }
