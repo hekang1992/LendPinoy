@@ -30,6 +30,9 @@ class LPLoginViewController: LPBaseViewController {
             make.edges.equalToSuperview()
         }
         tapClick()
+        let ti = SystemInfo.getCurrentTime()
+        UserDefaults.standard.set(ti, forKey: LOGIN_START_LP)
+        UserDefaults.standard.synchronize()
         let location = LPDingWeiManager()
         location.startUpdatingLocation { locationModel in
             
