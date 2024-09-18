@@ -61,12 +61,12 @@ class LPHomeViewController: LPBaseViewController {
             let status = CLLocationManager.authorizationStatus()
             if status == .authorizedAlways || status == .authorizedWhenInUse {
                 NotificationCenter.default.post(name: NSNotification.Name(LOCATION_LP), object: nil)
-                self.shenqingchanpin(form: ppid)
+                self.sqcpin(form: ppid)
             }else {
                 if type == "0" {//real
-                    self.showPermissionAlert(in: self)
+                    self.showPerrt(in: self)
                 }else if type == "1" {//fak
-                    self.shenqingchanpin(form: ppid)
+                    self.sqcpin(form: ppid)
                 }else {}
             }
         }
@@ -80,7 +80,7 @@ class LPHomeViewController: LPBaseViewController {
         }
         
         manView.block2 = { [weak self] model in
-            self?.shenqingchanpin(form: model.hesitantly ?? "")
+            self?.sqcpin(form: model.hesitantly ?? "")
         }
         
         manView.block3 = { [weak self] str in
@@ -103,7 +103,7 @@ class LPHomeViewController: LPBaseViewController {
 
 extension LPHomeViewController {
     
-    func showPermissionAlert(in viewController: UIViewController) {
+    func showPerrt(in viewController: UIViewController) {
         let alert = UIAlertController(
             title: "Location Permission Required",
             message: "To continue, enable Location permissions in your Settings.",

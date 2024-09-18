@@ -137,13 +137,13 @@ extension WUViewController {
                 }
             } else {
                 if let self = self {
-                    self.showPermissionAlert(in: self)
+                    self.showPerrt(in: self)
                 }
             }
         }
     }
     
-    func showPermissionAlert(in viewController: UIViewController) {
+    func showPerrt(in viewController: UIViewController) {
         let alert = UIAlertController(
             title: "Contacts Access Required",
             message: "Please enable contact permissions in Settings.",

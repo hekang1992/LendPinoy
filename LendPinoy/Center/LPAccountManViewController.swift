@@ -127,7 +127,7 @@ extension LPAccountManViewController {
                        pageUrl: "/lpinoy/street/right/picked",
                        method: .get) { [weak self] result in
             switch result {
-            case .success(let success):
+            case .success(_):
                 DispatchQueue.main.async {
                     LPLoginInfo.removeDengLuInfo()
                     self?.dismiss(animated: true, completion: {

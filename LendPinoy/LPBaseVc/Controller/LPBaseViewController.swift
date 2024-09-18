@@ -42,7 +42,7 @@ extension LPBaseViewController {
         }
     }
     
-    func shenqingchanpin(form proid: String) {
+    func sqcpin(form proid: String) {
         let dict = ["therapy": "2024", "reminder": proid, "session": "0"]
         let man = LPRequestManager()
         man.requestAPI(params: dict,
@@ -68,7 +68,6 @@ extension LPBaseViewController {
         case let s where s.hasPrefix("pinoy"):
             handlePinoyUrl(url: url, payment: payment)
         default:
-            // Handle unsupported URL schemes if needed
             break
         }
     }
