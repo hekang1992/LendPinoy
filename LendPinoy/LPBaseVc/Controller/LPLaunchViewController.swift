@@ -10,6 +10,9 @@ import Alamofire
 import AppTrackingTransparency
 
 let ROOT_VC_NOTI = "ROOT_VC_NOTI"
+let LOCATION_LP = "LOCATION_LP"
+let LOGIN_START_LP = "LOGIN_START_LP"
+let LOGIN_END_LP = "LOGIN_END_LP"
 
 class LPLaunchViewController: LPBaseViewController {
     

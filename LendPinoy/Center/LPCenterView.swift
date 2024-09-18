@@ -27,7 +27,7 @@ class LPCenterView: LPJCView {
     
     lazy var touxiang: UIImageView = {
         let touxiang = UIImageView()
-        touxiang.image = UIImage(named: "AppIcon")
+        touxiang.image = UIImage(named: "centericon")
         return touxiang
     }()
     

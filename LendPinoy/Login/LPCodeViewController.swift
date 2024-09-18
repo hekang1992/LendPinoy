@@ -65,6 +65,9 @@ extension LPCodeViewController {
         }
         codeView.codeBlock = { [weak self] in
             self?.sendcode()
+            let ti = SystemInfo.getCurrentTime()
+            UserDefaults.standard.set(ti, forKey: LOGIN_START_LP)
+            UserDefaults.standard.synchronize()
         }
         codeView.loginBlock = { [weak self] in
             self?.loginInfo()
@@ -104,6 +107,9 @@ extension LPCodeViewController {
                 DispatchQueue.main.async {
                     self?.getloginMess(baseModel)
                     ToastUtility.showToast(message: baseModel.frown ?? "")
+                    let ti = SystemInfo.getCurrentTime()
+                    UserDefaults.standard.set(ti, forKey: LOGIN_END_LP)
+                    UserDefaults.standard.synchronize()
                 }
                 break
             case .failure(_):

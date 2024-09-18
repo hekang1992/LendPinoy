@@ -43,6 +43,7 @@ class itselfModel {
     var encouragingly: String?
     var confirm: String?
     var yokohama: String?
+    var erase: String?
     var joy: joyModel?
     var purse: purseModel?
     var forests: forestsModel?
@@ -62,6 +63,7 @@ class itselfModel {
         self.encouragingly = json["encouragingly"].stringValue
         self.confirm = json["confirm"].stringValue
         self.yokohama = json["yokohama"].stringValue
+        self.erase = json["erase"].stringValue
         self.joy = joyModel(json: json["joy"])
         self.purse = purseModel(json: json["purse"])
         self.forests = forestsModel(json: json["forests"])

@@ -65,6 +65,7 @@
 		73BDE25D2C80BFAB00A776F8 /* LPCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */; };
 		73BDE2622C80C42100A776F8 /* PATabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2602C80C42100A776F8 /* PATabBarButton.swift */; };
 		73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2612C80C42100A776F8 /* PATabBar.swift */; };
+		73C8D7C32C9B1CD10060B540 /* LPGuanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8D7C22C9B1CD10060B540 /* LPGuanViewController.swift */; };
 		73F40C582C8C6E5600BCFB25 /* LPHFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C572C8C6E5600BCFB25 /* LPHFViewController.swift */; };
 		73F40C5A2C8C6E8500BCFB25 /* LPHFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C592C8C6E8500BCFB25 /* LPHFView.swift */; };
 		73F40C5C2C8C78BC00BCFB25 /* LPXuanZeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C5B2C8C78BC00BCFB25 /* LPXuanZeManager.swift */; };
@@ -139,6 +140,7 @@
 		73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCenterViewController.swift; sourceTree = "<group>"; };
 		73BDE2602C80C42100A776F8 /* PATabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATabBarButton.swift; sourceTree = "<group>"; };
 		73BDE2612C80C42100A776F8 /* PATabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATabBar.swift; sourceTree = "<group>"; };
+		73C8D7C22C9B1CD10060B540 /* LPGuanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPGuanViewController.swift; sourceTree = "<group>"; };
 		73F40C572C8C6E5600BCFB25 /* LPHFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHFViewController.swift; sourceTree = "<group>"; };
 		73F40C592C8C6E8500BCFB25 /* LPHFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHFView.swift; sourceTree = "<group>"; };
 		73F40C5B2C8C78BC00BCFB25 /* LPXuanZeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPXuanZeManager.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				73F958A02C8F2921005D69B8 /* LPADBListViewController.swift */,
 				73F958A22C8F2B39005D69B8 /* LPADBListView.swift */,
 				73F958A42C8F2B96005D69B8 /* LPADBListCell.swift */,
+				73C8D7C22C9B1CD10060B540 /* LPGuanViewController.swift */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				73A518622C89ECF70076BC36 /* LPCommonView.swift in Sources */,
 				730C32212C7F4CB50079510B /* LPLaunchViewController.swift in Sources */,
 				730C321D2C7F4C0B0079510B /* LPBaseViewController.swift in Sources */,
+				73C8D7C32C9B1CD10060B540 /* LPGuanViewController.swift in Sources */,
 				730C32152C7F4B430079510B /* Market Fresh Bold.ttf in Sources */,
 				730C321B2C7F4BE00079510B /* LPNavigationController.swift in Sources */,
 				73260BD92C8B47C4006066E5 /* LPJCView.swift in Sources */,

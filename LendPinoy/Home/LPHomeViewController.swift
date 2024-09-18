@@ -9,10 +9,13 @@ import UIKit
 import MJRefresh
 import RxSwift
 import RxCocoa
+import CoreLocation
 
 class LPHomeViewController: LPBaseViewController {
     
     var vpStr = BehaviorRelay<String>(value: "1")
+    
+    var time: String?
     
     lazy var subView: LPSubHomeView = {
         let subView = LPSubHomeView()
@@ -52,8 +55,20 @@ class LPHomeViewController: LPBaseViewController {
     }
     
     private func setupCallbacks() {
-        subView.block1 = { [weak self] ppid in
-            self?.shenqingchanpin(form: ppid)
+        subView.block1 = { [weak self] ppid, type in
+            //judugeloaction
+            guard let self = self else { return }
+            let status = CLLocationManager.authorizationStatus()
+            if status == .authorizedAlways || status == .authorizedWhenInUse {
+                NotificationCenter.default.post(name: NSNotification.Name(LOCATION_LP), object: nil)
+                self.shenqingchanpin(form: ppid)
+            }else {
+                if type == "0" {//real
+                    self.showPermissionAlert(in: self)
+                }else if type == "1" {//fak
+                    self.shenqingchanpin(form: ppid)
+                }else {}
+            }
         }
         
         subView.block4 = { [weak self] pur in
@@ -87,6 +102,21 @@ class LPHomeViewController: LPBaseViewController {
 }
 
 extension LPHomeViewController {
+    
+    func showPermissionAlert(in viewController: UIViewController) {
+        let alert = UIAlertController(
+            title: "Location Permission Required",
+            message: "To continue, enable Location permissions in your Settings.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Open Settings", style: .default) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
+        })
+        viewController.present(alert, animated: true)
+    }
     
     func huoVi() {
         let man = LPRequestManager()

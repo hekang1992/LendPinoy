@@ -51,7 +51,8 @@ extension LPCenterViewController {
             self.pushToWebVc(form: url)
         }
         centerView.block4 = { [weak self] in
-            ToastUtility.showToast(message: "1")
+            let guVc = LPGuanViewController()
+            self?.navigationController?.pushViewController(guVc, animated: true)
         }
     }
 

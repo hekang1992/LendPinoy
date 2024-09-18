@@ -13,8 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var time: String?
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         keyJaiPan()
@@ -37,6 +35,7 @@ extension AppDelegate {
     
     func jieshoutongzhi() {
         NotificationCenter.default.addObserver(self, selector: #selector(getRootVc), name: NSNotification.Name(ROOT_VC_NOTI), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(byLoaction), name: NSNotification.Name(LOCATION_LP), object: nil)
     }
     
     @objc func getRootVc(_ noti: Notification) {
@@ -47,7 +46,6 @@ extension AppDelegate {
         } else {
             if IS_LOGIN {
                 rootViewController = LPTabBarViewController()
-                self.byLoaction()
             }else {
                 rootViewController = LPLaunchViewController()
             }
@@ -55,8 +53,7 @@ extension AppDelegate {
         window?.rootViewController = LPNavigationController(rootViewController: rootViewController)
     }
     
-    func byLoaction() {
-        time = SystemInfo.getCurrentTime()
+    @objc func byLoaction() {
         let location = LPDingWeiManager()
         location.startUpdatingLocation { [weak self] locationModel in
             guard let self = self else { return }
@@ -87,6 +84,8 @@ extension AppDelegate {
         }
         let typeStr = UserDefaults.standard.object(forKey: MAI_DIAN_ONE) as? String ?? ""
         if typeStr != "1" {
+            let st: String = UserDefaults.standard.object(forKey: LOGIN_START_LP) as! String
+            let en: String = UserDefaults.standard.object(forKey: LOGIN_END_LP) as! String
             let maiDict = [
                 "mizuo": DeviceInfo.getIDFA(),
                 "cupping": "1",
@@ -94,8 +93,8 @@ extension AppDelegate {
                 "adds": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
                 "shichimi": model.shichimi,
                 "spice": model.spice,
-                "village": time ?? "",
-                "arm": SystemInfo.getCurrentTime(),
+                "village": st,
+                "arm": en,
                 "tucking": "mins"] as [String : Any]
             manager.uploadDataAPI(params: maiDict, pageUrl: "/lpinoy/chieko/thats/dripping", method: .post) { result in
                 UserDefaults.standard.setValue("1", forKey: MAI_DIAN_ONE)

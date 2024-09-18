@@ -12,7 +12,7 @@ import RxCocoa
 
 class LPSubHomeView: LPJCView {
     
-    var block1: ((String) -> Void)?
+    var block1: ((String, String) -> Void)?
     
     var block2: (() -> Void)?
     
@@ -157,8 +157,8 @@ extension LPSubHomeView {
     func tapClick() {
         applyBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            if let ppid = self.homeSubModel.value?.forests?.delivery?[0].hesitantly {
-                self.block1?(ppid)
+            if let homeSubModel = self.homeSubModel.value, let ppid = homeSubModel.forests?.delivery?[0].hesitantly {
+                self.block1?(ppid, homeSubModel.erase ?? "")
             }
         }).disposed(by: disposeBag)
         
