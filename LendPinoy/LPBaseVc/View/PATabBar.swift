@@ -26,7 +26,7 @@ class PATabBar: UIView {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.init(hex: "#F3FBFA")
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         return bgView
     }()
     
@@ -92,10 +92,10 @@ extension PATabBar {
     override func layoutSubviews() {
         super.layoutSubviews()
         let buttonW = frame.width / CGFloat(tabbarBtnArray.count)
-        let buttonY = 1.lpix()
+        let buttonY = 1
         for (index, button) in tabbarBtnArray.enumerated() {
             let buttonX = CGFloat(index) * buttonW
-            button.frame = CGRect(x: buttonX, y: CGFloat(buttonY), width: buttonW, height: 60.lpix())
+            button.frame = CGRect(x: buttonX, y: CGFloat(buttonY), width: buttonW, height: 60)
             button.tag = index
         }
     }

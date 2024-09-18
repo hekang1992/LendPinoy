@@ -19,7 +19,7 @@ class LPNavgationView: LPJCView {
     }()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18.lpix())!, textColor: UIColor.init(hex: "#393939"), textAlignment: .center)
+        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#393939"), textAlignment: .center)
         return titleLabel
     }()
     
@@ -29,12 +29,12 @@ class LPNavgationView: LPJCView {
         addSubview(titleLabel)
         backBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.size.equalTo(CGSize(width: 34.lpix(), height: 34.lpix()))
+            make.left.equalToSuperview().offset(20)
+            make.size.equalTo(CGSize(width: 34, height: 34))
         }
         titleLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(20.lpix())
+            make.height.equalTo(20)
         }
         tap()
     }
@@ -71,7 +71,7 @@ class LPNavgationTwoView: LPJCView {
     
     lazy var eBtn: UIButton = {
         let eBtn = UIButton(type: .custom)
-        eBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        eBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18)
         eBtn.setTitle("E-wallet", for: .normal)
         eBtn.isSelected = true
         eBtn.contentHorizontalAlignment = .left
@@ -82,7 +82,7 @@ class LPNavgationTwoView: LPJCView {
     
     lazy var mBtn: UIButton = {
         let mBtn = UIButton(type: .custom)
-        mBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        mBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18)
         mBtn.setTitle("Bank Card", for: .normal)
         mBtn.isSelected = false
         mBtn.contentHorizontalAlignment = .left
@@ -98,18 +98,18 @@ class LPNavgationTwoView: LPJCView {
         addSubview(mBtn)
         backBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.size.equalTo(CGSize(width: 34.lpix(), height: 34.lpix()))
+            make.left.equalToSuperview().offset(20)
+            make.size.equalTo(CGSize(width: 34, height: 34))
         }
         eBtn.snp.makeConstraints { make in
-            make.left.equalTo(backBtn.snp.right).offset(54.lpix())
+            make.left.equalTo(backBtn.snp.right).offset(54)
             make.centerY.equalTo(backBtn.snp.centerY)
-            make.size.equalTo(CGSize(width: 65.lpix(), height: 20.lpix()))
+            make.size.equalTo(CGSize(width: 65, height: 20))
         }
         mBtn.snp.makeConstraints { make in
-            make.left.equalTo(eBtn.snp.right).offset(52.lpix())
+            make.left.equalTo(eBtn.snp.right).offset(52)
             make.centerY.equalTo(backBtn.snp.centerY)
-            make.size.equalTo(CGSize(width: 80.lpix(), height: 20.lpix()))
+            make.size.equalTo(CGSize(width: 80, height: 20))
         }
         tap()
     }

@@ -20,7 +20,7 @@ class LPADBListView: LPJCView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.estimatedRowHeight = 88.lpix()
+        tableView.estimatedRowHeight = 88
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.init(hex: "#FFFFFF")
@@ -76,12 +76,12 @@ extension LPADBListView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60.lpix()
+        return 60
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        let label = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 24.lpix())!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let label = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         if section == 0 {
             label.text = "(E-Wallet)"
         }else {
@@ -89,18 +89,18 @@ extension LPADBListView: UITableViewDelegate {
         }
         view.addSubview(label)
         label.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(35.lpix())
-            make.bottom.equalToSuperview().offset(-5.lpix())
-            make.height.equalTo(28.lpix())
+            make.left.equalToSuperview().offset(35)
+            make.bottom.equalToSuperview().offset(-5)
+            make.height.equalTo(28)
         }
         return view
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == modeArray.value.count - 1 {
-            return 80.lpix()
+            return 80
         }else {
-            return 0.01.lpix()
+            return 0.01
         }
     }
     
@@ -108,18 +108,18 @@ extension LPADBListView: UITableViewDelegate {
         if section == modeArray.value.count - 1 {
             let footView = UIView()
             let btn = UIButton(type: .custom)
-            btn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+            btn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20)
             btn.setTitleColor(UIColor.white, for: .normal)
             btn.setTitle("Add Payment Methods", for: .normal)
             btn.backgroundColor = UIColor.init(hex: "#2CD7BB")
-            btn.layer.cornerRadius = 4.lpix()
+            btn.layer.cornerRadius = 4
             btn.layer.masksToBounds = true
             footView.addSubview(btn)
             btn.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
-                make.top.equalToSuperview().offset(20.lpix())
-                make.left.equalToSuperview().offset(20.lpix())
-                make.height.equalTo(60.lpix())
+                make.top.equalToSuperview().offset(20)
+                make.left.equalToSuperview().offset(20)
+                make.height.equalTo(60)
             }
             btn.rx.tap.subscribe(onNext: { [weak self] in
                 self?.adblock?()

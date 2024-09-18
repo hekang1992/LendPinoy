@@ -39,16 +39,16 @@ extension LPAgreeViewController {
     
     func makesnpView() {
         btn1.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(navView.snp.bottom).offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(navView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
+            make.height.equalTo(80)
         }
         btn2.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(btn1.snp.bottom).offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(btn1.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
+            make.height.equalTo(80)
         }
     }
     

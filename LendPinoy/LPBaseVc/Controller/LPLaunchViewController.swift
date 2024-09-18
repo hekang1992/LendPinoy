@@ -34,22 +34,22 @@ class LPLaunchViewController: LPBaseViewController {
     
     lazy var loginBtn: UIButton = {
         let loginBtn = UIButton(type: .custom)
-        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22)
         loginBtn.setTitleColor(UIColor.init(hex: "#2CD7BB"), for: .normal)
         loginBtn.setTitle("Login", for: .normal)
-        loginBtn.layer.cornerRadius = 4.lpix()
+        loginBtn.layer.cornerRadius = 4
         loginBtn.backgroundColor = .white
         return loginBtn
     }()
     
     lazy var youkeBtn: UIButton = {
         let youkeBtn = UIButton(type: .custom)
-        youkeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        youkeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22)
         youkeBtn.setTitleColor(UIColor.init(hex: "#FFFFFF"), for: .normal)
         youkeBtn.setTitle("Log in as a guest", for: .normal)
-        youkeBtn.layer.cornerRadius = 4.lpix()
+        youkeBtn.layer.cornerRadius = 4
         youkeBtn.backgroundColor = .clear
-        youkeBtn.layer.borderWidth = 3.lpix()
+        youkeBtn.layer.borderWidth = 3
         youkeBtn.layer.borderColor = UIColor.init(hex: "#FFFFFF").cgColor
         return youkeBtn
     }()
@@ -69,16 +69,16 @@ class LPLaunchViewController: LPBaseViewController {
         }
         loginBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalToSuperview().offset(435.lpix())
-            make.height.equalTo(60.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(435)
+            make.height.equalTo(60)
         }
         youkeBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(loginBtn.snp.bottom).offset(30.lpix())
-            make.height.equalTo(60.lpix())
-            make.bottom.equalToSuperview().offset(-50.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(loginBtn.snp.bottom).offset(30)
+            make.height.equalTo(60)
+            make.bottom.equalToSuperview().offset(-50)
         }
         if IS_LOGIN {
             NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])

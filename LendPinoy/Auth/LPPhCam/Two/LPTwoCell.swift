@@ -15,21 +15,21 @@ class LPTwoCell: UITableViewCell {
     let disposeBag = DisposeBag()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return titleLabel
     }()
 
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .clear
-        bgView.layer.cornerRadius = 10.lpix()
-        bgView.layer.borderWidth = 5.lpix()
+        bgView.layer.cornerRadius = 10
+        bgView.layer.borderWidth = 5
         bgView.layer.borderColor = UIColor.init(hex: "#2CD7BB").cgColor
         return bgView
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 12.lpix())!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
         descLabel.numberOfLines = 0
         return descLabel
     }()
@@ -48,25 +48,25 @@ class LPTwoCell: UITableViewCell {
         bgView.addSubview(descLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(22.5.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(22.5)
         }
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(titleLabel.snp.bottom).offset(15.lpix())
-            make.height.equalTo(196.lpix())
-            make.bottom.equalToSuperview().offset(-30.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)
+            make.height.equalTo(196)
+            make.bottom.equalToSuperview().offset(-30)
         }
         icon.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalToSuperview().offset(15.lpix())
-            make.size.equalTo(CGSize(width: 285.lpix(), height: 120.lpix()))
+            make.left.equalToSuperview().offset(15)
+            make.top.equalToSuperview().offset(15)
+            make.size.equalTo(CGSize(width: 285, height: 120))
         }
         descLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(15.lpix())
-            make.right.equalToSuperview().offset(-30.lpix())
-            make.top.equalTo(icon.snp.bottom).offset(15.lpix())
+            make.left.equalToSuperview().offset(15)
+            make.right.equalToSuperview().offset(-30)
+            make.top.equalTo(icon.snp.bottom).offset(15)
         }
         
         model.subscribe(onNext: { [weak self] model in

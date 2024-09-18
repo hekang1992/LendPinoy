@@ -231,7 +231,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
         }
         let customStyle = BRPickerStyle()
         customStyle.pickerColor = .white
-        customStyle.pickerTextFont = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        customStyle.pickerTextFont = UIFont(name: bold_MarketFresh, size: 22)
         customStyle.selectRowTextColor = UIColor.init(hex: "#2CD7BB")
         datePickerView.pickerStyle = customStyle
         datePickerView.show()
@@ -299,38 +299,38 @@ class PHView: LPJCView {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         bgView.backgroundColor = .white
         return bgView
     }()
     
     lazy var phBtn: UIButton = {
         let phBtn = UIButton()
-        phBtn.layer.cornerRadius = 4.lpix()
+        phBtn.layer.cornerRadius = 4
         phBtn.backgroundColor = UIColor.init(hex: "#F3FBFA")
         phBtn.setTitle("Camera", for: .normal)
         phBtn.setTitleColor(UIColor.init(hex: "#303434"), for: .normal)
-        phBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        phBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22)
         return phBtn
     }()
     
     lazy var camBtn: UIButton = {
         let camBtn = UIButton()
-        camBtn.layer.cornerRadius = 4.lpix()
+        camBtn.layer.cornerRadius = 4
         camBtn.backgroundColor = UIColor.init(hex: "#F3FBFA")
         camBtn.setTitle("Photo Album", for: .normal)
         camBtn.setTitleColor(UIColor.init(hex: "#303434"), for: .normal)
-        camBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        camBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22)
         return camBtn
     }()
     
     lazy var xiaoshiBtn: UIButton = {
         let xiaoshiBtn = UIButton()
-        xiaoshiBtn.layer.cornerRadius = 4.lpix()
+        xiaoshiBtn.layer.cornerRadius = 4
         xiaoshiBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
         xiaoshiBtn.setTitle("Cancel", for: .normal)
         xiaoshiBtn.setTitleColor(UIColor.init(hex: "#FFFFFF"), for: .normal)
-        xiaoshiBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        xiaoshiBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22)
         return xiaoshiBtn
     }()
     
@@ -342,25 +342,25 @@ class PHView: LPJCView {
         bgView.addSubview(xiaoshiBtn)
         bgView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335.lpix(), height: 300.lpix()))
+            make.size.equalTo(CGSize(width: 335, height: 300))
         }
         phBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(80.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(20)
+            make.height.equalTo(80)
         }
         camBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(phBtn.snp.bottom).offset(20.lpix())
-            make.height.equalTo(80.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(phBtn.snp.bottom).offset(20)
+            make.height.equalTo(80)
         }
         xiaoshiBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(camBtn.snp.bottom).offset(20.lpix())
-            make.height.equalTo(60.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(camBtn.snp.bottom).offset(20)
+            make.height.equalTo(60)
         }
         
         tapClick()
@@ -410,18 +410,18 @@ class SCPopView: UIView {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         return bgView
     }()
     
     lazy var biaotiLabel: UILabel = {
-        let biaotiLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let biaotiLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         biaotiLabel.text = "Confirm ID information."
         return biaotiLabel
     }()
     
     lazy var mLabel: UILabel = {
-        let mLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 14.lpix())!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
+        let mLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
         mLabel.numberOfLines = 0
         mLabel.text = "Please verify your ID information to prevent review failure."
         return mLabel
@@ -447,11 +447,11 @@ class SCPopView: UIView {
     
     lazy var sureBtn: UIButton = {
         let sureBtn = UIButton()
-        sureBtn.layer.cornerRadius = 4.lpix()
+        sureBtn.layer.cornerRadius = 4
         sureBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
         sureBtn.setTitle("Save", for: .normal)
         sureBtn.setTitleColor(UIColor.init(hex: "#FFFFFF"), for: .normal)
-        sureBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        sureBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22)
         return sureBtn
     }()
     
@@ -475,45 +475,45 @@ class SCPopView: UIView {
     func makess() {
         bgView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335.lpix(), height: 558.lpix()))
+            make.size.equalTo(CGSize(width: 335, height: 558))
         }
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         biaotiLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(26.lpix())
+            make.top.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(26)
         }
         mLabel.snp.makeConstraints { make in
-            make.top.equalTo(biaotiLabel.snp.bottom).offset(10.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
+            make.top.equalTo(biaotiLabel.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
         }
         comoneView.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.top.equalTo(mLabel.snp.bottom).offset(20.lpix())
-            make.height.equalTo(98.lpix())
+            make.top.equalTo(mLabel.snp.bottom).offset(20)
+            make.height.equalTo(98)
         }
         comtwoView.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.top.equalTo(comoneView.snp.bottom).offset(20.lpix())
-            make.height.equalTo(98.lpix())
+            make.top.equalTo(comoneView.snp.bottom).offset(20)
+            make.height.equalTo(98)
         }
         comthreeView.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.top.equalTo(comtwoView.snp.bottom).offset(20.lpix())
-            make.height.equalTo(98.lpix())
+            make.top.equalTo(comtwoView.snp.bottom).offset(20)
+            make.height.equalTo(98)
         }
         sureBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(comthreeView.snp.bottom).offset(40.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(60.lpix())
-            make.bottom.equalToSuperview().offset(-30.lpix())
+            make.top.equalTo(comthreeView.snp.bottom).offset(40)
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(60)
+            make.bottom.equalToSuperview().offset(-30)
         }
         
         sureBtn.rx.tap.subscribe(onNext: { [weak self] in

@@ -19,13 +19,13 @@ class LPCommonView: LPJCView {
     var timeBlock: ((UIButton) -> Void)?
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         bgView.backgroundColor = UIColor.init(hex: "#F3FBFA")
         return bgView
     }()
@@ -43,12 +43,12 @@ class LPCommonView: LPJCView {
         let attrString = NSMutableAttributedString(string: "Enter your information", attributes: [
             .paragraphStyle: paragraphStyle,
             .foregroundColor: UIColor.init(hex: "#CFD9D8") as Any,
-            .font: UIFont(name: bold_MarketFresh, size: 20.lpix())!
+            .font: UIFont(name: bold_MarketFresh, size: 20)!
         ])
         nameTx.attributedPlaceholder = attrString
         nameTx.textAlignment = .left
         nameTx.tintColor = UIColor.init(hex: "#2CD7BB")
-        nameTx.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+        nameTx.font = UIFont(name: bold_MarketFresh, size: 20)
         nameTx.textColor = UIColor.init(hex: "#303434")
         return nameTx
     }()
@@ -56,7 +56,7 @@ class LPCommonView: LPJCView {
     lazy var timeBtn: UIButton = {
         let timeBtn = UIButton(type: .custom)
         timeBtn.contentHorizontalAlignment = .left
-        timeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+        timeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20)
         timeBtn.setTitleColor(UIColor.init(hex: "#303434"), for: .normal)
         return timeBtn
     }()
@@ -69,9 +69,9 @@ class LPCommonView: LPJCView {
         if typeEnum == .click {
             bgView.addSubview(timeBtn)
             timeBtn.snp.makeConstraints { make in
-                make.left.equalToSuperview().offset(15.lpix())
+                make.left.equalToSuperview().offset(15)
                 make.top.bottom.equalToSuperview()
-                make.right.equalTo(icon.snp.left).offset(-5.lpix())
+                make.right.equalTo(icon.snp.left).offset(-5)
             }
             timeBtn.rx.tap.subscribe(onNext: { [weak self] in
                 if let self = self {
@@ -81,26 +81,26 @@ class LPCommonView: LPJCView {
         } else {
             bgView.addSubview(nameTx)
             nameTx.snp.makeConstraints { make in
-                make.left.equalToSuperview().offset(15.lpix())
+                make.left.equalToSuperview().offset(15)
                 make.top.bottom.equalToSuperview()
-                make.right.equalTo(icon.snp.left).offset(-5.lpix())
+                make.right.equalTo(icon.snp.left).offset(-5)
             }
         }
         nameLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
             make.top.equalToSuperview()
-            make.height.equalTo(24.lpix())
+            make.height.equalTo(24)
         }
         bgView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
-            make.height.equalTo(60.lpix())
-            make.top.equalTo(nameLabel.snp.bottom).offset(15.lpix())
+            make.height.equalTo(60)
+            make.top.equalTo(nameLabel.snp.bottom).offset(15)
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-25.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+            make.right.equalToSuperview().offset(-25)
+            make.size.equalTo(CGSize(width: 17, height: 17))
         }
     }
     

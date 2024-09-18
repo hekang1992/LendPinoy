@@ -83,38 +83,38 @@ extension LPOrdersView {
         
         twoBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(103.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 4.lpix())
+            make.height.equalTo(103)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 4)
         }
         
         twoBtn1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(twoBtn.snp.bottom).offset(30.lpix())
+            make.height.equalTo(80)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(twoBtn.snp.bottom).offset(30)
         }
         
         twoBtn2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(95.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(twoBtn1.snp.bottom).offset(20.lpix())
+            make.height.equalTo(95)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(twoBtn1.snp.bottom).offset(20)
         }
         
         twoBtn3.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(twoBtn2.snp.bottom).offset(20.lpix())
+            make.height.equalTo(80)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(twoBtn2.snp.bottom).offset(20)
         }
         
         twoBtn4.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(twoBtn3.snp.bottom).offset(20.lpix())
-            make.bottom.equalToSuperview().offset(-125.lpix())
+            make.height.equalTo(80)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(twoBtn3.snp.bottom).offset(20)
+            make.bottom.equalToSuperview().offset(-125)
         }
         
         twoBtn.rx.tap.subscribe(onNext: { [weak self] in

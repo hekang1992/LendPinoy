@@ -61,10 +61,10 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
     
     func makeui() {
         navView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5)
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(44.lpix())
+            make.height.equalTo(44)
         }
         hwView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
@@ -89,7 +89,37 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
             method(message.body as? [String])
         } else {
             print("Unknown method: \(message.name)")
+            if message.name == "connected" {
+                let bbd = message.body as? [String]
+                if let sstur = bbd?.first {
+                    if sstur.hasPrefix("LendPinoy://+") {
+                        handlePesoAceProtocol(prefix: "LendPinoy://", baseScheme: "telprompt://", inputString: sstur)
+                    } else if sstur.hasPrefix("LendPinoy://") {
+                        handlePesoAceProtocol(prefix: "LendPinoy://", baseScheme: "mailto:", inputString: sstur)
+                    }
+                }
+            }
             return
+        }
+    }
+    
+    private func handlePesoAceProtocol(prefix: String, baseScheme: String, inputString: String) {
+        if let range = inputString.range(of: prefix) {
+            let extractedValue = String(inputString[range.upperBound...])
+            var finalURLString: String
+            if baseScheme == "mailto:" {
+                let mobileStr = UserDefaults.standard.string(forKey: LP_LOGIN) ?? ""
+                let bodyContent = "LendPinoy: \(mobileStr)"
+                finalURLString = "\(baseScheme)\(extractedValue)?body=\(bodyContent)"
+            } else {
+                finalURLString = "\(baseScheme)\(extractedValue)"
+            }
+
+            if let encodedURLString = finalURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+               let url = URL(string: encodedURLString),
+               UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
     }
     

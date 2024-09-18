@@ -24,7 +24,7 @@ class LPLoginView: LPJCView {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         bgView.backgroundColor = UIColor.init(hex: "#F3FBFA")
         return bgView
     }()
@@ -36,7 +36,7 @@ class LPLoginView: LPJCView {
     }()
     
     lazy var noLabel: UILabel = {
-        let noLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let noLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         noLabel.text = "63"
         return noLabel
     }()
@@ -54,12 +54,12 @@ class LPLoginView: LPJCView {
         let attrString = NSMutableAttributedString(string: "Phone Number", attributes: [
             .paragraphStyle: paragraphStyle,
             .foregroundColor: UIColor.init(hex: "#CFD9D8") as Any,
-            .font: UIFont(name: bold_MarketFresh, size: 22.lpix())!
+            .font: UIFont(name: bold_MarketFresh, size: 22)!
         ])
         phoneTx.attributedPlaceholder = attrString
         phoneTx.textAlignment = .center
         phoneTx.tintColor = UIColor.init(hex: "#2CD7BB")
-        phoneTx.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        phoneTx.font = UIFont(name: bold_MarketFresh, size: 22)
         phoneTx.textColor = UIColor.init(hex: "#303434")
         phoneTx.keyboardType = .numberPad
         return phoneTx
@@ -82,7 +82,7 @@ class LPLoginView: LPJCView {
     
     lazy var yinsiLabel: ActiveLabel = {
         let yinsiLabel = ActiveLabel()
-        yinsiLabel.font = UIFont(name: bold_MarketFresh, size: 16.lpix())
+        yinsiLabel.font = UIFont(name: bold_MarketFresh, size: 16)
         yinsiLabel.textColor = UIColor.init(hex: "#CFD9D8")
         yinsiLabel.text = "By checking this box, you agree to the Privacy Policy and Loan Agreement."
         yinsiLabel.numberOfLines = 0
@@ -119,7 +119,7 @@ class LPLoginView: LPJCView {
         loginBtn.setTitle("Send Code", for: .normal)
         loginBtn.setTitleColor(UIColor.white, for: .normal)
         loginBtn.backgroundColor = UIColor(hex: "#2CD7BB")
-        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20)
         loginBtn.isEnabled = true
         return loginBtn
     }()
@@ -153,57 +153,57 @@ extension LPLoginView {
     
     func makeui() {
         navView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5)
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(44.lpix())
+            make.height.equalTo(44)
         }
         icon.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(navView.snp.bottom).offset(40.lpix())
-            make.size.equalTo(CGSize(width: 90.lpix(), height: 90.lpix()))
+            make.top.equalTo(navView.snp.bottom).offset(40)
+            make.size.equalTo(CGSize(width: 90, height: 90))
         }
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(60.lpix())
-            make.top.equalTo(icon.snp.bottom).offset(30.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(60)
+            make.top.equalTo(icon.snp.bottom).offset(30)
         }
         noLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(19.5.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(25.lpix())
+            make.top.equalToSuperview().offset(19.5)
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(25)
         }
         lineView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize(width: 3.lpix(), height: 15.lpix()))
-            make.left.equalToSuperview().offset(63.5.lpix())
+            make.size.equalTo(CGSize(width: 3, height: 15))
+            make.left.equalToSuperview().offset(63.5)
         }
         phoneTx.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(-25.lpix())
+            make.left.equalTo(lineView.snp.right).offset(-25)
             make.right.equalToSuperview()
             make.top.bottom.equalToSuperview()
         }
         canBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-20.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+            make.right.equalToSuperview().offset(-20)
+            make.size.equalTo(CGSize(width: 17, height: 17))
         }
         sureBtn.snp.makeConstraints { make in
-            make.top.equalTo(bgView.snp.bottom).offset(53.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+            make.top.equalTo(bgView.snp.bottom).offset(53)
+            make.left.equalToSuperview().offset(20)
+            make.size.equalTo(CGSize(width: 17, height: 17))
         }
         yinsiLabel.snp.makeConstraints { make in
-            make.left.equalTo(sureBtn.snp.right).offset(10.lpix())
+            make.left.equalTo(sureBtn.snp.right).offset(10)
             make.top.equalTo(sureBtn.snp.top)
-            make.right.equalToSuperview().offset(-20.lpix())
+            make.right.equalToSuperview().offset(-20)
         }
         loginBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(60.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(yinsiLabel.snp.bottom).offset(20.lpix())
+            make.height.equalTo(60)
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(yinsiLabel.snp.bottom).offset(20)
         }
     }
     

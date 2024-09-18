@@ -19,7 +19,7 @@ class LPOrderListCell: UITableViewCell {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         bgView.backgroundColor = UIColor.init(hex: "#F3FBFA")
         return bgView
     }()
@@ -27,51 +27,51 @@ class LPOrderListCell: UITableViewCell {
     lazy var icon: UIImageView = {
         let icon = UIImageView()
         icon.backgroundColor = UIColor.init(hex: "#2CD7BB")
-        icon.layer.cornerRadius = 4.lpix()
+        icon.layer.cornerRadius = 4
         icon.layer.masksToBounds = true
         return icon
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 20.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var label1: UILabel = {
-        let label1 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label1 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return label1
     }()
     
     lazy var label2: UILabel = {
-        let label2 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label2 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return label2
     }()
     
     lazy var label3: UILabel = {
-        let label3 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14.lpix())!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let label3 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         label3.numberOfLines = 0
         return label3
     }()
     
     lazy var label4: UILabel = {
-        let label4 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14.lpix())!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let label4 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         return label4
     }()
     
     lazy var reBtn: UIButton = {
         let reBtn = UIButton(type: .custom)
-        reBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 17.lpix())
+        reBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 17)
         reBtn.setTitle("Repay", for: .normal)
-        reBtn.layer.cornerRadius = 4.lpix()
+        reBtn.layer.cornerRadius = 4
         reBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
         reBtn.setTitleColor(.white, for: .normal)
         return reBtn
     }()
     
     lazy var ooLabel: UILabel = {
-        let ooLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12.lpix())!, textColor: .white, textAlignment: .center)
+        let ooLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: .white, textAlignment: .center)
         ooLabel.backgroundColor = UIColor.init(hex: "#FF335B")
-        ooLabel.layer.cornerRadius = 4.lpix()
+        ooLabel.layer.cornerRadius = 4
         ooLabel.layer.masksToBounds = true
         return ooLabel
     }()
@@ -102,51 +102,51 @@ extension LPOrderListCell {
     
     func makess() {
         icon.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15.lpix())
-            make.left.equalToSuperview().offset(35.lpix())
-            make.size.equalTo(CGSize(width: 25.lpix(), height: 25.lpix()))
+            make.top.equalToSuperview().offset(15)
+            make.left.equalToSuperview().offset(35)
+            make.size.equalTo(CGSize(width: 25, height: 25))
         }
         nameLabel.snp.makeConstraints { make in
-            make.left.equalTo(icon.snp.right).offset(15.lpix())
+            make.left.equalTo(icon.snp.right).offset(15)
             make.centerY.equalTo(icon.snp.centerY)
-            make.height.equalTo(22.5.lpix())
+            make.height.equalTo(22.5)
         }
         label1.snp.makeConstraints { make in
-            make.top.equalTo(icon.snp.bottom).offset(15.lpix())
+            make.top.equalTo(icon.snp.bottom).offset(15)
             make.left.equalTo(icon.snp.left)
-            make.height.equalTo(20.lpix())
+            make.height.equalTo(20)
         }
         label2.snp.makeConstraints { make in
-            make.top.equalTo(icon.snp.bottom).offset(15.lpix())
-            make.left.equalTo(label1.snp.right).offset(42.lpix())
-            make.height.equalTo(20.lpix())
+            make.top.equalTo(icon.snp.bottom).offset(15)
+            make.left.equalTo(label1.snp.right).offset(42)
+            make.height.equalTo(20)
         }
         label3.snp.makeConstraints { make in
-            make.top.equalTo(label1.snp.bottom).offset(3.5.lpix())
+            make.top.equalTo(label1.snp.bottom).offset(3.5)
             make.left.equalTo(icon.snp.left)
-            make.width.equalTo(75.lpix())
+            make.width.equalTo(75)
         }
         label4.snp.makeConstraints { make in
-            make.top.equalTo(label2.snp.bottom).offset(3.5.lpix())
+            make.top.equalTo(label2.snp.bottom).offset(3.5)
             make.left.equalTo(label2.snp.left)
-            make.height.equalTo(15.lpix())
-            make.bottom.equalToSuperview().offset(-35.5.lpix())
+            make.height.equalTo(15)
+            make.bottom.equalToSuperview().offset(-35.5)
         }
         reBtn.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-20.lpix())
-            make.right.equalToSuperview().offset(-35.5.lpix())
-            make.size.equalTo(CGSize(width: 85.lpix(), height: 40.lpix()))
+            make.bottom.equalToSuperview().offset(-20)
+            make.right.equalToSuperview().offset(-35.5)
+            make.size.equalTo(CGSize(width: 85, height: 40))
         }
         ooLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.right.equalToSuperview().offset(-20.lpix())
-            make.height.equalTo(CGSize(width: 145.lpix(), height: 25.lpix()))
+            make.right.equalToSuperview().offset(-20)
+            make.height.equalTo(CGSize(width: 145, height: 25))
         }
         bgView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-10.lpix())
+            make.bottom.equalToSuperview().offset(-10)
         }
         
         reBtn.rx.tap.subscribe(onNext: { [weak self] in
@@ -185,7 +185,7 @@ class WSView: LPJCView {
     lazy var bgView1: UIView = {
         let bgView1 = UIView()
         bgView1.backgroundColor = UIColor.init(hex: "#F3FBFA")
-        bgView1.layer.cornerRadius = 4.lpix()
+        bgView1.layer.cornerRadius = 4
         return bgView1
     }()
     
@@ -196,7 +196,7 @@ class WSView: LPJCView {
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12.lpix())!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         descLabel.text = "We will provide comprehensive protection for your privacy data."
         descLabel.numberOfLines = 0
         return descLabel
@@ -204,11 +204,11 @@ class WSView: LPJCView {
     
     lazy var takeBtn: UIButton = {
         let takeBtn = UIButton(type: .custom)
-        takeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+        takeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20)
         takeBtn.setTitle("Take out a loan", for: .normal)
         takeBtn.setTitleColor(UIColor.white, for: .normal)
         takeBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
-        takeBtn.layer.cornerRadius = 4.lpix()
+        takeBtn.layer.cornerRadius = 4
         return takeBtn
     }()
     
@@ -221,29 +221,29 @@ class WSView: LPJCView {
         bgView1.addSubview(descLabel)
         wicon.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(100.lpix())
-            make.size.equalTo(CGSize(width: 275.lpix(), height: 192.lpix()))
+            make.top.equalToSuperview().offset(100)
+            make.size.equalTo(CGSize(width: 275, height: 192))
         }
         takeBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335.lpix(), height: 60.lpix()))
-            make.bottom.equalToSuperview().offset(-40.lpix())
+            make.size.equalTo(CGSize(width: 335, height: 60))
+            make.bottom.equalToSuperview().offset(-40)
         }
         bgView1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(takeBtn.snp.bottom).offset(-10.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(35.lpix())
+            make.bottom.equalTo(takeBtn.snp.bottom).offset(-10)
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(35)
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(15.lpix())
-            make.size.equalTo(CGSize(width: 14.lpix(), height: 18.lpix()))
+            make.left.equalToSuperview().offset(15)
+            make.size.equalTo(CGSize(width: 14, height: 18))
         }
         descLabel.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().offset(-15.lpix())
-            make.left.equalTo(icon.snp.right).offset(10.lpix())
+            make.right.equalToSuperview().offset(-15)
+            make.left.equalTo(icon.snp.right).offset(10)
         }
         
         takeBtn.rx.tap.subscribe(onNext: { [weak self] in

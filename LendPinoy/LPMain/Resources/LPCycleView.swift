@@ -19,7 +19,7 @@ class LPCycleView: LPJCView {
     lazy var hudView: LottieAnimationView = {
         let hudView = LottieAnimationView(name: "recyle.json", bundle: Bundle.main)
         hudView.backgroundColor = UIColor.white.withAlphaComponent(0.9)
-        hudView.layer.cornerRadius = 4.lpix()
+        hudView.layer.cornerRadius = 4
         hudView.loopMode = .loop
         hudView.play()
         return hudView
@@ -43,7 +43,7 @@ class LPCycleView: LPJCView {
         }
         hudView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 120.lpix(), height: 120.lpix()))
+            make.size.equalTo(CGSize(width: 120, height: 120))
         }
     }
 }

@@ -52,16 +52,16 @@ extension LPAccountManViewController {
     
     func makesnpView() {
         btn1.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(navView.snp.bottom).offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(navView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
+            make.height.equalTo(80)
         }
         btn2.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(btn1.snp.bottom).offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(btn1.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
-            make.height.equalTo(110.lpix())
+            make.height.equalTo(110)
         }
     }
     
@@ -151,12 +151,12 @@ class LogView: LPJCView {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .white
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         return bgView
     }()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 36.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 36)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         titleLabel.numberOfLines = 0
         titleLabel.text = "Are you sure you want to log out?"
         return titleLabel
@@ -165,20 +165,20 @@ class LogView: LPJCView {
     lazy var confirmBtn: UIButton = {
         let confirmBtn = UIButton(type: .custom)
         confirmBtn.setTitle("Confirm", for: .normal)
-        confirmBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        confirmBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18)
         confirmBtn.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
         confirmBtn.backgroundColor = UIColor.init(hex: "#F3FBFA")
-        confirmBtn.layer.cornerRadius = 4.lpix()
+        confirmBtn.layer.cornerRadius = 4
         return confirmBtn
     }()
     
     lazy var canBtn: UIButton = {
         let canBtn = UIButton(type: .custom)
         canBtn.setTitle("Cancel", for: .normal)
-        canBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        canBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18)
         canBtn.setTitleColor(UIColor.init(hex: "#FFFFFF"), for: .normal)
         canBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
-        canBtn.layer.cornerRadius = 4.lpix()
+        canBtn.layer.cornerRadius = 4
         return canBtn
     }()
     
@@ -190,22 +190,22 @@ class LogView: LPJCView {
         bgView.addSubview(canBtn)
         bgView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335.lpix(), height: 277.lpix()))
+            make.size.equalTo(CGSize(width: 335, height: 277))
         }
         titleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(21.5.lpix())
+            make.top.equalToSuperview().offset(21.5)
         }
         confirmBtn.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.bottom.equalToSuperview().offset(-20.lpix())
-            make.size.equalTo(CGSize(width: 140.lpix(), height: 60.lpix()))
+            make.left.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().offset(-20)
+            make.size.equalTo(CGSize(width: 140, height: 60))
         }
         canBtn.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-20.lpix())
-            make.bottom.equalToSuperview().offset(-20.lpix())
-            make.size.equalTo(CGSize(width: 140.lpix(), height: 60.lpix()))
+            make.right.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().offset(-20)
+            make.size.equalTo(CGSize(width: 140, height: 60))
         }
         tap()
     }
@@ -238,12 +238,12 @@ class DelView: UIView {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .white
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         return bgView
     }()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         titleLabel.numberOfLines = 0
         titleLabel.text = "Please note that deleting your account will permanently remove the following data and features. Proceed with caution."
         return titleLabel
@@ -252,20 +252,20 @@ class DelView: UIView {
     lazy var confirmBtn: UIButton = {
         let confirmBtn = UIButton(type: .custom)
         confirmBtn.setTitle("Confirm", for: .normal)
-        confirmBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        confirmBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18)
         confirmBtn.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
         confirmBtn.backgroundColor = UIColor.init(hex: "#F3FBFA")
-        confirmBtn.layer.cornerRadius = 4.lpix()
+        confirmBtn.layer.cornerRadius = 4
         return confirmBtn
     }()
     
     lazy var canBtn: UIButton = {
         let canBtn = UIButton(type: .custom)
         canBtn.setTitle("Cancel", for: .normal)
-        canBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18.lpix())
+        canBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 18)
         canBtn.setTitleColor(UIColor.init(hex: "#FFFFFF"), for: .normal)
         canBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
-        canBtn.layer.cornerRadius = 4.lpix()
+        canBtn.layer.cornerRadius = 4
         return canBtn
     }()
     
@@ -277,22 +277,22 @@ class DelView: UIView {
         bgView.addSubview(canBtn)
         bgView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335.lpix(), height: 306.5.lpix()))
+            make.size.equalTo(CGSize(width: 335, height: 306.5))
         }
         titleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(21.5.lpix())
+            make.top.equalToSuperview().offset(21.5)
         }
         confirmBtn.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.bottom.equalToSuperview().offset(-20.lpix())
-            make.size.equalTo(CGSize(width: 140.lpix(), height: 60.lpix()))
+            make.left.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().offset(-20)
+            make.size.equalTo(CGSize(width: 140, height: 60))
         }
         canBtn.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-20.lpix())
-            make.bottom.equalToSuperview().offset(-20.lpix())
-            make.size.equalTo(CGSize(width: 140.lpix(), height: 60.lpix()))
+            make.right.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().offset(-20)
+            make.size.equalTo(CGSize(width: 140, height: 60))
         }
         tap()
     }

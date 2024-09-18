@@ -20,29 +20,29 @@ class HomeListViewCell: UITableViewCell {
     lazy var icon: UIImageView = {
         let icon = UIImageView()
         icon.backgroundColor = UIColor.init(hex: "#F2F2F2")
-        icon.layer.cornerRadius = 4.lpix()
+        icon.layer.cornerRadius = 4
         icon.layer.masksToBounds = true
         return icon
     }()
 
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 20.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var mLabel: UILabel = {
-        let mLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let mLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return mLabel
     }()
     
     lazy var sLabel: UILabel = {
-        let sLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14.lpix())!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let sLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         return sLabel
     }()
     
     lazy var label: UILabel = {
-        let label = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 17.lpix())!, textColor: UIColor.init(hex: "#FFFFFF"), textAlignment: .center)
-        label.layer.cornerRadius = 4.lpix()
+        let label = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 17)!, textColor: UIColor.init(hex: "#FFFFFF"), textAlignment: .center)
+        label.layer.cornerRadius = 4
         label.backgroundColor = UIColor.init(hex: "#2CD7BB")
         return label
     }()
@@ -76,40 +76,40 @@ extension HomeListViewCell {
     func makess() {
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.height.equalTo(22.lpix())
-            make.bottom.equalToSuperview().offset(-74.lpix())
+            make.top.equalToSuperview().offset(15)
+            make.left.equalToSuperview().offset(15)
+            make.height.equalTo(22)
+            make.bottom.equalToSuperview().offset(-74)
         }
         
         icon.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 40.lpix(), height: 40.lpix()))
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(nameLabel.snp.bottom).offset(14.lpix())
+            make.size.equalTo(CGSize(width: 40, height: 40))
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(nameLabel.snp.bottom).offset(14)
         }
         
         mLabel.snp.makeConstraints { make in
-            make.height.equalTo(30.lpix())
-            make.left.equalTo(icon.snp.right).offset(15.lpix())
-            make.top.equalTo(nameLabel.snp.bottom).offset(7.lpix())
+            make.height.equalTo(30)
+            make.left.equalTo(icon.snp.right).offset(15)
+            make.top.equalTo(nameLabel.snp.bottom).offset(7)
         }
         
         sLabel.snp.makeConstraints { make in
-            make.height.equalTo(15.lpix())
-            make.left.equalTo(icon.snp.right).offset(15.lpix())
-            make.top.equalTo(mLabel.snp.bottom).offset(1.lpix())
+            make.height.equalTo(15)
+            make.left.equalTo(icon.snp.right).offset(15)
+            make.top.equalTo(mLabel.snp.bottom).offset(1)
         }
         
         label.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(14.lpix())
-            make.size.equalTo(CGSize(width: 85.lpix(), height: 40.lpix()))
-            make.right.equalToSuperview().offset(-15.lpix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(14)
+            make.size.equalTo(CGSize(width: 85, height: 40))
+            make.right.equalToSuperview().offset(-15)
         }
         
         lineView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
-            make.height.equalTo(2.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
+            make.height.equalTo(2)
+            make.left.equalToSuperview().offset(15)
             make.centerX.equalToSuperview()
         }
         

@@ -58,7 +58,7 @@ class LPSubHomeView: LPJCView {
     }()
     
     lazy var timelabel: UILabel = {
-        let timelabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12.lpix())!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let timelabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         let timeUpdater = TimeUpdater { timeStr in
             timelabel.text = timeStr
         }
@@ -114,43 +114,43 @@ extension LPSubHomeView {
         }
         lunboView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.height.equalTo(103.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10)
+            make.left.equalToSuperview().offset(15)
+            make.height.equalTo(103)
         }
         monIcon.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalTo(lunboView.snp.left).offset(5.lpix())
-            make.height.equalTo(114.5.lpix())
-            make.top.equalTo(lunboView.snp.bottom).offset(27.5.lpix())
+            make.left.equalTo(lunboView.snp.left).offset(5)
+            make.height.equalTo(114.5)
+            make.top.equalTo(lunboView.snp.bottom).offset(27.5)
         }
         timelabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(2.5.lpix())
+            make.top.equalToSuperview().offset(2.5)
             make.left.equalToSuperview()
-            make.height.equalTo(15.lpix())
+            make.height.equalTo(15)
         }
         offBtn.snp.makeConstraints { make in
             make.top.right.equalToSuperview()
-            make.size.equalTo(CGSize(width: 35.lpix(), height: 20.lpix()))
+            make.size.equalTo(CGSize(width: 35, height: 20))
         }
         applyBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(monIcon.snp.bottom).offset(30.lpix())
+            make.top.equalTo(monIcon.snp.bottom).offset(30)
             make.left.equalTo(monIcon.snp.left)
-            make.height.equalTo(162.5.lpix())
+            make.height.equalTo(162.5)
         }
         poIcon.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(applyBtn.snp.bottom).offset(30.lpix())
+            make.top.equalTo(applyBtn.snp.bottom).offset(30)
             make.left.equalTo(monIcon.snp.left)
-            make.height.equalTo(145.lpix())
+            make.height.equalTo(145)
         }
         sceBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(poIcon.snp.bottom).offset(18.lpix())
+            make.top.equalTo(poIcon.snp.bottom).offset(18)
             make.left.equalTo(monIcon.snp.left)
-            make.height.equalTo(162.5.lpix())
-            make.bottom.equalToSuperview().offset(-125.lpix())
+            make.height.equalTo(162.5)
+            make.bottom.equalToSuperview().offset(-125)
         }
     }
     

@@ -23,13 +23,13 @@ class LPCodeView: LPJCView {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         bgView.backgroundColor = UIColor.init(hex: "#F3FBFA")
         return bgView
     }()
     
     lazy var noLabel: UILabel = {
-        let noLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 16.lpix())!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let noLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 16)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         noLabel.text = "“The verification code has been dispatched. Please check your messages.”"
         noLabel.numberOfLines = 0
         return noLabel
@@ -42,12 +42,12 @@ class LPCodeView: LPJCView {
         let attrString = NSMutableAttributedString(string: "Verification Code", attributes: [
             .paragraphStyle: paragraphStyle,
             .foregroundColor: UIColor.init(hex: "#CFD9D8") as Any,
-            .font: UIFont(name: bold_MarketFresh, size: 22.lpix())!
+            .font: UIFont(name: bold_MarketFresh, size: 22)!
         ])
         phoneTx.attributedPlaceholder = attrString
         phoneTx.textAlignment = .center
         phoneTx.tintColor = UIColor.init(hex: "#2CD7BB")
-        phoneTx.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        phoneTx.font = UIFont(name: bold_MarketFresh, size: 22)
         phoneTx.textColor = UIColor.init(hex: "#303434")
         phoneTx.keyboardType = .numberPad
         return phoneTx
@@ -65,7 +65,7 @@ class LPCodeView: LPJCView {
         codeBtn.setTitle("Send", for: .normal)
         codeBtn.setTitleColor(UIColor.white, for: .normal)
         codeBtn.backgroundColor = UIColor(hex: "#2CD7BB")
-        codeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+        codeBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20)
         codeBtn.isEnabled = false
         return codeBtn
     }()
@@ -75,14 +75,14 @@ class LPCodeView: LPJCView {
         loginBtn.setTitle("Login", for: .normal)
         loginBtn.setTitleColor(UIColor.white, for: .normal)
         loginBtn.backgroundColor = UIColor(hex: "#2CD7BB")
-        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+        loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20)
         return loginBtn
     }()
     
     lazy var bgView1: UIView = {
         let bgView1 = UIView()
         bgView1.backgroundColor = UIColor.init(hex: "#F3FBFA")
-        bgView1.layer.cornerRadius = 4.lpix()
+        bgView1.layer.cornerRadius = 4
         return bgView1
     }()
     
@@ -93,7 +93,7 @@ class LPCodeView: LPJCView {
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12.lpix())!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         descLabel.text = "We will provide comprehensive protection for your privacy data."
         descLabel.numberOfLines = 0
         return descLabel
@@ -129,57 +129,57 @@ extension LPCodeView {
     
     func makeui() {
         navView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5)
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(44.lpix())
+            make.height.equalTo(44)
         }
         noLabel.snp.makeConstraints { make in
-            make.top.equalTo(navView.snp.bottom).offset(75.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
+            make.top.equalTo(navView.snp.bottom).offset(75)
+            make.left.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
         }
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(60.lpix())
-            make.top.equalTo(noLabel.snp.bottom).offset(15.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(60)
+            make.top.equalTo(noLabel.snp.bottom).offset(15)
         }
         phoneTx.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         canBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-20.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+            make.right.equalToSuperview().offset(-20)
+            make.size.equalTo(CGSize(width: 17, height: 17))
         }
         bgView1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(bgView.snp.bottom).offset(54.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(35.lpix())
+            make.top.equalTo(bgView.snp.bottom).offset(54)
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(35)
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(15.lpix())
-            make.size.equalTo(CGSize(width: 14.lpix(), height: 18.lpix()))
+            make.left.equalToSuperview().offset(15)
+            make.size.equalTo(CGSize(width: 14, height: 18))
         }
         descLabel.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().offset(-15.lpix())
-            make.left.equalTo(icon.snp.right).offset(10.lpix())
+            make.right.equalToSuperview().offset(-15)
+            make.left.equalTo(icon.snp.right).offset(10)
         }
         codeBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(60.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(bgView1.snp.bottom).offset(10.lpix())
+            make.height.equalTo(60)
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(bgView1.snp.bottom).offset(10)
         }
         loginBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(60.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(codeBtn.snp.bottom).offset(20.lpix())
+            make.height.equalTo(60)
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(codeBtn.snp.bottom).offset(20)
         }
     }
     

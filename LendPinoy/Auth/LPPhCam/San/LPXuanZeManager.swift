@@ -179,7 +179,7 @@ class TanchuXuanZeMananger: NSObject {
     private static func createPickerStyle() -> BRPickerStyle {
         let style = BRPickerStyle()
         style.pickerColor = .white
-        style.pickerTextFont = UIFont(name: bold_MarketFresh, size: 24.lpix())
+        style.pickerTextFont = UIFont(name: bold_MarketFresh, size: 24)
         style.selectRowTextColor = UIColor(hex: "#2CD7BB")
         return style
     }

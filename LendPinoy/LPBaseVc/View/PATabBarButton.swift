@@ -12,7 +12,7 @@ import RxCocoa
 
 class PATabBarButton: UIControl {
     
-    let buttonW = (SCREEN_WIDTH - 40.lpix()) / 3
+    let buttonW = (SCREEN_WIDTH - 40) / 3
 
     var block: ((PATabBarButton) -> Void)?
     
@@ -26,7 +26,7 @@ class PATabBarButton: UIControl {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14.lpix())!, textColor: UIColor(hex: "#CFD9D8"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor(hex: "#CFD9D8"), textAlignment: .left)
         return nameLabel
     }()
     
@@ -45,13 +45,13 @@ class PATabBarButton: UIControl {
         addSubview(nameLabel)
         iconBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(29.lpix())
-            make.size.equalTo(CGSize(width: 21.lpix(), height: 21.lpix()))
+            make.left.equalToSuperview().offset(29)
+            make.size.equalTo(CGSize(width: 21, height: 21))
         }
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(iconBtn.snp.right).offset(5.lpix())
-            make.size.equalTo(CGSize(width: 50.lpix(), height: 15.lpix()))
+            make.left.equalTo(iconBtn.snp.right).offset(5)
+            make.size.equalTo(CGSize(width: 50, height: 15))
         }
         iconBtn.rx.tap.subscribe(onNext: { [weak self] in
             if let self = self {

@@ -119,11 +119,11 @@ class StatusManager {
 
 class ToastUtility {
     static func showToast(message: String) {
-        ToastView.appearance().font = UIFont(name: bold_MarketFresh, size: 20.lpix())
+        ToastView.appearance().font = UIFont(name: bold_MarketFresh, size: 20)
         let toast = Toast(text: message, duration: 1.0)
         if let window = UIApplication.shared.windows.first {
             let screenHeight = window.frame.size.height
-            let toastHeight: CGFloat = 50.lpix()
+            let toastHeight: CGFloat = 50
             let centerY = screenHeight / 2 - toastHeight / 2
             ToastView.appearance().bottomOffsetPortrait = centerY
             ToastView.appearance().bottomOffsetLandscape = centerY

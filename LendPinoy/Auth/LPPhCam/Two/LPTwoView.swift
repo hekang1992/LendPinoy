@@ -25,7 +25,7 @@ class LPTwoView: LPJCView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.estimatedRowHeight = 88.lpix()
+        tableView.estimatedRowHeight = 88
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
@@ -53,14 +53,14 @@ extension LPTwoView: UITableViewDelegate {
     
     func makess() {
         navView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5)
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(44.lpix())
+            make.height.equalTo(44)
         }
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(navView.snp.bottom).offset(10.lpix())
+            make.top.equalTo(navView.snp.bottom).offset(10)
         }
     }
     
@@ -89,22 +89,22 @@ extension LPTwoView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 120.lpix()
+        return 120
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footView = UIView()
         let btn = UIButton(type: .custom)
-        btn.layer.cornerRadius = 4.lpix()
+        btn.layer.cornerRadius = 4
         btn.setTitle("Start", for: .normal)
         btn.backgroundColor = UIColor.init(hex: "#2CD7BB")
-        btn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        btn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22)
         footView.addSubview(btn)
         btn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
             make.bottom.equalToSuperview()
-            make.height.equalTo(60.lpix())
+            make.height.equalTo(60)
         }
         btn.rx.tap.subscribe(onNext: { [weak self] in
             if let self = self {

@@ -17,13 +17,13 @@ class FristViewCell: UITableViewCell {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         bgView.backgroundColor = UIColor.init(hex: "#F3FBFA")
         return bgView
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     
@@ -41,20 +41,20 @@ class FristViewCell: UITableViewCell {
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.top.equalToSuperview()
-            make.left.equalToSuperview().offset(50.lpix())
-            make.height.equalTo(80.lpix())
-            make.bottom.equalToSuperview().offset(-20.lpix())
+            make.left.equalToSuperview().offset(50)
+            make.height.equalTo(80)
+            make.bottom.equalToSuperview().offset(-20)
         }
         iocn.snp.makeConstraints { make in
             make.centerY.equalTo(nameLabel.snp.centerY)
-            make.right.equalToSuperview().offset(-50.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+            make.right.equalToSuperview().offset(-50)
+            make.size.equalTo(CGSize(width: 17, height: 17))
         }
         bgView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
+            make.left.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
-            make.height.equalTo(80.lpix())
+            make.height.equalTo(80)
         }
         bindData()
     }

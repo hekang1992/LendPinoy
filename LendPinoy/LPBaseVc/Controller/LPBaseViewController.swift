@@ -35,10 +35,10 @@ extension LPBaseViewController {
         view.addSubview(navView)
         navView.titleLabel.text = title
         navView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5)
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(44.lpix())
+            make.height.equalTo(44)
         }
     }
     

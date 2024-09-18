@@ -16,29 +16,29 @@ class LPTCPView: LPJCView {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         bgView.backgroundColor = .white
         return bgView
     }()
 
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 36.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 36)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         descLabel.numberOfLines = 0
         descLabel.text = "The phone number you entered is:"
         return descLabel
     }()
     
     lazy var phone: UILabel = {
-        let phone = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 30.lpix())!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let phone = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 30)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         return phone
     }()
 
     lazy var comBtn: UIButton = {
         let comBtn = UIButton(type: .custom)
-        comBtn.layer.cornerRadius = 4.lpix()
+        comBtn.layer.cornerRadius = 4
         comBtn.setTitle("Confirm", for: .normal)
         comBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
-        comBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22.lpix())
+        comBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 22)
         return comBtn
     }()
     
@@ -59,28 +59,28 @@ class LPTCPView: LPJCView {
         
         bgView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335.lpix(), height: 300.lpix()))
+            make.size.equalTo(CGSize(width: 335, height: 300))
         }
         descLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalToSuperview().offset(21.lpix())
-            make.right.equalToSuperview().offset(-25.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(21)
+            make.right.equalToSuperview().offset(-25)
         }
         phone.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(descLabel.snp.bottom).offset(30.lpix())
-            make.height.equalTo(31.lpix())
+            make.top.equalTo(descLabel.snp.bottom).offset(30)
+            make.height.equalTo(31)
         }
         canBtn.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-12.lpix())
-            make.top.equalToSuperview().offset(15.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+            make.right.equalToSuperview().offset(-12)
+            make.top.equalToSuperview().offset(15)
+            make.size.equalTo(CGSize(width: 17, height: 17))
         }
         comBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(phone.snp.bottom).offset(60.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.height.equalTo(60.lpix())
+            make.top.equalTo(phone.snp.bottom).offset(60)
+            make.left.equalToSuperview().offset(15)
+            make.height.equalTo(60)
         }
         
         canBtn.rx.tap.subscribe(onNext: { [weak self] in

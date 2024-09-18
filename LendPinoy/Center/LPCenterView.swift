@@ -32,7 +32,7 @@ class LPCenterView: LPJCView {
     }()
     
     lazy var phoneLabe: UILabel = {
-        let phoneLabe = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let phoneLabe = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         phoneLabe.text = UserDefaults.standard.object(forKey: LP_LOGIN) as? String ?? ""
         return phoneLabe
     }()
@@ -107,57 +107,57 @@ extension LPCenterView {
         }
         
         touxiang.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 70.lpix(), height: 70.lpix()))
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 24.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
+            make.size.equalTo(CGSize(width: 70, height: 70))
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 24)
+            make.left.equalToSuperview().offset(20)
         }
         
         phoneLabe.snp.makeConstraints { make in
-            make.left.equalTo(touxiang.snp.right).offset(20.lpix())
+            make.left.equalTo(touxiang.snp.right).offset(20)
             make.top.equalTo(touxiang.snp.top)
-            make.height.equalTo(32.5.lpix())
+            make.height.equalTo(32.5)
         }
         
         huiyuan.snp.makeConstraints { make in
-            make.top.equalTo(phoneLabe.snp.bottom).offset(15.lpix())
-            make.left.equalTo(touxiang.snp.right).offset(20.lpix())
-            make.size.equalTo(CGSize(width: 77.5.lpix(), height: 22.5.lpix()))
+            make.top.equalTo(phoneLabe.snp.bottom).offset(15)
+            make.left.equalTo(touxiang.snp.right).offset(20)
+            make.size.equalTo(CGSize(width: 77.5, height: 22.5))
         }
         
         twoBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(103.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(huiyuan.snp.bottom).offset(30.lpix())
+            make.height.equalTo(103)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(huiyuan.snp.bottom).offset(30)
         }
         
         twoBtn1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(twoBtn.snp.bottom).offset(30.lpix())
+            make.height.equalTo(80)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(twoBtn.snp.bottom).offset(30)
         }
         
         twoBtn2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(twoBtn1.snp.bottom).offset(20.lpix())
+            make.height.equalTo(80)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(twoBtn1.snp.bottom).offset(20)
         }
         
         twoBtn3.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(twoBtn2.snp.bottom).offset(20.lpix())
+            make.height.equalTo(80)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(twoBtn2.snp.bottom).offset(20)
         }
         
         twoBtn4.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(80.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.top.equalTo(twoBtn3.snp.bottom).offset(20.lpix())
-            make.bottom.equalToSuperview().offset(-125.lpix())
+            make.height.equalTo(80)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(twoBtn3.snp.bottom).offset(20)
+            make.bottom.equalToSuperview().offset(-125)
         }
         
         scrollView

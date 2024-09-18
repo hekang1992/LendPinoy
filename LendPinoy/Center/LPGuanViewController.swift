@@ -34,28 +34,28 @@ extension LPGuanViewController {
         icon.image = UIImage(named: "centericon")
         view.addSubview(icon)
         icon.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalTo(self.navView.snp.bottom).offset(30.lpix())
-            make.size.equalTo(CGSize(width: 60.lpix(), height: 60.lpix()))
+            make.left.equalToSuperview().offset(20)
+            make.top.equalTo(self.navView.snp.bottom).offset(30)
+            make.size.equalTo(CGSize(width: 60, height: 60))
         }
         
         
-        let naLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 24.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let naLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         naLabel.text = "LendPinoy"
         view.addSubview(naLabel)
         naLabel.snp.makeConstraints { make in
-            make.left.equalTo(icon.snp.right).offset(20.lpix())
+            make.left.equalTo(icon.snp.right).offset(20)
             make.top.equalTo(icon.snp.top)
-            make.height.equalTo(26.lpix())
+            make.height.equalTo(26)
         }
         
-        let navLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22.lpix())!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let navLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         navLabel.text = "v 1.0.0"
         view.addSubview(navLabel)
         navLabel.snp.makeConstraints { make in
-            make.left.equalTo(icon.snp.right).offset(20.lpix())
+            make.left.equalTo(icon.snp.right).offset(20)
             make.bottom.equalTo(icon.snp.bottom)
-            make.height.equalTo(26.lpix())
+            make.height.equalTo(26)
         }
         
     }

@@ -16,13 +16,13 @@ class LPThreePViewCell: UITableViewCell {
     var tapBlock: ((UIButton) -> Void)?
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 4.lpix()
+        bgView.layer.cornerRadius = 4
         bgView.backgroundColor = UIColor.init(hex: "#F3FBFA")
         return bgView
     }()
@@ -40,19 +40,19 @@ class LPThreePViewCell: UITableViewCell {
     }()
     
     lazy var label1: UILabel = {
-        let label1 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label1 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         label1.text = "Camaraderie"
         return label1
     }()
     
     lazy var label2: UILabel = {
-        let label2 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22.lpix())!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label2 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         label2.text = "Name"
         return label2
     }()
     
     lazy var label3: UILabel = {
-        let label3 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 16.lpix())!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let label3 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 16)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         label3.text = "Phone"
         return label3
     }()
@@ -81,41 +81,41 @@ extension LPThreePViewCell {
     
     func makess() {
         nameLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.lpix())
-            make.top.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(24.lpix())
-            make.bottom.equalToSuperview().offset(-150.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(20)
+            make.height.equalTo(24)
+            make.bottom.equalToSuperview().offset(-150)
         }
         bgView.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(15.lpix())
-            make.left.equalToSuperview().offset(20.lpix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(20)
             make.centerX.equalToSuperview()
-            make.height.equalTo(135.lpix())
+            make.height.equalTo(135)
         }
         icon.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(24.lpix())
-            make.right.equalToSuperview().offset(-25.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+            make.top.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-25)
+            make.size.equalTo(CGSize(width: 17, height: 17))
         }
         icon1.snp.makeConstraints { make in
-            make.top.equalTo(icon.snp.bottom).offset(28.lpix())
-            make.right.equalToSuperview().offset(-25.lpix())
-            make.size.equalTo(CGSize(width: 17.lpix(), height: 17.lpix()))
+            make.top.equalTo(icon.snp.bottom).offset(28)
+            make.right.equalToSuperview().offset(-25)
+            make.size.equalTo(CGSize(width: 17, height: 17))
         }
         label1.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20.lpix())
-            make.left.equalToSuperview().offset(30.lpix())
-            make.height.equalTo(25.lpix())
+            make.top.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(30)
+            make.height.equalTo(25)
         }
         label2.snp.makeConstraints { make in
-            make.top.equalTo(label1.snp.bottom).offset(14.lpix())
-            make.left.equalToSuperview().offset(30.lpix())
-            make.height.equalTo(26.lpix())
+            make.top.equalTo(label1.snp.bottom).offset(14)
+            make.left.equalToSuperview().offset(30)
+            make.height.equalTo(26)
         }
         label3.snp.makeConstraints { make in
-            make.top.equalTo(label2.snp.bottom).offset(10.lpix())
-            make.left.equalToSuperview().offset(30.lpix())
-            make.height.equalTo(18.lpix())
+            make.top.equalTo(label2.snp.bottom).offset(10)
+            make.left.equalToSuperview().offset(30)
+            make.height.equalTo(18)
         }
         model.subscribe(onNext: { [weak self] model1 in
             guard let self = self, let model1 = model1 else { return }

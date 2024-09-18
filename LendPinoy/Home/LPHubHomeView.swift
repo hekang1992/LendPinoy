@@ -38,7 +38,7 @@ class LPHubHomeView: LPJCView {
     lazy var proBtn: UIButton = {
         let proBtn = UIButton(type: .custom)
         proBtn.contentHorizontalAlignment = .left
-        proBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 24.lpix())
+        proBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 24)
         proBtn.setTitle("Products", for: .normal)
         proBtn.setTitleColor(UIColor.init(hex: "#303434"), for: .normal)
         return proBtn
@@ -47,7 +47,7 @@ class LPHubHomeView: LPJCView {
     lazy var tickBtn: UIButton = {
         let tickBtn = UIButton(type: .custom)
         tickBtn.contentHorizontalAlignment = .left
-        tickBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 24.lpix())
+        tickBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 24)
         tickBtn.setTitle("Top Picks", for: .normal)
         tickBtn.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
         return tickBtn
@@ -55,7 +55,7 @@ class LPHubHomeView: LPJCView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.estimatedRowHeight = 88.lpix()
+        tableView.estimatedRowHeight = 88
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.init(hex: "#FFFFFF")
@@ -105,7 +105,7 @@ class LPHubHomeView: LPJCView {
 extension LPHubHomeView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return StatusManager.statusBarHeight + 195.lpix()
+        return StatusManager.statusBarHeight + 195
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -115,19 +115,19 @@ extension LPHubHomeView: UITableViewDelegate {
 //        headView.addSubview(tickBtn)
         lunboView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.height.equalTo(103.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10)
+            make.left.equalToSuperview().offset(15)
+            make.height.equalTo(103)
         }
         proBtn.snp.makeConstraints { make in
-            make.top.equalTo(lunboView.snp.bottom).offset(35.lpix())
-            make.left.equalToSuperview().offset(15.lpix())
-            make.size.equalTo(CGSize(width: 120.lpix(), height: 30.lpix()))
+            make.top.equalTo(lunboView.snp.bottom).offset(35)
+            make.left.equalToSuperview().offset(15)
+            make.size.equalTo(CGSize(width: 120, height: 30))
         }
 //        tickBtn.snp.makeConstraints { make in
-//            make.top.equalTo(lunboView.snp.bottom).offset(35.lpix())
-//            make.left.equalTo(proBtn.snp.right).offset(40.lpix())
-//            make.size.equalTo(CGSize(width: 120.lpix(), height: 30.lpix()))
+//            make.top.equalTo(lunboView.snp.bottom).offset(35)
+//            make.left.equalTo(proBtn.snp.right).offset(40)
+//            make.size.equalTo(CGSize(width: 120, height: 30))
 //        }
         return headView
     }

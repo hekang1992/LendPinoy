@@ -28,7 +28,7 @@ class LPOrderListView: LPJCView {
     lazy var bgView1: UIView = {
         let bgView1 = UIView()
         bgView1.backgroundColor = UIColor.init(hex: "#F3FBFA")
-        bgView1.layer.cornerRadius = 4.lpix()
+        bgView1.layer.cornerRadius = 4
         return bgView1
     }()
     
@@ -39,7 +39,7 @@ class LPOrderListView: LPJCView {
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12.lpix())!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         descLabel.text = "We will provide comprehensive protection for your privacy data."
         descLabel.numberOfLines = 0
         return descLabel
@@ -47,7 +47,7 @@ class LPOrderListView: LPJCView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.estimatedRowHeight = 88.lpix()
+        tableView.estimatedRowHeight = 88
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
@@ -86,30 +86,30 @@ extension LPOrderListView: UITableViewDelegate {
     
     func makess() {
         navView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5.lpix())
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 5)
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(44.lpix())
+            make.height.equalTo(44)
         }
         bgView1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(navView.snp.bottom)
-            make.left.equalToSuperview().offset(20.lpix())
-            make.height.equalTo(35.lpix())
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(35)
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(15.lpix())
-            make.size.equalTo(CGSize(width: 14.lpix(), height: 18.lpix()))
+            make.left.equalToSuperview().offset(15)
+            make.size.equalTo(CGSize(width: 14, height: 18))
         }
         descLabel.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().offset(-15.lpix())
-            make.left.equalTo(icon.snp.right).offset(10.lpix())
+            make.right.equalToSuperview().offset(-15)
+            make.left.equalTo(icon.snp.right).offset(10)
         }
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(bgView1.snp.bottom).offset(5.lpix())
+            make.top.equalTo(bgView1.snp.bottom).offset(5)
         }
     }
     
@@ -118,7 +118,7 @@ extension LPOrderListView: UITableViewDelegate {
         addSubview(self.wsView)
         self.wsView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(bgView1.snp.bottom).offset(5.lpix())
+            make.top.equalTo(bgView1.snp.bottom).offset(5)
         }
         modelArray
             .asObservable()
