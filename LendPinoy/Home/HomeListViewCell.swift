@@ -2,7 +2,7 @@
 //  HomeListViewCell.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/16.
+//  Created by Banana on 2024/9/16.
 //
 
 import UIKit
