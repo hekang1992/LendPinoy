@@ -21,6 +21,8 @@ class LPLoginInfo: NSObject {
         UserDefaults.standard.setValue("", forKey: LP_SESSIONID)
         UserDefaults.standard.setValue("", forKey: LP_LOGIN)
         UserDefaults.standard.setValue("", forKey: MAI_DIAN_ONE)
+        UserDefaults.standard.setValue("", forKey: LOGIN_END_LP)
+        UserDefaults.standard.setValue("", forKey: LOGIN_START_LP)
         UserDefaults.standard.synchronize()
     }
     
