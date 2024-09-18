@@ -58,7 +58,7 @@ class LPSubHomeView: LPJCView {
     }()
     
     lazy var timelabel: UILabel = {
-        let timelabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let timelabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         let timeUpdater = TimeUpdater { timeStr in
             timelabel.text = timeStr
         }
