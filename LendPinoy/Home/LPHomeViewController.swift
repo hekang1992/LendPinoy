@@ -139,7 +139,7 @@ extension LPHomeViewController {
         let man = LPRequestManager()
         let params = ["wandering": "product",
                       "home": "sub",
-                      "strolled": String(Date().timeIntervalSince1970)]
+                      "strolled": SystemInfo.getCurrentTime()]
         let pageUrl = "/lpinoy/sorry/mouse/little"
         
         man.uploadDataAPI(params: params, pageUrl: pageUrl, method: .get) { [weak self] result in

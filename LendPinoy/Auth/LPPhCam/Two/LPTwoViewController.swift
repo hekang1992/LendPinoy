@@ -415,13 +415,13 @@ class SCPopView: UIView {
     }()
     
     lazy var biaotiLabel: UILabel = {
-        let biaotiLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let biaotiLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         biaotiLabel.text = "Confirm ID information."
         return biaotiLabel
     }()
     
     lazy var mLabel: UILabel = {
-        let mLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
+        let mLabel = UILabel.cjLabel(font: UIFont(name: regular_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
         mLabel.numberOfLines = 0
         mLabel.text = "Please verify your ID information to prevent review failure."
         return mLabel

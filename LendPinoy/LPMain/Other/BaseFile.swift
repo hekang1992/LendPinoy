@@ -32,26 +32,8 @@ var IS_LOGIN: Bool {
     }
 }
 
-extension Double {
-    func lpix() -> CGFloat {
-        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
-    }
-}
-
-extension CGFloat {
-    func lpix() -> CGFloat {
-        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
-    }
-}
-
-extension Int {
-    func lpix() -> CGFloat {
-        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
-    }
-}
-
 extension UILabel {
-    static func buildLabel(font: UIFont, textColor: UIColor, textAlignment: NSTextAlignment) -> UILabel {
+    static func cjLabel(font: UIFont, textColor: UIColor, textAlignment: NSTextAlignment) -> UILabel {
         let label = UILabel()
         label.font = font
         label.textAlignment = textAlignment

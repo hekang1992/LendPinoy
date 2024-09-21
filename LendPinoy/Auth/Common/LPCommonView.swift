@@ -19,7 +19,7 @@ class LPCommonView: LPJCView {
     var timeBlock: ((UIButton) -> Void)?
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     

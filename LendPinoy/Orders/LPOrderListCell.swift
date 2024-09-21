@@ -33,28 +33,28 @@ class LPOrderListCell: UITableViewCell {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.cjLabel(font: UIFont(name: regular_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var label1: UILabel = {
-        let label1 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label1 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return label1
     }()
     
     lazy var label2: UILabel = {
-        let label2 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label2 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return label2
     }()
     
     lazy var label3: UILabel = {
-        let label3 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let label3 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         label3.numberOfLines = 0
         return label3
     }()
     
     lazy var label4: UILabel = {
-        let label4 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let label4 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         return label4
     }()
     
@@ -69,7 +69,7 @@ class LPOrderListCell: UITableViewCell {
     }()
     
     lazy var ooLabel: UILabel = {
-        let ooLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: .white, textAlignment: .center)
+        let ooLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: .white, textAlignment: .center)
         ooLabel.backgroundColor = UIColor.init(hex: "#FF335B")
         ooLabel.layer.cornerRadius = 4
         ooLabel.layer.masksToBounds = true
@@ -196,7 +196,7 @@ class WSView: LPJCView {
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let descLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         descLabel.text = "We will provide comprehensive protection for your privacy data."
         descLabel.numberOfLines = 0
         return descLabel

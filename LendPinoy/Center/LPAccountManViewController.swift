@@ -156,7 +156,7 @@ class LogView: LPJCView {
     }()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 36)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let titleLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 36)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         titleLabel.numberOfLines = 0
         titleLabel.text = "Are you sure you want to log out?"
         return titleLabel
@@ -243,7 +243,7 @@ class DelView: UIView {
     }()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let titleLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         titleLabel.numberOfLines = 0
         titleLabel.text = "Please note that deleting your account will permanently remove the following data and features. Proceed with caution."
         return titleLabel

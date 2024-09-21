@@ -19,7 +19,7 @@ class LPNavgationView: LPJCView {
     }()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#393939"), textAlignment: .center)
+        let titleLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#393939"), textAlignment: .center)
         return titleLabel
     }()
     

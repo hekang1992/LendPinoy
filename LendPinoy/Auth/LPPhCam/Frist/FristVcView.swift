@@ -29,7 +29,7 @@ class FristVcView: LPJCView {
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let descLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         descLabel.text = "We will provide comprehensive protection for your privacy data."
         descLabel.numberOfLines = 0
         return descLabel

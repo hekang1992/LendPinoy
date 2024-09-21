@@ -81,7 +81,7 @@ extension LPADBListView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        let label = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let label = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         if section == 0 {
             label.text = "(E-Wallet)"
         }else {

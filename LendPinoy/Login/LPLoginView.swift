@@ -31,12 +31,12 @@ class LPLoginView: LPJCView {
     
     lazy var icon: UIImageView = {
         let icon = UIImageView()
-        icon.image = UIImage(named: "AppIcon")
+        icon.image = UIImage(named: "centericon")
         return icon
     }()
     
     lazy var noLabel: UILabel = {
-        let noLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let noLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         noLabel.text = "63"
         return noLabel
     }()

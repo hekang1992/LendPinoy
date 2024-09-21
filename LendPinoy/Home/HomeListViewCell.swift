@@ -26,22 +26,22 @@ class HomeListViewCell: UITableViewCell {
     }()
 
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.cjLabel(font: UIFont(name: regular_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var mLabel: UILabel = {
-        let mLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let mLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return mLabel
     }()
     
     lazy var sLabel: UILabel = {
-        let sLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
+        let sLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         return sLabel
     }()
     
     lazy var label: UILabel = {
-        let label = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 17)!, textColor: UIColor.init(hex: "#FFFFFF"), textAlignment: .center)
+        let label = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 17)!, textColor: UIColor.init(hex: "#FFFFFF"), textAlignment: .center)
         label.layer.cornerRadius = 4
         label.backgroundColor = UIColor.init(hex: "#2CD7BB")
         return label

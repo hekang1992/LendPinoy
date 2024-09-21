@@ -16,7 +16,7 @@ class LPThreePViewCell: UITableViewCell {
     var tapBlock: ((UIButton) -> Void)?
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let nameLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return nameLabel
     }()
     
@@ -40,19 +40,19 @@ class LPThreePViewCell: UITableViewCell {
     }()
     
     lazy var label1: UILabel = {
-        let label1 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label1 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         label1.text = "Camaraderie"
         return label1
     }()
     
     lazy var label2: UILabel = {
-        let label2 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label2 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         label2.text = "Name"
         return label2
     }()
     
     lazy var label3: UILabel = {
-        let label3 = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 16)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let label3 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 16)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         label3.text = "Phone"
         return label3
     }()

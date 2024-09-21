@@ -171,7 +171,7 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         ViewCycleManager.addCycView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 40) {
             ViewCycleManager.hideCycView()
         }
     }
@@ -230,7 +230,6 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
         guard let productId = arguments?.first, arguments?.count ?? 0 >= 2 else { return }
         let startTime = arguments![1]
         self.bugPointBlock?(productId, startTime)
-        
     }
     
     private func daikaiwangzhi(_ arguments: [String]?) {

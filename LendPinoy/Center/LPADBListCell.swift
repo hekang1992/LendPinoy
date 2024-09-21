@@ -20,12 +20,12 @@ class LPADBListCell: UITableViewCell {
     }()
     
     lazy var bblabel: UILabel = {
-        let bblabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let bblabel = UILabel.cjLabel(font: UIFont(name: regular_MarketFresh, size: 20)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return bblabel
     }()
     
     lazy var bbblabel: UILabel = {
-        let bbblabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let bbblabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return bbblabel
     }()
     

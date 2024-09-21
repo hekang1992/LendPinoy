@@ -22,14 +22,14 @@ class LPTCPView: LPJCView {
     }()
 
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 36)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let descLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 36)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         descLabel.numberOfLines = 0
         descLabel.text = "The phone number you entered is:"
         return descLabel
     }()
     
     lazy var phone: UILabel = {
-        let phone = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 30)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let phone = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 30)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         return phone
     }()
 

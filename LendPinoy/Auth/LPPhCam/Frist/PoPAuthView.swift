@@ -18,19 +18,19 @@ class PoPAuthView: LPJCView {
     }()
     
     lazy var youLabel: UILabel = {
-        let youLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 32)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let youLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 32)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         youLabel.text = "You Have Selected"
         return youLabel
     }()
     
     lazy var xuanLabel: UILabel = {
-        let xuanLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 32)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let xuanLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 32)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         xuanLabel.text = "\"UMID\""
         return xuanLabel
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
+        let descLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
         descLabel.numberOfLines = 0
         descLabel.text = "If the selected type does not match the uploaded one, it may lead to the failure of the loan application. Please confirm carefully."
         return descLabel

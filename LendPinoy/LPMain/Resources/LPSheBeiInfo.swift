@@ -13,7 +13,6 @@ import DeviceKit
 import SystemConfiguration.CaptiveNetwork
 
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
-let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
 class DeviceInfo {
     
@@ -209,9 +208,9 @@ class LPSheBeiInfo {
         
         dict["crab"] = [
             "tilefish": SystemServices().batteryLevel,
-            "fish": "yu",
+            "fish": "yellowYu",
             "pigsy": "pid",
-            "high": "180",
+            "high": "180cm",
             "googs": "0",
             "lacquerware": SystemServices().charging ? 1 : 0
         ]
@@ -250,7 +249,7 @@ class LPSheBeiInfo {
         dict["served"] = [
             "rush": "1",
             "faker": "1",
-            "usa": "0",
+            "usa": "can",
             "eel": SSNetworkInfo.currentIPAddress() ?? "",
             "flash": "0",
             "abalone": NetworkInfo.getCurrentNetworkInfo()

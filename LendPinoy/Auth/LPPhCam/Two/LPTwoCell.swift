@@ -15,7 +15,7 @@ class LPTwoCell: UITableViewCell {
     let disposeBag = DisposeBag()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let titleLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         return titleLabel
     }()
 
@@ -29,7 +29,7 @@ class LPTwoCell: UITableViewCell {
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.buildLabel(font: UIFont(name: regular_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
+        let descLabel = UILabel.cjLabel(font: UIFont(name: regular_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
         descLabel.numberOfLines = 0
         return descLabel
     }()

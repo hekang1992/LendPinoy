@@ -40,7 +40,7 @@ extension LPGuanViewController {
         }
         
         
-        let naLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let naLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         naLabel.text = "LendPinoy"
         view.addSubview(naLabel)
         naLabel.snp.makeConstraints { make in
@@ -49,7 +49,7 @@ extension LPGuanViewController {
             make.height.equalTo(26)
         }
         
-        let navLabel = UILabel.buildLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let navLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         navLabel.text = "v 1.0.0"
         view.addSubview(navLabel)
         navLabel.snp.makeConstraints { make in
