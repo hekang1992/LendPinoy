@@ -52,9 +52,9 @@ class LPLoginInfo: NSObject {
                      "zipo": "fire"]
         
         let dict2 = ["icloud": "1",
-                     "appeared": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
+                     "appeared": KeychainHelper.retrieveidfv() ?? "",
                      "peel": Device.current.description,
-                     "yuzu": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
+                     "yuzu": KeychainHelper.retrieveidfv() ?? "",
                      "normally": "iOS",
                      "item": "apple",
                      "twins": "0",

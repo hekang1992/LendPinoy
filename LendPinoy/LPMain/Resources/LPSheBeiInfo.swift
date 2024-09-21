@@ -32,7 +32,7 @@ class DeviceInfo {
         return Device.current.isSimulator ? "1" : "0"
     }
     
-    static func getDeviceDescription() -> [String: Any] {
+    static func getDeviceon() -> [String: Any] {
         return [
             "joining": "",
             "meantime": Device.current.name ?? "",
@@ -49,21 +49,21 @@ class DeviceInfo {
 
 class NetworkInfo {
     
-    static func getAppWifiSSIDInfo() -> String {
+    static func getSSIDInfo() -> String {
         guard let interfaces = CNCopySupportedInterfaces() as? [String],
               let interface = interfaces.first as CFString?,
               let info = CNCopyCurrentNetworkInfo(interface) as NSDictionary? else { return "" }
         return info["SSID"] as? String ?? ""
     }
     
-    static func getAppWifiBSSIDInfo() -> String {
+    static func getBSSIDInfo() -> String {
         guard let interfaces = CNCopySupportedInterfaces() as? [String],
               let interface = interfaces.first as CFString?,
               let info = CNCopyCurrentNetworkInfo(interface) as NSDictionary? else { return "" }
         return info["BSSID"] as? String ?? ""
     }
     
-    static func isUsingProxy() -> String {
+    static func isUxy() -> String {
         guard let proxySettings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [AnyHashable: Any],
               let proxies = CFNetworkCopyProxiesForURL(URL(string: "https://www.apple.com")! as CFURL, proxySettings as CFDictionary).takeRetainedValue() as? [[AnyHashable: Any]],
               let settings = proxies.first,
@@ -71,28 +71,19 @@ class NetworkInfo {
         return proxyType == kCFProxyTypeNone as String ? "0" : "1"
     }
     
-    static func isVPNConnected() -> Bool {
-        var zeroAddress = sockaddr()
-        zeroAddress.sa_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sa_family = sa_family_t(AF_INET)
-        guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
-                zeroSockAddress in
-                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+    static func isVPNCd() -> String {
+        if let proxySettings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [String: Any],
+           let scopedProxySettings = proxySettings["SCOPED"] as? [String: Any] {
+            for key in scopedProxySettings.keys {
+                if key.contains("tap") || key.contains("tun") || key.contains("ppp") {
+                    return "1"
+                }
             }
-        }) else {
-            return false
         }
-        var flags: SCNetworkReachabilityFlags = []
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
-            return false
-        }
-        let isReachable = flags.contains(.reachable)
-        let needsConnection = flags.contains(.connectionRequired)
-        return isReachable && !needsConnection
+        return "0"
     }
     
-    static func getCurrentWifiMac() -> String {
+    static func getWifiMac() -> String {
         guard let interfaces = CNCopySupportedInterfaces() as? [String] else { return "" }
         for interface in interfaces {
             guard let info = CNCopyCurrentNetworkInfo(interface as CFString) as NSDictionary?,
@@ -104,21 +95,21 @@ class NetworkInfo {
     
     static func getCurrentNetworkInfo() -> [String: Any] {
         return [
-            "quench": getAppWifiSSIDInfo(),
-            "miyajima": getAppWifiBSSIDInfo(),
-            "aromas": getCurrentWifiMac(),
-            "seared": getAppWifiSSIDInfo()
+            "quench": getSSIDInfo(),
+            "miyajima": getBSSIDInfo(),
+            "aromas": getWifiMac(),
+            "seared": getSSIDInfo()
         ]
     }
 }
 
 class StorageInfo {
     
-    static func freeDisk() -> String {
+    static func kongDisk() -> String {
         return String(format: "%.2f", SystemServices.shared().longFreeDiskSpace)
     }
     
-    static func allDisk() -> String {
+    static func suoyouDisk() -> String {
         return String(format: "%.2f", SystemServices.shared().longDiskSpace)
     }
     
@@ -139,7 +130,7 @@ class SystemInfo {
         return String(format: "%ld", Int(timeDate.timeIntervalSince1970 * 1000))
     }
     
-    static func timeSinceDeviceBoot() -> String {
+    static func timeSdBoot() -> String {
         return String(format: "%.0f", ProcessInfo.processInfo.systemUptime * 1000)
     }
     
@@ -165,7 +156,8 @@ class SecurityInfo {
 class KeychainHelper {
     
     static func saveIDFVToKeychain() {
-        guard let idfv = UIDevice.current.identifierForVendor?.uuidString else {
+        let cc = UIDevice.current
+        guard let idfv = cc.identifierForVendor?.uuidString else {
             return
         }
         let keychain = Keychain(service: "com.LendPinoy.Ph")
@@ -176,14 +168,14 @@ class KeychainHelper {
         }
     }
     
-    static func retrieveIDFVFromKeychain() -> String? {
+    static func retrieveidfv() -> String? {
         let keychain = Keychain(service: "com.LendPinoy.Ph")
         do {
             if let idfv = try keychain.get("deviceIDFV") {
                 return idfv
             } else {
                 saveIDFVToKeychain()
-                return retrieveIDFVFromKeychain()
+                return retrieveidfv()
             }
         } catch {
             print("Error: \(error)")
@@ -217,14 +209,14 @@ class LPSheBeiInfo {
         
         dict["overdo"] = [
             "swift": "1",
-            "drooling": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
+            "drooling": KeychainHelper.retrieveidfv() ?? "",
             "practically": DeviceInfo.getIDFA(),
-            "aromas": NetworkInfo.getCurrentWifiMac(),
+            "aromas": NetworkInfo.getWifiMac(),
             "faker": Device.current.systemName ?? "",
+            "delight": NetworkInfo.isVPNCd(),
+            "swiftcode": "true",
             "extending": SystemInfo.getCurrentTime(),
-            "tsujitomi": NetworkInfo.isUsingProxy(),
-            "delight": NetworkInfo.isVPNConnected(),
-            "swiftcode": "1",
+            "tsujitomi": NetworkInfo.isUxy(),
             "facebool": SystemInfo.getCurrentTime(),
             "agape": SecurityInfo.isJailBreak(),
             "is_simulator": DeviceInfo.isSimulator(),
@@ -233,18 +225,18 @@ class LPSheBeiInfo {
             "octopus": SystemServices().carrierName ?? "",
             "balls": NetworkReachability.shared.netType ?? "",
             "simply": NSTimeZone.system.abbreviation() ?? "",
-            "sampled": SystemInfo.timeSinceDeviceBoot(),
+            "sampled": SystemInfo.timeSdBoot(),
             "language": "swift-oc"
         ]
         
         dict["tuna"] = [
-            "kishu": StorageInfo.freeDisk(),
-            "sashimi": StorageInfo.allDisk(),
+            "kishu": StorageInfo.kongDisk(),
+            "sashimi": StorageInfo.suoyouDisk(),
             "yellowtail": StorageInfo.totalMemory(),
             "teriyaki": StorageInfo.activeMemoryInRaw()
         ]
         
-        dict["reached"] = DeviceInfo.getDeviceDescription()
+        dict["reached"] = DeviceInfo.getDeviceon()
         
         dict["served"] = [
             "rush": "1",

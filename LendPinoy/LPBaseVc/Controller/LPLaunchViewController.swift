@@ -175,7 +175,7 @@ class NetworkReachability {
     
     func loadifd() {
         let manager = LPRequestManager()
-        let dict = ["watched": "apple", "drooling": KeychainHelper.retrieveIDFVFromKeychain() ?? "", "practically": KeychainHelper.retrieveIDFVFromKeychain() ?? "", "hide": "0"]
+        let dict = ["watched": "apple", "drooling": KeychainHelper.retrieveidfv() ?? "", "happy": "mars", "practically": DeviceInfo.getIDFA(), "hide": "0"]
         manager.requestAPI(params: dict, pageUrl: "/lpinoy/roomoh/looking/lifted", method: .post) { result in
             
         }

@@ -90,7 +90,7 @@ extension AppDelegate {
                 "mizuo": DeviceInfo.getIDFA(),
                 "cupping": "1",
                 "heike": "",
-                "adds": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
+                "adds": KeychainHelper.retrieveidfv() ?? "",
                 "shichimi": model.shichimi,
                 "spice": model.spice,
                 "village": st,

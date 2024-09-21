@@ -214,7 +214,7 @@ extension LPBaseViewController {
                 "cupping": point,
                 "heike": chanpinID,
                 "tea": "greenTea",
-                "adds": KeychainHelper.retrieveIDFVFromKeychain() ?? "",
+                "adds": KeychainHelper.retrieveidfv() ?? "",
                 "lemon": "tree",
                 "shichimi": locationModel.shichimi,
                 "spice": locationModel.spice,
