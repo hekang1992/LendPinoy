@@ -97,8 +97,14 @@ extension AppDelegate {
                 "arm": en,
                 "tucking": "mins"] as [String : Any]
             manager.uploadDataAPI(params: maiDict, pageUrl: "/lpinoy/chieko/thats/dripping", method: .post) { result in
-                UserDefaults.standard.setValue("1", forKey: MAI_DIAN_ONE)
-                UserDefaults.standard.synchronize()
+                switch result {
+                case .success(let success):
+                    UserDefaults.standard.setValue("1", forKey: MAI_DIAN_ONE)
+                    UserDefaults.standard.synchronize()
+                    break
+                case .failure(_):
+                    break
+                }
             }
         }
     }

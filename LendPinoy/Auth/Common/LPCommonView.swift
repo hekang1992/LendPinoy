@@ -65,13 +65,13 @@ class LPCommonView: LPJCView {
         super.init(frame: frame)
         addSubview(nameLabel)
         addSubview(bgView)
-        bgView.addSubview(icon)
         if typeEnum == .click {
             bgView.addSubview(timeBtn)
+            timeBtn.addSubview(icon)
             timeBtn.snp.makeConstraints { make in
                 make.left.equalToSuperview().offset(15)
                 make.top.bottom.equalToSuperview()
-                make.right.equalTo(icon.snp.left).offset(-5)
+                make.right.equalToSuperview().offset(-5)
             }
             timeBtn.rx.tap.subscribe(onNext: { [weak self] in
                 if let self = self {
@@ -80,10 +80,11 @@ class LPCommonView: LPJCView {
             }).disposed(by: disposeBag)
         } else {
             bgView.addSubview(nameTx)
+            nameTx.addSubview(icon)
             nameTx.snp.makeConstraints { make in
                 make.left.equalToSuperview().offset(15)
                 make.top.bottom.equalToSuperview()
-                make.right.equalTo(icon.snp.left).offset(-5)
+                make.right.equalToSuperview().offset(-5)
             }
         }
         nameLabel.snp.makeConstraints { make in
@@ -99,7 +100,7 @@ class LPCommonView: LPJCView {
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-25)
+            make.right.equalToSuperview().offset(-5)
             make.size.equalTo(CGSize(width: 17, height: 17))
         }
     }

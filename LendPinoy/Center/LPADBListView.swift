@@ -82,11 +82,11 @@ extension LPADBListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         let label = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
-        if section == 0 {
-            label.text = "(E-Wallet)"
-        }else {
-            label.text = "(Bank)"
-        }
+//        if section == 0 {
+//            label.text = "(E-Wallet)"
+//        }else {
+//            label.text = "(Bank)"
+//        }
         view.addSubview(label)
         label.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(35)

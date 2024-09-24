@@ -49,6 +49,7 @@
 		7389D44F2C83973F00C7D7DB /* LPAccountManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D44E2C83973F00C7D7DB /* LPAccountManViewController.swift */; };
 		7389D4532C83A63300C7D7DB /* LPSubHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4522C83A63300C7D7DB /* LPSubHomeView.swift */; };
 		7389D4552C83A63D00C7D7DB /* LPHubHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7389D4542C83A63D00C7D7DB /* LPHubHomeView.swift */; };
+		7395E1B42CA2EBAF0016185B /* LPedgCoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7395E1B32CA2EBAF0016185B /* LPedgCoo.swift */; };
 		73A453692C889E83005C2882 /* FristVcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A453682C889E83005C2882 /* FristVcViewController.swift */; };
 		73A4536B2C889EC6005C2882 /* FristVcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A4536A2C889EC6005C2882 /* FristVcView.swift */; };
 		73A4536D2C88A7AC005C2882 /* FristViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A4536C2C88A7AC005C2882 /* FristViewCell.swift */; };
@@ -124,6 +125,7 @@
 		7389D44E2C83973F00C7D7DB /* LPAccountManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPAccountManViewController.swift; sourceTree = "<group>"; };
 		7389D4522C83A63300C7D7DB /* LPSubHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPSubHomeView.swift; sourceTree = "<group>"; };
 		7389D4542C83A63D00C7D7DB /* LPHubHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHubHomeView.swift; sourceTree = "<group>"; };
+		7395E1B32CA2EBAF0016185B /* LPedgCoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPedgCoo.swift; sourceTree = "<group>"; };
 		73A453682C889E83005C2882 /* FristVcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristVcViewController.swift; sourceTree = "<group>"; };
 		73A4536A2C889EC6005C2882 /* FristVcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristVcView.swift; sourceTree = "<group>"; };
 		73A4536C2C88A7AC005C2882 /* FristViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristViewCell.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				7326E40E2C860C8D00383EBC /* LPCycleView.swift */,
 				730C32242C7F50800079510B /* LPRequsetManager.swift */,
 				7326E4142C8610AA00383EBC /* LPDingWeiManager.swift */,
+				7395E1B32CA2EBAF0016185B /* LPedgCoo.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				73BDE25B2C80BF9F00A776F8 /* LPOrdersViewController.swift in Sources */,
 				7326E40B2C85FF7A00383EBC /* LPCodeViewController.swift in Sources */,
 				7389D44D2C838AD200C7D7DB /* LPAgreeViewController.swift in Sources */,
+				7395E1B42CA2EBAF0016185B /* LPedgCoo.swift in Sources */,
 				73240F202C9740840017FA26 /* HomeListViewCell.swift in Sources */,
 				730C321F2C7F4C670079510B /* BaseFile.swift in Sources */,
 				73F40C5E2C8CAEC300BCFB25 /* LPThreePViewCell.swift in Sources */,

@@ -29,8 +29,7 @@ class LPOrderListViewController: LPBaseViewController {
         listView.navView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-        listView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(abdo))
-        listView.tableView.mj_header?.beginRefreshing()
+        listView.tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(abdoListIn))
         listView.block = {
             NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
         }
@@ -42,13 +41,31 @@ class LPOrderListViewController: LPBaseViewController {
                 self?.genJuUrlPush(form: piUl)
             }
         }
+        let li = li.value
+        if li == "4" {
+            listView.navView.titleLabel.text = "Full bills"
+        } else if li == "5" {
+            listView.navView.titleLabel.text = "Clear Bill"
+        } else if li == "6" {
+            listView.navView.titleLabel.text = "Unpaid Balance"
+        } else if li == "7" {
+            listView.navView.titleLabel.text = "Outstanding Bill Review"
+        } else if li == "8" {
+            listView.navView.titleLabel.text = "Failed Transfer"
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        abdoListIn()
+        LPTabBarManager.hideTabBar()
     }
     
 }
 //interesting
 extension LPOrderListViewController {
     
-    @objc func abdo() {
+    @objc func abdoListIn() {
         dedaoInfo()
     }
     

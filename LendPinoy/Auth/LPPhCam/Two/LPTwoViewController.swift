@@ -102,7 +102,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
                 }
             } else if model.classical?.order == "1" {
                 if let self = self {
-                    self.kaishiTime2 = SystemInfo.getLastTime()
+                    self.kaishiTime2 = SystemInfo.getCurrentTime()
                     self.isrenlianshibie = "1"
                     LPPCamManager.shared.presentCamera(from: self, isFront: true)
                 }
@@ -211,30 +211,40 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func tcTimeView(from btn: UIButton, scView: SCPopView) {
-        let timeStr = btn.titleLabel?.text ?? "10-10-1900"
-        let riqiArray = timeStr.components(separatedBy: "-")
-        let oneStr = riqiArray[0]
-        let twoStr = riqiArray[1]
-        let threeStr = riqiArray[2]
-        let datePickerView = BRDatePickerView()
-        datePickerView.pickerMode = .YMD
-        datePickerView.title = "Date"
-        datePickerView.minDate = NSDate.br_setYear(1910, month: 10, day: 10)
-        datePickerView.selectDate = NSDate.br_setYear(Int(threeStr)!, month: Int(twoStr)!, day: Int(oneStr)!)
-        datePickerView.maxDate = Date()
-        datePickerView.resultBlock = { selectDate, selectValue in
-            let timeArray = selectValue!.components(separatedBy: "-")
-            let year = timeArray[0]
-            let mon = timeArray[1]
-            let day = timeArray[2]
-            scView.comthreeView.timeBtn.setTitle(String(format: "%@-%@-%@", day,mon,year), for: .normal)
+        let defaultDateStr = "10-10-1900"
+        let timeStr = btn.titleLabel?.text ?? defaultDateStr
+        let dateComponents = timeStr.components(separatedBy: "-")
+        guard dateComponents.count == 3,
+              let day = Int(dateComponents[0]),
+              let month = Int(dateComponents[1]),
+              let year = Int(dateComponents[2]) else {
+            return
         }
+        let datePView = BRDatePickerView()
+        datePView.calendar?.locale = Locale(identifier: "en_UK")
+        datePView.pickerMode = .YMD
+        datePView.title = "Date"
+        datePView.minDate = NSDate.br_setYear(1910, month: 10, day: 10)
+        datePView.selectDate = NSDate.br_setYear(year, month: month, day: day)
+        datePView.maxDate = Date()
+        datePView.resultBlock = { selectedDate, selectedValue in
+            guard let selectedValue = selectedValue else { return }
+            let selectedComponents = selectedValue.components(separatedBy: "-")
+            guard selectedComponents.count == 3 else { return }
+            let selectedYear = selectedComponents[0]
+            let selectedMonth = selectedComponents[1]
+            let selectedDay = selectedComponents[2]
+            let formattedDate = String(format: "%@-%@-%@", selectedDay, selectedMonth, selectedYear)
+            scView.comthreeView.timeBtn.setTitle(formattedDate, for: .normal)
+        }
+        
         let customStyle = BRPickerStyle()
         customStyle.pickerColor = .white
         customStyle.pickerTextFont = UIFont(name: bold_MarketFresh, size: 22)
-        customStyle.selectRowTextColor = UIColor.init(hex: "#2CD7BB")
-        datePickerView.pickerStyle = customStyle
-        datePickerView.show()
+        customStyle.selectRowTextColor = UIColor(hex: "#2CD7BB")
+        datePView.pickerStyle = customStyle
+        
+        datePView.show()
     }
     
     func baocunidInfo(form sc: SCPopView) {

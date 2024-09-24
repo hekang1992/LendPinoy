@@ -84,6 +84,8 @@ extension LPBaseViewController {
             handleExpectationsPath(payment: payment)
         } else if path.contains("/opposite") {
             handleOppositePath(payment: payment)
+        } else if path.contains("/imagine") {
+            NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
         }
     }
 

@@ -24,9 +24,7 @@ extension APIService: TargetType {
     
     var path: String {
         switch self {
-        case .requestAPI(_, let pageUrl, _),
-                .uploadImageAPI(_, let pageUrl, _, _),
-                .uploadDataAPI(_, let pageUrl, _):
+        case .requestAPI(_, let pageUrl, _), .uploadImageAPI(_, let pageUrl, _, _), .uploadDataAPI(_, let pageUrl, _):
             return pageUrl
         }
     }

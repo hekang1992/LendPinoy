@@ -10,19 +10,19 @@ import DeviceKit
 
 class LPLoginInfo: NSObject {
     
-    static func saveDengLuInfo(_ phone: String, _ sessionID: String) {
-        UserDefaults.standard.setValue(sessionID, forKey: LP_SESSIONID)
-        UserDefaults.standard.setValue(phone, forKey: LP_LOGIN)
-        UserDefaults.standard.setValue("", forKey: MAI_DIAN_ONE)
-        UserDefaults.standard.synchronize()
-    }
-    
     static func removeDengLuInfo() {
         UserDefaults.standard.setValue("", forKey: LP_SESSIONID)
         UserDefaults.standard.setValue("", forKey: LP_LOGIN)
         UserDefaults.standard.setValue("", forKey: MAI_DIAN_ONE)
         UserDefaults.standard.setValue("", forKey: LOGIN_END_LP)
         UserDefaults.standard.setValue("", forKey: LOGIN_START_LP)
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func saveDengLuInfo(_ phone: String, _ sessionID: String) {
+        UserDefaults.standard.setValue(sessionID, forKey: LP_SESSIONID)
+        UserDefaults.standard.setValue(phone, forKey: LP_LOGIN)
+        UserDefaults.standard.setValue("", forKey: MAI_DIAN_ONE)
         UserDefaults.standard.synchronize()
     }
     
