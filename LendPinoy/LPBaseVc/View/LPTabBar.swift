@@ -1,6 +1,6 @@
 //
 //  PATabBar.swift
-//  Pesoin
+//  LendPinoy
 //
 //  Created by apple on 2024/7/2.
 //
@@ -9,15 +9,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-typealias PATabBarSelectionHandler = (_ tabBar: PATabBar, _ from: Int, _ to: Int) -> Void
+typealias PATabBarSelectionHandler = (_ tabBar: LPTabBar, _ from: Int, _ to: Int) -> Void
 
-class PATabBar: UIView {
+class LPTabBar: UIView {
     
     var block: PATabBarSelectionHandler?
     
-    private var selectedButton: PATabBarButton?
+    private var selectedButton: LPBarButton?
     
-    private var tabbarBtnArray: [PATabBarButton] = []
+    private var tabbarBtnArray: [LPBarButton] = []
     
     private var norImageArr: [String] = []
     
@@ -44,10 +44,10 @@ class PATabBar: UIView {
     
 }
 
-extension PATabBar {
+extension LPTabBar {
     
     func addTabBarButtonNorImageUrl(_ norImageUrl: String, selImageUrl: String, title: String) {
-        let tabBarBtn = PATabBarButton()
+        let tabBarBtn = LPBarButton()
         tabBarBtn.block = { [weak self] btn in
             self?.buttonClick(btn)
         }
@@ -63,7 +63,7 @@ extension PATabBar {
         }
     }
     
-    func ybDealSelectButton(_ ybButton: PATabBarButton) {
+    func ybDealSelectButton(_ ybButton: LPBarButton) {
         for (index, currentButton) in tabbarBtnArray.enumerated() {
             if currentButton == ybButton {
                 currentButton.backgroundColor = UIColor.init(hex: "#2CD7BB")
@@ -79,7 +79,7 @@ extension PATabBar {
         }
     }
     
-    @objc private func buttonClick(_ button: PATabBarButton) {
+    @objc private func buttonClick(_ button: LPBarButton) {
         if let fromIndex = selectedButton?.tag {
             self.block?(self, fromIndex, button.tag)
         }

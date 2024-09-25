@@ -1,6 +1,6 @@
 //
-//  PATabBarButton.swift
-//  Pesoin
+//  LPBarButton.swift
+//  LendPinoy
 //
 //  Created by apple on 2024/7/2.
 //
@@ -10,11 +10,11 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class PATabBarButton: UIControl {
+class LPBarButton: UIControl {
     
     let buttonW = (SCREEN_WIDTH - 40) / 3
 
-    var block: ((PATabBarButton) -> Void)?
+    var block: ((LPBarButton) -> Void)?
     
     let disposeBag = DisposeBag()
     

@@ -54,6 +54,12 @@ class LPTwoViewController: LPBaseViewController {
         qinqiuAInfo()
         tapClick()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        LPTabBarManager.hideTabBar()
+    }
+    
 }
 
 struct ActionModel {

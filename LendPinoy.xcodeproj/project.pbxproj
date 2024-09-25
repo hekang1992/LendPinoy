@@ -64,8 +64,8 @@
 		73BDE2592C80BF8300A776F8 /* LPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */; };
 		73BDE25B2C80BF9F00A776F8 /* LPOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE25A2C80BF9F00A776F8 /* LPOrdersViewController.swift */; };
 		73BDE25D2C80BFAB00A776F8 /* LPCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */; };
-		73BDE2622C80C42100A776F8 /* PATabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2602C80C42100A776F8 /* PATabBarButton.swift */; };
-		73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2612C80C42100A776F8 /* PATabBar.swift */; };
+		73BDE2622C80C42100A776F8 /* LPBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2602C80C42100A776F8 /* LPBarButton.swift */; };
+		73BDE2632C80C42100A776F8 /* LPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE2612C80C42100A776F8 /* LPTabBar.swift */; };
 		73C8D7C32C9B1CD10060B540 /* LPGuanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8D7C22C9B1CD10060B540 /* LPGuanViewController.swift */; };
 		73F40C582C8C6E5600BCFB25 /* LPHFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C572C8C6E5600BCFB25 /* LPHFViewController.swift */; };
 		73F40C5A2C8C6E8500BCFB25 /* LPHFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F40C592C8C6E8500BCFB25 /* LPHFView.swift */; };
@@ -140,8 +140,8 @@
 		73BDE2582C80BF8300A776F8 /* LPHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHomeViewController.swift; sourceTree = "<group>"; };
 		73BDE25A2C80BF9F00A776F8 /* LPOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPOrdersViewController.swift; sourceTree = "<group>"; };
 		73BDE25C2C80BFAB00A776F8 /* LPCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPCenterViewController.swift; sourceTree = "<group>"; };
-		73BDE2602C80C42100A776F8 /* PATabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATabBarButton.swift; sourceTree = "<group>"; };
-		73BDE2612C80C42100A776F8 /* PATabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATabBar.swift; sourceTree = "<group>"; };
+		73BDE2602C80C42100A776F8 /* LPBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPBarButton.swift; sourceTree = "<group>"; };
+		73BDE2612C80C42100A776F8 /* LPTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LPTabBar.swift; sourceTree = "<group>"; };
 		73C8D7C22C9B1CD10060B540 /* LPGuanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPGuanViewController.swift; sourceTree = "<group>"; };
 		73F40C572C8C6E5600BCFB25 /* LPHFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHFViewController.swift; sourceTree = "<group>"; };
 		73F40C592C8C6E8500BCFB25 /* LPHFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPHFView.swift; sourceTree = "<group>"; };
@@ -390,8 +390,8 @@
 		73BDE25F2C80C41100A776F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				73BDE2612C80C42100A776F8 /* PATabBar.swift */,
-				73BDE2602C80C42100A776F8 /* PATabBarButton.swift */,
+				73BDE2612C80C42100A776F8 /* LPTabBar.swift */,
+				73BDE2602C80C42100A776F8 /* LPBarButton.swift */,
 				7389D44A2C8389A100C7D7DB /* LPNavgationView.swift */,
 			);
 			path = View;
@@ -541,7 +541,7 @@
 				73260BD92C8B47C4006066E5 /* LPJCView.swift in Sources */,
 				730C32252C7F50800079510B /* LPRequsetManager.swift in Sources */,
 				73BDE25D2C80BFAB00A776F8 /* LPCenterViewController.swift in Sources */,
-				73BDE2622C80C42100A776F8 /* PATabBarButton.swift in Sources */,
+				73BDE2622C80C42100A776F8 /* LPBarButton.swift in Sources */,
 				73BDE25B2C80BF9F00A776F8 /* LPOrdersViewController.swift in Sources */,
 				7326E40B2C85FF7A00383EBC /* LPCodeViewController.swift in Sources */,
 				7389D44D2C838AD200C7D7DB /* LPAgreeViewController.swift in Sources */,
@@ -562,7 +562,7 @@
 				733B52562C90791300B6AF82 /* LPOrderListViewController.swift in Sources */,
 				73260BDD2C8B5C2E006066E5 /* LPDianjiTMViewCell.swift in Sources */,
 				7326E4152C8610AA00383EBC /* LPDingWeiManager.swift in Sources */,
-				73BDE2632C80C42100A776F8 /* PATabBar.swift in Sources */,
+				73BDE2632C80C42100A776F8 /* LPTabBar.swift in Sources */,
 				73A453752C88B4CF005C2882 /* LPTwoView.swift in Sources */,
 				73A453692C889E83005C2882 /* FristVcViewController.swift in Sources */,
 				73260BD72C8B477B006066E5 /* YIBanView.swift in Sources */,
@@ -723,7 +723,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XS8842FK7N;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2F6XZMZ52M;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LendPinoy/Info.plist;
@@ -744,10 +744,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.app.ald.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhuanyong.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = testappaldprofile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = test;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -769,7 +769,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XS8842FK7N;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2F6XZMZ52M;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LendPinoy/Info.plist;
@@ -790,10 +790,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.app.ald.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhuanyong.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = testappaldprofile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = test;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

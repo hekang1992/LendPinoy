@@ -9,10 +9,7 @@ import UIKit
 
 class LPTabBarViewController: UITabBarController {
     
-    private lazy var customTabBar: PATabBar = {
-        let tabBar = PATabBar()
-        return tabBar
-    }()
+    var customTabBar: LPTabBar?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +23,8 @@ class LPTabBarViewController: UITabBarController {
     }
     
     private func setupTabBar() {
+        let customTabBar = LPTabBar()
+        self.customTabBar = customTabBar
         view.addSubview(customTabBar)
         customTabBar.block = { [weak self] tabBar, from, to in
             if IS_LOGIN {
@@ -63,7 +62,7 @@ class LPTabBarViewController: UITabBarController {
         }
         let navController = LPNavigationController(rootViewController: viewController)
         addChild(navController)
-        customTabBar.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
+        self.customTabBar?.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
     }
     
     private func configureTabBarVisibility() {
@@ -82,7 +81,7 @@ class LPTabBarViewController: UITabBarController {
     func showTabBar() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.25) {
-                self.customTabBar.frame.origin.y = self.view.bounds.size.height - StatusManager.safeAreaBottomHeight - 62
+                self.customTabBar?.frame.origin.y = self.view.bounds.size.height - StatusManager.safeAreaBottomHeight - 62
             }
         }
     }
@@ -90,7 +89,7 @@ class LPTabBarViewController: UITabBarController {
     func hideTabBar() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.25) {
-                self.customTabBar.frame.origin.y = self.view.bounds.size.height
+                self.customTabBar?.frame.origin.y = self.view.bounds.size.height
             }
         }
     }

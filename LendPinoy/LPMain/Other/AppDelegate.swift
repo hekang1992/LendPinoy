@@ -98,7 +98,7 @@ extension AppDelegate {
                 "tucking": "mins"] as [String : Any]
             manager.uploadDataAPI(params: maiDict, pageUrl: "/lpinoy/chieko/thats/dripping", method: .post) { result in
                 switch result {
-                case .success(let success):
+                case .success(_):
                     UserDefaults.standard.setValue("1", forKey: MAI_DIAN_ONE)
                     UserDefaults.standard.synchronize()
                     break
