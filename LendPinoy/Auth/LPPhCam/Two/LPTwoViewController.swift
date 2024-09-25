@@ -216,7 +216,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func tcTimeView(from btn: UIButton, scView: SCPopView) {
-        let defaultDateStr = "10-10-1900"
+        let defaultDateStr = "11-11-1940"
         let timeStr = btn.titleLabel?.text ?? defaultDateStr
         let dateComponents = timeStr.components(separatedBy: "-")
         guard dateComponents.count == 3,
@@ -226,10 +226,10 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
             return
         }
         let datePView = BRDatePickerView()
-        datePView.calendar?.locale = Locale(identifier: "en_US")
         datePView.pickerMode = .YMD
+        datePView.calendar?.locale = Locale(identifier: "en_US")
         datePView.title = "Date"
-        datePView.minDate = NSDate.br_setYear(1910, month: 10, day: 10)
+        datePView.minDate = NSDate.br_setYear(1940, month: 11, day: 11)
         datePView.selectDate = NSDate.br_setYear(year, month: month, day: day)
         datePView.maxDate = Date()
         datePView.resultBlock = { selectedDate, selectedValue in
