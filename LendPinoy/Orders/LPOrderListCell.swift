@@ -61,11 +61,15 @@ class LPOrderListCell: UITableViewCell {
     lazy var reBtn: UIButton = {
         let reBtn = UIButton(type: .custom)
         reBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 17)
-        reBtn.setTitle("Repay", for: .normal)
         reBtn.layer.cornerRadius = 4
-        reBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
         reBtn.setTitleColor(.white, for: .normal)
         return reBtn
+    }()
+    
+    lazy var ttLabel: UILabel = {
+        let ttLabel = UILabel.cjLabel(font: UIFont(name: regular_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#FEF0F0"), textAlignment: .center)
+        ttLabel.numberOfLines = 2
+        return ttLabel
     }()
     
     lazy var ooLabel: UILabel = {
@@ -74,6 +78,14 @@ class LPOrderListCell: UITableViewCell {
         ooLabel.layer.cornerRadius = 4
         ooLabel.layer.masksToBounds = true
         return ooLabel
+    }()
+    
+    lazy var frLabel: UILabel = {
+        let frLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: .white, textAlignment: .left)
+        frLabel.layer.cornerRadius = 4
+        frLabel.layer.masksToBounds = true
+        frLabel.backgroundColor = UIColor.init(hex: "#2CD7BB")
+        return frLabel
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -86,7 +98,9 @@ class LPOrderListCell: UITableViewCell {
         contentView.addSubview(label3)
         contentView.addSubview(label4)
         contentView.addSubview(ooLabel)
+        contentView.addSubview(ttLabel)
         contentView.addSubview(reBtn)
+        contentView.addSubview(frLabel)
         makess()
     }
     
@@ -130,7 +144,7 @@ extension LPOrderListCell {
             make.top.equalTo(label2.snp.bottom).offset(3.5)
             make.left.equalTo(label2.snp.left)
             make.height.equalTo(15)
-            make.bottom.equalToSuperview().offset(-35.5)
+//            make.bottom.equalToSuperview().offset(-35.5)
         }
         reBtn.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-20)
@@ -141,6 +155,18 @@ extension LPOrderListCell {
             make.top.equalToSuperview()
             make.right.equalToSuperview().offset(-20)
             make.height.equalTo(CGSize(width: 145, height: 25))
+        }
+        ttLabel.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-22)
+            make.top.equalToSuperview().offset(2)
+            make.height.equalTo(18)
+        }
+        frLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(25)
+            make.height.equalTo(25)
+            make.top.equalTo(label4.snp.bottom).offset(20)
+            make.bottom.equalToSuperview().offset(-20)
         }
         bgView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -162,9 +188,37 @@ extension LPOrderListCell {
             self.label1.text = model1.insist ?? ""
             self.label2.text = model1.strangest ?? ""
             self.label3.text = model1.suffers ?? ""
-            self.label4.text = model1.loanText ?? ""
+            self.label4.text = model1.decline ?? ""
+            if let but = model1.btnText, !but.isEmpty {
+                self.reBtn.isHidden = false
+                self.reBtn.setTitle(but, for: .normal)
+                self.reBtn.backgroundColor = UIColor.init(hex: "#2CD7BB")
+            }else {
+                self.reBtn.isHidden = true
+            }
+            if let ccl = model1.calling, !ccl.isEmpty {
+                self.ttLabel.text = ccl
+                self.ttLabel.textColor = UIColor.init(hex: model1.btnCollor ?? "#FEF0F0")
+                self.ttLabel.isHidden = false
+            }else {
+                self.ttLabel.isHidden = true
+            }
             if let mess = model1.mess, !mess.isEmpty, mess != "0" {
                 self.ooLabel.text = "Overdue by \(model1.mess ?? "") days!"
+            }
+            if let fr = model1.france, !fr.isEmpty {
+                self.frLabel.text = fr
+                self.frLabel.isHidden = false
+            }else {
+                self.frLabel.isHidden = true
+                
+                frLabel.snp.makeConstraints { make in
+                    make.centerX.equalToSuperview()
+                    make.left.equalToSuperview().offset(20)
+                    make.height.equalTo(15)
+                    make.top.equalTo(self.label4.snp.bottom)
+                    make.bottom.equalToSuperview().offset(-1)
+                }
             }
         }).disposed(by: disposeBag)
     }

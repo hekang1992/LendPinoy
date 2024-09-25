@@ -109,23 +109,33 @@ class dazedModel {
     var notictColor: String?
     var insist: String?
     var decline: String?
+    var culture: String?
     var strangest: String?
+    var btnText: String?
     var heike: String?
     var endless: String?
     var suffers: String?
     var loanText: String?
     var precisely: String?
     var mess: String?
+    var calling: String?
+    var btnCollor: String?
+    var france: String?
     var delivery: [deliveryModel]?
     var kaiseki: [silentModel]?
     var dazed: [dazedModel]?
     init(json: JSON) {
+        self.france = json["france"].stringValue
+        self.btnCollor = json["btnCollor"].stringValue
+        self.calling = json["calling"].stringValue
+        self.btnText = json["btnText"].stringValue
         self.mess = json["mess"].stringValue
         self.precisely = json["precisely"].stringValue
         self.shrines = json["shrines"].stringValue
         self.notictColor = json["notictColor"].stringValue
         self.insist = json["insist"].stringValue
         self.decline = json["decline"].stringValue
+        self.culture = json["culture"].stringValue
         self.strangest = json["strangest"].stringValue
         self.heike = json["heike"].stringValue
         self.endless = json["endless"].stringValue
