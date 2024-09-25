@@ -9,7 +9,10 @@ import UIKit
 
 class LPTabBarViewController: UITabBarController {
     
-    var customTabBar: LPTabBar?
+    private lazy var customTabBar: LPTabBar = {
+        let customTabBar = LPTabBar()
+        return customTabBar
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +26,6 @@ class LPTabBarViewController: UITabBarController {
     }
     
     private func setupTabBar() {
-        let customTabBar = LPTabBar()
-        self.customTabBar = customTabBar
         view.addSubview(customTabBar)
         customTabBar.block = { [weak self] tabBar, from, to in
             if IS_LOGIN {
@@ -39,7 +40,7 @@ class LPTabBarViewController: UITabBarController {
         customTabBar.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-StatusManager.safeAreaBottomHeight - 2)
+            make.bottom.equalToSuperview().offset(-(StatusManager.safeAreaBottomHeight + 2))
             make.height.equalTo(60)
         }
     }
@@ -62,7 +63,7 @@ class LPTabBarViewController: UITabBarController {
         }
         let navController = LPNavigationController(rootViewController: viewController)
         addChild(navController)
-        self.customTabBar?.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
+        self.customTabBar.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
     }
     
     private func configureTabBarVisibility() {
@@ -80,16 +81,18 @@ class LPTabBarViewController: UITabBarController {
     
     func showTabBar() {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.25) {
-                self.customTabBar?.frame.origin.y = self.view.bounds.size.height - StatusManager.safeAreaBottomHeight - 62
+            UIView.animate(withDuration: 0.2) {
+//                self.customTabBar.frame.origin.y = self.view.bounds.size.height - 62 - StatusManager.safeAreaBottomHeight
+                self.customTabBar.alpha = 1
             }
         }
     }
     
     func hideTabBar() {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.25) {
-                self.customTabBar?.frame.origin.y = self.view.bounds.size.height
+            UIView.animate(withDuration: 0.2) {
+                self.customTabBar.alpha = 0
+//                self.customTabBar.frame.origin.y = self.view.bounds.size.height
             }
         }
     }

@@ -54,7 +54,6 @@ extension LIUViewController {
                     navigationController.popToViewController(targetViewController, animated: true)
                 } else {
                     self?.navigationController?.popToRootViewController(animated: true)
-                    LPTabBarManager.showTabBar()
                 }
             }
         }

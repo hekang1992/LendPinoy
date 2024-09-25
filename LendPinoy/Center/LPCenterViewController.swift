@@ -23,7 +23,11 @@ class LPCenterViewController: LPBaseViewController {
             make.edges.equalToSuperview()
         }
         tap()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        LPTabBarManager.showTabBar()
     }
 
 }

@@ -149,7 +149,7 @@ extension LPSubHomeView {
             make.centerX.equalToSuperview()
             make.top.equalTo(poIcon.snp.bottom).offset(18)
             make.left.equalTo(monIcon.snp.left)
-            make.height.equalTo(162.5)
+            make.height.equalTo(133)
             make.bottom.equalToSuperview().offset(-125)
         }
     }

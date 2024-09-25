@@ -44,6 +44,11 @@ class FristVcViewController: LPBaseViewController {
         startMine = SystemInfo.getCurrentTime()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        LPTabBarManager.hideTabBar()
+    }
+    
 }
 
 extension FristVcViewController {

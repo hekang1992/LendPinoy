@@ -231,7 +231,7 @@ class WSView: LPJCView {
         }
         bgView1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(takeBtn.snp.bottom).offset(-10)
+            make.bottom.equalTo(takeBtn.snp.top).offset(-10)
             make.left.equalToSuperview().offset(20)
             make.height.equalTo(35)
         }

@@ -47,7 +47,6 @@ class LPTwoViewController: LPBaseViewController {
                     navigationController.popToViewController(targetViewController, animated: true)
                 } else {
                     self?.navigationController?.popToRootViewController(animated: true)
-                    LPTabBarManager.showTabBar()
                 }
             }
         }
@@ -76,8 +75,8 @@ struct ActionModel {
 extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func qinqiuAInfo() {
-        
-        model1 = ActionModel(title: "ID Verification", icon: "Verification", desc: "Please ensure that the uploaded ID card type matches the selected ID card!")
+        let str = self.type ?? "ID Verification"
+        model1 = ActionModel(title: str, icon: "Verification", desc: "Please ensure that the uploaded ID card type matches the selected ID card!")
         
         model2 = ActionModel(title: "Facial Recognition", icon: "Recognition", desc: "Please ensure good lighting, maintain a natural expression, and stay relatively still!")
         if let payment = itselfModel.value?.classical?.payment, !payment.isEmpty {
@@ -227,7 +226,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
             return
         }
         let datePView = BRDatePickerView()
-        datePView.calendar?.locale = Locale(identifier: "en_UK")
+        datePView.calendar?.locale = Locale(identifier: "en_US")
         datePView.pickerMode = .YMD
         datePView.title = "Date"
         datePView.minDate = NSDate.br_setYear(1910, month: 10, day: 10)

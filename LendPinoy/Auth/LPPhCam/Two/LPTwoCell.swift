@@ -24,7 +24,7 @@ class LPTwoCell: UITableViewCell {
         bgView.backgroundColor = .clear
         bgView.layer.cornerRadius = 10
         bgView.layer.borderWidth = 5
-        bgView.layer.borderColor = UIColor.init(hex: "#2CD7BB").cgColor
+        bgView.layer.borderColor = UIColor.init(hex: "#F3FBFA").cgColor
         return bgView
     }()
     
@@ -75,8 +75,10 @@ class LPTwoCell: UITableViewCell {
             if let icon = model.icon {
                 if icon == "Verification" || icon == "Recognition" {
                     self.icon.image = UIImage(named: icon)
+                    self.bgView.layer.borderColor = UIColor.init(hex: "#F3FBFA").cgColor
                 }else {
                     self.icon.kf.setImage(with: URL(string: icon))
+                    self.bgView.layer.borderColor = UIColor.init(hex: "#2CD7BB").cgColor
                 }
             }
             

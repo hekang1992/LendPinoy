@@ -27,6 +27,7 @@ class LPOrdersViewController: LPBaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        LPTabBarManager.showTabBar()
     }
     
 }

@@ -24,33 +24,12 @@ extension LPNavigationController {
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)
-        updateTabBarVisibility()
-    }
-    
-    override func popViewController(animated: Bool) -> UIViewController? {
-        let viewController = super.popViewController(animated: animated)
-        updateTabBarVisibility()
-        return viewController
-    }
-    
-    override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
-        super.setViewControllers(viewControllers, animated: animated)
-        updateTabBarVisibility()
-    }
-    
-    private func updateTabBarVisibility() {
         if self.tabBarController != nil {
-            if viewControllers.count > 1 {
-                DispatchQueue.main.async {
-                    LPTabBarManager.hideTabBar()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    LPTabBarManager.showTabBar()
-                }
-            }
+            LPTabBarManager.hideTabBar()
         }
+        
     }
+    
 }
 
 class LPTabBarManager {

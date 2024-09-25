@@ -61,7 +61,9 @@ class LPHomeViewController: LPBaseViewController {
             let status = CLLocationManager.authorizationStatus()
             if status == .authorizedAlways || status == .authorizedWhenInUse {
                 NotificationCenter.default.post(name: NSNotification.Name(LOCATION_LP), object: nil)
-                self.sqcpin(form: ppid)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    self.sqcpin(form: ppid)
+                }
             }else {
                 if type == "0" {//real
                     self.showPerrt(in: self)
@@ -96,6 +98,7 @@ class LPHomeViewController: LPBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        LPTabBarManager.showTabBar()
         homeInfo()
     }
     

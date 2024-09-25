@@ -80,7 +80,6 @@ class Judgeg: NSObject {
                 return
             }
         }
-        LPTabBarManager.showTabBar()
         navigationController.popToRootViewController(animated: true)
     }
 }

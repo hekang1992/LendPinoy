@@ -62,7 +62,9 @@ extension AppDelegate {
     }
     
     func scDwInfo(_ model: DingModel) {
-        let manager = LPRequestManager()
+        let manager1 = LPRequestManager()
+        let manager2 = LPRequestManager()
+        let manager3 = LPRequestManager()
         let wdDict = [
             "lightly": "us",
             "mizugashi": model.mizugashi ?? "",
@@ -74,13 +76,13 @@ extension AppDelegate {
             "season": model.season ?? "",
             "turnip": Date(),
         ] as [String : Any]
-        manager.uploadDataAPI(params: wdDict, pageUrl: "/lpinoy/nowhas/bean-scattering/place", method: .post) { result in
+        manager1.uploadDataAPI(params: wdDict, pageUrl: "/lpinoy/nowhas/bean-scattering/place", method: .post) { result in
         }
         
         let sheDict = [
             "itself": DictToJsonString.dictStr(dict: LPSheBeiInfo.shebeiInfo()) ?? "",
             "worth": "center"]
-        manager.uploadDataAPI(params: sheDict as [String : Any], pageUrl: "/lpinoy/nabeyaki-udon/remained/thumbing", method: .post) { result in
+        manager2.uploadDataAPI(params: sheDict as [String : Any], pageUrl: "/lpinoy/nabeyaki-udon/remained/thumbing", method: .post) { result in
         }
         let typeStr = UserDefaults.standard.object(forKey: MAI_DIAN_ONE) as? String ?? ""
         if typeStr != "1" {
@@ -96,7 +98,7 @@ extension AppDelegate {
                 "village": st,
                 "arm": en,
                 "tucking": "mins"] as [String : Any]
-            manager.uploadDataAPI(params: maiDict, pageUrl: "/lpinoy/chieko/thats/dripping", method: .post) { result in
+            manager3.uploadDataAPI(params: maiDict, pageUrl: "/lpinoy/chieko/thats/dripping", method: .post) { result in
                 switch result {
                 case .success(_):
                     UserDefaults.standard.setValue("1", forKey: MAI_DIAN_ONE)

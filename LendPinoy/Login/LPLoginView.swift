@@ -80,43 +80,43 @@ class LPLoginView: LPJCView {
         return sureBtn
     }()
     
-    lazy var yinsiLabel: ActiveLabel = {
-        let yinsiLabel = ActiveLabel()
-        yinsiLabel.font = UIFont(name: bold_MarketFresh, size: 16)
-        yinsiLabel.textColor = UIColor.init(hex: "#CFD9D8")
-        yinsiLabel.text = "By checking this box, you agree to the Privacy Policy and Loan Agreement."
-        yinsiLabel.numberOfLines = 0
+    lazy var clickLabel: ActiveLabel = {
+        let clickLabel = ActiveLabel()
+        clickLabel.textColor = UIColor.init(hex: "#CFD9D8")
+        clickLabel.font = UIFont(name: bold_MarketFresh, size: 16)
+        clickLabel.text = "Before logging in, please make sure to read and agree to our Privacy Policy and Loan Terms to protect your rights and information security."
+        clickLabel.numberOfLines = 0
         let customType1 = ActiveType.custom(pattern: "\\bPrivacy Policy\\b")
-        let customType2 = ActiveType.custom(pattern: "\\bLoan Agreement\\b")
-        yinsiLabel.enabledTypes.append(customType1)
-        yinsiLabel.enabledTypes.append(customType2)
-        yinsiLabel.customColor[customType1] = UIColor.init(hex: "#2CD7BB")
-        yinsiLabel.customColor[customType2] = UIColor.init(hex: "#2CD7BB")
-        yinsiLabel.customSelectedColor[customType1] = UIColor.init(hex: "#2CD7BB")
-        yinsiLabel.customSelectedColor[customType2] = UIColor.init(hex: "#2CD7BB")
-        yinsiLabel.handleCustomTap(for: customType1) { [weak self] element in
-            self?.yinBlock?()
-        }
-        yinsiLabel.handleCustomTap(for: customType2) { [weak self] element in
+        let customType2 = ActiveType.custom(pattern: "\\bLoan Terms\\b")
+        clickLabel.enabledTypes.append(customType2)
+        clickLabel.enabledTypes.append(customType1)
+        clickLabel.customColor[customType1] = UIColor.init(hex: "#2CD7BB")
+        clickLabel.customColor[customType2] = UIColor.init(hex: "#2CD7BB")
+        clickLabel.customSelectedColor[customType1] = UIColor.init(hex: "#2CD7BB")
+        clickLabel.customSelectedColor[customType2] = UIColor.init(hex: "#2CD7BB")
+        clickLabel.handleCustomTap(for: customType2) { [weak self] element in
             self?.llBlock?()
         }
-        let attributedString = NSMutableAttributedString(string: yinsiLabel.text!)
+        clickLabel.handleCustomTap(for: customType1) { [weak self] element in
+            self?.yinBlock?()
+        }
+        let attributedString = NSMutableAttributedString(string: clickLabel.text!)
         let redUnderlineAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.init(hex: "#2CD7BB"),
             .underlineStyle: NSUnderlineStyle.single.rawValue,
             .underlineColor: UIColor.init(hex: "#2CD7BB"),
         ]
-        let privacyPolicyRange = (yinsiLabel.text! as NSString).range(of: "Privacy Policy")
-        let loanAgreementRange = (yinsiLabel.text! as NSString).range(of: "Loan Agreement")
-        attributedString.addAttributes(redUnderlineAttributes, range: privacyPolicyRange)
+        let privacyPolicyRange = (clickLabel.text! as NSString).range(of: "Privacy Policy")
+        let loanAgreementRange = (clickLabel.text! as NSString).range(of: "Loan Terms")
         attributedString.addAttributes(redUnderlineAttributes, range: loanAgreementRange)
-        yinsiLabel.attributedText = attributedString
-        return yinsiLabel
+        attributedString.addAttributes(redUnderlineAttributes, range: privacyPolicyRange)
+        clickLabel.attributedText = attributedString
+        return clickLabel
     }()
     
     lazy var loginBtn: UIButton = {
         let loginBtn = UIButton(type: .custom)
-        loginBtn.setTitle("Send Code", for: .normal)
+        loginBtn.setTitle("Send OTP", for: .normal)
         loginBtn.setTitleColor(UIColor.white, for: .normal)
         loginBtn.backgroundColor = UIColor(hex: "#2CD7BB")
         loginBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 20)
@@ -134,7 +134,7 @@ class LPLoginView: LPJCView {
         bgView.addSubview(phoneTx)
         bgView.addSubview(canBtn)
         addSubview(sureBtn)
-        addSubview(yinsiLabel)
+        addSubview(clickLabel)
         addSubview(loginBtn)
         makeui()
         tapClick()
@@ -194,7 +194,7 @@ extension LPLoginView {
             make.left.equalToSuperview().offset(20)
             make.size.equalTo(CGSize(width: 17, height: 17))
         }
-        yinsiLabel.snp.makeConstraints { make in
+        clickLabel.snp.makeConstraints { make in
             make.left.equalTo(sureBtn.snp.right).offset(10)
             make.top.equalTo(sureBtn.snp.top)
             make.right.equalToSuperview().offset(-20)
@@ -203,7 +203,7 @@ extension LPLoginView {
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
             make.left.equalToSuperview().offset(20)
-            make.top.equalTo(yinsiLabel.snp.bottom).offset(20)
+            make.top.equalTo(clickLabel.snp.bottom).offset(20)
         }
     }
     

@@ -90,7 +90,10 @@ class LPRequestManager: NSObject {
     private let provider = MoyaProvider<APIService>()
     
     private func requestData(target: APIService, completion: @escaping (Result<BaseModel, Error>) -> Void) {
-        ViewCycleManager.addCycView()
+        let urlStr = target.path
+        if !urlStr.contains("lpinoy/roomoh/looking/lifted") {
+            ViewCycleManager.addCycView()
+        }
         provider.request(target) { result in
             ViewCycleManager.hideCycView()
             switch result {
