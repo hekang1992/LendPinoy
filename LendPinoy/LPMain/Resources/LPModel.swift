@@ -47,6 +47,7 @@ class itselfModel {
     var joy: joyModel?
     var purse: purseModel?
     var forests: forestsModel?
+    var fast_list: forestsModel?
     var researching: researchingModel?
     var kitahama: kitahamaModel?
     var classical: classicalModel?
@@ -67,6 +68,7 @@ class itselfModel {
         self.joy = joyModel(json: json["joy"])
         self.purse = purseModel(json: json["purse"])
         self.forests = forestsModel(json: json["forests"])
+        self.fast_list = forestsModel(json: json["fast_list"])
         self.researching = researchingModel(json: json["researching"])
         self.kitahama = kitahamaModel(json: json["kitahama"])
         self.classical = classicalModel(json: json["classical"])

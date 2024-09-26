@@ -68,13 +68,22 @@ class LPHomeViewController: LPBaseViewController {
                 if type == "0" {//real
                     self.showPerrt(in: self)
                 }else if type == "1" {//fak
-                    self.sqcpin(form: ppid)
+                    NotificationCenter.default.post(name: NSNotification.Name(LOCATION_LP), object: nil)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        self.sqcpin(form: ppid)
+                    }
                 }else {}
             }
         }
         
         subView.block4 = { [weak self] pur in
             self?.genJuUrlPush(form: pur)
+        }
+        
+        subView.block5 = { [weak self] in
+            guard let self = self else { return }
+            let url  = H5_URL + "/thisbeautiful"
+            self.pushToWebVc(form: url)
         }
         
         manView.block1 = { [weak self] pur in
@@ -161,10 +170,10 @@ extension LPHomeViewController {
     }
 
     private func handleSuccess(_ homeModel: itselfModel) {
-        if homeModel.forests?.separately == "yamada2" {
-            showSubView(with: homeModel)
-        } else {
+        if homeModel.fast_list?.separately == "yamada5" {
             showManView(with: homeModel)
+        } else {
+            showSubView(with: homeModel)
         }
     }
 

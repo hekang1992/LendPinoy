@@ -40,19 +40,19 @@ class LPThreePViewCell: UITableViewCell {
     }()
     
     lazy var label1: UILabel = {
-        let label1 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label1 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         label1.text = "Camaraderie"
         return label1
     }()
     
     lazy var label2: UILabel = {
-        let label2 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
+        let label2 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         label2.text = "Name"
         return label2
     }()
     
     lazy var label3: UILabel = {
-        let label3 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 16)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
+        let label3 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 16)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
         label3.text = "Phone"
         return label3
     }()

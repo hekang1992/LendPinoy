@@ -182,7 +182,7 @@ extension LPBaseViewController {
     }
     
     func gjOdtoUrl(from oid: String, ppid: String) {
-        let dict = ["nodaiwa": "1", "subject": "math", "thorough": oid, "changing": "m9", "decided": "bb"]
+        let dict = ["nodaiwa": "1", "subject": "math", "thorough": oid, "changing": "m9", "decided": "bbc"]
         let man = LPRequestManager()
         man.requestAPI(params: dict, pageUrl: "/lpinoy/flavourwas/agency/workingrestaurant", method: .post) { [weak self] result in
             switch result {

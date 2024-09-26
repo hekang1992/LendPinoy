@@ -227,6 +227,8 @@ extension WUViewController: CNContactPickerDelegate {
             if let currentCell = self.currentCell {
                 currentCell.label2.text = nameStr
                 currentCell.label3.text = numberStr
+                currentCell.label2.textColor = UIColor.init(hex: "#303434")
+                currentCell.label3.textColor = UIColor.init(hex: "#303434")
                 currentCell.model.value?.quench = nameStr
                 currentCell.model.value?.restaurants = numberStr
             }

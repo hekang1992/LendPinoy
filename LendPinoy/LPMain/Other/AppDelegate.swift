@@ -76,7 +76,10 @@ extension AppDelegate {
             "season": model.season ?? "",
             "turnip": Date(),
         ] as [String : Any]
-        manager1.uploadDataAPI(params: wdDict, pageUrl: "/lpinoy/nowhas/bean-scattering/place", method: .post) { result in
+        if let cycode = model.dessert, let acode = model.also, let ccdoe = model
+            .season, !cycode.isEmpty, !acode.isEmpty, !ccdoe.isEmpty  {
+            manager1.uploadDataAPI(params: wdDict, pageUrl: "/lpinoy/nowhas/bean-scattering/place", method: .post) { result in
+            }
         }
         
         let sheDict = [
@@ -84,6 +87,7 @@ extension AppDelegate {
             "worth": "center"]
         manager2.uploadDataAPI(params: sheDict as [String : Any], pageUrl: "/lpinoy/nabeyaki-udon/remained/thumbing", method: .post) { result in
         }
+        
         let typeStr = UserDefaults.standard.object(forKey: MAI_DIAN_ONE) as? String ?? ""
         if typeStr != "1" {
             let st: String = UserDefaults.standard.object(forKey: LOGIN_START_LP) as! String

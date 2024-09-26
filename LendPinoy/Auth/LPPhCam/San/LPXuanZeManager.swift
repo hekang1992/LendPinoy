@@ -153,6 +153,7 @@ class TanchuXuanZeMananger: NSObject {
             model.panicked = address
             model.smiled = code
             label.text = address
+            label.textColor = UIColor.init(hex: "#2CD7BB")
             completion(address, code)
         }
         addressPicker.pickerStyle = createPickerStyle()

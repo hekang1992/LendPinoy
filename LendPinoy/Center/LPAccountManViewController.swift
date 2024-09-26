@@ -245,7 +245,7 @@ class DelView: UIView {
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         titleLabel.numberOfLines = 0
-        titleLabel.text = "Please note that deleting your account will permanently remove the following data and features. Proceed with caution."
+        titleLabel.text = "Deleting your account will erase all your data and cannot be restored. Are you sure you want to delete your account?"
         return titleLabel
     }()
     

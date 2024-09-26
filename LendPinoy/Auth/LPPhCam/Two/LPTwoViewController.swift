@@ -76,9 +76,9 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     func qinqiuAInfo() {
         let str = self.type ?? "ID Verification"
-        model1 = ActionModel(title: str, icon: "Verification", desc: "Please ensure that the uploaded ID card type matches the selected ID card!")
+        model1 = ActionModel(title: str, icon: "Verification", desc: "Please ensure that the uploaded document photo is clear and visible, with no obstructions or glare, to avoid any errors.")
         
-        model2 = ActionModel(title: "Facial Recognition", icon: "Recognition", desc: "Please ensure good lighting, maintain a natural expression, and stay relatively still!")
+        model2 = ActionModel(title: "Facial Recognition", icon: "Recognition", desc: "Please ensure that the uploaded facial photo is clear and visible, with no obstructions or glare, to avoid affecting the review results.")
         if let payment = itselfModel.value?.classical?.payment, !payment.isEmpty {
             model1?.icon = payment
         }

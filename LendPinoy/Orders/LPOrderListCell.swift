@@ -66,25 +66,23 @@ class LPOrderListCell: UITableViewCell {
         return reBtn
     }()
     
-    lazy var ttLabel: UILabel = {
-        let ttLabel = UILabel.cjLabel(font: UIFont(name: regular_MarketFresh, size: 18)!, textColor: UIColor.init(hex: "#FEF0F0"), textAlignment: .center)
-        ttLabel.numberOfLines = 2
-        return ttLabel
-    }()
-    
     lazy var ooLabel: UILabel = {
-        let ooLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: .white, textAlignment: .center)
-        ooLabel.backgroundColor = UIColor.init(hex: "#FF335B")
-        ooLabel.layer.cornerRadius = 4
-        ooLabel.layer.masksToBounds = true
+        let ooLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .right)
+        ooLabel.numberOfLines = 0
         return ooLabel
     }()
     
+    lazy var lineVView: UIView = {
+        let lineVView = UIView()
+        lineVView.layer.cornerRadius = 2
+        return lineVView
+    }()
+    
     lazy var frLabel: UILabel = {
-        let frLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 18)!, textColor: .white, textAlignment: .left)
+        let frLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 13)!, textColor: .white, textAlignment: .center)
         frLabel.layer.cornerRadius = 4
         frLabel.layer.masksToBounds = true
-        frLabel.backgroundColor = UIColor.init(hex: "#2CD7BB")
+        frLabel.backgroundColor = UIColor.init(hex: "#FF335B")
         return frLabel
     }()
     
@@ -98,7 +96,7 @@ class LPOrderListCell: UITableViewCell {
         contentView.addSubview(label3)
         contentView.addSubview(label4)
         contentView.addSubview(ooLabel)
-        contentView.addSubview(ttLabel)
+        contentView.addSubview(lineVView)
         contentView.addSubview(reBtn)
         contentView.addSubview(frLabel)
         makess()
@@ -152,19 +150,20 @@ extension LPOrderListCell {
             make.size.equalTo(CGSize(width: 85, height: 40))
         }
         ooLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.right.equalToSuperview().offset(-20)
-            make.height.equalTo(CGSize(width: 145, height: 25))
+            make.top.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-35)
+            make.width.equalTo(115)
         }
-        ttLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-22)
-            make.top.equalToSuperview().offset(2)
-            make.height.equalTo(18)
+        lineVView.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-20)
+            make.centerY.equalTo(ooLabel.snp.centerY)
+            make.height.equalTo(25)
+            make.width.equalTo(6)
         }
         frLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(25)
-            make.height.equalTo(25)
+            make.left.equalToSuperview().offset(35)
+            make.height.equalTo(35)
             make.top.equalTo(label4.snp.bottom).offset(20)
             make.bottom.equalToSuperview().offset(-20)
         }
@@ -197,25 +196,20 @@ extension LPOrderListCell {
                 self.reBtn.isHidden = true
             }
             if let ccl = model1.calling, !ccl.isEmpty {
-                self.ttLabel.text = ccl
-                self.ttLabel.textColor = UIColor.init(hex: model1.btnCollor ?? "#FEF0F0")
-                self.ttLabel.isHidden = false
+                self.ooLabel.text = String(format: " %@ ",ccl)
+                self.lineVView.backgroundColor = UIColor.init(hex: model1.btnCollor ?? "#2CD7BB")
+                self.ooLabel.isHidden = false
+                self.lineVView.isHidden = true
             }else {
-                self.ttLabel.isHidden = true
-            }
-            if let mess = model1.mess, !mess.isEmpty, mess != "0" {
-                self.ooLabel.text = "Overdue by \(model1.mess ?? "") days!"
+                self.ooLabel.isHidden = true
+                self.lineVView.isHidden = true
             }
             if let fr = model1.france, !fr.isEmpty {
-                self.frLabel.text = fr
+                self.frLabel.text = String(format: " %@ ",fr)
                 self.frLabel.isHidden = false
             }else {
                 self.frLabel.isHidden = true
-                
-                frLabel.snp.makeConstraints { make in
-                    make.centerX.equalToSuperview()
-                    make.left.equalToSuperview().offset(20)
-                    make.height.equalTo(15)
+                frLabel.snp.updateConstraints { make in
                     make.top.equalTo(self.label4.snp.bottom)
                     make.bottom.equalToSuperview().offset(-1)
                 }

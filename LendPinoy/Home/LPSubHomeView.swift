@@ -20,6 +20,8 @@ class LPSubHomeView: LPJCView {
     
     var block4: ((String) -> Void)?
     
+    var block5: (() -> Void)?
+    
     var homeSubModel = BehaviorRelay<itselfModel?>(value: nil)
     
     lazy var scrollView: UIScrollView = {
@@ -37,7 +39,6 @@ class LPSubHomeView: LPJCView {
         lunboView.delegate = self
         lunboView.dataSource = self
         lunboView.backgroundColor = .white
-        lunboView.automaticSlidingInterval = 2.0
         lunboView.register(LPLunBoViewCell.self, forCellWithReuseIdentifier: "LPLunBoViewCell")
         return lunboView
     }()
@@ -181,6 +182,23 @@ extension LPSubHomeView {
                 }
             }
         }).disposed(by: disposeBag)
+        
+        sceBtn.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.block5?()
+        }).disposed(by: disposeBag)
+        
+        self.homeSubModel.subscribe(onNext: { [weak self] model in
+            guard let self = self else { return }
+            if model?.purse?.delivery?.count == 1 {
+                self.lunboView.isInfinite = false
+                self.lunboView.automaticSlidingInterval = 0
+            }else {
+                self.lunboView.isInfinite = true
+                self.lunboView.automaticSlidingInterval = 2
+            }
+        }).disposed(by: disposeBag)
+        
     }
     
 }

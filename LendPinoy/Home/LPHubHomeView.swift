@@ -149,6 +149,17 @@ extension LPHubHomeView: UITableViewDelegate {
             })
             .disposed(by: disposeBag)
         
+        self.homeSubModel.subscribe(onNext: { [weak self] model in
+            guard let self = self else { return }
+            if model?.purse?.delivery?.count == 1 {
+                self.lunboView.isInfinite = false
+                self.lunboView.automaticSlidingInterval = 0
+            }else {
+                self.lunboView.isInfinite = true
+                self.lunboView.automaticSlidingInterval = 2
+            }
+        }).disposed(by: disposeBag)
+        
     }
     
     private func updateButtonColors(selectedButton: UIButton?, deselectedButton: UIButton?) {

@@ -19,20 +19,19 @@ class PoPAuthView: LPJCView {
     
     lazy var youLabel: UILabel = {
         let youLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 32)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
-        youLabel.text = "You Have Selected"
+        youLabel.text = "Verification using"
         return youLabel
     }()
     
     lazy var xuanLabel: UILabel = {
         let xuanLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 32)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
-        xuanLabel.text = "\"UMID\""
         return xuanLabel
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 24)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
+        let descLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 26)!, textColor: UIColor.init(hex: "#D2D3D7"), textAlignment: .left)
         descLabel.numberOfLines = 0
-        descLabel.text = "If the selected type does not match the uploaded one, it may lead to the failure of the loan application. Please confirm carefully."
+        descLabel.text = "Please confirm the selected document type to avoid any errors."
         return descLabel
     }()
     
@@ -93,7 +92,7 @@ class PoPAuthView: LPJCView {
         imageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(20)
-            make.top.equalTo(descLabel.snp.bottom).offset(26)
+            make.bottom.equalToSuperview().offset(-20)
             make.height.equalTo(60)
         }
         changeBtn.snp.makeConstraints { make in
