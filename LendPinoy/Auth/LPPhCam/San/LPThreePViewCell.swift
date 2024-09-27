@@ -41,7 +41,7 @@ class LPThreePViewCell: UITableViewCell {
     
     lazy var label1: UILabel = {
         let label1 = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#CFD9D8"), textAlignment: .left)
-        label1.text = "Camaraderie"
+        label1.text = "Relation"
         return label1
     }()
     

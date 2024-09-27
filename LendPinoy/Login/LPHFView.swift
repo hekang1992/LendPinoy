@@ -171,17 +171,21 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         ViewCycleManager.addCycView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 40) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
             ViewCycleManager.hideCycView()
         }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        ViewCycleManager.hideCycView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            ViewCycleManager.hideCycView()
+        }
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        ViewCycleManager.hideCycView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            ViewCycleManager.hideCycView()
+        }
     }
     
     private func closeyemian() {

@@ -27,6 +27,12 @@ class LPHFViewController: LPBaseViewController {
         }
         tapClick()
         jiazaiUrl()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            ViewCycleManager.addCycView()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+            ViewCycleManager.hideCycView()
+        }
     }
 
 }

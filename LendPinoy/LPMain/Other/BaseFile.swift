@@ -10,9 +10,9 @@ import SnapKit
 import Alamofire
 import Toaster
 
-let BASE_URL = "http://8.212.149.161/lpapp"
+let BASE_URL = "https://adrrmicrolending.com/lpapp"
 
-let H5_URL = "http://8.212.149.161"
+let H5_URL = "https://adrrmicrolending.com"
 
 let regular_MarketFresh = "MarketFresh"
 
