@@ -2,7 +2,7 @@
 //  LPGuanViewController.swift
 //  LendPinoy
 //
-//  Created by Banana on 2024/9/18.
+//  Created by Andrew on 2024/9/18.
 //
 
 import UIKit

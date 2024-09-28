@@ -2,7 +2,7 @@
 //  LPOrderListCell.swift
 //  LendPinoy
 //
-//  Created by Banana on 2024/9/10.
+//  Created by Andrew on 2024/9/10.
 //
 
 import UIKit

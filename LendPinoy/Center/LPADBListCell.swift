@@ -2,7 +2,7 @@
 //  LPADBListCell.swift
 //  LendPinoy
 //
-//  Created by Banana on 2024/9/9.
+//  Created by Andrew on 2024/9/9.
 //
 
 import UIKit

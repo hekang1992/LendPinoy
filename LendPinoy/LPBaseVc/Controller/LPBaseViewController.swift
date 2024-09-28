@@ -2,7 +2,7 @@
 //  LPBaseViewController.swift
 //  LendPinoy
 //
-//  Created by Banana on 2024/8/28.
+//  Created by Andrew on 2024/8/28.
 //
 
 import UIKit
@@ -124,7 +124,7 @@ extension LPBaseViewController {
     }
     
     func chanpinxiangqingyemian(_ chanpinid: String) {
-        let dict = ["improper": "banana", "reminder": chanpinid, "unsure": "toal"]
+        let dict = ["improper": "Andrew", "reminder": chanpinid, "unsure": "toal"]
         let man = LPRequestManager()
         man.requestAPI(params: dict, pageUrl: "/lpinoy/scanned/thinking/chieko", method: .post) { [weak self] result in
             switch result {

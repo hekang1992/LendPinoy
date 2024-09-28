@@ -2,7 +2,7 @@
 //  LPModel.swift
 //  LendPinoy
 //
-//  Created by Banana on 2024/8/28.
+//  Created by Andrew on 2024/8/28.
 //
 
 import Foundation

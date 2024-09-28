@@ -2,7 +2,7 @@
 //  LPedgCoo.swift
 //  LendPinoy
 //
-//  Created by 何康 on 2024/9/24.
+//  Created by Andrew on 2024/9/24.
 //
 
 import Foundation

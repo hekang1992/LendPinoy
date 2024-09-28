@@ -2,7 +2,7 @@
 //  LPLoginInfo.swift
 //  LendPinoy
 //
-//  Created by Banana on 2024/8/29.
+//  Created by Andrew on 2024/8/29.
 //
 
 import UIKit

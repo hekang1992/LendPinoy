@@ -2,7 +2,7 @@
 //  LPTwoView.swift
 //  LendPinoy
 //
-//  Created by Banana on 2024/9/4.
+//  Created by Andrew on 2024/9/4.
 //
 
 import UIKit

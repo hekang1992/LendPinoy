@@ -2,7 +2,7 @@
 //  LPCycleView.swift
 //  LendPinoy
 //
-//  Created by Banana on 2024/9/2.
+//  Created by Andrew on 2024/9/2.
 //
 
 import UIKit
