@@ -9,11 +9,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-typealias PATabBarSelectionHandler = (_ tabBar: LPTabBar, _ from: Int, _ to: Int) -> Void
-
 class LPTabBar: UIView {
     
-    var block: PATabBarSelectionHandler?
+    var block: ((_ tabBar: LPTabBar, _ from: Int, _ to: Int) -> Void)?
     
     private var selectedButton: LPBarButton?
     
@@ -63,18 +61,18 @@ extension LPTabBar {
         }
     }
     
-    func ybDealSelectButton(_ ybButton: LPBarButton) {
-        for (index, currentButton) in tabbarBtnArray.enumerated() {
-            if currentButton == ybButton {
-                currentButton.backgroundColor = UIColor.init(hex: "#2CD7BB")
-                currentButton.iconBtn.isSelected = true
-                currentButton.nameLabel.textColor = UIColor(hex: "#FFFFFF")
-                currentButton.iconBtn.setImage(UIImage(named: selImageArr[index]), for: .normal)
+    func ybButton(_ ybButton: LPBarButton) {
+        for (index, cButton) in tabbarBtnArray.enumerated() {
+            if cButton == ybButton {
+                cButton.backgroundColor = UIColor.init(hex: "#2CD7BB")
+                cButton.iconBtn.isSelected = true
+                cButton.nameLabel.textColor = UIColor(hex: "#FFFFFF")
+                cButton.iconBtn.setImage(UIImage(named: selImageArr[index]), for: .normal)
             } else {
-                currentButton.backgroundColor = UIColor.init(hex: "#F3FBFA")
-                currentButton.iconBtn.isSelected = false
-                currentButton.nameLabel.textColor = UIColor(hex: "#CFD9D8")
-                currentButton.iconBtn.setImage(UIImage(named: norImageArr[index]), for: .normal)
+                cButton.backgroundColor = UIColor.init(hex: "#F3FBFA")
+                cButton.iconBtn.isSelected = false
+                cButton.nameLabel.textColor = UIColor(hex: "#CFD9D8")
+                cButton.iconBtn.setImage(UIImage(named: norImageArr[index]), for: .normal)
             }
         }
     }
@@ -86,7 +84,7 @@ extension LPTabBar {
         selectedButton?.isSelected = false
         button.isSelected = true
         selectedButton = button
-        ybDealSelectButton(selectedButton!)
+        ybButton(selectedButton!)
     }
     
     override func layoutSubviews() {

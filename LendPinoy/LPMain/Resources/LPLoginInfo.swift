@@ -26,47 +26,41 @@ class LPLoginInfo: NSObject {
         UserDefaults.standard.synchronize()
     }
     
-    static func getAppVersion() -> String {
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            return version
-        }
-        return "1.0.0"
-    }
-    
-    static func getLogiInfo() -> [String: String]{
-        
-        var moist: String = ""
-        if let sessionId: String = UserDefaults.standard.object(forKey: LP_SESSIONID) as? String {
-            moist = sessionId
-        }
-        
-        let dict1 = ["sense": getAppVersion(),
-                     "scrap": UIDevice.current.systemVersion,
-                     "yellow": "lucky",
-                     "form": "data",
-                     "backColor": "pink",
-                     "Content": "testjson",
-                     "moist": moist,
-                     "bmw": "m3",
-                     "audi": "s6",
-                     "zipo": "fire"]
-        
-        let dict2 = ["icloud": "1",
-                     "appeared": KeychainHelper.retrieveidfv() ?? "",
-                     "peel": Device.current.description,
-                     "yuzu": KeychainHelper.retrieveidfv() ?? "",
-                     "normally": "iOS",
-                     "item": "apple",
-                     "twins": "0",
-                     "boyGirl": "boy",
-                     "peace": "1",
-                     "allpo": "mark"]
-        
-        let loict = dict2.reduce(into: dict1) { (result, item) in
-            result[item.key] = item.value
-        }
-        return loict
-    }
-    
 }
 
+extension LPLoginInfo {
+    
+    static func getAppVersion() -> String {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
+    }
+    
+    static func getLogiInfo() -> [String: String] {
+        let sessionId = UserDefaults.standard.string(forKey: LP_SESSIONID) ?? ""
+        var logInfo: [String: String] = [
+            "appVersion": getAppVersion(),
+            "systemVersion": UIDevice.current.systemVersion,
+            "colorTheme": "pink",
+            "contentType": "testjson",
+            "sessionId": sessionId,
+            "carModel1": "m3",
+            "carModel2": "s6",
+            "lighterBrand": "fire"
+        ]
+        
+        let additionalInfo: [String: String] = [
+            "iCloudEnabled": "1",
+            "deviceIdentifier": KeychainHelper.retrieveidfv() ?? "",
+            "deviceDescription": Device.current.description,
+            "systemName": "iOS",
+            "manufacturer": "apple",
+            "isTwins": "0",
+            "gender": "boy",
+            "peaceStatus": "1",
+            "mark": "allpo"
+        ]
+        
+        logInfo.merge(additionalInfo) { (_, new) in new }
+        
+        return logInfo
+    }
+}

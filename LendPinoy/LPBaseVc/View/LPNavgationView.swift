@@ -56,7 +56,7 @@ extension LPNavgationView {
     
 }
 
-
+typealias BBlock = () -> Void
 class LPNavgationTwoView: LPJCView {
     
     var block: (() -> Void)?

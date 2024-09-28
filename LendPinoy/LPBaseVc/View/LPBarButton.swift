@@ -54,9 +54,8 @@ class LPBarButton: UIControl {
             make.size.equalTo(CGSize(width: 50, height: 15))
         }
         iconBtn.rx.tap.subscribe(onNext: { [weak self] in
-            if let self = self {
-                self.block?(self)
-            }
+            guard let self = self else { return }
+            self.block?(self)
         }).disposed(by: disposeBag)
     }
     

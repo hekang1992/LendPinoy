@@ -82,7 +82,6 @@ class LPTabBarViewController: UITabBarController {
     func showTabBar() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.2) {
-//                self.customTabBar.frame.origin.y = self.view.bounds.size.height - 62 - StatusManager.safeAreaBottomHeight
                 self.customTabBar.alpha = 1
             }
         }
@@ -92,7 +91,6 @@ class LPTabBarViewController: UITabBarController {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.2) {
                 self.customTabBar.alpha = 0
-//                self.customTabBar.frame.origin.y = self.view.bounds.size.height
             }
         }
     }
