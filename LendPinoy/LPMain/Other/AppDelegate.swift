@@ -66,10 +66,11 @@ extension AppDelegate {
         let manager2 = LPRequestManager()
         let manager3 = LPRequestManager()
         let wdDict = [
-            "lightly": "us",
+            "lightly": "small",
             "mizugashi": model.mizugashi ?? "",
             "dessert": model.dessert ?? "",
             "also": model.also ?? "",
+            "Guiding_light": "us_uk",
             "conversation": model.conversation ?? "",
             "spice": model.spice,
             "shichimi": model.shichimi,
@@ -83,8 +84,11 @@ extension AppDelegate {
         }
         
         let sheDict = [
+            "worth": "center",
             "itself": DictToJsonString.dictStr(dict: LPSheBeiInfo.shebeiInfo()) ?? "",
-            "worth": "center"]
+            "only": "accident",
+            "soft": "1",
+            "seriousness": "0"]
         manager2.uploadDataAPI(params: sheDict as [String : Any], pageUrl: "/lpinoy/nabeyaki-udon/remained/thumbing", method: .post) { result in
         }
         
