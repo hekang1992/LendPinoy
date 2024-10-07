@@ -147,7 +147,9 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        ViewCycleManager.addCycView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            ViewCycleManager.addCycView()
+        }
         guard let hfdzUlr = navigationAction.request.url else {
             decisionHandler(.allow)
             return
@@ -170,7 +172,9 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        ViewCycleManager.addCycView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            ViewCycleManager.addCycView()
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
             ViewCycleManager.hideCycView()
         }

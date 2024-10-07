@@ -69,7 +69,7 @@ extension LPADBListView: UITableViewDelegate {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(deliveryModel.self).subscribe(onNext: {  [weak self] model in
+        tableView.rx.modelSelected(deliveryModel.self).subscribe(onNext: { [weak self] model in
             self?.adbcclock?(model.confirm ?? "")
         }).disposed(by: disposeBag)
         
