@@ -11,11 +11,8 @@ import DeviceKit
 class LPLoginInfo: NSObject {
     
     static func removeDengLuInfo() {
-        UserDefaults.standard.setValue("", forKey: LP_SESSIONID)
-        UserDefaults.standard.setValue("", forKey: LP_LOGIN)
-        UserDefaults.standard.setValue("", forKey: MAI_DIAN_ONE)
-        UserDefaults.standard.setValue("", forKey: LOGIN_END_LP)
-        UserDefaults.standard.setValue("", forKey: LOGIN_START_LP)
+        let keys = [LP_SESSIONID, LP_LOGIN, MAI_DIAN_ONE, LOGIN_END_LP, LOGIN_START_LP]
+        keys.forEach { UserDefaults.standard.setValue("", forKey: $0) }
         UserDefaults.standard.synchronize()
     }
     
@@ -37,26 +34,26 @@ extension LPLoginInfo {
     static func getLogiInfo() -> [String: String] {
         let moist = UserDefaults.standard.string(forKey: LP_SESSIONID) ?? ""
         
-        var logInfo = ["sense": getAppVersion(),
-                       "yellow": "red",
-                       "form": "data",
-                       "backColor": "pink",
-                       "scrap": UIDevice.current.systemVersion,
-                       "Content": "testjson",
-                       "moist": moist,
-                       "bmw": "m3",
-                       "audi": "s6",
-                       "zipo": "fire"]
+        var logInfo: [String: String] = ["sense": getAppVersion(),
+                                         "yellow": "red",
+                                         "form": "data",
+                                         "backColor": "pink",
+                                         "scrap": UIDevice.current.systemVersion,
+                                         "Content": "testjson",
+                                         "moist": moist,
+                                         "bmw": "m3",
+                                         "audi": "s6",
+                                         "zipo": "fire"]
         
-        let additionalInfo = ["icloud": "1",
-                              "appeared": KeychainHelper.retrieveidfv() ?? "",
-                              "peel": Device.current.description,
-                              "yuzu": KeychainHelper.retrieveidfv() ?? "",
-                              "normally": "iOS",
-                              "item": "apple",
-                              "twins": "0",
-                              "peace": "1",
-                              "allpo": "mark"]
+        let additionalInfo: [String: String] = ["icloud": "1",
+                                                "appeared": KeychainHelper.retrieveidfv() ?? "",
+                                                "peel": Device.current.description,
+                                                "yuzu": KeychainHelper.retrieveidfv() ?? "",
+                                                "normally": "iOS",
+                                                "item": "apple",
+                                                "twins": "0",
+                                                "peace": "1",
+                                                "allpo": "mark"]
         
         logInfo.merge(additionalInfo) { (_, new) in new }
         
