@@ -10,9 +10,9 @@ import SnapKit
 import Alamofire
 import Toaster
 
-let BASE_URL = "https://t7manila.com//lpapp"
+let BASE_URL = "https://t7manila.com/lpapp"
 
-let H5_URL = "https://t7manila.com/"
+let H5_URL = "https://t7manila.com"
 
 let regular_MarketFresh = "MarketFresh"
 
