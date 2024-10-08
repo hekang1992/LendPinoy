@@ -43,7 +43,10 @@ extension LPBaseViewController {
     }
     
     func sqcpin(form proid: String) {
-        let dict = ["therapy": "2024", "reminder": proid, "session": "0"]
+        let dict = ["therapy": "2024",
+                    "reminder": proid,
+                    "session": "0",
+                    "think": "description"]
         let man = LPRequestManager()
         man.requestAPI(params: dict,
                        pageUrl: "/lpinoy/tablename/thoughts/kyotoites",
@@ -61,7 +64,8 @@ extension LPBaseViewController {
     }
     
     func genJuUrlPush(form payment: String) {
-        guard let url = URL(string: payment), let scheme = url.scheme else { return }
+        guard let url = URL(string: payment),
+                let scheme = url.scheme else { return }
         switch scheme {
         case let s where s.hasPrefix("http"):
             handleHTTPUrl(payment: payment)

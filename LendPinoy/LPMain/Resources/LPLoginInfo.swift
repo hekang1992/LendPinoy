@@ -35,24 +35,24 @@ extension LPLoginInfo {
         let moist = UserDefaults.standard.string(forKey: LP_SESSIONID) ?? ""
         
         var logInfo: [String: String] = ["sense": getAppVersion(),
-                                         "yellow": "red",
-                                         "form": "data",
+                                         "form": "data_form",
                                          "backColor": "pink",
                                          "scrap": UIDevice.current.systemVersion,
-                                         "Content": "testjson",
+                                         "Content": "jsoner",
                                          "moist": moist,
-                                         "bmw": "m3",
-                                         "audi": "s6",
-                                         "zipo": "fire"]
+                                         "bmw": "m7",
+                                         "audi": "as8",
+                                         "zipo": "firelight",
+                                         "delight": NetworkInfo.isVPNCd()]
         
         let additionalInfo: [String: String] = ["icloud": "1",
                                                 "appeared": KeychainHelper.retrieveidfv() ?? "",
-                                                "peel": Device.current.description,
-                                                "yuzu": KeychainHelper.retrieveidfv() ?? "",
                                                 "normally": "iOS",
+                                                "peel": Device.current.description,
+                                                "peace": "1",
+                                                "yuzu": KeychainHelper.retrieveidfv() ?? "",
                                                 "item": "apple",
                                                 "twins": "0",
-                                                "peace": "1",
                                                 "allpo": "mark"]
         
         logInfo.merge(additionalInfo) { (_, new) in new }
