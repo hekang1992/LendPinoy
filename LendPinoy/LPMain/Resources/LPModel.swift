@@ -48,6 +48,7 @@ class itselfModel {
     var purse: purseModel?
     var forests: forestsModel?
     var fast_list: forestsModel?
+    var overdue: overdueModel?
     var researching: researchingModel?
     var kitahama: kitahamaModel?
     var classical: classicalModel?
@@ -73,12 +74,22 @@ class itselfModel {
         self.kitahama = kitahamaModel(json: json["kitahama"])
         self.classical = classicalModel(json: json["classical"])
         self.admit = admitModel(json: json["admit"])
-        self.crossing = json["crossing"].arrayValue.map({ json in
-            crossingModel(json: json)
-        })
-        self.dazed = json["dazed"].arrayValue.map({ json in
-            dazedModel(json: json)
-        })
+        self.overdue = overdueModel(json: json["overdue"])
+        self.crossing = json["crossing"].arrayValue.map {
+            crossingModel(json: $0)
+        }
+        self.dazed = json["dazed"].arrayValue.map {
+            dazedModel(json: $0)
+        }
+    }
+}
+
+class overdueModel {
+    var delivery: [deliveryModel]?
+    init(json: JSON) {
+        self.delivery = json["delivery"].arrayValue.map {
+            deliveryModel(json: $0)
+        }
     }
 }
 
@@ -92,9 +103,9 @@ class admitModel {
 class joyModel {
     var dazed: [dazedModel]?
     init(json: JSON) {
-        self.dazed = json["dazed"].arrayValue.map({ json in
-            dazedModel(json: json)
-        })
+        self.dazed = json["dazed"].arrayValue.map {
+            dazedModel(json: $0)
+        }
     }
 }
 
@@ -151,15 +162,15 @@ class dazedModel {
         self.panicked = json["panicked"].stringValue
         self.relationText = json["relationText"].stringValue
         self.replaced = json["replaced"].stringValue
-        self.delivery = json["delivery"].arrayValue.map({ json in
-            deliveryModel(json: json)
-        })
-        self.kaiseki = json["kaiseki"].arrayValue.map({ json in
-            silentModel(json: json)
-        })
-        self.dazed = json["dazed"].arrayValue.map({ json in
-            dazedModel(json: json)
-        })
+        self.delivery = json["delivery"].arrayValue.map {
+            deliveryModel(json: $0)
+        }
+        self.kaiseki = json["kaiseki"].arrayValue.map {
+            silentModel(json: $0)
+        }
+        self.dazed = json["dazed"].arrayValue.map {
+            dazedModel(json: $0)
+        }
     }
     
     required init(original: dazedModel, items: [deliveryModel]) {
@@ -186,12 +197,12 @@ class crossingModel {
         self.photo = json["photo"].stringValue
         self.completely = json["completely"].stringValue
         self.separately = json["separately"].stringValue
-        self.silent = json["silent"].arrayValue.map({ json in
-            silentModel(json: json)
-        })
-        self.crossing = json["crossing"].arrayValue.map({ json in
-            crossingModel(json: json)
-        })
+        self.silent = json["silent"].arrayValue.map {
+            silentModel(json: $0)
+        }
+        self.crossing = json["crossing"].arrayValue.map {
+            crossingModel(json: $0)
+        }
     }
 }
 
@@ -204,9 +215,9 @@ class silentModel {
         self.quench = json["quench"].stringValue
         self.separately = json["separately"].stringValue
         self.crystal = json["crystal"].stringValue
-        self.silent = json["silent"].arrayValue.map({ json in
-            silentModel(json: json)
-        })
+        self.silent = json["silent"].arrayValue.map {
+            silentModel(json: $0)
+        }
     }
 }
 
@@ -257,10 +268,12 @@ class deliveryModel {
     var daze: String?
     var endless: String?
     var shrines: String?
-    var prayed: String?
+    var amountMax: String?
     var afraid: String?
     var husband: String?
+    var frown: String?
     init(json: JSON) {
+        self.frown = json["frown"].stringValue
         self.payment = json["payment"].stringValue
         self.fine = json["fine"].stringValue
         self.fortnight = json["fortnight"].stringValue
@@ -271,7 +284,7 @@ class deliveryModel {
         self.drank = json["drank"].stringValue
         self.endless = json["endless"].stringValue
         self.shrines = json["shrines"].stringValue
-        self.prayed = json["prayed"].stringValue
+        self.amountMax = json["amountMax"].stringValue
         self.afraid = json["afraid"].stringValue
         self.husband = json["husband"].stringValue
     }

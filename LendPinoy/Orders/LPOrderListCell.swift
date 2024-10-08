@@ -185,7 +185,7 @@ extension LPOrderListCell {
             }
             self.icon.kf.setImage(with: URL(string: model1.endless ?? ""))
             self.label1.text = model1.insist ?? ""
-            self.label2.text = model1.strangest ?? ""
+            self.label2.text = model1.culture ?? ""
             self.label3.text = model1.suffers ?? ""
             self.label4.text = model1.decline ?? ""
             if let but = model1.btnText, !but.isEmpty {

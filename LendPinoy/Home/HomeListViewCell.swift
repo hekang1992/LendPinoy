@@ -117,19 +117,19 @@ extension HomeListViewCell {
             guard let self = self, let dmodel = dmodel  else { return }
             self.icon.kf.setImage(with: URL(string: dmodel.endless ?? ""))
             self.nameLabel.text = dmodel.shrines ?? ""
-            self.mLabel.text = dmodel.prayed ?? ""
+            self.mLabel.text = dmodel.amountMax ?? ""
             self.sLabel.text = dmodel.afraid ?? ""
             self.label.text = dmodel.husband ?? ""
         }).disposed(by: disposeBag)
         
-        model1.subscribe(onNext: { [weak self] dmodel in
-            guard let self = self, let dmodel = dmodel  else { return }
-            self.icon.kf.setImage(with: URL(string: dmodel.endless ?? ""))
-            self.nameLabel.text = dmodel.shrines ?? ""
+//        model1.subscribe(onNext: { [weak self] dmodel in
+//            guard let self = self, let dmodel = dmodel  else { return }
+//            self.icon.kf.setImage(with: URL(string: dmodel.endless ?? ""))
+//            self.nameLabel.text = dmodel.shrines ?? ""
 //            self.mLabel.text = dmodel.prayed ?? ""
 //            self.sLabel.text = dmodel.afraid ?? ""
 //            self.label.text = dmodel.husband ?? ""
-        }).disposed(by: disposeBag)
+//        }).disposed(by: disposeBag)
         
     }
     

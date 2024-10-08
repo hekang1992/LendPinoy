@@ -35,6 +35,17 @@ class LPHubHomeView: LPJCView {
         return lunboView
     }()
     
+    lazy var fengXianView: FSPagerView = {
+        let fengXianView = FSPagerView()
+        fengXianView.isInfinite = true
+        fengXianView.delegate = self
+        fengXianView.dataSource = self
+        fengXianView.backgroundColor = .white
+        fengXianView.automaticSlidingInterval = 2.0
+        fengXianView.register(LPFengXianViewCell.self, forCellWithReuseIdentifier: "LPFengXianViewCell")
+        return fengXianView
+    }()
+    
     lazy var proBtn: UIButton = {
         let proBtn = UIButton(type: .custom)
         proBtn.contentHorizontalAlignment = .left
@@ -42,15 +53,6 @@ class LPHubHomeView: LPJCView {
         proBtn.setTitle("Products", for: .normal)
         proBtn.setTitleColor(UIColor.init(hex: "#303434"), for: .normal)
         return proBtn
-    }()
-    
-    lazy var tickBtn: UIButton = {
-        let tickBtn = UIButton(type: .custom)
-        tickBtn.contentHorizontalAlignment = .left
-        tickBtn.titleLabel?.font = UIFont(name: bold_MarketFresh, size: 24)
-        tickBtn.setTitle("Top Picks", for: .normal)
-        tickBtn.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
-        return tickBtn
     }()
     
     lazy var tableView: UITableView = {
@@ -66,7 +68,6 @@ class LPHubHomeView: LPJCView {
         return tableView
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(tableView)
@@ -74,10 +75,10 @@ class LPHubHomeView: LPJCView {
         
         homeSubModel
             .compactMap {
-                $0?.forests?.delivery
+                $0?.fast_list?.delivery
             }
             .bind(to: tableView.rx.items(cellIdentifier: "HomeListViewCell", cellType: HomeListViewCell.self)) { [weak self] row, model, cell in
-                if self?.homeSubModel.value?.forests?.delivery?.count == 1 {
+                if self?.homeSubModel.value?.fast_list?.delivery?.count == 1 {
                     cell.lineView.isHidden = true
                 }else {
                     cell.lineView.isHidden = false
@@ -95,7 +96,7 @@ class LPHubHomeView: LPJCView {
         
         makess()
     }
-    
+  
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -105,30 +106,53 @@ class LPHubHomeView: LPJCView {
 extension LPHubHomeView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return StatusManager.statusBarHeight + 195
+        let model = homeSubModel.value
+        if let modelArray = model?.overdue?.delivery, modelArray.count > 0 {
+            return StatusManager.statusBarHeight + 245
+        }else {
+            return StatusManager.statusBarHeight + 195
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let model = homeSubModel.value
         let headView = UIView()
-        headView.addSubview(lunboView)
-        headView.addSubview(proBtn)
-//        headView.addSubview(tickBtn)
-        lunboView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10)
-            make.left.equalToSuperview().offset(15)
-            make.height.equalTo(103)
+        if let modelArray = model?.overdue?.delivery, modelArray.count > 0 {
+            headView.addSubview(lunboView)
+            headView.addSubview(fengXianView)
+            headView.addSubview(proBtn)
+            lunboView.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10)
+                make.left.equalToSuperview().offset(15)
+                make.height.equalTo(103)
+            }
+            fengXianView.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.top.equalTo(lunboView.snp.bottom).offset(12.5)
+                make.left.equalToSuperview().offset(15)
+                make.height.equalTo(72)
+            }
+            proBtn.snp.makeConstraints { make in
+                make.top.equalTo(fengXianView.snp.bottom).offset(12.5)
+                make.left.equalToSuperview().offset(15)
+                make.size.equalTo(CGSize(width: 120, height: 30))
+            }
+        }else {
+            headView.addSubview(lunboView)
+            headView.addSubview(proBtn)
+            lunboView.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10)
+                make.left.equalToSuperview().offset(15)
+                make.height.equalTo(103)
+            }
+            proBtn.snp.makeConstraints { make in
+                make.bottom.equalToSuperview().offset(-20)
+                make.left.equalToSuperview().offset(15)
+                make.size.equalTo(CGSize(width: 120, height: 30))
+            }
         }
-        proBtn.snp.makeConstraints { make in
-            make.top.equalTo(lunboView.snp.bottom).offset(35)
-            make.left.equalToSuperview().offset(15)
-            make.size.equalTo(CGSize(width: 120, height: 30))
-        }
-//        tickBtn.snp.makeConstraints { make in
-//            make.top.equalTo(lunboView.snp.bottom).offset(35)
-//            make.left.equalTo(proBtn.snp.right).offset(40)
-//            make.size.equalTo(CGSize(width: 120, height: 30))
-//        }
         return headView
     }
     
@@ -136,18 +160,6 @@ extension LPHubHomeView: UITableViewDelegate {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        proBtn.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.updateButtonColors(selectedButton: self?.proBtn, deselectedButton: self?.tickBtn)
-            })
-            .disposed(by: disposeBag)
-        
-        tickBtn.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.updateButtonColors(selectedButton: self?.tickBtn, deselectedButton: self?.proBtn)
-            })
-            .disposed(by: disposeBag)
         
         self.homeSubModel.subscribe(onNext: { [weak self] model in
             guard let self = self else { return }
@@ -158,18 +170,15 @@ extension LPHubHomeView: UITableViewDelegate {
                 self.lunboView.isInfinite = true
                 self.lunboView.automaticSlidingInterval = 2
             }
+            if model?.overdue?.delivery?.count == 1 {
+                self.fengXianView.isInfinite = false
+                self.fengXianView.automaticSlidingInterval = 0
+            }else {
+                self.fengXianView.isInfinite = true
+                self.fengXianView.automaticSlidingInterval = 2
+            }
         }).disposed(by: disposeBag)
         
-    }
-    
-    private func updateButtonColors(selectedButton: UIButton?, deselectedButton: UIButton?) {
-        selectedButton?.setTitleColor(UIColor.init(hex: "#303434"), for: .normal)
-        deselectedButton?.setTitleColor(UIColor.init(hex: "#CFD9D8"), for: .normal)
-        if selectedButton == proBtn {
-            self.block3?("1")
-        }else {
-            self.block3?("2")
-        }
     }
     
 }
@@ -177,18 +186,34 @@ extension LPHubHomeView: UITableViewDelegate {
 extension LPHubHomeView: FSPagerViewDataSource, FSPagerViewDelegate {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        let modelArray = homeSubModel.value?.purse?.delivery
+        var modelArray: [deliveryModel]?
+        if pagerView == lunboView {
+             modelArray = homeSubModel.value?.purse?.delivery
+        }else {
+             modelArray = homeSubModel.value?.overdue?.delivery
+        }
         return modelArray?.count ?? 0
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "LPLunBoViewCell", at: index) as? LPLunBoViewCell else { return FSPagerViewCell() }
-        cell.model.accept(homeSubModel.value?.purse?.delivery?[index])
-        return cell
+        if pagerView == lunboView {
+            guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "LPLunBoViewCell", at: index) as? LPLunBoViewCell else { return FSPagerViewCell() }
+            cell.model.accept(homeSubModel.value?.purse?.delivery?[index])
+            return cell
+        } else {
+            guard let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "LPFengXianViewCell", at: index) as? LPFengXianViewCell else { return FSPagerViewCell() }
+            cell.model.accept(homeSubModel.value?.overdue?.delivery?[index])
+            return cell
+        }
     }
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        let model = homeSubModel.value?.purse?.delivery?[index]
+        var model: deliveryModel?
+        if pagerView == lunboView {
+            model = homeSubModel.value?.purse?.delivery?[index]
+        }else {
+            model = homeSubModel.value?.overdue?.delivery?[index]
+        }
         if let papee = model?.payment, !papee.isEmpty {
             self.block1?(papee)
         }else {

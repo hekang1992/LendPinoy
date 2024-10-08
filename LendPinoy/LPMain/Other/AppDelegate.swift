@@ -77,8 +77,7 @@ extension AppDelegate {
             "season": model.season ?? "",
             "turnip": Date(),
         ] as [String : Any]
-        if let cycode = model.dessert, let acode = model.also, let ccdoe = model
-            .season, !cycode.isEmpty, !acode.isEmpty, !ccdoe.isEmpty  {
+        if let cycode = model.dessert, let acode = model.also, !cycode.isEmpty, !acode.isEmpty  {
             manager1.uploadDataAPI(params: wdDict, pageUrl: "/lpinoy/nowhas/bean-scattering/place", method: .post) { result in
             }
         }

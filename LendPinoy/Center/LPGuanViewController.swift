@@ -60,7 +60,7 @@ extension LPGuanViewController {
         
         let descLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 22)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         descLabel.numberOfLines = 0
-        descLabel.text = "LendPinoy is developed and operated by:\nA.D.R.R. MICRO LENDING INVESTORS, INC. \n\nLendPinoy Loan Service is powered by:\nSummerset Lending Incorporation, a licensed lending company with SEC Registration No. CS201903733 and Certificate of Authority No. 2906, listed in the SEC's online directory of lending companies. \n\nWe have partnered with Summerset Lending Incorporation to provide fast and convenient loan services to users in the Philippines."
+        descLabel.text = "LendPinoy is developed and operated by:\nT7 Manila Lending Corp. \n\nLendPinoy Loan Service is powered by:\nSummerset Lending Incorporation, a licensed lending company with SEC Registration No. CS201903733 and Certificate of Authority No. 2906, listed in the SEC's online directory of lending companies. \n\nWe have partnered with Summerset Lending Incorporation to provide fast and convenient loan services to users in the Philippines."
         view.addSubview(descLabel)
         descLabel.snp.makeConstraints { make in
             make.top.equalTo(navLabel.snp.bottom).offset(30)
