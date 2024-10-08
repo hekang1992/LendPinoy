@@ -114,7 +114,7 @@ extension LPHFView: WKScriptMessageHandler, WKNavigationDelegate {
             } else {
                 finalURLString = "\(baseScheme)\(extractedValue)"
             }
-
+            
             if let encodedURLString = finalURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
                let url = URL(string: encodedURLString),
                UIApplication.shared.canOpenURL(url) {

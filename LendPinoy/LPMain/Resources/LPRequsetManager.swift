@@ -91,11 +91,10 @@ class LPRequestManager: NSObject {
     
     private func requestData(target: APIService, completion: @escaping (Result<BaseModel, Error>) -> Void) {
         let urlStr = target.path
-        if !urlStr.contains("lpinoy/roomoh/looking/lifted") {
+        if !urlStr.contains("lpinoy/roomoh/looking/lifted") && !urlStr.contains("/lpinoy/nowhas/bean-scattering/place") && !urlStr.contains("/lpinoy/nabeyaki-udon/remained/thumbing") && !urlStr.contains("/lpinoy/chieko/thats/dripping") {
             ViewCycleManager.addCycView()
         }
         provider.request(target) { result in
-            ViewCycleManager.hideCycView()
             switch result {
             case .success(let response):
                 do {
@@ -105,7 +104,9 @@ class LPRequestManager: NSObject {
                 } catch {
                     completion(.failure(error))
                 }
+                ViewCycleManager.hideCycView()
             case .failure(let error):
+                ViewCycleManager.hideCycView()
                 completion(.failure(error))
             }
         }

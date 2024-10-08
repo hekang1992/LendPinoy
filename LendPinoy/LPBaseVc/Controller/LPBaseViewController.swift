@@ -65,7 +65,7 @@ extension LPBaseViewController {
     
     func genJuUrlPush(form payment: String) {
         guard let url = URL(string: payment),
-                let scheme = url.scheme else { return }
+              let scheme = url.scheme else { return }
         switch scheme {
         case let s where s.hasPrefix("http"):
             handleHTTPUrl(payment: payment)
@@ -75,14 +75,15 @@ extension LPBaseViewController {
             break
         }
     }
-
+    
     private func handleHTTPUrl(payment: String) {
         self.pushToWebVc(form: payment)
     }
-
+    
     private func handlePinoyUrl(url: URL, payment: String) {
         let path = url.path
         if path.contains("/disappeared") {
+            ViewCycleManager.addCycView()
             handleDisappearedPath(query: url.query)
         } else if path.contains("/expectations") {
             handleExpectationsPath(payment: payment)
@@ -92,14 +93,14 @@ extension LPBaseViewController {
             NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
         }
     }
-
+    
     private func handleDisappearedPath(query: String?) {
         guard let query = query else { return }
         let components = query.components(separatedBy: "=")
         let chanpinid = components.last ?? ""
         chanpinxiangqingyemian(chanpinid)
     }
-
+    
     private func handleExpectationsPath(payment: String) {
         guard let productID = extractParameter(from: payment, name: "reminder"),
               let orderID = extractParameter(from: payment, name: "embarrassment") else { return }
@@ -109,7 +110,7 @@ extension LPBaseViewController {
         bVc.embarrassment.accept(orderID)
         self.navigationController?.pushViewController(bVc, animated: true)
     }
-
+    
     private func handleOppositePath(payment: String) {
         let ovc = LPOrderListViewController()
         if let value = extractParameter(from: payment, name: "supposed") {
@@ -117,7 +118,7 @@ extension LPBaseViewController {
             self.navigationController?.pushViewController(ovc, animated: true)
         }
     }
-
+    
     private func extractParameter(from payment: String, name: String) -> String? {
         guard let range = payment.range(of: "\(name)=") else { return nil }
         let value = payment[range.upperBound...]
@@ -152,7 +153,7 @@ extension LPBaseViewController {
         if page == "shooing1" {
             self.huoquxinxiinfo(from: chanpinid) { [weak self] baseModel in
                 if let self = self,
-                    let pap = baseModel.itself.classical?.payment {
+                   let pap = baseModel.itself.classical?.payment {
                     if !pap.isEmpty {
                         let twoVc = LPTwoViewController()
                         twoVc.chanpinID = chanpinid

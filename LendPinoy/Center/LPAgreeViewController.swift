@@ -22,10 +22,10 @@ class LPAgreeViewController: LPBaseViewController {
         btn2.setImage(UIImage(named: "yinsidianji"), for: .normal)
         return btn2
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         addNavView(title: "Agreement")
         view.addSubview(btn1)

@@ -34,10 +34,10 @@ class LPAccountManViewController: LPBaseViewController {
         btn2.setImage(UIImage(named: "shangchuzha"), for: .normal)
         return btn2
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         addNavView(title: "Manage account")
         view.addSubview(btn1)

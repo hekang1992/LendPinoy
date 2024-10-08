@@ -16,10 +16,10 @@ class LPHFViewController: LPBaseViewController {
     }()
     
     var lianjie = BehaviorRelay<String>(value: "")
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(hfView)
         hfView.snp.makeConstraints { make in
@@ -34,7 +34,7 @@ class LPHFViewController: LPBaseViewController {
             ViewCycleManager.hideCycView()
         }
     }
-
+    
 }
 
 

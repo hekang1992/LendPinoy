@@ -20,10 +20,10 @@ class LPLoginViewController: LPBaseViewController {
         let phoView = LPTCPView(frame: self.view.bounds)
         return phoView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(loginView)
         loginView.snp.makeConstraints { make in
@@ -38,7 +38,7 @@ class LPLoginViewController: LPBaseViewController {
             
         }
     }
-
+    
 }
 
 extension LPLoginViewController {
@@ -83,10 +83,10 @@ extension LPLoginViewController {
     
     func sendcode() {
         let requestManager = LPRequestManager()
-        let dict = ["app": "swift", 
+        let dict = ["app": "swift",
                     "vaguely": self.loginView.phoneTx.text ?? "",
                     "quizzical": "flash"]
-        requestManager.uploadDataAPI(params: dict, 
+        requestManager.uploadDataAPI(params: dict,
                                      pageUrl: "/lpinoy/slipped/hitch/narrow",
                                      method: .post) { [weak self] result in
             switch result {

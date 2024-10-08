@@ -20,7 +20,7 @@ class LPTCPView: LPJCView {
         bgView.backgroundColor = .white
         return bgView
     }()
-
+    
     lazy var descLabel: UILabel = {
         let descLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 36)!, textColor: UIColor.init(hex: "#303434"), textAlignment: .left)
         descLabel.numberOfLines = 0
@@ -32,7 +32,7 @@ class LPTCPView: LPJCView {
         let phone = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 30)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
         return phone
     }()
-
+    
     lazy var comBtn: UIButton = {
         let comBtn = UIButton(type: .custom)
         comBtn.layer.cornerRadius = 4

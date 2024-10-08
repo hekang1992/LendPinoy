@@ -15,7 +15,7 @@ class LPCenterView: LPJCView {
     var block2: (() -> Void)?
     var block3: (() -> Void)?
     var block4: (() -> Void)?
-
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -164,11 +164,11 @@ extension LPCenterView {
             .rx
             .contentOffset
             .subscribe(onNext: { [weak self] contfset in
-            guard let self = self else { return }
-            if contfset.y < 0 {
-                self.scrollView.setContentOffset(.zero, animated: false)
-            }
-        }).disposed(by: disposeBag)
+                guard let self = self else { return }
+                if contfset.y < 0 {
+                    self.scrollView.setContentOffset(.zero, animated: false)
+                }
+            }).disposed(by: disposeBag)
         
         twoBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
@@ -194,4 +194,4 @@ extension LPCenterView {
     }
     
 }
- 
+

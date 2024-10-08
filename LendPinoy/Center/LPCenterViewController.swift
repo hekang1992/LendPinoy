@@ -13,10 +13,10 @@ class LPCenterViewController: LPBaseViewController {
         let centerView = LPCenterView()
         return centerView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(centerView)
         centerView.snp.makeConstraints { make in
@@ -29,7 +29,7 @@ class LPCenterViewController: LPBaseViewController {
         super.viewWillAppear(animated)
         LPTabBarManager.showTabBar()
     }
-
+    
 }
 
 
@@ -59,6 +59,6 @@ extension LPCenterViewController {
             self?.navigationController?.pushViewController(guVc, animated: true)
         }
     }
-
+    
 }
 
