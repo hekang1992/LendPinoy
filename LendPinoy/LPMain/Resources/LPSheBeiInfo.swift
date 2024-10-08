@@ -71,9 +71,9 @@ class NetworkInfo {
     }
     
     static func isVPNCd() -> String {
-        if let proxySettings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [String: Any],
-           let scopedProxySettings = proxySettings["SCOPED"] as? [String: Any] {
-            for key in scopedProxySettings.keys {
+        if let proxySettings = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() as? [String: Any],
+           let scopes = proxySettings["__SCOPED__"] as? [String: Any] {
+            for key in scopes.keys {
                 if key.contains("tap") || key.contains("tun") || key.contains("ppp") {
                     return "1"
                 }

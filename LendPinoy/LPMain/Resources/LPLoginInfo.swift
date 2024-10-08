@@ -52,7 +52,6 @@ extension LPLoginInfo {
                                                 "peace": "1",
                                                 "yuzu": KeychainHelper.retrieveidfv() ?? "",
                                                 "item": "apple",
-                                                "twins": "0",
                                                 "allpo": "mark"]
         
         logInfo.merge(additionalInfo) { (_, new) in new }
