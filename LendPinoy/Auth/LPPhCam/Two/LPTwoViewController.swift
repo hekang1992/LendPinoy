@@ -156,6 +156,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func scidphoto(form data: Data, image: UIImage) {
+        ViewCycleManager.addCycView()
         let man = LPRequestManager()
         var dict: [String: Any]?
         if self.isrenlianshibie == "0" {
@@ -192,9 +193,11 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
                         self.chanpinxiangqingyemian(self.chanpinID ?? "")
                     }
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(let failure):
                 print("failure:\(failure)")
+                ViewCycleManager.hideCycView()
                 break
             }
         }
@@ -253,6 +256,7 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func baocunidInfo(form sc: SCPopView) {
+        ViewCycleManager.addCycView()
         let quench = sc.comoneView.nameTx.text ?? ""
         let attending = sc.comtwoView.nameTx.text ?? ""
         let encouragingly = sc.comthreeView.timeBtn.titleLabel?.text ?? ""
@@ -278,9 +282,11 @@ extension LPTwoViewController: UIImagePickerControllerDelegate, UINavigationCont
                         }
                     })
                 })
+                ViewCycleManager.hideCycView()
                 break
             case .failure(let failure):
                 print("failure:\(failure)")
+                ViewCycleManager.hideCycView()
                 break
             }
         }

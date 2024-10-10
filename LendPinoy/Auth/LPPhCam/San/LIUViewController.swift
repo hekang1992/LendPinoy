@@ -122,6 +122,7 @@ extension LIUViewController {
     
     func chaaccn(from model: itselfModel) {
         let man = LPRequestManager()
+        ViewCycleManager.addCycView()
         man.requestAPI(params: ["confirm": model.confirm ?? "", "thorough": thorough.value], pageUrl: "/lpinoy/waiting/having/kitchendad", method: .post) { [weak self] result in
             switch result {
             case .success(let success):
@@ -131,8 +132,10 @@ extension LIUViewController {
                 }else {
                     self?.navigationController?.popViewController(animated: true)
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }
@@ -160,6 +163,7 @@ extension LIUViewController {
     
     func ebInfo() {
         let man = LPRequestManager()
+        ViewCycleManager.addCycView()
         man.requestAPI(params: ["collection": addEb.value, "harumi": "ipo"], pageUrl: "/lpinoy/clothing/flakes/visitas", method: .get) { [weak self] result in
             switch result {
             case .success(let success):
@@ -172,8 +176,10 @@ extension LIUViewController {
                     self.liuView.model2Array.accept(model2Array)
                     self.liuView.tableView.reloadData()
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }

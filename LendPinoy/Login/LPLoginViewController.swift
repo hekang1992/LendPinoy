@@ -82,6 +82,7 @@ extension LPLoginViewController {
     }
     
     func sendcode() {
+        ViewCycleManager.addCycView()
         let requestManager = LPRequestManager()
         let dict = ["app": "swift",
                     "vaguely": self.loginView.phoneTx.text ?? "",
@@ -93,8 +94,10 @@ extension LPLoginViewController {
             case .success(let baseModel):
                 ToastUtility.showToast(message: baseModel.frown ?? "")
                 self?.pushCodeVc()
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }

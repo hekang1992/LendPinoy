@@ -90,10 +90,6 @@ class LPRequestManager: NSObject {
     private let provider = MoyaProvider<APIService>()
     
     private func requestData(target: APIService, completion: @escaping (Result<BaseModel, Error>) -> Void) {
-        let urlStr = target.path
-        if !urlStr.contains("lpinoy/roomoh/looking/lifted") && !urlStr.contains("/lpinoy/nowhas/bean-scattering/place") && !urlStr.contains("/lpinoy/nabeyaki-udon/remained/thumbing") && !urlStr.contains("/lpinoy/chieko/thats/dripping") {
-            ViewCycleManager.addCycView()
-        }
         provider.request(target) { result in
             switch result {
             case .success(let response):
@@ -104,9 +100,7 @@ class LPRequestManager: NSObject {
                 } catch {
                     completion(.failure(error))
                 }
-                ViewCycleManager.hideCycView()
             case .failure(let error):
-                ViewCycleManager.hideCycView()
                 completion(.failure(error))
             }
         }
@@ -117,8 +111,10 @@ class LPRequestManager: NSObject {
         if baseModel.hitch == 0 || baseModel.hitch == 00 {
             completion(.success(baseModel))
         }else if baseModel.hitch == -2 {
+            ViewCycleManager.hideCycView()
             ToastUtility.showToast(message: frown)
         }else {
+            ViewCycleManager.hideCycView()
             ToastUtility.showToast(message: frown)
         }
     }

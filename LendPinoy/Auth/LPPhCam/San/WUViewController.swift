@@ -68,6 +68,7 @@ extension WUViewController {
         }
         
         tpView.comfirmblock = { [weak self] in
+            ViewCycleManager.addCycView()
             if let modelArray = self?.modelArray.value {
                 let resultArray = modelArray.map { model -> [String: Any] in
                     return ["uncle": model.uncle ?? "",
@@ -89,8 +90,10 @@ extension WUViewController {
                             }
                             let model = success.itself
                             print("model:\(model)")
+                            ViewCycleManager.hideCycView()
                             break
                         case .failure(_):
+                            ViewCycleManager.hideCycView()
                             break
                         }
                     }
@@ -103,6 +106,7 @@ extension WUViewController {
     func makeainfo() {
         let dict = ["mum": "1", "down": "1", "reminder": chanpinID.value, "up": "0"]
         let man = LPRequestManager()
+        ViewCycleManager.addCycView()
         man.requestAPI(params: dict, pageUrl: "/lpinoy/purse/along/spilling", method: .post) { [weak self] result in
             switch result {
             case .success(let success):
@@ -111,8 +115,10 @@ extension WUViewController {
                     self?.tpView.modelArray.accept(modelArray)
                     self?.tpView.tableView.reloadData()
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }

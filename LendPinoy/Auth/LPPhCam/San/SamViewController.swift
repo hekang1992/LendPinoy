@@ -49,6 +49,7 @@ class SamViewController: LPBaseViewController {
 extension SamViewController {
     
     func HuoQiInfo() {
+        ViewCycleManager.addCycView()
         let man = LPRequestManager()
         man.requestAPI(params: ["upDone": "01", "reminder": chanpinID.value], pageUrl: "/lpinoy/nagare/bound/hideji", method: .post) { [weak self] result in
             switch result {
@@ -58,9 +59,11 @@ extension SamViewController {
                     self?.yiView.modelArray.accept(modelArray)
                     self?.yiView.tableView.reloadData()
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(let failure):
                 print("failure:\(failure)")
+                ViewCycleManager.hideCycView()
                 break
             }
         }
@@ -95,6 +98,7 @@ extension SamViewController {
         dict?["reminder"] = chanpinID.value
         
         if let redict = dict {
+            ViewCycleManager.addCycView()
             let man = LPRequestManager()
             man.uploadDataAPI(params: redict, pageUrl: "/lpinoy/tastes/namii/radiating", method: .post) { [weak self] result in
                 switch result {
@@ -105,8 +109,10 @@ extension SamViewController {
                             self?.chanpinxiangqingyemian(chanpinID)
                         }
                     }
+                    ViewCycleManager.hideCycView()
                     break
                 case .failure(let failure):
+                    ViewCycleManager.hideCycView()
                     print("failure:\(failure)")
                     break
                 }
@@ -139,6 +145,7 @@ extension SamViewController {
             let dataArray = LPXuanZeManager.threemodel(from: modelCyArray, level: 3)
             TanchuXuanZeMananger.showOnePicker(from: .area, model: model, button: anniu, dataArray: dataArray)
         } else {
+            ViewCycleManager.addCycView()
             let man = LPRequestManager()
             man.requestAPI(params: ["cc": "1", "php": "four"], pageUrl: "/lpinoy/called/herin/different", method: .get) { [weak self] result in
                 switch result {
@@ -148,8 +155,10 @@ extension SamViewController {
                         let dataArray = LPXuanZeManager.threemodel(from: modelArray, level: 3)
                         TanchuXuanZeMananger.showOnePicker(from: .area, model: model, button: anniu, dataArray: dataArray)
                     }
+                    ViewCycleManager.hideCycView()
                     break
                 case .failure(let failure):
+                    ViewCycleManager.hideCycView()
                     print("failure:\(failure)")
                     break
                 }

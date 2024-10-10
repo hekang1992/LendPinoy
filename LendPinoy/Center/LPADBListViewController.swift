@@ -54,6 +54,7 @@ extension LPADBListViewController {
         }
         listView.adbcclock = { [weak self] ppd in
             let man = LPRequestManager()
+            ViewCycleManager.addCycView()
             man.requestAPI(params: ["confirm": ppd, "thorough": self?.embarrassment.value ?? ""], pageUrl: "/lpinoy/waiting/having/kitchendad", method: .post) { [weak self] result in
                 switch result {
                 case .success(let success):
@@ -63,8 +64,10 @@ extension LPADBListViewController {
                     }else {
                         self?.navigationController?.popViewController(animated: true)
                     }
+                    ViewCycleManager.hideCycView()
                     break
                 case .failure(_):
+                    ViewCycleManager.hideCycView()
                     break
                 }
             }

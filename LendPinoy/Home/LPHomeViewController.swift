@@ -61,7 +61,7 @@ class LPHomeViewController: LPBaseViewController {
             let status = CLLocationManager.authorizationStatus()
             if status == .authorizedAlways || status == .authorizedWhenInUse {
                 NotificationCenter.default.post(name: NSNotification.Name(LOCATION_LP), object: nil)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                     self.sqcpin(form: ppid)
                 }
             }else {
@@ -69,7 +69,7 @@ class LPHomeViewController: LPBaseViewController {
                     self.showPerrt(in: self)
                 }else if type == "1" {//fak
                     NotificationCenter.default.post(name: NSNotification.Name(LOCATION_LP), object: nil)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                         self.sqcpin(form: ppid)
                     }
                 }else {}
@@ -153,7 +153,7 @@ extension LPHomeViewController {
                       "home": "sub",
                       "strolled": SystemInfo.getCurrentTime()]
         let pageUrl = "/lpinoy/sorry/mouse/little"
-        
+        ViewCycleManager.addCycView()
         man.uploadDataAPI(params: params, pageUrl: pageUrl, method: .get) { [weak self] result in
             guard let self = self else { return }
             defer {
@@ -163,7 +163,9 @@ extension LPHomeViewController {
             switch result {
             case .success(let success):
                 self.handleSuccess(success.itself)
+                ViewCycleManager.hideCycView()
             case .failure(let error):
+                ViewCycleManager.hideCycView()
                 print("Failed to fetch data: \(error)")
             }
         }

@@ -91,6 +91,7 @@ extension LPCodeViewController {
     }
     
     func loginInfo() {
+        ViewCycleManager.addCycView()
         let requestManager = LPRequestManager()
         let dict = ["patchy": "autoASix", 
                     "page": self.codeView.phoneTx.text ?? "",
@@ -108,8 +109,10 @@ extension LPCodeViewController {
                     UserDefaults.standard.set(ti, forKey: LOGIN_END_LP)
                     UserDefaults.standard.synchronize()
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }

@@ -47,6 +47,7 @@ extension LPBaseViewController {
                     "reminder": proid,
                     "session": "0",
                     "think": "description"]
+        ViewCycleManager.addCycView()
         let man = LPRequestManager()
         man.requestAPI(params: dict,
                        pageUrl: "/lpinoy/tablename/thoughts/kyotoites",
@@ -56,8 +57,10 @@ extension LPBaseViewController {
                 if let payment = success.itself.payment {
                     self?.genJuUrlPush(form: payment)
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }
@@ -83,7 +86,6 @@ extension LPBaseViewController {
     private func handlePinoyUrl(url: URL, payment: String) {
         let path = url.path
         if path.contains("/disappeared") {
-            ViewCycleManager.addCycView()
             handleDisappearedPath(query: url.query)
         } else if path.contains("/expectations") {
             handleExpectationsPath(payment: payment)
@@ -131,6 +133,7 @@ extension LPBaseViewController {
     func chanpinxiangqingyemian(_ chanpinid: String) {
         let dict = ["improper": "Andrew", "reminder": chanpinid, "unsure": "toal"]
         let man = LPRequestManager()
+        ViewCycleManager.addCycView()
         man.requestAPI(params: dict, pageUrl: "/lpinoy/scanned/thinking/chieko", method: .post) { [weak self] result in
             switch result {
             case .success(let success):
@@ -142,8 +145,10 @@ extension LPBaseViewController {
                         self?.gjOdtoUrl(from: shocking, ppid: chanpinid)
                     }
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }
@@ -233,14 +238,17 @@ extension LPBaseViewController {
     func huoquxinxiinfo(from chanpinid: String, completion: @escaping (BaseModel) -> Void) {
         let dict = ["reminder": chanpinid, "tale": "5", "have": "1"]
         let man = LPRequestManager()
+        ViewCycleManager.addCycView()
         man.requestAPI(params: dict,
                        pageUrl: "/lpinoy/wouldnt/outstanding/early",
                        method: .get) { result in
             switch result {
             case .success(let success):
                 completion(success)
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }

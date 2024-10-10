@@ -156,7 +156,7 @@ class NetworkReachability {
     }
     
     func scidf() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             if #available(iOS 14.0, *) {
                 ATTrackingManager.requestTrackingAuthorization { status in
                     switch status {

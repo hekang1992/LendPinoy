@@ -98,7 +98,8 @@ extension LPAccountManViewController {
     
     func poplogOut() {
         let man = LPRequestManager()
-        man.requestAPI(params: ["glaring": "shine", 
+        ViewCycleManager.addCycView()
+        man.requestAPI(params: ["glaring": "shine",
                                 "out": "1",
                                 "strolling": "auth"],
                        pageUrl: "/lpinoy/hurried/middle/hideji",
@@ -111,14 +112,17 @@ extension LPAccountManViewController {
                         NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
                     })
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }
     }
     
     func zxAc() {
+        ViewCycleManager.addCycView()
         let man = LPRequestManager()
         man.requestAPI(params: ["listen": "music", 
                                 "zx": "true",
@@ -134,8 +138,10 @@ extension LPAccountManViewController {
                         NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC_NOTI), object: nil, userInfo: ["guest": "0"])
                     })
                 }
+                ViewCycleManager.hideCycView()
                 break
             case .failure(_):
+                ViewCycleManager.hideCycView()
                 break
             }
         }

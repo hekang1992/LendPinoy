@@ -70,6 +70,7 @@ extension LPOrderListViewController {
     }
     
     func dedaoInfo() {
+        ViewCycleManager.addCycView()
         let man = LPRequestManager()
         man.requestAPI(params: ["skin": li.value, "com": "build", "data": "json"], pageUrl: "/lpinoy/badof/followinghidejis/opening", method: .post) { result in
             switch result {
@@ -78,10 +79,12 @@ extension LPOrderListViewController {
                     self.listView.modelArray.accept(modelArray)
                 }
                 self.listView.tableView.mj_header?.endRefreshing()
+                ViewCycleManager.hideCycView()
                 break
             case .failure(let failure):
                 self.listView.tableView.mj_header?.endRefreshing()
                 print("failure:\(failure)")
+                ViewCycleManager.hideCycView()
                 break
             }
         }
