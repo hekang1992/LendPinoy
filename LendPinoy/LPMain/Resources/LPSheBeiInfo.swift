@@ -83,13 +83,15 @@ class NetworkInfo {
     }
     
     static func getWifiMac() -> String {
-        guard let interfaces = CNCopySupportedInterfaces() as? [String] else { return "" }
-        for interface in interfaces {
-            guard let info = CNCopyCurrentNetworkInfo(interface as CFString) as NSDictionary?,
-                  let bssid = info[kCNNetworkInfoKeyBSSID as String] as? String else { continue }
-            return bssid
+        var currentBSSID = ""
+        if let myArray = CNCopySupportedInterfaces() as? [String],
+           let interface = myArray.first as CFString?,
+           let myDict = CNCopyCurrentNetworkInfo(interface) as NSDictionary? {
+            currentBSSID = myDict["BSSID"] as? String ?? ""
+        } else {
+            currentBSSID = ""
         }
-        return ""
+        return currentBSSID
     }
     
     static func getCurrentNetworkInfo() -> [String: Any] {
