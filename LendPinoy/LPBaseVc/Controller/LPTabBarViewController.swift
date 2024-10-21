@@ -39,9 +39,9 @@ class LPTabBarViewController: UITabBarController {
         }
         customTabBar.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(15)
             make.bottom.equalToSuperview().offset(-(StatusManager.safeAreaBottomHeight + 2))
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
     }
     
@@ -50,9 +50,9 @@ class LPTabBarViewController: UITabBarController {
         let orderVC = LPOrdersViewController()
         let userVC = LPCenterViewController()
         
-        setupChildViewController(homeVC, title: "Home", imageName: "home_home", selectedImageName: "home_home")
-        setupChildViewController(orderVC, title: "Order", imageName: "order_order", selectedImageName: "order_order")
-        setupChildViewController(userVC, title: "Profile", imageName: "user_user", selectedImageName: "user_user")
+        setupChildViewController(homeVC, title: "", imageName: "home_no", selectedImageName: "home_sel")
+        setupChildViewController(orderVC, title: "", imageName: "order_nor", selectedImageName: "order_sel")
+        setupChildViewController(userVC, title: "", imageName: "user_nor", selectedImageName: "user_sel")
     }
     
     private func setupChildViewController(_ viewController: LPBaseViewController, title: String, imageName: String, selectedImageName: String) {

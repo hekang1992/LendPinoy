@@ -14,7 +14,6 @@ class LPCenterView: LPJCView {
     var block1: (() -> Void)?
     var block2: (() -> Void)?
     var block3: (() -> Void)?
-    var block4: (() -> Void)?
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -37,45 +36,32 @@ class LPCenterView: LPJCView {
         return phoneLabe
     }()
     
-    lazy var huiyuan: UIImageView = {
-        let huiyuan = UIImageView()
-        huiyuan.image = UIImage(named: "Group_huiyuan")
-        return huiyuan
-    }()
-    
     lazy var twoBtn: UIButton = {
         let twoBtn = UIButton(type: .custom)
-        twoBtn.setImage(UIImage(named: "Grouptwo"), for: .normal)
+        twoBtn.setImage(UIImage(named: "agreeimage"), for: .normal)
         twoBtn.adjustsImageWhenHighlighted = false
         return twoBtn
     }()
     
     lazy var twoBtn1: UIButton = {
         let twoBtn1 = UIButton(type: .custom)
-        twoBtn1.setImage(UIImage(named: "acco"), for: .normal)
+        twoBtn1.setImage(UIImage(named: "lianxiwomne"), for: .normal)
         twoBtn1.adjustsImageWhenHighlighted = false
         return twoBtn1
     }()
     
     lazy var twoBtn2: UIButton = {
         let twoBtn2 = UIButton(type: .custom)
-        twoBtn2.setImage(UIImage(named: "xieyipn"), for: .normal)
+        twoBtn2.setImage(UIImage(named: "guanyuwomena"), for: .normal)
         twoBtn2.adjustsImageWhenHighlighted = false
         return twoBtn2
     }()
     
     lazy var twoBtn3: UIButton = {
         let twoBtn3 = UIButton(type: .custom)
-        twoBtn3.setImage(UIImage(named: "lianxiwomen"), for: .normal)
+        twoBtn3.setImage(UIImage(named: "zhanghaoguanli"), for: .normal)
         twoBtn3.adjustsImageWhenHighlighted = false
         return twoBtn3
-    }()
-    
-    lazy var twoBtn4: UIButton = {
-        let twoBtn4 = UIButton(type: .custom)
-        twoBtn4.setImage(UIImage(named: "gaunyuwomen"), for: .normal)
-        twoBtn4.adjustsImageWhenHighlighted = false
-        return twoBtn4
     }()
     
     override init(frame: CGRect) {
@@ -83,12 +69,10 @@ class LPCenterView: LPJCView {
         addSubview(scrollView)
         scrollView.addSubview(touxiang)
         scrollView.addSubview(phoneLabe)
-        scrollView.addSubview(huiyuan)
         scrollView.addSubview(twoBtn)
         scrollView.addSubview(twoBtn1)
         scrollView.addSubview(twoBtn2)
         scrollView.addSubview(twoBtn3)
-        scrollView.addSubview(twoBtn4)
         makeupss()
     }
     
@@ -108,34 +92,28 @@ extension LPCenterView {
         
         touxiang.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 70, height: 70))
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 24)
-            make.left.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 30)
+            make.centerX.equalToSuperview()
         }
         
         phoneLabe.snp.makeConstraints { make in
-            make.left.equalTo(touxiang.snp.right).offset(20)
-            make.top.equalTo(touxiang.snp.top)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(touxiang.snp.bottom).offset(15)
             make.height.equalTo(32.5)
-        }
-        
-        huiyuan.snp.makeConstraints { make in
-            make.top.equalTo(phoneLabe.snp.bottom).offset(15)
-            make.left.equalTo(touxiang.snp.right).offset(20)
-            make.size.equalTo(CGSize(width: 77.5, height: 22.5))
         }
         
         twoBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.height.equalTo(103)
             make.left.equalToSuperview().offset(15)
-            make.top.equalTo(huiyuan.snp.bottom).offset(30)
+            make.top.equalTo(phoneLabe.snp.bottom).offset(35)
         }
         
         twoBtn1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.height.equalTo(80)
             make.left.equalToSuperview().offset(15)
-            make.top.equalTo(twoBtn.snp.bottom).offset(30)
+            make.top.equalTo(twoBtn.snp.bottom).offset(20)
         }
         
         twoBtn2.snp.makeConstraints { make in
@@ -150,14 +128,6 @@ extension LPCenterView {
             make.height.equalTo(80)
             make.left.equalToSuperview().offset(15)
             make.top.equalTo(twoBtn2.snp.bottom).offset(20)
-        }
-        
-        twoBtn4.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.height.equalTo(80)
-            make.left.equalToSuperview().offset(15)
-            make.top.equalTo(twoBtn3.snp.bottom).offset(20)
-            make.bottom.equalToSuperview().offset(-125)
         }
         
         scrollView
@@ -186,10 +156,6 @@ extension LPCenterView {
         twoBtn3.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.block3?()
-        }).disposed(by: disposeBag)
-        twoBtn4.rx.tap.subscribe(onNext: { [weak self] in
-            guard let self = self else { return }
-            self.block4?()
         }).disposed(by: disposeBag)
     }
     

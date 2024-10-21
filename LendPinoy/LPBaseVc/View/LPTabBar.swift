@@ -24,7 +24,7 @@ class LPTabBar: UIView {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.init(hex: "#F3FBFA")
-        bgView.layer.cornerRadius = 4
+        bgView.layer.cornerRadius = 27
         return bgView
     }()
     
@@ -64,15 +64,11 @@ extension LPTabBar {
     func ybButton(_ ybButton: LPBarButton) {
         for (index, cButton) in tabbarBtnArray.enumerated() {
             if cButton == ybButton {
-                cButton.backgroundColor = UIColor.init(hex: "#2CD7BB")
                 cButton.iconBtn.isSelected = true
-                cButton.nameLabel.textColor = UIColor(hex: "#FFFFFF")
-                cButton.iconBtn.setImage(UIImage(named: selImageArr[index]), for: .normal)
+                cButton.iconBtn.setBackgroundImage(UIImage(named: selImageArr[index]), for: .normal)
             } else {
-                cButton.backgroundColor = UIColor.init(hex: "#F3FBFA")
                 cButton.iconBtn.isSelected = false
-                cButton.nameLabel.textColor = UIColor(hex: "#CFD9D8")
-                cButton.iconBtn.setImage(UIImage(named: norImageArr[index]), for: .normal)
+                cButton.iconBtn.setBackgroundImage(UIImage(named: norImageArr[index]), for: .normal)
             }
         }
     }
@@ -93,7 +89,7 @@ extension LPTabBar {
         let buttonY = 1
         for (index, button) in tabbarBtnArray.enumerated() {
             let buttonX = CGFloat(index) * buttonW
-            button.frame = CGRect(x: buttonX, y: CGFloat(buttonY), width: buttonW, height: 60)
+            button.frame = CGRect(x: buttonX, y: CGFloat(buttonY), width: buttonW, height: 50)
             button.tag = index
         }
     }

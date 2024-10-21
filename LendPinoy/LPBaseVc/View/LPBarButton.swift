@@ -11,8 +11,6 @@ import RxSwift
 import RxCocoa
 
 class LPBarButton: UIControl {
-    
-    let buttonW = (SCREEN_WIDTH - 40) / 3
 
     var block: ((LPBarButton) -> Void)?
     
@@ -23,11 +21,6 @@ class LPBarButton: UIControl {
         button.contentMode = .center
         button.adjustsImageWhenHighlighted = false
         return button
-    }()
-    
-    lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 14)!, textColor: UIColor(hex: "#CFD9D8"), textAlignment: .left)
-        return nameLabel
     }()
     
     override init(frame: CGRect) {
@@ -42,16 +35,8 @@ class LPBarButton: UIControl {
     
     private func addSubviews() {
         addSubview(iconBtn)
-        addSubview(nameLabel)
         iconBtn.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(29)
-            make.size.equalTo(CGSize(width: 21, height: 21))
-        }
-        nameLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.equalTo(iconBtn.snp.right).offset(5)
-            make.size.equalTo(CGSize(width: 50, height: 15))
+            make.edges.equalToSuperview()
         }
         iconBtn.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
@@ -60,8 +45,7 @@ class LPBarButton: UIControl {
     }
     
     func setTabBarImage(url: String, title: String) {
-        nameLabel.text = title
-        iconBtn.setImage(UIImage(named: url), for: .normal)
+        iconBtn.setBackgroundImage(UIImage(named: url), for: .normal)
     }
     
 }

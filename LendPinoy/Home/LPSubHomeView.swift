@@ -43,60 +43,53 @@ class LPSubHomeView: LPJCView {
         return lunboView
     }()
     
-    lazy var monIcon: UIImageView = {
-        let monIcon = UIImageView()
-        monIcon.image = UIImage(named: "moneypinf")
-        monIcon.isUserInteractionEnabled = true
-        return monIcon
+    lazy var iconImage: UIImageView = {
+        let iconImage = UIImageView()
+        iconImage.image = UIImage(named: "bgimagehomee")
+        return iconImage
     }()
-    
-    lazy var offBtn: UIButton = {
-        let offBtn = UIButton(type: .custom)
-        offBtn.isSelected = true
-        offBtn.setImage(UIImage(named: "onpnge"), for: .selected)
-        offBtn.setImage(UIImage(named: "offpnge"), for: .normal)
-        return offBtn
-    }()
-    
-    lazy var timelabel: UILabel = {
-        let timelabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 12)!, textColor: UIColor.init(hex: "#2CD7BB"), textAlignment: .left)
-        let timeUpdater = TimeUpdater { timeStr in
-            timelabel.text = timeStr
-        }
-        timeUpdater.startUpdatingTime()
-        return timelabel
-    }()
-    
+     
     lazy var applyBtn: UIButton = {
         let applyBtn = UIButton(type: .custom)
-        applyBtn.setImage(UIImage(named: "jinduimagea"), for: .normal)
+        applyBtn.setBackgroundImage(UIImage(named: "appleBTfim"), for: .normal)
         applyBtn.adjustsImageWhenHighlighted = false
         return applyBtn
     }()
-    
-    lazy var poIcon: UIImageView = {
-        let poIcon = UIImageView()
-        poIcon.image = UIImage(named: "peoimagePA")
-        return poIcon
+
+    lazy var ssLabel: UILabel = {
+        let ssLabel = UILabel.cjLabel(font: UIFont(name: bold_MarketFresh, size: 16)!, textColor: UIColor.init(hex: "#1F385F"), textAlignment: .left)
+        ssLabel.text = "Application Procedure"
+        return ssLabel
     }()
     
-    lazy var sceBtn: UIButton = {
-        let sceBtn = UIButton(type: .custom)
-        sceBtn.setImage(UIImage(named: "secimadef"), for: .normal)
-        sceBtn.adjustsImageWhenHighlighted = false
-        return sceBtn
+    lazy var iconImage1: UIImageView = {
+        let iconImage1 = UIImageView()
+        iconImage1.image = UIImage(named: "icomimage1")
+        return iconImage1
+    }()
+    
+    lazy var iconImage2: UIImageView = {
+        let iconImage2 = UIImageView()
+        iconImage2.image = UIImage(named: "icomimagefda")
+        return iconImage2
+    }()
+    
+    lazy var iconImage3: UIImageView = {
+        let iconImage3 = UIImageView()
+        iconImage3.image = UIImage(named: "icomimageth")
+        return iconImage3
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(scrollView)
+        scrollView.addSubview(iconImage)
         scrollView.addSubview(lunboView)
-        scrollView.addSubview(monIcon)
-        monIcon.addSubview(timelabel)
-        monIcon.addSubview(offBtn)
         scrollView.addSubview(applyBtn)
-        scrollView.addSubview(poIcon)
-        scrollView.addSubview(sceBtn)
+        scrollView.addSubview(ssLabel)
+        scrollView.addSubview(iconImage1)
+        scrollView.addSubview(iconImage2)
+        scrollView.addSubview(iconImage3)
         makess()
         tapClick()
     }
@@ -113,45 +106,45 @@ extension LPSubHomeView {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        iconImage.snp.makeConstraints { make in
+            make.left.top.equalToSuperview()
+            make.width.equalTo(SCREEN_WIDTH)
+            make.height.equalTo(570)
+        }
         lunboView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(StatusManager.statusBarHeight + 10)
+            make.top.equalToSuperview().offset(StatusManager.statusBarHeight - 4)
             make.left.equalToSuperview().offset(15)
-            make.height.equalTo(103)
-        }
-        monIcon.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.left.equalTo(lunboView.snp.left).offset(5)
-            make.height.equalTo(114.5)
-            make.top.equalTo(lunboView.snp.bottom).offset(27.5)
-        }
-        timelabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(2.5)
-            make.left.equalToSuperview()
-            make.height.equalTo(15)
-        }
-        offBtn.snp.makeConstraints { make in
-            make.top.right.equalToSuperview()
-            make.size.equalTo(CGSize(width: 35, height: 20))
+            make.height.equalTo(86)
         }
         applyBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(monIcon.snp.bottom).offset(30)
-            make.left.equalTo(monIcon.snp.left)
-            make.height.equalTo(162.5)
+            make.bottom.equalTo(iconImage.snp.bottom).offset(-42)
+            make.size.equalTo(CGSize(width: 280, height: 58))
         }
-        poIcon.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(applyBtn.snp.bottom).offset(30)
-            make.left.equalTo(monIcon.snp.left)
-            make.height.equalTo(145)
+        ssLabel.snp.makeConstraints { make in
+            make.top.equalTo(applyBtn.snp.bottom).offset(27)
+            make.left.equalToSuperview().offset(15)
+            make.height.equalTo(19)
         }
-        sceBtn.snp.makeConstraints { make in
+        iconImage1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(poIcon.snp.bottom).offset(18)
-            make.left.equalTo(monIcon.snp.left)
-            make.height.equalTo(133)
-            make.bottom.equalToSuperview().offset(-125)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(ssLabel.snp.bottom).offset(15)
+            make.height.equalTo(110)
+        }
+        iconImage2.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(iconImage1.snp.bottom).offset(15)
+            make.height.equalTo(110)
+        }
+        iconImage3.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(iconImage2.snp.bottom).offset(15)
+            make.height.equalTo(110)
+            make.bottom.equalToSuperview().offset(-115)
         }
     }
     
@@ -162,32 +155,7 @@ extension LPSubHomeView {
                 self.block1?(ppid, homeSubModel.erase ?? "")
             }
         }).disposed(by: disposeBag)
-        
-        sceBtn.rx.tap.subscribe(onNext: { [weak self] in
-            guard let self = self else { return }
-            self.block2?()
-        }).disposed(by: disposeBag)
-        
-        offBtn.rx.tap.subscribe(onNext: { [weak self] in
-            self?.offBtn.isSelected.toggle()
-            if let isSelected = self?.offBtn.isSelected {
-                ViewCycleManager.addCycView()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    if isSelected {
-                        ToastUtility.showToast(message: "Text message notifications are enabled")
-                    }else {
-                        ToastUtility.showToast(message: "Text message notifications are disabled")
-                    }
-                    ViewCycleManager.hideCycView()
-                }
-            }
-        }).disposed(by: disposeBag)
-        
-        sceBtn.rx.tap.subscribe(onNext: { [weak self] in
-            guard let self = self else { return }
-            self.block5?()
-        }).disposed(by: disposeBag)
-        
+       
         self.homeSubModel.subscribe(onNext: { [weak self] model in
             guard let self = self else { return }
             if model?.purse?.delivery?.count == 1 {
@@ -198,7 +166,7 @@ extension LPSubHomeView {
                 self.lunboView.automaticSlidingInterval = 2
             }
         }).disposed(by: disposeBag)
-        
+       
     }
     
 }

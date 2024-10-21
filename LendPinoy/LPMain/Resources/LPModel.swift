@@ -290,7 +290,6 @@ class deliveryModel {
     }
 }
 
-
 class kitahamaModel {
     var primaryArray: [String]
     var secondaryArray: [String]

@@ -37,26 +37,22 @@ extension LPCenterViewController {
     
     func tap() {
         centerView.block = { [weak self] in
-            let oli = LPOrderListViewController()
-            oli.li.accept("4")
-            self?.navigationController?.pushViewController(oli, animated: true)
-        }
-        centerView.block1 = { [weak self] in
-            let acc = LPAccountManViewController()
-            self?.navigationController?.pushViewController(acc, animated: true)
-        }
-        centerView.block2 = { [weak self] in
             let agVc = LPAgreeViewController()
             self?.navigationController?.pushViewController(agVc, animated: true)
         }
-        centerView.block3 = { [weak self] in
+        centerView.block1 = { [weak self] in
             guard let self = self else { return }
             let url  = H5_URL + "/thisbeautiful"
             self.pushToWebVc(form: url)
         }
-        centerView.block4 = { [weak self] in
-            let guVc = LPGuanViewController()
-            self?.navigationController?.pushViewController(guVc, animated: true)
+        centerView.block2 = { [weak self] in
+            guard let self = self else { return }
+            let url  = H5_URL
+            self.pushToWebVc(form: url)
+        }
+        centerView.block3 = { [weak self] in
+            let acc = LPAccountManViewController()
+            self?.navigationController?.pushViewController(acc, animated: true)
         }
     }
     

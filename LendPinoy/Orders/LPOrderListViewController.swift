@@ -43,15 +43,15 @@ class LPOrderListViewController: LPBaseViewController {
         }
         let li = li.value
         if li == "4" {
-            listView.navView.titleLabel.text = "Full bills"
+            listView.navView.titleLabel.text = "All Bills"
         } else if li == "5" {
-            listView.navView.titleLabel.text = "Clear Bill"
+            listView.navView.titleLabel.text = "Cleared Bills"
         } else if li == "6" {
-            listView.navView.titleLabel.text = "Unpaid Balance"
+            listView.navView.titleLabel.text = "Waiting For Repayment"
         } else if li == "7" {
-            listView.navView.titleLabel.text = "Outstanding Bill Review"
+            listView.navView.titleLabel.text = "Pending Bills"
         } else if li == "8" {
-            listView.navView.titleLabel.text = "Failed Transfer"
+            listView.navView.titleLabel.text = "Failed Payment Bills"
         }
     }
     
